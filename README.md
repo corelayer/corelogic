@@ -195,6 +195,19 @@ Module processing on the Request:
 Module processing on the Response:
 1. Rewrite policies: adds/remove some headers for improved security.
 
+#### Fallback flows
+##### HTTP/SSL
+If the selected load-balacing virtual server is `OUT OF SERVICE` or `DOWN`, content-switching policy processing will stop and the default load-balancing virtual server will be selected immediately.
+
+- For HTTP, VS_NO_SERVICE_HTTP will be used
+- For SSL, VS_NO_SERVICE_SSL will be used.
+
+Both have the same functionality built-in:
+- If an entry in `SM_CS_CONTROL` should have been used, we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
+- If an entry in `SM_CS_CONTROL` is not found for the current request, we know that the request is not allowed. For HTTP-traffic, we will issue a redirect to SSL to try agin. For SSL-traffic, the request will be blocked with a `BLOCKED` message. and HTTP response code 403.
+
+##### TCP/SSL_TCP/UDP
+- For general TCP/UDP content-switching virtual servers, the connection will time out.
 ---
 
 ## Applications
@@ -250,8 +263,23 @@ We need to add entry to `SM_CS_CONTROL` to specify the content-switching scenari
 Format for these entries is as follows:
 | Key (all in lowercase) | Value |
 | - | - |
-| <cs_name>;<lan\|any>;<request> | vs=<lb name>;dst=<redirect location if applicable>;
+| "<cs_name>;<lan\|any>;<request>" | "vs=<lb_name>;dst=<redirect_location_if_applicable>;" |
 
 ```
 bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+```
+
+To illustrate a redirect, let's say we have another domain `netscalerrocks.org` we'd like to redirect to `www.netscalerrocks.com`.However `netscalerrocks.org/nitro` needs to go to `api.netscalerrocks.com/nitro`, which means we want to keep the full path of the original request if it starts with `/nitro`.
+
+```
+bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;netscalerrocks.org" "vs=VS_REDIR_301;dst=//www.netscalerrocks.com;"
+bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;netscalerrocks.org/nitro" "vs=VS_REDIR_302_KEEPPATH;dst=//api.netscalerrocks.com"
+```
+
+As a final step, we only want to allow the administration pages from the internal network. This would translate in the following commands:
+
+```
+bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;lan;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com/wp-admin" "vs=VS_RESET;"
 ```
