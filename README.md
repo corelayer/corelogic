@@ -189,7 +189,7 @@ Module processing on the Request:
   1. Policies for clients on LAN networks (LAN)
   2. Policies for clients not on LAN networks (ANY)
 2. Responder policies: based on the current content-switching virtual server and selected load-balancing virtual server, check the whitelist/blacklist.
-3. Rewrite policies: adds/removes some headers to be used by the backend server, such as X-Forwarded-For and X-Forwarded-Proto.
+3. Rewrite policies: adds/removes some headers to be used by the backend server, such as `X-Forwarded-For` and `X-Forwarded-Proto`.
 4. Pass the request to the selected load-balancing virtual server.
 
 Module processing on the Response:
@@ -199,8 +199,8 @@ Module processing on the Response:
 ##### HTTP/SSL
 If the selected load-balacing virtual server is `OUT OF SERVICE` or `DOWN`, content-switching policy processing will stop and the default load-balancing virtual server will be selected immediately.
 
-- For HTTP, VS_NO_SERVICE_HTTP will be used
-- For SSL, VS_NO_SERVICE_SSL will be used.
+- For HTTP, `VS_NO_SERVICE_HTTP` will be used
+- For SSL, `VS_NO_SERVICE_SSL` will be used.
 
 Both have the same functionality built-in:
 - If an entry in `SM_CS_CONTROL` should have been used, we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
