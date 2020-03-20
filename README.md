@@ -79,7 +79,7 @@ If any policy is still in use, it will fail to uninstall.
 
 ## Content-Switching Virtual Servers
 ### Initialization
-To create a new set of content-switching virtual servers, use the script in **create_cs.conf**.
+To create a new set of content-switching virtual servers, use the script in [create_cs.conf](https://github.com/CoreLayer/CoreLogic/blob/master/create_cs.conf).
 
 1. Replace `$TENANT` with a name of your choice, e.g. PUB012.
 2. Replace `$IPADDRESS` with the actual IP address for the virtual server.
@@ -125,9 +125,9 @@ For example:
 bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=whitelist;"
 ```
 
-**Notes**:
-- As stated before, it is important that the key for SM_IP_CONTROL is in lowercase: **cs_pub012_http**.
-- It is equally important not to omit the semicolon at the end as policies are looking for the value between `=` and `;` to determine their action.
+*Notes:*
+- *As stated before, it is important that the key for SM_IP_CONTROL is in lowercase: **cs_pub012_http**.*
+- *It is equally important not to omit the semicolon at the end as policies are looking for the value between `=` and `;` to determine their action.*
 
 #### IP addresses on the whitelist/blacklist
 To add IP addresses or complete networks to the list, we need to provide additional entries in `SM_IP_CONTROL`.
@@ -158,11 +158,34 @@ bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
 ```
 
 #### LAN Networks
+Configuring LAN networks is a similar procedure, but there are some differences to whitelisting/blacklisting.
+Whilst whitelisting/blacklisting happens for each and every specific content-switching virtual server, LAN networks apply to a collection of content-switching virtual servers with the same name.
 
+Assume we have executed the complete create_cs.conf script to create the following content-switching virtual servers:
+- CS_PUB012_HTTP
+- CS_PUB012_SSL
+- CS_PUB012_TCP
+- CS_PUB012_STCP
+- CS_PUB012_UDP
 
-### Flow
+If we want to define a LAN network for CS_PUB012_HTTP, it will be considered a LAN network for all content-switching virtual servers of PUB012.
+
+Example:
+- All clients from the sales network `192.168.0.0/24` are considered to be internal clients on the LAN.
+- All clients from the development network `172.16.0.0/16` are considered to be internal clients on the LAN.
+- An administrator with IP address `10.0.0.1` is considered to be an internal client on the LAN.
+
+```
+bind policy stringmap SM_IP_CONTROL "cs_pub012;lan;192.168.0.0/24" "Sales"
+bind policy stringmap SM_IP_CONTROL "cs_pub012;lan;172.16.0.0/16" "Development"
+bind policy stringmap SM_IP_CONTROL "cs_pub012;lan;10.0.0.1/32" "Administrator"
+```
+
+As you can see from the example above, the protocol of the content-switching virtual servers is omitted in the key of the entry.
+
+### Execution flow
 Module processing on the Request:
-1. Content-Switching policies: determine which load-balancing virtual server to use
+1. Content-Switching policies to determine which load-balancing virtual server to use
   1. Policies for clients on LAN networks (LAN)
   2. Policies for clients not on LAN networks (ANY)
 2. Responder policies: based on the current content-switching virtual server and selected load-balancing virtual server, check the whitelist/blacklist.
@@ -171,7 +194,5 @@ Module processing on the Request:
 
 Module processing on the Response:
 1. Rewrite policies: adds/remove some headers for improved security.
-
-#### Content-Switching Policies
 
 ---
