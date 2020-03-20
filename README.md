@@ -196,3 +196,62 @@ Module processing on the Response:
 1. Rewrite policies: adds/remove some headers for improved security.
 
 ---
+
+## Applications
+Having a fancy framework is one thing, but what it's all about are the applications and their modules.
+
+Although you are here to use CoreLogic (or at least get to know it), you still have to complete some necessary steps which are not related to using CoreLogic:
+- Create server objects
+- (Create a monitor)
+- Create a service group
+- Create a load-balancing virtual server
+
+The only object which is addressed by CoreLogic, is the load-balancing virtual server.
+
+To illustrate the process, we are going to deploy Wordpress through Citrix NetScaler with CoreLogic.
+
+### Example application
+#### Server
+Wordpress will be running a server with IP address `192.168.1.10`.
+
+```
+add server SRV_WORDPRESS 192.168.1.10
+```
+
+#### Service Group
+Wordpress is deployed on the server without SSL, so we can use `HTTP` as the Service Group Type and `tcp/80` as the destination port.
+
+```
+ add servicegroup SG_WORDPRESS HTTP
+bind servicegroup SG_WORDPRESS SRV_WORDPRESS 80
+```
+
+#### Load-Balancing Virtual Server
+Now things get interesting.
+
+First of all, let's create the load-balancing virtual server. As the load-balancing virtual server will only be addressed through a content-switching virtual server, it doesn't need to have an IP address (non-addressable). Also, if you are running your site on SSL, the encryption will be taken off by the content-switching virtual server (SSL Offloading), so the load-balancing virtual server can be of type HTTP.
+
+```
+ add lb vserver VS_WORDPRESS HTTP 0.0.0.0 0
+bind lb vserver VS_WORDPRESS SG_WORDPRESS
+```
+
+Now that we have created the load-balancing virtual server for our application, we have to configure it for whitelisting/blacklisting. Remember, the execution flow on the content-switching virtual server checks whether the selected load-balancing virtual server has a whitelist or blacklist configured. If it is not configured, you will get a connection reset.
+
+```
+bind policy stringmap SM_IP_CONTROL vs_wordpress "list=blacklist;"
+```
+
+Good, almost there!
+The only thing left is configuring when the content-switching virtual server has to forward our request to the load-balancing virtual server.
+For the purpose of this example, we will deploy our Wordpress application on the hostname `www.netscalerrocks.com`.
+
+We need to add entry to `SM_CS_CONTROL` to specify the content-switching scenarios.
+Format for these entries is as follows:
+| Key (all in lowercase) | Value |
+| - | - |
+| <cs_name>;<lan\|any>;<request> | vs=<lb name>;dst=<redirect location if applicable>;
+
+```
+bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+```
