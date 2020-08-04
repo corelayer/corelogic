@@ -28,7 +28,7 @@ CoreLogic also implements a basic ACL by allowing you to define whether content-
 Using the IP whitelist/blacklist functionality in combination with the content-switching flow control enables you to define complex access scenarios based on IP address in combination with L4-L7 data.
 
 ### Web Application (module) granularity
-Given a URI `https://www.netscalerrocks.com/packetengine/internals/documentation?section=rewrite`, we can identify specific components:
+Given a URI `https://www.netscalerrocks.com/packetengine/internals/documentation.php?section=rewrite`, we can identify specific components:
 
 - Protocol: https
 - FQDN (hostname): www.netscalerrocks.com
