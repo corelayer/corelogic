@@ -52,11 +52,25 @@ For each of the scenario's above, you can target different load-balancing virtua
 |-|-|
 | **Load-balancing virtual server** | Pass the request to a load-balancing virtual server |
 | **VS_REDIR_301** | 301 Redirect to a defined location |
+| **VS_REDIR_301_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_REDIR_301_SWITH** | 301 Redirect from http to https (or vice versa) on the same URI |
 | **VS_REDIR_302** | 302 Redirect to a defined location |
+| **VS_REDIR_302_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
 | **VS_REDIR_302_SWITCH** | 302 Redirect from http to https (or vice versa) on the same URI |
-| **VS_BLOCKED** | Show a message that the request is blocked |
-| **VS_DROP** | Drop the request silently at the TCP-connection |
-| **VS_RESET** | Do a hard reset on the TCP-connection |
+| **VS_REDIR_307** | 307 Redirect to a defined location |
+| **VS_REDIR_307_KEEPPATH** | 307 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_REDIR_307_SWITH** | 307 Redirect from http to https (or vice versa) on the same URI |
+| **VS_REDIR_308** | 308 Redirect to a defined location |
+| **VS_REDIR_308_KEEPPATH** | 308 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_REDIR_308_SWITCH** | 308 Redirect from http to https (or vice versa) on the same URI |
+| **VS_NOTFOUND_HTTP** | Show a message that the page cannot be found |
+| **VS_BLOCKED_HTTP** | Show a message that the request is blocked |
+| **VS_DROP_HTTP** | Drop the request silently on L4 |
+| **VS_DROP_TCP** | Drop the request silently on L4 |
+| **VS_RESET_HTTP** | Do a hard reset on L4 |
+| **VS_RESET_TCP** | Do a hard reset on L4 |
+| **VS_ACME_HTTP** | Respond to ACME-challenge |
+
 
 *Notes:*
 - *In case of a FQDN like customer.api.netscalerrocks.com, the wildcarded domain becomes \*.api.netscalerrocks.com*
