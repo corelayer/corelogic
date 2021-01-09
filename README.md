@@ -217,8 +217,9 @@ If the selected load-balacing virtual server is `OUT OF SERVICE` or `DOWN`, cont
 - For SSL, `VS_NO_SERVICE_SSL` will be used.
 
 Both have the same functionality built-in:
-- If an entry in `SM_CS_CONTROL` should have been used, we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
-- If an entry in `SM_CS_CONTROL` is not found for the current request, we know that the request is not allowed. For HTTP-traffic, we will issue a redirect to SSL to try agin. For SSL-traffic, the request will be blocked with a `BLOCKED` message. and HTTP response code 403.
+- If an entry in `SM_CS_CONTROL` should have been used for the current protocol (HTTP/SSL), we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
+- If an entry in `SM_CS_CONTROL` is not found for the current request on HTTP, we know that the request is not allowed. We will lookup if there is an entry for SSL, and redirect if and entry is found.
+- If an entry in `SM_CS_CONTROL` is not found for the current request on HTTP, nor for SSL traffic, we will respond with a `NOT FOUND` message. and HTTP response code 404.
 
 ##### TCP/SSL_TCP/UDP
 - For general TCP/UDP content-switching virtual servers, the connection will time out.
