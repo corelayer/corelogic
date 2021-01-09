@@ -22,10 +22,10 @@ CoreLogic is a configuration framework for Citrix ADC/NetScaler, compatible with
 ### Access Zones
 CoreLogic has knowledge of two zones, LAN and ANY, allowing you to define how a request will be handled if you're accessing the service from an internal network (LAN) or from the outside (ANY). This decision is based on the entries in a table, defining which networks are to be considered an "internal network".
 
-### IP Whitelist/Blacklist
-CoreLogic also implements a basic ACL by allowing you to define whether content-switching virtual servers and load-balancing virtual servers have an IP whitelist or blacklist, thus restricting access to specific services. This decision is based on the entries in a table, defining which networks belong the the whitelist/blacklist.
+### IP Allowlist/Denylist
+CoreLogic also implements a basic ACL by allowing you to define whether content-switching virtual servers and load-balancing virtual servers have an IP allowlist or denylist, thus restricting access to specific services. This decision is based on the entries in a table, defining which networks belong the the allowlist/denylist.
 
-Using the IP whitelist/blacklist functionality in combination with the content-switching flow control enables you to define complex access scenarios based on IP address in combination with L4-L7 data.
+Using the IP allowlist/denylist functionality in combination with the content-switching flow control enables you to define complex access scenarios based on IP address in combination with L4-L7 data.
 
 ### Web Application (module) granularity
 Given a URI `https://www.netscalerrocks.com/packetengine/internals/documentation.php?section=rewrite`, we can identify specific components:
@@ -52,11 +52,25 @@ For each of the scenario's above, you can target different load-balancing virtua
 |-|-|
 | **Load-balancing virtual server** | Pass the request to a load-balancing virtual server |
 | **VS_REDIR_301** | 301 Redirect to a defined location |
+| **VS_REDIR_301_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_REDIR_301_SWITH** | 301 Redirect from http to https (or vice versa) on the same URI |
 | **VS_REDIR_302** | 302 Redirect to a defined location |
+| **VS_REDIR_302_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
 | **VS_REDIR_302_SWITCH** | 302 Redirect from http to https (or vice versa) on the same URI |
-| **VS_BLOCKED** | Show a message that the request is blocked |
-| **VS_DROP** | Drop the request silently at the TCP-connection |
-| **VS_RESET** | Do a hard reset on the TCP-connection |
+| **VS_REDIR_307** | 307 Redirect to a defined location |
+| **VS_REDIR_307_KEEPPATH** | 307 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_REDIR_307_SWITH** | 307 Redirect from http to https (or vice versa) on the same URI |
+| **VS_REDIR_308** | 308 Redirect to a defined location |
+| **VS_REDIR_308_KEEPPATH** | 308 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_REDIR_308_SWITCH** | 308 Redirect from http to https (or vice versa) on the same URI |
+| **VS_NOTFOUND_HTTP** | Show a message that the page cannot be found |
+| **VS_BLOCKED_HTTP** | Show a message that the request is blocked |
+| **VS_DROP_HTTP** | Drop the request silently on L4 |
+| **VS_DROP_TCP** | Drop the request silently on L4 |
+| **VS_RESET_HTTP** | Do a hard reset on L4 |
+| **VS_RESET_TCP** | Do a hard reset on L4 |
+| **VS_ACME_HTTP** | Respond to ACME-challenge |
+
 
 *Notes:*
 - *In case of a FQDN like customer.api.netscalerrocks.com, the wildcarded domain becomes \*.api.netscalerrocks.com*
@@ -94,10 +108,10 @@ bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 10601 -got
 bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 10601 -gotoPriorityExpression END -type RESPONSE -invoke policylabel RWPL_CL10_6_CS_RES_CORE
 bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_NOT_LISTED -priority 10601 -gotoPriorityExpression END -type REQUEST
 bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_NOT_LISTED -priority 10602 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_WHITE -priority 10603 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_BLACK -priority 10604 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_WHITE -priority 10605 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_BLACK -priority 10606 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_ALLOW -priority 10603 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_DENY -priority 10604 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_ALLOW -priority 10605 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_DENY -priority 10606 -gotoPriorityExpression END -type REQUEST
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FULL_LAN -priority 10601
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_SCND_LAN -priority 10602
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FRST_LAN -priority 10603
@@ -109,27 +123,27 @@ bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FRST_ANY -priority 10613
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FQDN_ANY -priority 10614
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_WILD_ANY -priority 10615
 bind cs vserver CS_PUB012_HTTP -lbvserver VS_NO_SERVICE_HTTP
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=blacklist;"
+bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=denylist;"
 ```
 
 ### Configuration
-#### Whitelist/Blacklist
-By default, all content-switching virtual servers are set to have a blacklist of IP addresses.
+#### Allowlist/Denylist
+By default, all content-switching virtual servers are set to have a denylist of IP addresses.
 This means that all source IP addresses are allowed to access the content-switching virtual server, unless there is an entry in `SM_IP_CONTROL`.
-To change the behavior of the content-switching virtual to be a whitelist, all you need to do is change the entry.
+To change the behavior of the content-switching virtual to be a allowlist, all you need to do is change the entry.
 
-If you change the behavior to be a `whitelist`, it results in all client IP addresses on the list to be blocked!
+If you change the behavior to be a `allowlist`, it results in all client IP addresses on the list to be blocked!
 
 For example:
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=whitelist;"
+bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=allowlist;"
 ```
 
 *Notes:*
 - *As stated before, it is important that the key for SM_IP_CONTROL is in lowercase: **cs_pub012_http**.*
 - *It is equally important not to omit the semicolon at the end as policies are looking for the value between `=` and `;` to determine their action.*
 
-#### IP addresses on the whitelist/blacklist
+#### IP addresses on the allowlist/denylist
 To add IP addresses or complete networks to the list, we need to provide additional entries in `SM_IP_CONTROL`.
 
 Example:
@@ -139,27 +153,27 @@ Example:
 - An administrator with IP address `10.0.0.1` must be allowed.
 
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=whitelist;"
+bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=allowlist;"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;172.16.0.0/16" "Development"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;10.0.0.1/32" "Administrator"
 ```
 
 Example:
-- Content-switching virtual server `CS_PUB012_HTTP` was defined to have a blacklist.
+- Content-switching virtual server `CS_PUB012_HTTP` was defined to have a denylist.
 - Public IP addresses from Google DNS must be blocked.
 - All clients from the sales network `192.168.0.0/24` must be blocked.
 
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=blacklist;"
+bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=denylist;"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;8.8.8.8/32" "Google DNS"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;8.8.4.4/32" "Google DNS"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
 ```
 
 #### LAN Networks
-Configuring LAN networks is a similar procedure, but there are some differences to whitelisting/blacklisting.
-Whilst whitelisting/blacklisting happens for each and every specific content-switching virtual server, LAN networks apply to a collection of content-switching virtual servers with the same name.
+Configuring LAN networks is a similar procedure, but there are some differences to allowlisting/denylisting.
+Whilst allowlisting/denylisting happens for each and every specific content-switching virtual server, LAN networks apply to a collection of content-switching virtual servers with the same name.
 
 Assume we have executed the complete create_cs.conf script to create the following content-switching virtual servers:
 - CS_PUB012_HTTP
@@ -188,7 +202,7 @@ Module processing on the Request:
 1. Content-Switching policies to determine which load-balancing virtual server to use
   1. Policies for clients on LAN networks (LAN)
   2. Policies for clients not on LAN networks (ANY)
-2. Responder policies: based on the current content-switching virtual server and selected load-balancing virtual server, check the whitelist/blacklist.
+2. Responder policies: based on the current content-switching virtual server and selected load-balancing virtual server, check the allowlist/denylist.
 3. Rewrite policies: adds/removes some headers to be used by the backend server, such as `X-Forwarded-For` and `X-Forwarded-Proto`.
 4. Pass the request to the selected load-balancing virtual server.
 
@@ -203,8 +217,9 @@ If the selected load-balacing virtual server is `OUT OF SERVICE` or `DOWN`, cont
 - For SSL, `VS_NO_SERVICE_SSL` will be used.
 
 Both have the same functionality built-in:
-- If an entry in `SM_CS_CONTROL` should have been used, we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
-- If an entry in `SM_CS_CONTROL` is not found for the current request, we know that the request is not allowed. For HTTP-traffic, we will issue a redirect to SSL to try agin. For SSL-traffic, the request will be blocked with a `BLOCKED` message. and HTTP response code 403.
+- If an entry in `SM_CS_CONTROL` should have been used for the current protocol (HTTP/SSL), we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
+- If an entry in `SM_CS_CONTROL` is not found for the current request on HTTP, we know that the request is not allowed. We will lookup if there is an entry for SSL, and redirect if and entry is found.
+- If an entry in `SM_CS_CONTROL` is not found for the current request on HTTP, nor for SSL traffic, we will respond with a `NOT FOUND` message. and HTTP response code 404.
 
 ##### TCP/SSL_TCP/UDP
 - For general TCP/UDP content-switching virtual servers, the connection will time out.
@@ -249,10 +264,10 @@ First of all, let's create the load-balancing virtual server. As the load-balanc
 bind lb vserver VS_WORDPRESS SG_WORDPRESS
 ```
 
-Now that we have created the load-balancing virtual server for our application, we have to configure it for whitelisting/blacklisting. Remember, the execution flow on the content-switching virtual server checks whether the selected load-balancing virtual server has a whitelist or blacklist configured. If it is not configured, you will get a connection reset.
+Now that we have created the load-balancing virtual server for our application, we have to configure it for allowlisting/denylisting. Remember, the execution flow on the content-switching virtual server checks whether the selected load-balancing virtual server has a allowlist or denylist configured. If it is not configured, you will get a connection reset.
 
 ```
-bind policy stringmap SM_IP_CONTROL vs_wordpress "list=blacklist;"
+bind policy stringmap SM_IP_CONTROL vs_wordpress "list=denylist;"
 ```
 
 Good, almost there!
