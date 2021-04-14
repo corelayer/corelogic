@@ -1,0 +1,21 @@
+name: corelogic
+release:
+  major: 11
+  minor: 0
+modules:
+  - name: core
+    dependencies:
+  - name: listenpolicies
+    dependencies:
+      - core
+prefixes:
+  - section: AppExpert.Stringmaps
+    prefix: PSM
+  - section: AppExpert.PolicyExpressions.Advanced
+    prefix: PXP
+  - section: TrafficManagement.ContentSwitching.Policies
+    prefix: CSP
+  - section: TrafficManagement.ContentSwitching.Actions
+    prefix: CSA
+  - section: TrafficManagement.ContentSwitching.PolicyLabels
+    prefix: CSL

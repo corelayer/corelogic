@@ -1,0 +1,12 @@
+name: dns
+dependencies:
+placeholders:
+  - name:
+    expression:
+sections:
+  - name: trafficmanagement.dns.addressrecords
+    elements:
+      - name: DUMMY
+        expressions:
+          install: add dns addRec {{name}} 169.254.0.1 -TTL 300
+          uninstall: rm server {{name}}

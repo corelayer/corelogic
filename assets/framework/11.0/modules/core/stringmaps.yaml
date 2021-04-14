@@ -1,0 +1,40 @@
+name: stringmaps
+dependencies:
+placeholders:
+  - name:
+    expression:
+sections:
+  - name: AppExpert.Stringmaps
+    elements:
+      - name: ENDPOINT
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: TENANT
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: FQDN
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: CS
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: CSGROUP
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: IPFILTER_CS
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: IPFILTER_CSGROUP
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
+      - name: IPFILTER_TENANT
+        expressions:
+          install: add policy stringmap {{name}}
+          uninstall: rm policy stringmap {{name}}
