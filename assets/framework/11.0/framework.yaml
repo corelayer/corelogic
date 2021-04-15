@@ -1,13 +1,9 @@
-name: corelogic
 release:
   major: 11
   minor: 0
 modules:
-  - name: core
-    dependencies:
-  - name: listenpolicies
-    dependencies:
-      - core
+  - core
+  - listenpolicies
 prefixes:
   - section: AppExpert.Stringmaps
     prefix: PSM

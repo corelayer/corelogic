@@ -15,8 +15,5 @@ limitations under the License.
 */
 package main
 
-import "github.com/corelayer/corelogic/cmd"
-
 func main() {
-	cmd.Execute()
 }
