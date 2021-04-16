@@ -15,10 +15,15 @@ type Prefix struct {
 	Prefix string `yaml:prefix`
 }
 
+type Package struct {
+	Name string `yaml:string`
+	Modules []Module `yaml:modules`
+}
+
 type Framework struct {
 	Release  Release  `yaml:release`
-	Modules  []string `yaml:modules`
 	Prefixes []Prefix `yaml:prefixes`
+	Packages  []Package `yaml:modules`
 }
 
 
