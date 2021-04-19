@@ -7,9 +7,22 @@ sections:
   - name: trafficmanagement.loadbalancing.servers
     elements:
       - name: DUMMY
-        dependencies:
-          - name: dnsdummy
-            reference: core.servers.trafficmanagement.dns.addressrecords.DUMMY
+        fields:
+          - id: name
+            data: DUMMY
+          - id: dnsdummy
+            data: core.servers.trafficmanagement.dns.addressrecords.DUMMY/name
         expressions:
-          install: add server {{name}} %%dnsdummy%%
+          install: add server {{name}} {{dnsdummy}}
           uninstall: rm server {{name}}
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: FULL_TRUSTED
+        fields:
+          - id: name
+            data: HTTP_TRUSTED_FULL
+          - id: policy
+            data: {{core.servers.appexpert.expressions.CSP_FULL_TRUSTED/name}}
+        expressions:
+          install: add cs policy {{name}} {{policy}} {{action}} -logAction {{logaction}}
+          uninstall: rm cs policy {{name}}

@@ -23,7 +23,7 @@ type Package struct {
 type Framework struct {
 	Release  Release  `yaml:release`
 	Prefixes []Prefix `yaml:prefixes`
-	Packages  []Package `yaml:modules`
+	Packages  []Package `yaml:packages`
 }
 
 
@@ -35,8 +35,6 @@ type ReleaseReader interface {
 func (f *Release) GetVersionAsString() string {
 	return fmt.Sprintf("CL%02d_%02d", f.Major, f.Minor)
 }
-
-
 
 
 type FrameworkReader interface {

@@ -7,6 +7,11 @@ sections:
   - name: trafficmanagement.dns.addressrecords
     elements:
       - name: DUMMY
+        fields:
+          - id: fqdn
+            value: dummy.corelogic.local
+          - id: address
+            value: 169.254.0.1
         expressions:
-          install: add dns addRec {{name}} 169.254.0.1 -TTL 300
+          install: add dns addRec {{fqdn}} {{address}} -TTL 300
           uninstall: rm server {{name}}
