@@ -1,7 +1,6 @@
 package models
 
 import (
-	"encoding/json"
 	"fmt"
 	"strings"
 )
@@ -29,20 +28,25 @@ type Section struct {
 
 type Module struct {
 	Name     string    `yaml:name`
-	Package  string    `yaml:package`
 	Sections []Section `yaml:sections`
 }
 
 type ElementReader interface {
-	GetFullName(sectionName string) string
+	GetFullName(prefix string) string
+	GetFullExpression(prefix string) string
 }
 
-func (e *Element) GetFullName(sectionName string) string {
-	return sectionName + "." + e.Name
+func (e *Element) GetFullName(prefix string) string {
+	return prefix + "." + e.Name
+}
+
+func (e *Element) GetFullExpression(expression string, prefix string) string {
+	return strings.ReplaceAll(expression, "{{", "{{"+e.GetFullName(prefix)+"/")
 }
 
 type SectionReader interface {
 	GetFullName(moduleName string) string
+	ExpandSectionPrefix(expression string) string
 	GetFields(moduleName string) (map[string]string, error)
 	GetInstallExpressions(moduleName string) (map[string]string, error)
 	GetUninstallExpressions(moduleName string) (map[string]string, error)
@@ -50,6 +54,10 @@ type SectionReader interface {
 
 func (s *Section) GetFullName(moduleName string) string {
 	return moduleName + "." + s.Name
+}
+
+func (s *Section) ExpandSectionPrefix(expression string) string {
+	return strings.ReplaceAll(expression, "prefix", s.Name)
 }
 
 func (s *Section) GetFields(moduleName string) (map[string]string, error) {
@@ -64,13 +72,13 @@ func (s *Section) GetFields(moduleName string) (map[string]string, error) {
 				err = fmt.Errorf("duplicate key in fields: %q", outputKey)
 				break
 			} else {
-				output[outputKey] = f.Data
+				output[outputKey] = s.ExpandSectionPrefix(f.Data)
 			}
 		}
 	}
 
-	e, _ := json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//e, _ := json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
 
 	return output, err
 }
@@ -82,7 +90,7 @@ func (s *Section) GetInstallExpressions(moduleName string) (map[string]string, e
 	for _, e := range s.Elements {
 		outputKey := e.GetFullName(s.GetFullName(moduleName))
 		//outputValue := e.GetExpression(e.Expressions.Install)
-		outputValue := e.Expressions.Install
+		outputValue := e.GetFullExpression(e.Expressions.Install, s.GetFullName(moduleName))
 
 		if _, isMapContainsKey := output[outputKey]; isMapContainsKey {
 			//key exist
@@ -93,8 +101,8 @@ func (s *Section) GetInstallExpressions(moduleName string) (map[string]string, e
 		}
 	}
 
-	e, _ := json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//e, _ := json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
 
 	return output, err
 }
@@ -106,7 +114,7 @@ func (s *Section) GetUninstallExpressions(moduleName string) (map[string]string,
 	for _, e := range s.Elements {
 		outputKey := e.GetFullName(s.GetFullName(moduleName))
 		//outputValue := e.GetExpression(e.Expressions.Uninstall)
-		outputValue := e.Expressions.Uninstall
+		outputValue := e.GetFullExpression(e.Expressions.Uninstall, s.GetFullName(moduleName))
 
 		if _, isMapContainsKey := output[outputKey]; isMapContainsKey {
 			//key exist
@@ -117,76 +125,99 @@ func (s *Section) GetUninstallExpressions(moduleName string) (map[string]string,
 		}
 	}
 
-	e, _ := json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//e, _ := json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
 
 	return output, err
 }
 
 type ModuleReader interface {
-	GetFullModuleName() string
-	GetInstallExpressions() (map[string]string, error)
-	GetUninstallExpressions() (map[string]string, error)
+	GetFullModuleName(packageName string) string
+	GetFields(packageName string) (map[string]string, error)
+	GetInstallExpressions(packageName string) (map[string]string, error)
+	GetUninstallExpressions(packageName string) (map[string]string, error)
 }
 
-func (m *Module) GetFullModuleName() string {
-	var output []string
-
-	output = append(output, m.Package)
-	output = append(output, m.Name)
-
-	return strings.Join(output, ".")
+func (m *Module) GetFullModuleName(packageName string) string {
+	return packageName + "." + m.Name
 }
 
-func (m *Module) GetInstallExpressions() (map[string]string, error) {
+func (m *Module) GetFields(packageName string) (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
 
+	fullModuleName := m.GetFullModuleName(packageName)
 	for _, s := range m.Sections {
-		expressions, err = s.GetInstallExpressions(m.GetFullModuleName())
+		expressions, err = s.GetFields(fullModuleName)
 		if err != nil {
 			break
-		}
-		for k, v := range expressions {
-			//fmt.Printf("section: %s\t\tkey: %s\t\tvalue: %s\n", s.GetFullName(m.GetFullModuleName()), k, v)
-			if _, isMapContainsKey := output[k]; isMapContainsKey {
-				err = fmt.Errorf("duplicate key %q found in module %q", k, m.GetFullModuleName())
-				break
-			} else {
-				output[k] = v
-			}
+		} else {
+			output, err = m.AppendData(expressions, output)
 		}
 	}
 
-	e, _ := json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//e, _ := json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
 
 	return output, err
 }
 
-func (m *Module) GetUninstallExpressions() (map[string]string, error) {
+func (m *Module) GetInstallExpressions(packageName string) (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
 
+	fullModuleName := m.GetFullModuleName(packageName)
 	for _, s := range m.Sections {
-		expressions, err = s.GetUninstallExpressions(m.GetFullModuleName())
+		expressions, err = s.GetInstallExpressions(fullModuleName)
 		if err != nil {
 			break
-		}
-		for k, v := range expressions {
-			if _, isMapContainsKey := output[k]; isMapContainsKey {
-				err = fmt.Errorf("duplicate key %q found in module %q", k, m.GetFullModuleName())
-				break
-			} else {
-				output[k] = v
-			}
+		} else {
+			output, err = m.AppendData(expressions, output)
 		}
 	}
 
-	e, _ := json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//e, _ := json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
 
 	return output, err
+}
+
+func (m *Module) GetUninstallExpressions(packageName string) (map[string]string, error) {
+	output := make(map[string]string)
+	var expressions map[string]string
+	var err error
+
+	fullModuleName := m.GetFullModuleName(packageName)
+	for _, s := range m.Sections {
+		expressions, err = s.GetUninstallExpressions(fullModuleName)
+		if err != nil {
+			break
+		} else {
+			output, err = m.AppendData(expressions, output)
+		}
+	}
+
+	//e, _ := json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+	//
+	//fmt.Println(err)
+
+	return output, err
+}
+
+func (m *Module) AppendData(source map[string]string, destination map[string]string) (map[string]string, error) {
+	var err error
+
+	for k, v := range source {
+		if _, isMapContainsKey := destination[k]; isMapContainsKey {
+			err = fmt.Errorf("duplicate key %q found in %q", k, m.Name)
+			break
+		} else {
+			destination[k] = v
+		}
+	}
+
+	return destination, err
 }

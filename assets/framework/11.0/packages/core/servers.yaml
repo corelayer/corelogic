@@ -1,8 +1,5 @@
 name: servers
-dependencies:
-placeholders:
-  - name:
-    expression:
+package:
 sections:
   - name: trafficmanagement.loadbalancing.servers
     elements:
@@ -10,10 +7,10 @@ sections:
         fields:
           - id: name
             data: DUMMY
-          - id: dnsdummy
-            data: core.servers.trafficmanagement.dns.addressrecords.DUMMY/name
+          - id: address
+            data: {{core.servers.trafficmanagement.dns.addressrecords.DUMMY/name}}
         expressions:
-          install: add server {{name}} {{dnsdummy}}
+          install: add server {{name}} {{address}}
           uninstall: rm server {{name}}
   - name: trafficmanagement.contentswitching.policies
     elements:

@@ -1,6 +1,70 @@
 package models
 
-import "testing"
+import (
+	"encoding/json"
+	"fmt"
+	"testing"
+)
+
+var framework = Framework{
+	Release: Release{
+		Major: 11,
+		Minor: 2,
+	},
+	Prefixes: []SectionPrefix{{
+		Name:   "appexpert.stringmaps",
+		Prefix: "PSM",
+	}, {
+		Name:   "trafficmanagement.contentswitching.policies",
+		Prefix: "CSP",
+	}, {
+		Name:   "trafficmanagement.contentswitching.actions",
+		Prefix: "CSA",
+	}},
+	Packages: []Package{
+		{
+			Name: "core",
+			Modules: []Module{
+				{
+					Name: "cs",
+					Sections: []Section{{
+						Name: "trafficmanagement.contentswitching.policies",
+						Elements: []Element{
+							{
+								Name: "trusted_full",
+								Fields: []Field{
+									{Id: "name", Data: "{{prefix}}trusted_full"},
+									{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+									{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+								},
+								Expressions: Expression{
+									Install:   "add cs policy {{name}} {{expression}} {{action}}",
+									Uninstall: "rm cs policy {{name}}",
+								},
+							}},
+					}},
+				},
+				{
+					Name: "sm",
+					Sections: []Section{{
+						Name: "appexpert.stringmaps",
+						Elements: []Element{{
+							Name: "cs_control",
+							Fields: []Field{{
+								Id:   "name",
+								Data: "{{prefix}}CS_CONTROL",
+							}},
+							Expressions: Expression{
+								Install:   "add policy stringmap {{name}}",
+								Uninstall: "rm policy stringmap {{name}}",
+							},
+						}},
+					}},
+				},
+			},
+		},
+	},
+}
 
 func TestRelease_GetVersionAsString(t *testing.T) {
 	release := Release{
@@ -8,26 +72,29 @@ func TestRelease_GetVersionAsString(t *testing.T) {
 		Minor: 1,
 	}
 
-	result := release.GetVersionAsString()
-	if result != "CL10_01" {
-		t.Errorf("Output string is incorrect, got: %s, want: %s.", result, "10_01")
+	output := release.GetVersionAsString()
+	expectedOutput := "CL10_01"
+	if output != expectedOutput {
+		t.Errorf("Output string is incorrect, got: %s, want: %s.", output, expectedOutput)
 	}
 }
 
 func TestFramework_GetPrefixMap(t *testing.T) {
 	framework := Framework{
-		Prefixes: []Prefix{
-			Prefix{Section: "AppExpert.Stringmaps", Prefix: "PSM"},
+		Prefixes: []SectionPrefix{
+			SectionPrefix{Name: "appexpert.stringmaps", Prefix: "PSM"},
 		},
 	}
 
-	prefixMap := framework.GetPrefixMap()
+	output := framework.GetPrefixMap()
 
-	if prefixMap["AppExpert.Stringmaps"] != "PSM" {
-		t.Errorf("Output string is incorrect, got: %s for key: %s, want: %s", prefixMap["AppExpert.Stringmaps"], "AppExpert.Stringmaps", "PSM")
+	expectedOutputKey := "appexpert.stringmaps"
+	expectedOutputValue := "PSM"
+
+	if output[expectedOutputKey] != expectedOutputValue {
+		t.Errorf("Output string is incorrect, got: %s for key: %s, want: %s", output[expectedOutputKey], expectedOutputKey, expectedOutputValue)
 	}
 }
-
 
 func TestFramework_GetPrefixWithVersion(t *testing.T) {
 	framework := Framework{
@@ -35,14 +102,45 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 			Major: 10,
 			Minor: 2,
 		},
-		Prefixes: []Prefix{
-			Prefix{Section: "AppExpert.Stringmaps", Prefix: "PSM"},
+		Prefixes: []SectionPrefix{
+			SectionPrefix{Name: "AppExpert.Stringmaps", Prefix: "PSM"},
 		},
 	}
 
-	result := framework.GetPrefixWithVersion("AppExpert.Stringmaps")
+	output := framework.GetPrefixWithVersion("AppExpert.Stringmaps")
+	expectedOutput := "PSM_CL10_02"
 
-	if result != "PSM_CL10_02" {
-		t.Errorf("Output string is incorrect, got: %s, want: %s", result, "PSM_CL10_02")
+	if output != expectedOutput {
+		t.Errorf("Output string is incorrect, got: %s, want: %s", output, expectedOutput)
 	}
+}
+
+func TestFramework_GetInstallExpressions(t *testing.T) {
+	f := framework
+
+	var output = make(map[string]string)
+	var err error
+
+	output, err = f.GetInstallExpressions()
+	if err != nil {
+		t.Errorf("%s", err)
+	}
+	var e []byte
+	e, err = json.MarshalIndent(output, "", "\t")
+	fmt.Println(string(e))
+}
+
+func TestFramework_GetUninstallExpressions(t *testing.T) {
+	f := framework
+
+	var output = make(map[string]string)
+	var err error
+
+	output, err = f.GetUninstallExpressions()
+	if err != nil {
+		t.Errorf("%s", err)
+	}
+	var e []byte
+	e, err = json.MarshalIndent(output, "", "\t")
+	fmt.Println(string(e))
 }

@@ -22,7 +22,7 @@ var eCspTrustedFull = Element{
 var eCspUntrustedFull = Element{
 	Name: "UNTRUSTED_FULL",
 	Fields: []Field{
-		{Id: "name", Data: "UNTRUSTED_FULL"},
+		{Id: "name", Data: "{{prefix}}UNTRUSTED_FULL"},
 		{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.untrusted_full/name}}}"},
 		{Id: "action", Data: "{{core.placeholders.csa_untrusted_full}}"},
 	},
@@ -35,7 +35,7 @@ var eCspUntrustedFull = Element{
 var eCsaTrustedFull = Element{
 	Name: "TRUSTED_FULL",
 	Fields: []Field{
-		{Id: "name", Data: "TRUSTED_FULL"},
+		{Id: "name", Data: "{{prefix}}TRUSTED_FULL"},
 		{Id: "expression", Data: "{{core.contentswitching.appexpert.expressions.CSA_TRUSTED_FULL/name}}"},
 	},
 	Expressions: Expression{
@@ -47,7 +47,7 @@ var eCsaTrustedFull = Element{
 var eCsaUntrustedFull = Element{
 	Name: "UNTRUSTED_FULL",
 	Fields: []Field{
-		{Id: "name", Data: "UNTRUSTED_FULL"},
+		{Id: "name", Data: "{{prefix}}UNTRUSTED_FULL"},
 		{Id: "expression", Data: "{{core.contentswitching.appexpert.expressions.CSA_UNTRUSTED_FULL/name}}"},
 	},
 	Expressions: Expression{
@@ -93,6 +93,19 @@ func TestSection_GetFullName(t *testing.T) {
 	}
 }
 
+func TestSection_ExpandSectionPrefix(t *testing.T) {
+	s := Section{
+		Name:     "trafficmanagement.loadbalancing.servers",
+		Elements: nil,
+	}
+
+	output := s.ExpandSectionPrefix("{{prefix}}expression")
+	expectedOutput := "{{trafficmanagement.loadbalancing.servers}}expression"
+	if output != expectedOutput {
+		t.Errorf("Output string is incorrect, got: %s, want: %s", output, expectedOutput)
+	}
+}
+
 func TestSection_GetFields(t *testing.T) {
 	section := Section{
 		Name: "trafficmanagement.contentswitching.policies",
@@ -105,10 +118,10 @@ func TestSection_GetFields(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = section.GetFields("moduleName")
+	output, err = section.GetFields("packageName.moduleName")
 
-	expectedOutputKey1 := "moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name"
-	expectedOutputValue1 := "{{prefix}}TRUSTED_FULL"
+	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name"
+	expectedOutputValue1 := "{{trafficmanagement.contentswitching.policies}}TRUSTED_FULL"
 
 	if err == nil {
 		t.Errorf("Expected duplicate key.")
@@ -129,10 +142,10 @@ func TestSection_GetInstallExpressions(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = section.GetInstallExpressions("moduleName")
+	output, err = section.GetInstallExpressions("packageName.moduleName")
 
-	expectedOutputKey1 := "moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
-	expectedOutputValue1 := "add cs policy {{name}} {{expression}} {{action}}"
+	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
+	expectedOutputValue1 := "add cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/expression}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/action}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
 		if output[expectedOutputKey1] != expectedOutputValue1 {
@@ -142,8 +155,8 @@ func TestSection_GetInstallExpressions(t *testing.T) {
 		t.Errorf("Output key does not exist %s", expectedOutputKey1)
 	}
 
-	expectedOutputKey2 := "moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL"
-	expectedOutputValue2 := "add cs policy {{name}} {{expression}} {{action}}"
+	expectedOutputKey2 := "packageName.moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL"
+	expectedOutputValue2 := "add cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL/name}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL/expression}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL/action}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey2]; isMapContainsKey {
 		if output[expectedOutputKey2] != expectedOutputValue2 {
@@ -163,10 +176,10 @@ func TestSection_GetUninstallExpressions(t *testing.T) {
 
 	var output map[string]string
 	var err error
-	output, err = section.GetUninstallExpressions("moduleName")
+	output, err = section.GetUninstallExpressions("packageName.moduleName")
 
-	expectedOutputKey1 := "moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
-	expectedOutputValue1 := "rm cs policy {{name}}"
+	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
+	expectedOutputValue1 := "rm cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
 		if output[expectedOutputKey1] != expectedOutputValue1 {
@@ -176,8 +189,8 @@ func TestSection_GetUninstallExpressions(t *testing.T) {
 		t.Errorf("Output key does not exist %s", expectedOutputKey1)
 	}
 
-	expectedOutputKey2 := "moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL"
-	expectedOutputValue2 := "rm cs policy {{name}}"
+	expectedOutputKey2 := "packageName.moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL"
+	expectedOutputValue2 := "rm cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.UNTRUSTED_FULL/name}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey2]; isMapContainsKey {
 		if output[expectedOutputKey2] != expectedOutputValue2 {
@@ -194,23 +207,67 @@ func TestSection_GetUninstallExpressions(t *testing.T) {
 
 func TestModule_GetFullModuleName(t *testing.T) {
 	module := Module{
-		Name:     "dns",
-		Package:  "core",
+		Name:     "moduleName",
 		Sections: nil,
 	}
 
-	output := module.GetFullModuleName()
+	output := module.GetFullModuleName("packageName")
+	expectedOutput := "packageName.moduleName"
 
-	if output != "core.dns" {
-		t.Errorf("Output string is incorrect, got: %s, want: %s", output, "core.dns")
+	if output != expectedOutput {
+		t.Errorf("Output string is incorrect, got: %s, want: %s", output, expectedOutput)
 	}
 }
+
+func TestModule_GetFields(t *testing.T) {
+	m := Module{
+		Name:    "moduleName",
+		Sections: []Section{
+			{
+				Name: "trafficmanagement.contentswitching.policies",
+				Elements: []Element{
+					eCspUntrustedFull,
+				},
+			},
+			{
+				Name: "trafficmanagement.contentswitching.actions",
+				Elements: []Element{
+					eCsaTrustedFull,
+					eCsaUntrustedFull,
+				},
+			},
+		},
+	}
+
+	var output map[string]string
+	var err error
+
+	output, err = m.GetFields("packageName")
+
+	if err != nil {
+		t.Errorf("Unexpected duplicate key")
+	}
+
+	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.actions.UNTRUSTED_FULL/name"
+	expectedOutputValue1 := "{{trafficmanagement.contentswitching.actions}}UNTRUSTED_FULL"
+
+	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
+		if output[expectedOutputKey1] != expectedOutputValue1 {
+			t.Errorf("Output string is incorrect, got: %q for key %q, want: %q", output[expectedOutputKey1], expectedOutputKey1, expectedOutputValue1)
+		}
+	} else {
+		for k, _ := range output {
+			fmt.Println(k)
+		}
+		t.Errorf("Output key does not exist, expected: %s", expectedOutputKey1)
+	}
+}
+
 
 // Correct Module definition
 func TestModule_GetInstallExpressions(t *testing.T) {
 	m := Module{
 		Name:    "moduleName",
-		Package: "packageName",
 		Sections: []Section{
 			{
 				Name: "trafficmanagement.contentswitching.policies",
@@ -232,14 +289,14 @@ func TestModule_GetInstallExpressions(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = m.GetInstallExpressions()
+	output, err = m.GetInstallExpressions("packageName")
 
 	if err != nil {
 		t.Errorf("Unexpected duplicate key")
 	}
 
 	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
-	expectedOutputValue1 := "add cs policy {{name}} {{expression}} {{action}}"
+	expectedOutputValue1 := "add cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/expression}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/action}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
 		if output[expectedOutputKey1] != expectedOutputValue1 {
@@ -257,7 +314,6 @@ func TestModule_GetInstallExpressions(t *testing.T) {
 func TestModule_GetInstallExpressions2(t *testing.T) {
 	m := Module{
 		Name:    "moduleName",
-		Package: "packageName",
 		Sections: []Section{
 			{
 				Name: "trafficmanagement.contentswitching.policies",
@@ -278,14 +334,14 @@ func TestModule_GetInstallExpressions2(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = m.GetInstallExpressions()
+	output, err = m.GetInstallExpressions("packageName")
 
 	if err == nil {
 		t.Errorf("Unexpected duplicate key with error %s", err)
 	}
 
 	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
-	expectedOutputValue1 := "add cs policy {{name}} {{expression}} {{action}}"
+	expectedOutputValue1 := "add cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/expression}} {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/action}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
 		if output[expectedOutputKey1] != expectedOutputValue1 {
@@ -304,7 +360,6 @@ func TestModule_GetInstallExpressions2(t *testing.T) {
 func TestModule_GetInstallExpressions3(t *testing.T) {
 	module  := Module{
 		Name:    "moduleName",
-		Package: "packageName",
 		Sections: []Section{
 			{
 				Name: "trafficmanagement.contentswitching.policies",
@@ -327,7 +382,7 @@ func TestModule_GetInstallExpressions3(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = module.GetInstallExpressions()
+	output, err = module.GetInstallExpressions("packageName")
 
 	if err == nil || len(output) > 2 {
 		t.Errorf("Expected duplicate key.")
@@ -343,7 +398,6 @@ func TestModule_GetInstallExpressions3(t *testing.T) {
 func TestModule_GetUninstallExpressions(t *testing.T) {
 	m := Module{
 		Name:    "moduleName",
-		Package: "packageName",
 		Sections: []Section{
 			{
 				Name: "trafficmanagement.contentswitching.policies",
@@ -365,14 +419,14 @@ func TestModule_GetUninstallExpressions(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = m.GetUninstallExpressions()
+	output, err = m.GetUninstallExpressions("packageName")
 
 	if err != nil {
 		t.Errorf("Unexpected duplicate key")
 	}
 
 	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
-	expectedOutputValue1 := "rm cs policy {{name}}"
+	expectedOutputValue1 := "rm cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
 		if output[expectedOutputKey1] != expectedOutputValue1 {
@@ -390,7 +444,6 @@ func TestModule_GetUninstallExpressions(t *testing.T) {
 func TestModule_GetUninstallExpressions2(t *testing.T) {
 	m := Module{
 		Name:    "moduleName",
-		Package: "packageName",
 		Sections: []Section{
 			{
 				Name: "trafficmanagement.contentswitching.policies",
@@ -411,14 +464,14 @@ func TestModule_GetUninstallExpressions2(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = m.GetUninstallExpressions()
+	output, err = m.GetUninstallExpressions("packageName")
 
 	if err == nil {
 		t.Errorf("Unexpected duplicate key with error %s", err)
 	}
 
 	expectedOutputKey1 := "packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL"
-	expectedOutputValue1 := "rm cs policy {{name}}"
+	expectedOutputValue1 := "rm cs policy {{packageName.moduleName.trafficmanagement.contentswitching.policies.TRUSTED_FULL/name}}"
 
 	if _, isMapContainsKey := output[expectedOutputKey1]; isMapContainsKey {
 		if output[expectedOutputKey1] != expectedOutputValue1 {
@@ -437,7 +490,6 @@ func TestModule_GetUninstallExpressions2(t *testing.T) {
 func TestModule_GetUninstallExpressions3(t *testing.T) {
 	module  := Module{
 		Name:    "moduleName",
-		Package: "packageName",
 		Sections: []Section{
 			{
 				Name: "trafficmanagement.contentswitching.policies",
@@ -460,7 +512,7 @@ func TestModule_GetUninstallExpressions3(t *testing.T) {
 	var output map[string]string
 	var err error
 
-	output, err = module.GetUninstallExpressions()
+	output, err = module.GetUninstallExpressions("packageName")
 
 	if err == nil || len(output) > 2 {
 		t.Errorf("Expected duplicate key.")
