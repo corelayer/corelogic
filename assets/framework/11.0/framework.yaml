@@ -1,9 +1,7 @@
 release:
   major: 11
   minor: 0
-modules:
-  - core
-  - listenpolicies
+packages:
 prefixes:
   - section: AppExpert.Stringmaps
     prefix: PSM

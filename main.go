@@ -15,5 +15,75 @@ limitations under the License.
 */
 package main
 
+import (
+	"encoding/json"
+	"fmt"
+	"github.com/corelayer/corelogic/controllers"
+	"github.com/corelayer/corelogic/models"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
+	"log"
+)
+
+
+
 func main() {
+	rootDir := "assets/framework/11.0"
+	source, err := ioutil.ReadFile(rootDir + "/framework.yaml")
+	if err != nil {
+		log.Fatal(err)
+	}
+	//fmt.Println(string(source))
+
+	controller := controllers.FrameworkController{}
+	framework := &models.Framework{}
+	err2 := yaml.Unmarshal(source, framework)
+	if err2 != nil {
+		log.Fatal(err2)
+	}
+	controller.Framework = *framework
+	controller.Framework.Packages = []models.Package{}
+
+
+	subDirs, err3 := ioutil.ReadDir(rootDir + "/packages")
+	if err3 != nil {
+		log.Fatal(err3)
+	}
+	for _, v := range subDirs {
+		if v.IsDir() {
+			myPackage := models.Package{
+				Name:    v.Name(),
+				Modules: []models.Module{},
+			}
+
+			files, err4 := ioutil.ReadDir(rootDir + "/packages/" + v.Name())
+			if err4 != nil {
+				log.Fatal(err4)
+			}
+			for _, m := range files {
+				if m.IsDir() == false {
+					fmt.Println(m.Name())
+					moduleSource, err5 := ioutil.ReadFile(rootDir + "/packages/" + v.Name() + "/" + m.Name())
+					if err5 != nil {
+						log.Fatal(err5)
+					}
+
+					module := &models.Module{}
+					err6 := yaml.Unmarshal(moduleSource, module)
+					if err6 != nil {
+						log.Fatal(err6)
+					}
+					myPackage.Modules = append(myPackage.Modules, *module)
+				}
+			}
+			controller.Framework.Packages = append(controller.Framework.Packages, myPackage)
+		}
+	}
+
+	output, err7 := json.MarshalIndent(controller.Framework, "", "\t")
+	if err7 != nil {
+		log.Fatal(err7)
+	}
+	fmt.Printf(string(output))
+
 }

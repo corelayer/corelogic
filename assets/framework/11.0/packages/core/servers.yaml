@@ -1,5 +1,4 @@
 name: servers
-package:
 sections:
   - name: trafficmanagement.loadbalancing.servers
     elements:
@@ -8,7 +7,7 @@ sections:
           - id: name
             data: DUMMY
           - id: address
-            data: {{core.servers.trafficmanagement.dns.addressrecords.DUMMY/name}}
+            data: "{{core.servers.trafficmanagement.dns.addressrecords.DUMMY/name}}"
         expressions:
           install: add server {{name}} {{address}}
           uninstall: rm server {{name}}
@@ -19,7 +18,7 @@ sections:
           - id: name
             data: HTTP_TRUSTED_FULL
           - id: policy
-            data: {{core.servers.appexpert.expressions.CSP_FULL_TRUSTED/name}}
+            data: "{{core.servers.appexpert.expressions.CSP_FULL_TRUSTED/name}}"
         expressions:
           install: add cs policy {{name}} {{policy}} {{action}} -logAction {{logaction}}
           uninstall: rm cs policy {{name}}

@@ -1,11 +1,11 @@
 package controllers
 
+import "github.com/corelayer/corelogic/models"
 
 type FrameworkController struct {
-	Modules map[string]ModuleController
+	Framework models.Framework
 }
 
-type ModuleController struct {}
 
 //
 //func (f *FrameworkController) GetVersion() string {
