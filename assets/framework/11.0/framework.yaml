@@ -3,13 +3,13 @@ release:
   minor: 0
 packages:
 prefixes:
-  - section: AppExpert.Stringmaps
+  - section: appexpert.stringmaps
     prefix: PSM
-  - section: AppExpert.PolicyExpressions.Advanced
+  - section: appexpert.policyexpressions.advanced
     prefix: PXP
-  - section: TrafficManagement.ContentSwitching.Policies
+  - section: trafficmanagement.contentswitching.policies
     prefix: CSP
-  - section: TrafficManagement.ContentSwitching.Actions
+  - section: trafficmanagement.contentswitching.actions
     prefix: CSA
-  - section: TrafficManagement.ContentSwitching.PolicyLabels
+  - section: trafficmanagement.contentswitching.policylabels
     prefix: CSL

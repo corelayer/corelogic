@@ -1,0 +1,43 @@
+name: servicegroups
+sections:
+  - name: trafficmanagement.loadbalancing.servicegroups
+    elements:
+      - name: DUMMY_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>DUMMY_HTTP
+          - id: type
+            data: HTTP
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: |
+            add servicegroup <<name>> <<type>>
+            bind servicegroup <<name>> <<server>> 80
+          uninstall: rm servicegroup <<name>>
+      - name: DUMMY_TCP
+        fields:
+          - id: name
+            data: <<prefix>>DUMMY_TCP
+          - id: type
+            data: TCP
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: |
+            add servicegroup <<name>> <<type>>
+            bind servicegroup <<name>> <<server>> 80
+          uninstall: rm servicegroup <<name>>
+      - name: DUMMY_UDP
+        fields:
+          - id: name
+            data: <<prefix>>DUMMY_UDP
+          - id: type
+            data: UDP
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: |
+            add servicegroup <<name>> <<type>>
+            bind servicegroup <<name>> <<server>> 80
+          uninstall: rm servicegroup <<name>>

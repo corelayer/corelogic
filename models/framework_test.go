@@ -6,73 +6,13 @@ import (
 	"testing"
 )
 
-var framework = Framework{
-	Release: Release{
-		Major: 11,
-		Minor: 2,
-	},
-	Prefixes: []SectionPrefix{{
-		Name:   "appexpert.stringmaps",
-		Prefix: "PSM",
-	}, {
-		Name:   "trafficmanagement.contentswitching.policies",
-		Prefix: "CSP",
-	}, {
-		Name:   "trafficmanagement.contentswitching.actions",
-		Prefix: "CSA",
-	}},
-	Packages: []Package{
-		{
-			Name: "core",
-			Modules: []Module{
-				{
-					Name: "cs",
-					Sections: []Section{{
-						Name: "trafficmanagement.contentswitching.policies",
-						Elements: []Element{
-							{
-								Name: "trusted_full",
-								Fields: []Field{
-									{Id: "name", Data: "{{prefix}}trusted_full"},
-									{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
-									{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
-								},
-								Expressions: Expression{
-									Install:   "add cs policy {{name}} {{expression}} {{action}}",
-									Uninstall: "rm cs policy {{name}}",
-								},
-							}},
-					}},
-				},
-				{
-					Name: "sm",
-					Sections: []Section{{
-						Name: "appexpert.stringmaps",
-						Elements: []Element{{
-							Name: "cs_control",
-							Fields: []Field{{
-								Id:   "name",
-								Data: "{{prefix}}CS_CONTROL",
-							}},
-							Expressions: Expression{
-								Install:   "add policy stringmap {{name}}",
-								Uninstall: "rm policy stringmap {{name}}",
-							},
-						}},
-					}},
-				},
-			},
-		},
-	},
-}
-
 func TestRelease_GetVersionAsString(t *testing.T) {
-	release := Release{
+	r := Release{
 		Major: 10,
 		Minor: 1,
 	}
 
-	output := release.GetVersionAsString()
+	output := r.GetVersionAsString()
 	expectedOutput := "CL10_01"
 	if output != expectedOutput {
 		t.Errorf("Output string is incorrect, got: %s, want: %s.", output, expectedOutput)
@@ -80,13 +20,13 @@ func TestRelease_GetVersionAsString(t *testing.T) {
 }
 
 func TestFramework_GetPrefixMap(t *testing.T) {
-	framework := Framework{
+	f := Framework{
 		Prefixes: []SectionPrefix{
 			SectionPrefix{Name: "appexpert.stringmaps", Prefix: "PSM"},
 		},
 	}
 
-	output := framework.GetPrefixMap()
+	output := f.GetPrefixMap()
 
 	expectedOutputKey := "appexpert.stringmaps"
 	expectedOutputValue := "PSM"
@@ -97,7 +37,7 @@ func TestFramework_GetPrefixMap(t *testing.T) {
 }
 
 func TestFramework_GetPrefixWithVersion(t *testing.T) {
-	framework := Framework{
+	f := Framework{
 		Release: Release{
 			Major: 10,
 			Minor: 2,
@@ -107,7 +47,7 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 		},
 	}
 
-	output := framework.GetPrefixWithVersion("AppExpert.Stringmaps")
+	output := f.GetPrefixWithVersion("AppExpert.Stringmaps")
 	expectedOutput := "PSM_CL10_02"
 
 	if output != expectedOutput {
@@ -116,7 +56,65 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 }
 
 func TestFramework_GetInstallExpressions(t *testing.T) {
-	f := framework
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{{
+							Name: "trafficmanagement.contentswitching.policies",
+							Elements: []Element{
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								}},
+						}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
 
 	var output = make(map[string]string)
 	var err error
@@ -131,7 +129,65 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 }
 
 func TestFramework_GetUninstallExpressions(t *testing.T) {
-	f := framework
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{{
+							Name: "trafficmanagement.contentswitching.policies",
+							Elements: []Element{
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								}},
+						}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
 
 	var output = make(map[string]string)
 	var err error

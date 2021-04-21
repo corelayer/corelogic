@@ -23,6 +23,7 @@ import (
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
+	"sort"
 )
 
 
@@ -85,5 +86,42 @@ func main() {
 		log.Fatal(err7)
 	}
 	fmt.Printf(string(output))
+
+
+	//fmt.Println("================================================")
+	//
+	//fields, err8 := controller.Framework.GetFields()
+	//if err8 != nil {
+	//	fmt.Println(err8)
+	//}
+	//for k,v := range fields {
+	//	fmt.Println(k, v)
+	//}
+
+
+	fmt.Println("================================================")
+
+	install, err9 := controller.Framework.GetInstallExpressions()
+	if err9 != nil {
+		fmt.Println(err9)
+	}
+	for k,v := range install {
+		fmt.Println(k, "\t", v)
+	}
+
+
+	fmt.Println("================================================")
+	fmt.Println("================================================")
+
+	dependencies := controller.Framework.GetDependencyList(install)
+	for _ ,v := range dependencies {
+		fmt.Println(v.Name, v.Count)
+	}
+	fmt.Println("================================================")
+	sort.Sort(sort.Reverse(dependencies))
+	for _ ,v := range dependencies {
+		//fmt.Println(v.Name, v.Count)
+		fmt.Println(install[v.Name])
+	}
 
 }

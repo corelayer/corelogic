@@ -1,0 +1,10 @@
+name: placeholders
+sections:
+  - name: appexpert.expressions.advanced
+    elements:
+      - name: IPV4_TO_SUBNET_ADDRESS
+        fields:
+          - id: 32
+            data: CLIENT.IP.SRC.TYPECAST_TEXT_T + "/32"
+          - id: 31
+            data: CLIENT.IP.SRC.SUBNET(31).TYPECAST_TEXT_T + "/31"

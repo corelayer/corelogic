@@ -133,6 +133,23 @@ func (f *Framework) GetPrefixWithVersion(sectionName string) string {
 	return strings.Join(output, "_")
 }
 
+func (f *Framework) GetFields() (map[string]string, error) {
+	output := make(map[string]string)
+	var fields map[string]string
+	var err error
+
+	for _, p := range f.Packages {
+		fields, err = p.GetFields()
+		if err != nil {
+			break
+		} else {
+			output, err = f.AppendData(fields, output)
+		}
+	}
+
+	return output, err
+}
+
 func (f *Framework) GetInstallExpressions() (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
@@ -188,4 +205,47 @@ func (f *Framework) AppendData(source map[string]string, destination map[string]
 	}
 
 	return destination, err
+}
+
+
+type Dependency struct {
+	Name string
+	Count int
+}
+
+type DependencyList []Dependency
+func (d DependencyList) Len() int {
+	return len(d)
+}
+func (d DependencyList) Swap (i,j int) {
+	d[i], d[j] = d[j], d[i]
+}
+func (d DependencyList) Less (i,j int) bool {
+	return d[i].Count < d[j].Count
+}
+
+func (f *Framework) CountDependencies(search string, expressions map[string]string) int {
+	j := 0
+	for _, v := range expressions {
+		if strings.Contains(v, search) {
+			j++
+		}
+	}
+	return j
+}
+
+func (f *Framework) GetDependencyList(expressions map[string]string) DependencyList {
+	output := make(DependencyList, len(expressions))
+
+	i := 0
+	for k, _ := range expressions {
+
+		output[i] = Dependency{
+			Name:  k,
+			Count: f.CountDependencies(k, expressions),
+		}
+		i++
+	}
+
+	return output
 }

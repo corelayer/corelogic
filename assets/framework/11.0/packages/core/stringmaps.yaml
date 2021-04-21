@@ -5,56 +5,56 @@ sections:
       - name: ENDPOINT
         fields:
           - id: name
-            data: ${prefix}$ENDPOINT
+            data: <<prefix>>ENDPOINT
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: TENANT
         fields:
           - id: name
-            data: "{{prefix}}TENANT"
+            data: <<prefix>>TENANT
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: FQDN
         fields:
           - id: name
-            data: "{{prefix}}FQDN"
+            data: <<prefix>>FQDN
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: CS
         fields:
           - id: name
-            data: "{{prefix}}CS"
+            data: <<prefix>>CS
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: CSGROUP
         fields:
           - id: name
-            data: "{{prefix}}CSGROUP"
+            data: <<prefix>>CSGROUP
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: IPFILTER_CS
         fields:
           - id: name
-            data: "{{prefix}}IPFILTER_CS"
+            data: <<prefix>>IPFILTER_CS
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: IPFILTER_CSGROUP
         fields:
           - id: name
-            data: "{{prefix}}IPFILTER_CSGROUP"
+            data: <<prefix>>IPFILTER_CSGROUP
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
       - name: IPFILTER_TENANT
         fields:
           - id: name
-            data: "{{prefix}}IPFILTER_TENANT"
+            data: <<prefix>>IPFILTER_TENANT
         expressions:
-          install: add policy stringmap {{name}}
-          uninstall: rm policy stringmap {{name}}
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
