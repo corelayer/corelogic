@@ -1,8 +1,6 @@
 package models
 
 import (
-	"encoding/json"
-	"fmt"
 	"testing"
 )
 
@@ -17,6 +15,69 @@ func TestRelease_GetVersionAsString(t *testing.T) {
 	if output != expectedOutput {
 		t.Errorf("Output string is incorrect, got: %s, want: %s.", output, expectedOutput)
 	}
+}
+
+
+func TestPackage_AppendData(t *testing.T) {
+	p := Package{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									},
+								},
+							},
+						},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{
+								{
+								Name: "cs_control",
+								Fields: []Field{
+									{
+										Id:   "name",
+										Data: "{{prefix}}CS_CONTROL",
+									},
+								},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	input1, _ := p.GetInstallExpressions()
+	input2 := input1
+
+	_, err := p.AppendData(input2, input1)
+	if err == nil {
+		t.Errorf("Expected duplicate key in package")
+	}
+
+
 }
 
 func TestFramework_GetPrefixMap(t *testing.T) {
@@ -116,16 +177,264 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 		},
 	}
 
-	var output = make(map[string]string)
+	//var output = make(map[string]string)
 	var err error
 
-	output, err = f.GetInstallExpressions()
+	_, err = f.GetInstallExpressions()
 	if err != nil {
 		t.Errorf("%s", err)
 	}
-	var e []byte
-	e, err = json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_GetInstallExpressions2(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{{
+							Name: "trafficmanagement.contentswitching.policies",
+							Elements: []Element{
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								},
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								}},
+						}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	//var output = make(map[string]string)
+	var err error
+
+	_, err = f.GetInstallExpressions()
+	if err == nil {
+		t.Errorf("Expected duplicate key in section")
+	}
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_GetInstallExpressions3(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{{
+							Name: "trafficmanagement.contentswitching.policies",
+							Elements: []Element{
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								}},
+						}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	//var output = make(map[string]string)
+	var err error
+
+	_, err = f.GetInstallExpressions()
+	if err == nil {
+		t.Errorf("Expected duplicate key in fields")
+	}
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_GetInstallExpressions4(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									}},
+							}, {
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									}},
+							}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	//var output = make(map[string]string)
+	var err error
+
+	_, err = f.GetInstallExpressions()
+	if err == nil {
+		t.Errorf("Expected duplicate key in module")
+	}
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
 }
 
 func TestFramework_GetUninstallExpressions(t *testing.T) {
@@ -189,14 +498,353 @@ func TestFramework_GetUninstallExpressions(t *testing.T) {
 		},
 	}
 
-	var output = make(map[string]string)
+	//var output = make(map[string]string)
 	var err error
 
-	output, err = f.GetUninstallExpressions()
+	_, err = f.GetUninstallExpressions()
 	if err != nil {
 		t.Errorf("%s", err)
 	}
-	var e []byte
-	e, err = json.MarshalIndent(output, "", "\t")
-	fmt.Println(string(e))
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_GetUninstallExpressions2(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{{
+							Name: "trafficmanagement.contentswitching.policies",
+							Elements: []Element{
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								}},
+						}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	//var output = make(map[string]string)
+	var err error
+
+	_, err = f.GetUninstallExpressions()
+	if err == nil {
+		t.Errorf("Expected duplicate key in fields")
+	}
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_GetUninstallExpressions3(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									},
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									},
+								},
+							},
+						},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	//var output = make(map[string]string)
+	var err error
+
+	_, err = f.GetUninstallExpressions()
+	if err == nil {
+		t.Errorf("Expected duplicate key in section")
+	}
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_GetUninstallExpressions4(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									}},
+							},
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									}},
+							},
+						},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	//var output = make(map[string]string)
+	var err error
+
+	_, err = f.GetUninstallExpressions()
+	if err == nil {
+		t.Errorf("Expected duplicate key in module")
+	}
+	//var e []byte
+	//e, err = json.MarshalIndent(output, "", "\t")
+	//fmt.Println(string(e))
+}
+
+func TestFramework_AppendData(t *testing.T) {
+	f := Framework{
+		Release: Release{
+			Major: 11,
+			Minor: 2,
+		},
+		Prefixes: []SectionPrefix{{
+			Name:   "appexpert.stringmaps",
+			Prefix: "PSM",
+		}, {
+			Name:   "trafficmanagement.contentswitching.policies",
+			Prefix: "CSP",
+		}, {
+			Name:   "trafficmanagement.contentswitching.actions",
+			Prefix: "CSA",
+		}},
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{{
+							Name: "trafficmanagement.contentswitching.policies",
+							Elements: []Element{
+								{
+									Name: "trusted_full",
+									Fields: []Field{
+										{Id: "name", Data: "{{prefix}}trusted_full"},
+										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+									},
+									Expressions: Expression{
+										Install:   "add cs policy {{name}} {{expression}} {{action}}",
+										Uninstall: "rm cs policy {{name}}",
+									},
+								}},
+						}},
+					},
+					{
+						Name: "sm",
+						Sections: []Section{{
+							Name: "appexpert.stringmaps",
+							Elements: []Element{{
+								Name: "cs_control",
+								Fields: []Field{{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								}},
+								Expressions: Expression{
+									Install:   "add policy stringmap {{name}}",
+									Uninstall: "rm policy stringmap {{name}}",
+								},
+							}},
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	input1, _ := f.GetInstallExpressions()
+	input2 := input1
+
+	_, err := f.AppendData(input2, input1)
+	if err == nil {
+		t.Errorf("Expected duplicate key in framework")
+	}
+
+
+}
+
+func TestFramework_CountDependencies(t *testing.T) {
+	f := Framework{}
+	input := map[string]string{
+		"key1": "value1",
+		"key2": "value2",
+	}
+
+	output := f.CountDependencies("value", input)
+	expectedOutput := 2
+	if output != expectedOutput {
+		t.Errorf("Output count is incorrect, got: %d, want: %d", output, expectedOutput)
+	}
 }

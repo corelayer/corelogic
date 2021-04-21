@@ -44,22 +44,22 @@ type PackageReader interface {
 	GetUninstallExpressions() (map[string]string, error)
 }
 
-func (p *Package) GetFields() (map[string]string, error) {
-	output := make(map[string]string)
-	var fields map[string]string
-	var err error
-
-	for _, m := range p.Modules {
-		fields, err = m.GetFields(p.Name)
-		if err != nil {
-			break
-		} else {
-			output, err = p.AppendData(fields, output)
-		}
-	}
-
-	return output, err
-}
+//func (p *Package) GetFields() (map[string]string, error) {
+//	output := make(map[string]string)
+//	var fields map[string]string
+//	var err error
+//
+//	for _, m := range p.Modules {
+//		fields, err = m.GetFields(p.Name)
+//		if err != nil {
+//			break
+//		} else {
+//			output, err = p.AppendData(fields, output)
+//		}
+//	}
+//
+//	return output, err
+//}
 
 func (p *Package) GetInstallExpressions() (map[string]string, error) {
 	output := make(map[string]string)
@@ -126,29 +126,29 @@ func (f *Framework) GetPrefixMap() map[string]string {
 }
 
 func (f *Framework) GetPrefixWithVersion(sectionName string) string {
-	var output []string
-	output = append(output, f.GetPrefixMap()[sectionName])
-	output = append(output, f.Release.GetVersionAsString())
+	//var output []string
+	//output = append(output, f.GetPrefixMap()[sectionName])
+	//output = append(output, f.Release.GetVersionAsString())
 
-	return strings.Join(output, "_")
+	return strings.Join([]string{f.GetPrefixMap()[sectionName], f.Release.GetVersionAsString()}, "_")
 }
 
-func (f *Framework) GetFields() (map[string]string, error) {
-	output := make(map[string]string)
-	var fields map[string]string
-	var err error
-
-	for _, p := range f.Packages {
-		fields, err = p.GetFields()
-		if err != nil {
-			break
-		} else {
-			output, err = f.AppendData(fields, output)
-		}
-	}
-
-	return output, err
-}
+//func (f *Framework) GetFields() (map[string]string, error) {
+//	output := make(map[string]string)
+//	var fields map[string]string
+//	var err error
+//
+//	for _, p := range f.Packages {
+//		fields, err = p.GetFields()
+//		if err != nil {
+//			break
+//		} else {
+//			output, err = f.AppendData(fields, output)
+//		}
+//	}
+//
+//	return output, err
+//}
 
 func (f *Framework) GetInstallExpressions() (map[string]string, error) {
 	output := make(map[string]string)

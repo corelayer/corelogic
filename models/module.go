@@ -190,10 +190,10 @@ func (m *Module) GetFields(packageName string) (map[string]string, error) {
 
 	fullModuleName := m.GetFullModuleName(packageName)
 	for _, s := range m.Sections {
-		fmt.Println("Loop", err)
+		//fmt.Println("Loop", err)
 		expressions, err = s.GetFields(fullModuleName)
 		if err != nil {
-			fmt.Println(err)
+			//fmt.Println(err)
 			break
 		} else {
 			output, err = m.AppendData(expressions, output)
@@ -202,7 +202,7 @@ func (m *Module) GetFields(packageName string) (map[string]string, error) {
 
 	//e, _ := json.MarshalIndent(output, "", "\t")
 	//fmt.Println(string(e))
-	fmt.Println("Output", err)
+	//fmt.Println("Output", err)
 	return output, err
 }
 
