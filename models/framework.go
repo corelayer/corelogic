@@ -44,22 +44,22 @@ type PackageReader interface {
 	GetUninstallExpressions() (map[string]string, error)
 }
 
-//func (p *Package) GetFields() (map[string]string, error) {
-//	output := make(map[string]string)
-//	var fields map[string]string
-//	var err error
-//
-//	for _, m := range p.Modules {
-//		fields, err = m.GetFields(p.Name)
-//		if err != nil {
-//			break
-//		} else {
-//			output, err = p.AppendData(fields, output)
-//		}
-//	}
-//
-//	return output, err
-//}
+func (p *Package) GetFields() (map[string]string, error) {
+	output := make(map[string]string)
+	var fields map[string]string
+	var err error
+
+	for _, m := range p.Modules {
+		fields, err = m.GetFields(p.Name)
+		if err != nil {
+			break
+		} else {
+			output, err = p.AppendData(fields, output)
+		}
+	}
+
+	return output, err
+}
 
 func (p *Package) GetInstallExpressions() (map[string]string, error) {
 	output := make(map[string]string)
@@ -110,6 +110,8 @@ func (p *Package) AppendData(source map[string]string, destination map[string]st
 	return destination, err
 }
 
+
+
 type FrameworkReader interface {
 	GetPrefixMap() map[string]string
 	GetPrefixWithVersion(sectionName string) string
@@ -133,22 +135,22 @@ func (f *Framework) GetPrefixWithVersion(sectionName string) string {
 	return strings.Join([]string{f.GetPrefixMap()[sectionName], f.Release.GetVersionAsString()}, "_")
 }
 
-//func (f *Framework) GetFields() (map[string]string, error) {
-//	output := make(map[string]string)
-//	var fields map[string]string
-//	var err error
-//
-//	for _, p := range f.Packages {
-//		fields, err = p.GetFields()
-//		if err != nil {
-//			break
-//		} else {
-//			output, err = f.AppendData(fields, output)
-//		}
-//	}
-//
-//	return output, err
-//}
+func (f *Framework) GetFields() (map[string]string, error) {
+	output := make(map[string]string)
+	var fields map[string]string
+	var err error
+
+	for _, p := range f.Packages {
+		fields, err = p.GetFields()
+		if err != nil {
+			break
+		} else {
+			output, err = f.AppendData(fields, output)
+		}
+	}
+
+	return output, err
+}
 
 func (f *Framework) GetInstallExpressions() (map[string]string, error) {
 	output := make(map[string]string)
@@ -179,14 +181,6 @@ func (f *Framework) GetUninstallExpressions() (map[string]string, error) {
 		} else {
 			output, err = f.AppendData(expressions, output)
 		}
-		//for k, v := range expressions {
-		//	if _, isMapContainsKey := output[k]; isMapContainsKey {
-		//		err = fmt.Errorf("duplicate key %q found in package %q", k, p.Name)
-		//		break
-		//	} else {
-		//		output[k] = v
-		//	}
-		//}
 	}
 
 	return output, err

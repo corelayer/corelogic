@@ -24,9 +24,8 @@ import (
 	"io/ioutil"
 	"log"
 	"sort"
+	"strings"
 )
-
-
 
 func main() {
 	rootDir := "assets/framework/11.0"
@@ -44,7 +43,6 @@ func main() {
 	}
 	controller.Framework = *framework
 	controller.Framework.Packages = []models.Package{}
-
 
 	subDirs, err3 := ioutil.ReadDir(rootDir + "/packages")
 	if err3 != nil {
@@ -87,7 +85,6 @@ func main() {
 	}
 	fmt.Printf(string(output))
 
-
 	//fmt.Println("================================================")
 	//
 	//fields, err8 := controller.Framework.GetFields()
@@ -98,30 +95,31 @@ func main() {
 	//	fmt.Println(k, v)
 	//}
 
-
 	fmt.Println("================================================")
 
 	install, err9 := controller.Framework.GetInstallExpressions()
 	if err9 != nil {
 		fmt.Println(err9)
 	}
-	for k,v := range install {
+	for k, v := range install {
 		fmt.Println(k, "\t", v)
 	}
-
 
 	fmt.Println("================================================")
 	fmt.Println("================================================")
 
 	dependencies := controller.Framework.GetDependencyList(install)
-	for _ ,v := range dependencies {
+	for _, v := range dependencies {
 		fmt.Println(v.Name, v.Count)
 	}
 	fmt.Println("================================================")
 	sort.Sort(sort.Reverse(dependencies))
-	for _ ,v := range dependencies {
+	for _, v := range dependencies {
 		//fmt.Println(v.Name, v.Count)
-		fmt.Println(install[v.Name])
+		//count := strings.Count(install[v.Name], "\n")
+		if install[v.Name] != "" {
+			fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
+		}
 	}
 
 }

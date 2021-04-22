@@ -17,53 +17,52 @@ func TestRelease_GetVersionAsString(t *testing.T) {
 	}
 }
 
-
 func TestPackage_AppendData(t *testing.T) {
 	p := Package{
-				Name: "core",
-				Modules: []Module{
+		Name: "core",
+		Modules: []Module{
+			{
+				Name: "cs",
+				Sections: []Section{
 					{
-						Name: "cs",
-						Sections: []Section{
+						Name: "trafficmanagement.contentswitching.policies",
+						Elements: []Element{
 							{
-								Name: "trafficmanagement.contentswitching.policies",
-								Elements: []Element{
-									{
-										Name: "trusted_full",
-										Fields: []Field{
-											{Id: "name", Data: "{{prefix}}trusted_full"},
-											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
-											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
-										},
-										Expressions: Expression{
-											Install:   "add cs policy {{name}} {{expression}} {{action}}",
-											Uninstall: "rm cs policy {{name}}",
-										},
-									},
-								},
-							},
-						},
-					},
-					{
-						Name: "sm",
-						Sections: []Section{{
-							Name: "appexpert.stringmaps",
-							Elements: []Element{
-								{
-								Name: "cs_control",
+								Name: "trusted_full",
 								Fields: []Field{
-									{
-										Id:   "name",
-										Data: "{{prefix}}CS_CONTROL",
-									},
+									{Id: "name", Data: "{{prefix}}trusted_full"},
+									{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+									{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
 								},
 								Expressions: Expression{
-									Install:   "add policy stringmap {{name}}",
-									Uninstall: "rm policy stringmap {{name}}",
+									Install:   "add cs policy {{name}} {{expression}} {{action}}",
+									Uninstall: "rm cs policy {{name}}",
 								},
 							},
 						},
 					},
+				},
+			},
+			{
+				Name: "sm",
+				Sections: []Section{{
+					Name: "appexpert.stringmaps",
+					Elements: []Element{
+						{
+							Name: "cs_control",
+							Fields: []Field{
+								{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								},
+							},
+							Expressions: Expression{
+								Install:   "add policy stringmap {{name}}",
+								Uninstall: "rm policy stringmap {{name}}",
+							},
+						},
+					},
+				},
 				},
 			},
 		},
@@ -77,7 +76,110 @@ func TestPackage_AppendData(t *testing.T) {
 		t.Errorf("Expected duplicate key in package")
 	}
 
+}
 
+func TestPackage_GetFields(t *testing.T) {
+	p := Package{
+		Name: "core",
+		Modules: []Module{
+			{
+				Name: "cs",
+				Sections: []Section{
+					{
+						Name: "trafficmanagement.contentswitching.policies",
+						Elements: []Element{
+							{
+								Name: "trusted_full",
+								Fields: []Field{
+									{Id: "name", Data: "{{prefix}}trusted_full"},
+									{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+									{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+								},
+								Expressions: Expression{
+									Install:   "add cs policy {{name}} {{expression}} {{action}}",
+									Uninstall: "rm cs policy {{name}}",
+								},
+							},
+						},
+					},
+				},
+			},
+			{
+				Name: "sm",
+				Sections: []Section{{
+					Name: "appexpert.stringmaps",
+					Elements: []Element{
+						{
+							Name: "cs_control",
+							Fields: []Field{
+								{
+									Id:   "name",
+									Data: "{{prefix}}CS_CONTROL",
+								},
+							},
+							Expressions: Expression{
+								Install:   "add policy stringmap {{name}}",
+								Uninstall: "rm policy stringmap {{name}}",
+							},
+						},
+					},
+				},
+				},
+			},
+		},
+	}
+
+	output, err := p.GetFields()
+
+	if err != nil {
+		t.Errorf("%s", err)
+
+	}
+
+	expectedOutputKey := "core.cs.trafficmanagement.contentswitching.policies.trusted_full/name"
+	expectedOutputValue := "{{trafficmanagement.contentswitching.policies}}trusted_full"
+
+	if output[expectedOutputKey] != expectedOutputValue {
+		t.Errorf("Output string is incorrect, got: %s for key: %s, want: %s", output[expectedOutputKey], expectedOutputKey, expectedOutputValue)
+	}
+}
+
+func TestPackage_GetFields2(t *testing.T) {
+	p := Package{
+		Name: "core",
+		Modules: []Module{
+			{
+				Name: "cs",
+				Sections: []Section{
+					{
+						Name: "trafficmanagement.contentswitching.policies",
+						Elements: []Element{
+							{
+								Name: "trusted_full",
+								Fields: []Field{
+									{Id: "name", Data: "{{prefix}}trusted_full"},
+									{Id: "name", Data: "{{prefix}}trusted_full"},
+									{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+									{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+								},
+								Expressions: Expression{
+									Install:   "add cs policy {{name}} {{expression}} {{action}}",
+									Uninstall: "rm cs policy {{name}}",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	_, err := p.GetFields()
+
+	if err == nil {
+		t.Errorf("Expected duplicate key in fields")
+
+	}
 }
 
 func TestFramework_GetPrefixMap(t *testing.T) {
@@ -116,6 +218,88 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 	}
 }
 
+func TestFramework_GetFields(t *testing.T) {
+	f := Framework{
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	output, err := f.GetFields()
+	if err != nil {
+		t.Errorf("%s", err)
+	}
+
+	expectedOutputKey := "core.cs.trafficmanagement.contentswitching.policies.trusted_full/name"
+	expectedOutputValue := "{{trafficmanagement.contentswitching.policies}}trusted_full"
+
+	if output[expectedOutputKey] != expectedOutputValue {
+		t.Errorf("Output string is incorrect, got: %s for key: %s, want: %s", output[expectedOutputKey], expectedOutputKey, expectedOutputValue)
+	}
+}
+
+func TestFramework_GetFields2(t *testing.T) {
+	f := Framework{
+		Packages: []Package{
+			{
+				Name: "core",
+				Modules: []Module{
+					{
+						Name: "cs",
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	_, err := f.GetFields()
+	if err == nil {
+		t.Errorf("Expected duplicate key in fields")
+	}
+}
+
 func TestFramework_GetInstallExpressions(t *testing.T) {
 	f := Framework{
 		Release: Release{
@@ -138,55 +322,55 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 				Modules: []Module{
 					{
 						Name: "cs",
-						Sections: []Section{{
-							Name: "trafficmanagement.contentswitching.policies",
-							Elements: []Element{
-								{
-									Name: "trusted_full",
-									Fields: []Field{
-										{Id: "name", Data: "{{prefix}}trusted_full"},
-										{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
-										{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+						Sections: []Section{
+							{
+								Name: "trafficmanagement.contentswitching.policies",
+								Elements: []Element{
+									{
+										Name: "trusted_full",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}trusted_full"},
+											{Id: "expression", Data: "q{{{core.appexpert.expressions.contentswitching.policies.trusted_full/name}}}"},
+											{Id: "action", Data: "{{core.placeholders.csa_trusted_full}}"},
+										},
+										Expressions: Expression{
+											Install:   "add cs policy {{name}} {{expression}} {{action}}",
+											Uninstall: "rm cs policy {{name}}",
+										},
 									},
-									Expressions: Expression{
-										Install:   "add cs policy {{name}} {{expression}} {{action}}",
-										Uninstall: "rm cs policy {{name}}",
-									},
-								}},
-						}},
+								},
+							},
+						},
 					},
 					{
 						Name: "sm",
-						Sections: []Section{{
-							Name: "appexpert.stringmaps",
-							Elements: []Element{{
-								Name: "cs_control",
-								Fields: []Field{{
-									Id:   "name",
-									Data: "{{prefix}}CS_CONTROL",
-								}},
-								Expressions: Expression{
-									Install:   "add policy stringmap {{name}}",
-									Uninstall: "rm policy stringmap {{name}}",
+						Sections: []Section{
+							{
+								Name: "appexpert.stringmaps",
+								Elements: []Element{
+									{
+										Name: "cs_control",
+										Fields: []Field{
+											{Id: "name", Data: "{{prefix}}CS_CONTROL"},
+										},
+										Expressions: Expression{
+											Install:   "add policy stringmap {{name}}",
+											Uninstall: "rm policy stringmap {{name}}",
+										},
+									},
 								},
-							}},
-						}},
+							},
+						},
 					},
 				},
 			},
 		},
 	}
 
-	//var output = make(map[string]string)
-	var err error
-
-	_, err = f.GetInstallExpressions()
+	_, err := f.GetInstallExpressions()
 	if err != nil {
 		t.Errorf("%s", err)
 	}
-	//var e []byte
-	//e, err = json.MarshalIndent(output, "", "\t")
-	//fmt.Println(string(e))
 }
 
 func TestFramework_GetInstallExpressions2(t *testing.T) {
@@ -831,7 +1015,6 @@ func TestFramework_AppendData(t *testing.T) {
 	if err == nil {
 		t.Errorf("Expected duplicate key in framework")
 	}
-
 
 }
 
