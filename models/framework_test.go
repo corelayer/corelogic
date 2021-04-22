@@ -1031,3 +1031,115 @@ func TestFramework_CountDependencies(t *testing.T) {
 		t.Errorf("Output count is incorrect, got: %d, want: %d", output, expectedOutput)
 	}
 }
+
+func TestDependencyList_Len(t *testing.T) {
+	d := DependencyList{
+		Dependency{
+			Name:  "dependency1",
+			Count: 100,
+		}, Dependency{
+			Name:  "dependency2",
+			Count: 20,
+		}, Dependency{
+			Name:  "dependency3",
+			Count: 25,
+		}, Dependency{
+			Name:  "dependency4",
+			Count: 15,
+		},
+	}
+
+	output := d.Len()
+
+	if output != 4 {
+		t.Errorf("Output count is incorrect, got: %d, want: %d", output, 4)
+	}
+}
+
+func TestDependencyList_Swap(t *testing.T) {
+	d := DependencyList{
+		Dependency{
+			Name:  "dependency1",
+			Count: 100,
+		}, Dependency{
+			Name:  "dependency2",
+			Count: 20,
+		}, Dependency{
+			Name:  "dependency3",
+			Count: 25,
+		}, Dependency{
+			Name:  "dependency4",
+			Count: 15,
+		},
+	}
+
+	d.Swap(0, 3)
+
+	expectedOutputKey0 := "dependency4"
+	expectedOutputKey3 := "dependency1"
+
+	if d[0].Name != expectedOutputKey0 {
+		t.Errorf("Output key is incorrect, got: %s, want: %s", d[0].Name, expectedOutputKey0)
+	}
+	if d[3].Name != expectedOutputKey3 {
+		t.Errorf("Output key is incorrect, got: %s, want: %s", d[3].Name, expectedOutputKey3)
+	}
+}
+
+func TestDependencyList_Less(t *testing.T) {
+	d := DependencyList{
+		Dependency{
+			Name:  "dependency1",
+			Count: 100,
+		}, Dependency{
+			Name:  "dependency2",
+			Count: 20,
+		}, Dependency{
+			Name:  "dependency3",
+			Count: 25,
+		}, Dependency{
+			Name:  "dependency4",
+			Count: 15,
+		},
+	}
+
+	output := d.Less(1, 2)
+
+	if !output {
+		t.Errorf("Output key is incorrect, got: %t, want: %t", output, true)
+	}
+}
+
+func TestFramework_GetDependencyList(t *testing.T) {
+	f := Framework{}
+	e := map[string]string{
+		"key1":"value1",
+		"key2":"value2 key1",
+		"key3":"value3 key2 key1",
+	}
+
+	output := f.GetDependencyList(e)
+
+
+	if len(output) != 3 {
+		t.Errorf("Expected 3 items in list")
+	}
+
+	for _, v:= range output {
+		if v.Name != "key1" {
+			if v.Count == 2 {
+				t.Errorf("Output value is incorrect, got: %d, want: %d", v.Count, 2)
+			}
+		}
+		if v.Name != "key2" {
+			if v.Count == 1 {
+				t.Errorf("Output value is incorrect, got: %d, want: %d", v.Count, 1)
+			}
+		}
+		if v.Name != "key3" {
+			if v.Count == 0 {
+				t.Errorf("Output value is incorrect, got: %d, want: %d", v.Count, 0)
+			}
+		}
+	}
+}

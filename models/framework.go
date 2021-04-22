@@ -121,9 +121,11 @@ type FrameworkReader interface {
 
 func (f *Framework) GetPrefixMap() map[string]string {
 	result := make(map[string]string)
+
 	for _, v := range f.Prefixes {
 		result[v.Name] = v.Prefix
 	}
+
 	return result
 }
 
@@ -211,6 +213,7 @@ type DependencyList []Dependency
 func (d DependencyList) Len() int {
 	return len(d)
 }
+
 func (d DependencyList) Swap (i,j int) {
 	d[i], d[j] = d[j], d[i]
 }

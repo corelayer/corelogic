@@ -1,0 +1,37 @@
+name: lbvservers
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: RESET_HTTP
+        fields:
+        - id: name
+          data: <<prefix>>RESET_HTTP
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_HTTP/name>>
+        expressions:
+          install: |
+            add lb vserer <<name>> HTTP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+          uninstall: rm lb vserver <<name>>
+      - name: RESET_TCP
+        fields:
+          - id: name
+            data: <<prefix>>RESET_TCP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
+        expressions:
+         install: |
+           add lb vserer <<name>> TCP 0.0.0.0 0
+           bind lb vserver <<name>> <<servicegroup>>
+         uninstall: rm lb vserver <<name>>
+      - name: RESET_UDP
+        fields:
+          - id: name
+            data: <<prefix>>RESET_UDP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_UDP.yamlP/name>>
+        expressions:
+          install: |
+            add lb vserer <<name>> UDP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+          uninstall: rm lb vserver <<name>>
