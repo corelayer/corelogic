@@ -2,6 +2,14 @@ name: placeholders
 sections:
   - name: appexpert.expressions.advanced
     elements:
+      - name: CLIENT_IS_IPV4
+        fields:
+          - id: name
+            data: <<prefix>>IS_IPV4
+          - id: expression
+            name: CLIENT.IP.SRC.IS_IPV6
+        expressions:
+          install: add policy expression <<name>> <<expression>>
       - name: CLIENT_IPV4_TO_SUBNET_ADDRESS
         fields:
           - id: 032
