@@ -63,3 +63,10 @@ cs                  name
 cidr                10.0.0.0/8
 
 description
+
+
+LB_IPFILTER
+lb                  name
+cidr                10.0.0.0/8
+
+description
