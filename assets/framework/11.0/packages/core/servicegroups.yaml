@@ -5,7 +5,7 @@ sections:
       - name: DUMMY_HTTP
         fields:
           - id: name
-            data: <<prefix>>DUMMY_HTTP
+            data: <<prefix>>_DUMMY_HTTP
           - id: type
             data: HTTP
           - id: server
@@ -18,7 +18,7 @@ sections:
       - name: DUMMY_TCP
         fields:
           - id: name
-            data: <<prefix>>DUMMY_TCP
+            data: <<prefix>>_DUMMY_TCP
           - id: type
             data: TCP
           - id: server
@@ -31,7 +31,7 @@ sections:
       - name: DUMMY_UDP
         fields:
           - id: name
-            data: <<prefix>>DUMMY_UDP
+            data: <<prefix>>_DUMMY_UDP
           - id: type
             data: UDP
           - id: server

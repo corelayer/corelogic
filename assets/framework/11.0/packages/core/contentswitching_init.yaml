@@ -1,0 +1,56 @@
+name: contentswitching
+sections:
+  - name: appexpert.expressions.advanced
+    elements:
+      - name: INIT_CS
+        fields:
+        - id: name
+          data: <<prefix>>_INIT_CS
+        - id: expression
+          data: q{true}
+        expressions:
+          install: add policy expression <<name>> <<expression>>
+          uninstall: rm policy expression <<name>>
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_IPV4_HTTP
+        fields:
+        - id: name
+          data: <<prefix>>_INIT_IPV4_HTTP
+        - id: expression
+          data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_IPV6_HTTP
+        fields:
+        - id: name
+          data: <<prefix>>_INIT_IPV6_HTTP
+        - id: expression
+          data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: INIT_HTTP
+        fields:
+        - id: name
+          data: <<prefix>>_INIT_HTTP
+        expressions:
+          install: add cs policylabel <<name>> HTTP
+          uninstall: rm cs policylabel <<name>>
+      - name: INIT_TCP
+        fields:
+        - id: name
+          data: <<prefix>>_INIT_TCP
+        expressions:
+          install: add cs policylabel <<name>> TCP
+          uninstall: rm cs policylabel <<name>>
+      - name: INIT_UDP
+        fields:
+        - id: name
+          data: <<prefix>>_INIT_UDP
+        expressions:
+          install: add cs policylabel <<name>> UDP
+          uninstall: rm cs policylabel <<name>>

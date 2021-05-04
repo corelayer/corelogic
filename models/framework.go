@@ -11,7 +11,7 @@ type Release struct {
 }
 
 type SectionPrefix struct {
-	Name   string `yaml:name`
+	Section   string `yaml:section`
 	Prefix string `yaml:prefix`
 }
 
@@ -123,7 +123,7 @@ func (f *Framework) GetPrefixMap() map[string]string {
 	result := make(map[string]string)
 
 	for _, v := range f.Prefixes {
-		result[v.Name] = v.Prefix
+		result[v.Section] = v.Prefix
 	}
 
 	return result

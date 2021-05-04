@@ -1,15 +1,44 @@
 release:
   major: 11
   minor: 0
-packages:
 prefixes:
   - section: appexpert.stringmaps
     prefix: PSM
-  - section: appexpert.policyexpressions.advanced
+  - section: appexpert.patternsets
+    prefix: PPS
+  - section: appexpert.variables
+    prefix: VAR
+  - section: appexpert.assignments
+    prefix: SET
+  - section: appexpert.expressions.advanced
     prefix: PXP
+  - section: appexpert.rewrite.policies
+    prefix: RWP
+  - section: appexpert.rewrite.actions
+    prefix: RWA
+  - section: appexpert.rewrite.policylabels
+    prefix: RWL
+  - section: appexpert.responder.policies
+    prefix: RSP
+  - section: appexpert.responder.actions
+    prefix: RSA
+  - section: appexpert.responder.policylabels
+    prefix: RSL
+  - section: appexpert.responder.htmlpages
+    prefix: RSH
   - section: trafficmanagement.contentswitching.policies
     prefix: CSP
   - section: trafficmanagement.contentswitching.actions
     prefix: CSA
   - section: trafficmanagement.contentswitching.policylabels
     prefix: CSL
+  - section: trafficmanagement.contentswitching.virtualservers
+    prefix: CSV
+  - section: trafficmanagement.loadbalancing.virtualservers
+    prefix: LBV
+  - section: trafficmanagement.loadbalancing.servicegroups
+    prefix: SVG
+  - section: trafficmanagement.loadbalancing.services
+    prefix: SVC
+  - section: trafficmanagement.loadbalancing.servers
+    prefix: SRV

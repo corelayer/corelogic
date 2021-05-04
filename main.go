@@ -85,41 +85,53 @@ func main() {
 	}
 	fmt.Printf(string(output))
 
-	//fmt.Println("================================================")
-	//
-	//fields, err8 := controller.Framework.GetFields()
-	//if err8 != nil {
-	//	fmt.Println(err8)
-	//}
+	fmt.Println("================================================")
+
+	fields, err8 := controller.Framework.GetFields()
+	if err8 != nil {
+		fmt.Println(err8)
+	}
 	//for k,v := range fields {
 	//	fmt.Println(k, v)
 	//}
-
-	fmt.Println("================================================")
+	//
+	//fmt.Println("================================================")
 
 	install, err9 := controller.Framework.GetInstallExpressions()
 	if err9 != nil {
 		fmt.Println(err9)
 	}
-	for k, v := range install {
-		fmt.Println(k, "\t", v)
-	}
+	//for k, v := range install {
+	//	fmt.Println(k, "\t", v)
+	//}
 
 	fmt.Println("================================================")
 	fmt.Println("================================================")
 
-	dependencies := controller.Framework.GetDependencyList(install)
-	for _, v := range dependencies {
+	sortedExpressions := controller.Framework.GetDependencyList(install)
+	for _, v := range sortedExpressions {
 		fmt.Println(v.Name, v.Count)
 	}
+
 	fmt.Println("================================================")
-	sort.Sort(sort.Reverse(dependencies))
-	for _, v := range dependencies {
+	fmt.Println("================================================")
+	fmt.Println("================================================")
+	fmt.Println("================================================")
+
+	sort.Sort(sort.Reverse(sortedExpressions))
+	for _, v := range sortedExpressions {
 		//fmt.Println(v.Name, v.Count)
 		//count := strings.Count(install[v.Name], "\n")
 		if install[v.Name] != "" {
+			for n, e := range fields {
+				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<" + n + ">>", e)
+			}
+
+			for k, _ := range framework.GetPrefixMap() {
+				//fmt.Println("1", k, "2", p, "3")
+				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<" + k + ">>", framework.GetPrefixWithVersion(k))
+			}
 			fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
 		}
 	}
-
 }

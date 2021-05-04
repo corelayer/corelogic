@@ -1,11 +1,11 @@
-name: lbvservers
+name: drop
 sections:
   - name: trafficmanagement.loadbalancing.virtualservers
     elements:
       - name: DROP_HTTP
         fields:
         - id: name
-          data: <<prefix>>DROP_HTTP
+          data: <<prefix>>_DROP_HTTP
         - id: servicegroup
           data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_HTTP/name>>
         expressions:
@@ -16,7 +16,7 @@ sections:
       - name: DROP_TCP
         fields:
           - id: name
-            data: <<prefix>>DROP_TCP
+            data: <<prefix>>_DROP_TCP
           - id: servicegroup
             data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
         expressions:
@@ -27,7 +27,7 @@ sections:
       - name: DROP_UDP
         fields:
           - id: name
-            data: <<prefix>>DROP_UDP
+            data: <<prefix>>_DROP_UDP
           - id: servicegroup
             data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_UDP/name>>
         expressions:

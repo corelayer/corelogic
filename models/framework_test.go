@@ -185,7 +185,7 @@ func TestPackage_GetFields2(t *testing.T) {
 func TestFramework_GetPrefixMap(t *testing.T) {
 	f := Framework{
 		Prefixes: []SectionPrefix{
-			SectionPrefix{Name: "appexpert.stringmaps", Prefix: "PSM"},
+			SectionPrefix{Section: "appexpert.stringmaps", Prefix: "PSM"},
 		},
 	}
 
@@ -206,7 +206,7 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{
-			SectionPrefix{Name: "AppExpert.Stringmaps", Prefix: "PSM"},
+			SectionPrefix{Section: "AppExpert.Stringmaps", Prefix: "PSM"},
 		},
 	}
 
@@ -307,13 +307,13 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -380,13 +380,13 @@ func TestFramework_GetInstallExpressions2(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -465,13 +465,13 @@ func TestFramework_GetInstallExpressions3(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -539,13 +539,13 @@ func TestFramework_GetInstallExpressions4(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -628,13 +628,13 @@ func TestFramework_GetUninstallExpressions(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -701,13 +701,13 @@ func TestFramework_GetUninstallExpressions2(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -775,13 +775,13 @@ func TestFramework_GetUninstallExpressions3(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -863,13 +863,13 @@ func TestFramework_GetUninstallExpressions4(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{
@@ -954,13 +954,13 @@ func TestFramework_AppendData(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Name:   "appexpert.stringmaps",
+			Section:   "appexpert.stringmaps",
 			Prefix: "PSM",
 		}, {
-			Name:   "trafficmanagement.contentswitching.policies",
+			Section:   "trafficmanagement.contentswitching.policies",
 			Prefix: "CSP",
 		}, {
-			Name:   "trafficmanagement.contentswitching.actions",
+			Section:   "trafficmanagement.contentswitching.actions",
 			Prefix: "CSA",
 		}},
 		Packages: []Package{

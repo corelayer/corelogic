@@ -5,7 +5,7 @@ sections:
       - name: DUMMY
         fields:
           - id: name
-            data: <<prefix>>DUMMY
+            data: <<prefix>>_DUMMY
           - id: address
             data: <<core.dns.trafficmanagement.dns.addressrecords.DUMMY/fqdn>>
         expressions:

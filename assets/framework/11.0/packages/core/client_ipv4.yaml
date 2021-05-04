@@ -5,12 +5,12 @@ sections:
       - name: CLIENT_IS_IPV4
         fields:
           - id: name
-            data: <<prefix>>IS_IPV4
+            data: <<prefix>>_CLIENT_IS_IPV4
           - id: expression
-            name: CLIENT.IP.SRC.IS_IPV6
+            name: CLIENT.IP.SRC.IS_IPV6.NOT
         expressions:
           install: add policy expression <<name>> <<expression>>
-      - name: CLIENT_IPV4_TO_SUBNET_ADDRESS
+      - name: CLIENT_IPV4_SUBNET
         fields:
           - id: 032
             data: CLIENT.IP.SRC.TYPECAST_TEXT_T + "/32"
