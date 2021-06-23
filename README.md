@@ -51,25 +51,25 @@ For each of the scenario's above, you can target different load-balancing virtua
 | Target Scenario | Action |
 |-|-|
 | **Load-balancing virtual server** | Pass the request to a load-balancing virtual server |
-| **VS_REDIR_301** | 301 Redirect to a defined location |
-| **VS_REDIR_301_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
-| **VS_REDIR_301_SWITH** | 301 Redirect from http to https (or vice versa) on the same URI |
-| **VS_REDIR_302** | 302 Redirect to a defined location |
-| **VS_REDIR_302_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
-| **VS_REDIR_302_SWITCH** | 302 Redirect from http to https (or vice versa) on the same URI |
-| **VS_REDIR_307** | 307 Redirect to a defined location |
-| **VS_REDIR_307_KEEPPATH** | 307 Redirect to a defined location while appending the original path to the redirect destination |
-| **VS_REDIR_307_SWITH** | 307 Redirect from http to https (or vice versa) on the same URI |
-| **VS_REDIR_308** | 308 Redirect to a defined location |
-| **VS_REDIR_308_KEEPPATH** | 308 Redirect to a defined location while appending the original path to the redirect destination |
-| **VS_REDIR_308_SWITCH** | 308 Redirect from http to https (or vice versa) on the same URI |
-| **VS_NOTFOUND_HTTP** | Show a message that the page cannot be found |
-| **VS_BLOCKED_HTTP** | Show a message that the request is blocked |
-| **VS_DROP_HTTP** | Drop the request silently on L4 |
-| **VS_DROP_TCP** | Drop the request silently on L4 |
-| **VS_RESET_HTTP** | Do a hard reset on L4 |
-| **VS_RESET_TCP** | Do a hard reset on L4 |
-| **VS_ACME_HTTP** | Respond to ACME-challenge |
+| **VS_CL1009_REDIR_301** | 301 Redirect to a defined location |
+| **VS_CL1009_REDIR_301_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_CL1009_REDIR_301_SWITH** | 301 Redirect from http to https (or vice versa) on the same URI |
+| **VS_CL1009_REDIR_302** | 302 Redirect to a defined location |
+| **VS_CL1009_REDIR_302_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_CL1009_REDIR_302_SWITCH** | 302 Redirect from http to https (or vice versa) on the same URI |
+| **VS_CL1009_REDIR_307** | 307 Redirect to a defined location |
+| **VS_CL1009_REDIR_307_KEEPPATH** | 307 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_CL1009_REDIR_307_SWITH** | 307 Redirect from http to https (or vice versa) on the same URI |
+| **VS_CL1009_REDIR_308** | 308 Redirect to a defined location |
+| **VS_CL1009_REDIR_308_KEEPPATH** | 308 Redirect to a defined location while appending the original path to the redirect destination |
+| **VS_CL1009_REDIR_308_SWITCH** | 308 Redirect from http to https (or vice versa) on the same URI |
+| **VS_CL1009_NOTFOUND_HTTP** | Show a message that the page cannot be found |
+| **VS_CL1009_BLOCKED_HTTP** | Show a message that the request is blocked |
+| **VS_CL1009_DROP_HTTP** | Drop the request silently on L4 |
+| **VS_CL1009_DROP_TCP** | Drop the request silently on L4 |
+| **VS_CL1009_RESET_HTTP** | Do a hard reset on L4 |
+| **VS_CL1009_RESET_TCP** | Do a hard reset on L4 |
+| **VS_CL1009_ACME_HTTP** | Respond to ACME-challenge |
 
 
 *Notes:*
@@ -93,58 +93,59 @@ If any policy is still in use, it will fail to uninstall.
 
 ## Content-Switching Virtual Servers
 ### Initialization
-To create a new set of content-switching virtual servers, use the script in [create_cs.conf](https://github.com/CoreLayer/CoreLogic/blob/master/create_cs.conf).
+To create a new set of content-switching virtual servers, use the script in [create_cs.conf](https://github.com/CoreLayer/CoreLogic/blob/main/create_cs.conf).
 
 1. Replace `$TENANT` with a name of your choice, e.g. PUB012.
 2. Replace `$IPADDRESS` with the actual IP address for the virtual server.
 
-**Note:** It is important that the key for SM_IP_CONTROL is in **LOWERCASE**: cs_$tenant_http --> cs_pub012_http.
+**Note:** It is important that the key for SM_CL1009_IP_CONTROL is in **LOWERCASE**: cs_$tenant_http --> cs_pub012_http.
 
 
 For example:
 ```
  add cs vserver CS_PUB012_HTTP HTTP 192.168.0.12 80 -cltTimeout 180
-bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 10601 -gotoPriorityExpression END -type REQUEST -invoke policylabel RWPL_CL10_6_CS_REQ_CORE
-bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 10601 -gotoPriorityExpression END -type RESPONSE -invoke policylabel RWPL_CL10_6_CS_RES_CORE
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_NOT_LISTED -priority 10601 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_NOT_LISTED -priority 10602 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_ALLOW -priority 10603 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_BLOCK -priority 10604 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_ALLOW -priority 10605 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_BLOCK -priority 10606 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FULL_LAN -priority 10601
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_SCND_LAN -priority 10602
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FRST_LAN -priority 10603
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FQDN_LAN -priority 10604
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_WILD_LAN -priority 10605
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FULL_ANY -priority 10611
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_SCND_ANY -priority 10612
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FRST_ANY -priority 10613
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FQDN_ANY -priority 10614
-bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_WILD_ANY -priority 10615
-bind cs vserver CS_PUB012_HTTP -lbvserver VS_NO_SERVICE_HTTP
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=blocklist;"
+bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 100901 -gotoPriorityExpression END -type REQUEST -invoke policylabel RWPL_CL1009_CS_REQ_CORE
+bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 100901 -gotoPriorityExpression END -type RESPONSE -invoke policylabel RWPL_CL1009_CS_RES_CORE
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL1009_IP_CSTCP_NOTLISTED -priority 100901 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL1009_IP_VSTCP_NOTLISTED -priority 100902 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL1009_IP_CSTCP_ALLOWLIST -priority 100903 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL1009_IP_CSTCP_BLOCKLIST -priority 100904 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL1009_IP_VSTCP_ALLOWLIST -priority 100905 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL1009_IP_VSTCP_BLOCKLIST -priority 100906 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FULL_LAN -priority 100901
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_SCND_LAN -priority 100902
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FRST_LAN -priority 100903
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FQDN_LAN -priority 100904
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_WILD_LAN -priority 100905
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_ACME_ANY -priority 100910
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FULL_ANY -priority 100911
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_SCND_ANY -priority 100912
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FRST_ANY -priority 100913
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FQDN_ANY -priority 100914
+bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_WILD_ANY -priority 100915
+bind cs vserver CS_PUB012_HTTP -lbvserver VS_CL1009_NO_SERVICE_HTTP
+bind policy stringmap SM_CL1009_IP_CONTROL cs_$tenant_http "list=blocklist;"
 ```
 
 ### Configuration
 #### Allowlist/Blocklist
 By default, all content-switching virtual servers are set to have a blocklist of IP addresses.
-This means that all source IP addresses are allowed to access the content-switching virtual server, unless there is an entry in `SM_IP_CONTROL`.
+This means that all source IP addresses are allowed to access the content-switching virtual server, unless there is an entry in `SM_CL1009_IP_CONTROL`.
 To change the behavior of the content-switching virtual to be a allowlist, all you need to do is change the entry.
 
 If you change the behavior to be a `allowlist`, it results in all client IP addresses on the list to be blocked!
 
 For example:
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=allowlist;"
+bind policy stringmap SM_CL1009_IP_CONTROL cs_pub012_http "list=allowlist;"
 ```
 
 *Notes:*
-- *As stated before, it is important that the key for SM_IP_CONTROL is in lowercase: **cs_pub012_http**.*
+- *As stated before, it is important that the key for SM_CL1009_IP_CONTROL is in lowercase: **cs_pub012_http**.*
 - *It is equally important not to omit the semicolon at the end as policies are looking for the value between `=` and `;` to determine their action.*
 
 #### IP addresses on the allowlist/blocklist
-To add IP addresses or complete networks to the list, we need to provide additional entries in `SM_IP_CONTROL`.
+To add IP addresses or complete networks to the list, we need to provide additional entries in `SM_CL1009_IP_CONTROL`.
 
 Example:
 - Content-switching virtual server `CS_PUB012_HTTP` can only provide access to a specified list IP addresses.
@@ -153,10 +154,10 @@ Example:
 - An administrator with IP address `10.0.0.1` must be allowed.
 
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=allowlist;"
-bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
-bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;172.16.0.0/16" "Development"
-bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;10.0.0.1/32" "Administrator"
+bind policy stringmap SM_CL1009_IP_CONTROL cs_pub012_http "list=allowlist;"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012_http;any;172.16.0.0/16" "Development"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012_http;any;10.0.0.1/32" "Administrator"
 ```
 
 Example:
@@ -165,10 +166,10 @@ Example:
 - All clients from the sales network `192.168.0.0/24` must be blocked.
 
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=blocklist;"
-bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;8.8.8.8/32" "Google DNS"
-bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;8.8.4.4/32" "Google DNS"
-bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
+bind policy stringmap SM_CL1009_IP_CONTROL cs_pub012_http "list=blocklist;"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012_http;any;8.8.8.8/32" "Google DNS"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012_http;any;8.8.4.4/32" "Google DNS"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
 ```
 
 #### LAN Networks
@@ -190,9 +191,9 @@ Example:
 - An administrator with IP address `10.0.0.1` is considered to be an internal client on the LAN.
 
 ```
-bind policy stringmap SM_IP_CONTROL "cs_pub012;lan;192.168.0.0/24" "Sales"
-bind policy stringmap SM_IP_CONTROL "cs_pub012;lan;172.16.0.0/16" "Development"
-bind policy stringmap SM_IP_CONTROL "cs_pub012;lan;10.0.0.1/32" "Administrator"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012;lan;192.168.0.0/24" "Sales"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012;lan;172.16.0.0/16" "Development"
+bind policy stringmap SM_CL1009_IP_CONTROL "cs_pub012;lan;10.0.0.1/32" "Administrator"
 ```
 
 As you can see from the example above, the protocol of the content-switching virtual servers is omitted in the key of the entry.
@@ -213,13 +214,13 @@ Module processing on the Response:
 ##### HTTP/SSL
 If the selected load-balacing virtual server is `OUT OF SERVICE` or `DOWN`, content-switching policy processing will stop and the default load-balancing virtual server will be selected immediately.
 
-- For HTTP, `VS_NO_SERVICE_HTTP` will be used
-- For SSL, `VS_NO_SERVICE_SSL` will be used.
+- For HTTP, `VS_CL1009_NO_SERVICE_HTTP` will be used
+- For SSL, `VS_CL1009_NO_SERVICE_SSL` will be used.
 
 Both have the same functionality built-in:
-- If an entry in `SM_CS_CONTROL` should have been used for the current protocol (HTTP/SSL), we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
-- If an entry in `SM_CS_CONTROL` is not found for the current request on HTTP, we know that the request is not allowed. We will lookup if there is an entry for SSL, and redirect if and entry is found.
-- If an entry in `SM_CS_CONTROL` is not found for the current request on HTTP, nor for SSL traffic, we will respond with a `NOT FOUND` message. and HTTP response code 404.
+- If an entry in `SM_CL1009_CS_CONTROL` should have been used for the current protocol (HTTP/SSL), we know that the target load-balancing virtual server is down and a `NO SERVICE` message will be shown. The HTTP response code is 503.
+- If an entry in `SM_CL1009_CS_CONTROL` is not found for the current request on HTTP, we know that the request is not allowed. We will lookup if there is an entry for SSL, and redirect if and entry is found.
+- If an entry in `SM_CL1009_CS_CONTROL` is not found for the current request on HTTP, nor for SSL traffic, we will respond with a `NOT FOUND` message. and HTTP response code 404.
 
 ##### TCP/SSL_TCP/UDP
 - For general TCP/UDP content-switching virtual servers, the connection will time out.
@@ -267,34 +268,34 @@ bind lb vserver VS_WORDPRESS SG_WORDPRESS
 Now that we have created the load-balancing virtual server for our application, we have to configure it for allowlisting/blocklisting. Remember, the execution flow on the content-switching virtual server checks whether the selected load-balancing virtual server has a allowlist or blocklist configured. If it is not configured, you will get a connection reset.
 
 ```
-bind policy stringmap SM_IP_CONTROL vs_wordpress "list=blocklist;"
+bind policy stringmap SM_CL1009_IP_CONTROL vs_wordpress "list=blocklist;"
 ```
 
 Good, almost there!
 The only thing left is configuring when the content-switching virtual server has to forward our request to the load-balancing virtual server.
 For the purpose of this example, we will deploy our Wordpress application on the hostname `www.netscalerrocks.com`.
 
-We need to add entry to `SM_CS_CONTROL` to specify the content-switching scenarios.
+We need to add entry to `SM_CL1009_CS_CONTROL` to specify the content-switching scenarios.
 Format for these entries is as follows:
 | Key (all in lowercase) | Value |
 | - | - |
 | "<cs_name>;<lan\|any>;<request>" | "vs=<lb_name>;dst=<redirect_location_if_applicable>;" |
 
 ```
-bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+bind policy stringmap SM_CL1009_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
 ```
 
 To illustrate a redirect, let's say we have another domain `netscalerrocks.org` we'd like to redirect to `www.netscalerrocks.com`.However `netscalerrocks.org/nitro` needs to go to `api.netscalerrocks.com/nitro`, which means we want to keep the full path of the original request if it starts with `/nitro`.
 
 ```
-bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;netscalerrocks.org" "vs=VS_REDIR_301;dst=//www.netscalerrocks.com;"
-bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;netscalerrocks.org/nitro" "vs=VS_REDIR_302_KEEPPATH;dst=//api.netscalerrocks.com"
+bind policy stringmap SM_CL1009_CS_CONTROL "cs_pub012_ssl;any;netscalerrocks.org" "vs=VS_REDIR_301;dst=//www.netscalerrocks.com;"
+bind policy stringmap SM_CL1009_CS_CONTROL "cs_pub012_ssl;any;netscalerrocks.org/nitro" "vs=VS_REDIR_302_KEEPPATH;dst=//api.netscalerrocks.com"
 ```
 
 As a final step, we only want to allow the administration pages from the internal network. This would translate in the following commands:
 
 ```
-bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;lan;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
-bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
-bind policy stringmap SM_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com/wp-admin" "vs=VS_RESET;"
+bind policy stringmap SM_CL1009_CS_CONTROL "cs_pub012_ssl;lan;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+bind policy stringmap SM_CL1009_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com" "vs=VS_WORDPRESS;"
+bind policy stringmap SM_CL1009_CS_CONTROL "cs_pub012_ssl;any;www.netscalerrocks.com/wp-admin" "vs=VS_CL1009_RESET;"
 ```
