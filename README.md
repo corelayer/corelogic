@@ -22,10 +22,10 @@ CoreLogic is a configuration framework for Citrix ADC/NetScaler, compatible with
 ### Access Zones
 CoreLogic has knowledge of two zones, LAN and ANY, allowing you to define how a request will be handled if you're accessing the service from an internal network (LAN) or from the outside (ANY). This decision is based on the entries in a table, defining which networks are to be considered an "internal network".
 
-### IP Allowlist/Denylist
-CoreLogic also implements a basic ACL by allowing you to define whether content-switching virtual servers and load-balancing virtual servers have an IP allowlist or denylist, thus restricting access to specific services. This decision is based on the entries in a table, defining which networks belong the the allowlist/denylist.
+### IP Allowlist/Blocklist
+CoreLogic also implements a basic ACL by allowing you to define whether content-switching virtual servers and load-balancing virtual servers have an IP allowlist or blocklist, thus restricting access to specific services. This decision is based on the entries in a table, defining which networks belong the the allowlist/blocklist.
 
-Using the IP allowlist/denylist functionality in combination with the content-switching flow control enables you to define complex access scenarios based on IP address in combination with L4-L7 data.
+Using the IP allowlist/blocklist functionality in combination with the content-switching flow control enables you to define complex access scenarios based on IP address in combination with L4-L7 data.
 
 ### Web Application (module) granularity
 Given a URI `https://www.netscalerrocks.com/packetengine/internals/documentation.php?section=rewrite`, we can identify specific components:
@@ -109,9 +109,9 @@ bind cs vserver CS_PUB012_HTTP -policyName NOPOLICY-REWRITE -priority 10601 -got
 bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_NOT_LISTED -priority 10601 -gotoPriorityExpression END -type REQUEST
 bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_NOT_LISTED -priority 10602 -gotoPriorityExpression END -type REQUEST
 bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_ALLOW -priority 10603 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_DENY -priority 10604 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_CSTCP_BLOCKED_BLOCK -priority 10604 -gotoPriorityExpression END -type REQUEST
 bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_ALLOW -priority 10605 -gotoPriorityExpression END -type REQUEST
-bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_DENY -priority 10606 -gotoPriorityExpression END -type REQUEST
+bind cs vserver CS_PUB012_HTTP -policyName RSP_CL10_6_VSTCP_BLOCKED_BLOCK -priority 10606 -gotoPriorityExpression END -type REQUEST
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FULL_LAN -priority 10601
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_SCND_LAN -priority 10602
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FRST_LAN -priority 10603
@@ -123,12 +123,12 @@ bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FRST_ANY -priority 10613
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_FQDN_ANY -priority 10614
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL10_6_WILD_ANY -priority 10615
 bind cs vserver CS_PUB012_HTTP -lbvserver VS_NO_SERVICE_HTTP
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=denylist;"
+bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=blocklist;"
 ```
 
 ### Configuration
-#### Allowlist/Denylist
-By default, all content-switching virtual servers are set to have a denylist of IP addresses.
+#### Allowlist/Blocklist
+By default, all content-switching virtual servers are set to have a blocklist of IP addresses.
 This means that all source IP addresses are allowed to access the content-switching virtual server, unless there is an entry in `SM_IP_CONTROL`.
 To change the behavior of the content-switching virtual to be a allowlist, all you need to do is change the entry.
 
@@ -143,7 +143,7 @@ bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=allowlist;"
 - *As stated before, it is important that the key for SM_IP_CONTROL is in lowercase: **cs_pub012_http**.*
 - *It is equally important not to omit the semicolon at the end as policies are looking for the value between `=` and `;` to determine their action.*
 
-#### IP addresses on the allowlist/denylist
+#### IP addresses on the allowlist/blocklist
 To add IP addresses or complete networks to the list, we need to provide additional entries in `SM_IP_CONTROL`.
 
 Example:
@@ -160,20 +160,20 @@ bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;10.0.0.1/32" "Administra
 ```
 
 Example:
-- Content-switching virtual server `CS_PUB012_HTTP` was defined to have a denylist.
+- Content-switching virtual server `CS_PUB012_HTTP` was defined to have a blocklist.
 - Public IP addresses from Google DNS must be blocked.
 - All clients from the sales network `192.168.0.0/24` must be blocked.
 
 ```
-bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=denylist;"
+bind policy stringmap SM_IP_CONTROL cs_pub012_http "list=blocklist;"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;8.8.8.8/32" "Google DNS"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;8.8.4.4/32" "Google DNS"
 bind policy stringmap SM_IP_CONTROL "cs_pub012_http;any;192.168.0.0/24" "Sales"
 ```
 
 #### LAN Networks
-Configuring LAN networks is a similar procedure, but there are some differences to allowlisting/denylisting.
-Whilst allowlisting/denylisting happens for each and every specific content-switching virtual server, LAN networks apply to a collection of content-switching virtual servers with the same name.
+Configuring LAN networks is a similar procedure, but there are some differences to allowlisting/blocklisting.
+Whilst allowlisting/blocklisting happens for each and every specific content-switching virtual server, LAN networks apply to a collection of content-switching virtual servers with the same name.
 
 Assume we have executed the complete create_cs.conf script to create the following content-switching virtual servers:
 - CS_PUB012_HTTP
@@ -202,7 +202,7 @@ Module processing on the Request:
 1. Content-Switching policies to determine which load-balancing virtual server to use
   1. Policies for clients on LAN networks (LAN)
   2. Policies for clients not on LAN networks (ANY)
-2. Responder policies: based on the current content-switching virtual server and selected load-balancing virtual server, check the allowlist/denylist.
+2. Responder policies: based on the current content-switching virtual server and selected load-balancing virtual server, check the allowlist/blocklist.
 3. Rewrite policies: adds/removes some headers to be used by the backend server, such as `X-Forwarded-For` and `X-Forwarded-Proto`.
 4. Pass the request to the selected load-balancing virtual server.
 
@@ -264,10 +264,10 @@ First of all, let's create the load-balancing virtual server. As the load-balanc
 bind lb vserver VS_WORDPRESS SG_WORDPRESS
 ```
 
-Now that we have created the load-balancing virtual server for our application, we have to configure it for allowlisting/denylisting. Remember, the execution flow on the content-switching virtual server checks whether the selected load-balancing virtual server has a allowlist or denylist configured. If it is not configured, you will get a connection reset.
+Now that we have created the load-balancing virtual server for our application, we have to configure it for allowlisting/blocklisting. Remember, the execution flow on the content-switching virtual server checks whether the selected load-balancing virtual server has a allowlist or blocklist configured. If it is not configured, you will get a connection reset.
 
 ```
-bind policy stringmap SM_IP_CONTROL vs_wordpress "list=denylist;"
+bind policy stringmap SM_IP_CONTROL vs_wordpress "list=blocklist;"
 ```
 
 Good, almost there!
