@@ -11,8 +11,8 @@ type Release struct {
 }
 
 type SectionPrefix struct {
-	Section   string `yaml:section`
-	Prefix string `yaml:prefix`
+	Section string `yaml:section`
+	Prefix  string `yaml:prefix`
 }
 
 type Package struct {
@@ -35,7 +35,7 @@ type ReleaseReader interface {
 }
 
 func (f *Release) GetVersionAsString() string {
-	return fmt.Sprintf("CL%02d_%02d", f.Major, f.Minor)
+	return fmt.Sprintf("CL%02d%02d", f.Major, f.Minor)
 }
 
 type PackageReader interface {
@@ -109,8 +109,6 @@ func (p *Package) AppendData(source map[string]string, destination map[string]st
 
 	return destination, err
 }
-
-
 
 type FrameworkReader interface {
 	GetPrefixMap() map[string]string
@@ -203,21 +201,21 @@ func (f *Framework) AppendData(source map[string]string, destination map[string]
 	return destination, err
 }
 
-
 type Dependency struct {
-	Name string
+	Name  string
 	Count int
 }
 
 type DependencyList []Dependency
+
 func (d DependencyList) Len() int {
 	return len(d)
 }
 
-func (d DependencyList) Swap (i,j int) {
+func (d DependencyList) Swap(i, j int) {
 	d[i], d[j] = d[j], d[i]
 }
-func (d DependencyList) Less (i,j int) bool {
+func (d DependencyList) Less(i, j int) bool {
 	return d[i].Count < d[j].Count
 }
 

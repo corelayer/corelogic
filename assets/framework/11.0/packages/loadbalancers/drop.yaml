@@ -10,7 +10,7 @@ sections:
           data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_HTTP/name>>
         expressions:
           install: |
-            add lb vserer <<name>> HTTP 0.0.0.0 0
+            add lb vserver <<name>> HTTP 0.0.0.0 0
             bind lb vserver <<name>> <<servicegroup>>
           uninstall: rm lb vserver <<name>>
       - name: DROP_TCP
@@ -21,7 +21,7 @@ sections:
             data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
         expressions:
          install: |
-           add lb vserer <<name>> TCP 0.0.0.0 0
+           add lb vserver <<name>> TCP 0.0.0.0 0
            bind lb vserver <<name>> <<servicegroup>>
          uninstall: rm lb vserver <<name>>
       - name: DROP_UDP
@@ -32,6 +32,6 @@ sections:
             data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_UDP/name>>
         expressions:
           install: |
-            add lb vserer <<name>> UDP 0.0.0.0 0
+            add lb vserver <<name>> UDP 0.0.0.0 0
             bind lb vserver <<name>> <<servicegroup>>
           uninstall: rm lb vserver <<name>>
