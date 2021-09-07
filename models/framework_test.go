@@ -185,7 +185,7 @@ func TestPackage_GetFields2(t *testing.T) {
 func TestFramework_GetPrefixMap(t *testing.T) {
 	f := Framework{
 		Prefixes: []SectionPrefix{
-			SectionPrefix{Section: "appexpert.stringmaps", Prefix: "PSM"},
+			{Section: "appexpert.stringmaps", Prefix: "PSM"},
 		},
 	}
 
@@ -206,7 +206,7 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{
-			SectionPrefix{Section: "AppExpert.Stringmaps", Prefix: "PSM"},
+			{Section: "AppExpert.Stringmaps", Prefix: "PSM"},
 		},
 	}
 
@@ -307,14 +307,14 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -380,14 +380,14 @@ func TestFramework_GetInstallExpressions2(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -465,14 +465,14 @@ func TestFramework_GetInstallExpressions3(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -539,14 +539,14 @@ func TestFramework_GetInstallExpressions4(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -628,14 +628,14 @@ func TestFramework_GetUninstallExpressions(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -701,14 +701,14 @@ func TestFramework_GetUninstallExpressions2(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -775,14 +775,14 @@ func TestFramework_GetUninstallExpressions3(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -863,14 +863,14 @@ func TestFramework_GetUninstallExpressions4(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -954,14 +954,14 @@ func TestFramework_AppendData(t *testing.T) {
 			Minor: 2,
 		},
 		Prefixes: []SectionPrefix{{
-			Section:   "appexpert.stringmaps",
-			Prefix: "PSM",
+			Section: "appexpert.stringmaps",
+			Prefix:  "PSM",
 		}, {
-			Section:   "trafficmanagement.contentswitching.policies",
-			Prefix: "CSP",
+			Section: "trafficmanagement.contentswitching.policies",
+			Prefix:  "CSP",
 		}, {
-			Section:   "trafficmanagement.contentswitching.actions",
-			Prefix: "CSA",
+			Section: "trafficmanagement.contentswitching.actions",
+			Prefix:  "CSA",
 		}},
 		Packages: []Package{
 			{
@@ -1113,19 +1113,18 @@ func TestDependencyList_Less(t *testing.T) {
 func TestFramework_GetDependencyList(t *testing.T) {
 	f := Framework{}
 	e := map[string]string{
-		"key1":"value1",
-		"key2":"value2 key1",
-		"key3":"value3 key2 key1",
+		"key1": "value1",
+		"key2": "value2 key1",
+		"key3": "value3 key2 key1",
 	}
 
 	output := f.GetDependencyList(e)
-
 
 	if len(output) != 3 {
 		t.Errorf("Expected 3 items in list")
 	}
 
-	for _, v:= range output {
+	for _, v := range output {
 		if v.Name != "key1" {
 			if v.Count == 2 {
 				t.Errorf("Output value is incorrect, got: %d, want: %d", v.Count, 2)

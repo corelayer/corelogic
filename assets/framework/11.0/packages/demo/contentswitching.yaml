@@ -55,13 +55,15 @@ sections:
           data: <<prefix>>_DEMO_HTTP
         - id: ipaddress
           data: 169.254.254.251
+        - id: listenpolicy
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_HTTP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_HTTP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_HTTP/name>>
         - id: policylabel
           data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.INIT_HTTP/name>>
         expressions:
           install: |
-            add cs vserver <<name>> HTTP <<ipaddress>> * -Listenpriority 15 -Listenpolicy "CLIENT.IP.DSTPORT.EQ(80)"
+            add cs vserver <<name>> HTTP <<ipaddress>> * -Listenpriority 15 -Listenpolicy <<listenpolicy>>
             bind cs vserver <<name>> -policyName <<policy>> -priority 101 -gotoPriorityExpression NEXT -invoke policylabel <<policylabel>>
           uninstall: |
             rm cs vserver <<name>>
@@ -71,13 +73,15 @@ sections:
           data: <<prefix>>_DEMO_SSL
         - id: ipaddress
           data: 169.254.254.251
+        - id: listenpolicy
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_SSL/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_SSL/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_SSL/name>>
         - id: policylabel
           data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.INIT_HTTP/name>>
         expressions:
           install: |
-            add cs vserver <<name>> SSL <<ipaddress>> * -Listenpriority 25 -Listenpolicy "CLIENT.IP.DSTPORT.EQ(443)"
+            add cs vserver <<name>> SSL <<ipaddress>> * -Listenpriority 25 -Listenpolicy <<listenpolicy>>
             bind cs vserver <<name>> -policyName <<policy>> -priority 101 -gotoPriorityExpression NEXT -invoke policylabel <<policylabel>>
           uninstall: |
             rm cs vserver <<name>>
@@ -87,13 +91,15 @@ sections:
           data: <<prefix>>_DEMO_TCP
         - id: ipaddress
           data: 169.254.254.251
+        - id: listenpolicy
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_TCP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_TCP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_TCP/name>>
         - id: policylabel
           data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.INIT_TCP/name>>
         expressions:
           install: |
-            add cs vserver <<name>> TCP <<ipaddress>> * -Listenpriority 35 -Listenpolicy "CLIENT.IP.DSTPORT.EQ(110)"
+            add cs vserver <<name>> TCP <<ipaddress>> * -Listenpriority 35 -Listenpolicy <<listenpolicy>>
             bind cs vserver <<name>> -policyName <<policy>> -priority 101 -gotoPriorityExpression NEXT -invoke policylabel <<policylabel>>
           uninstall: |
             rm cs vserver <<name>>
@@ -103,13 +109,15 @@ sections:
           data: <<prefix>>_DEMO_SSLTCP
         - id: ipaddress
           data: 169.254.254.251
+        - id: listenpolicy
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_SSLTCP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_SSLTCP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_SSLTCP/name>>
         - id: policylabel
           data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.INIT_TCP/name>>
         expressions:
           install: |
-            add cs vserver <<name>> SSL_TCP <<ipaddress>> * -Listenpriority 45 -Listenpolicy "CLIENT.IP.DSTPORT.EQ(993)"
+            add cs vserver <<name>> SSL_TCP <<ipaddress>> * -Listenpriority 45 -Listenpolicy <<listenpolicy>>
             bind cs vserver <<name>> -policyName <<policy>> -priority 101 -gotoPriorityExpression NEXT -invoke policylabel <<policylabel>>
           uninstall: |
             rm cs vserver <<name>>
@@ -119,13 +127,15 @@ sections:
           data: <<prefix>>_DEMO_UDP
         - id: ipaddress
           data: 169.254.254.251
+        - id: listenpolicy
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_UDP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_UDP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_UDP/name>>
         - id: policylabel
           data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.INIT_UDP/name>>
         expressions:
           install: |
-            add cs vserver <<name>> UDP <<ipaddress>> * -Listenpriority 55 -Listenpolicy "CLIENT.IP.DSTPORT.EQ(993)"
+            add cs vserver <<name>> UDP <<ipaddress>> * -Listenpriority 55 -Listenpolicy <<listenpolicy>>
             bind cs vserver <<name>> -policyName <<policy>> -priority 101 -gotoPriorityExpression NEXT -invoke policylabel <<policylabel>>
           uninstall: |
             rm cs vserver <<name>>

@@ -13,7 +13,7 @@ sections:
         expressions:
           install: |
             add servicegroup <<name>> <<type>>
-            bind servicegroup <<name>> <<server>> 80
+            bind servicegroup <<name>> <<server>> *
           uninstall: rm servicegroup <<name>>
       - name: DUMMY_TCP
         fields:
@@ -26,7 +26,7 @@ sections:
         expressions:
           install: |
             add servicegroup <<name>> <<type>>
-            bind servicegroup <<name>> <<server>> 80
+            bind servicegroup <<name>> <<server>> *
           uninstall: rm servicegroup <<name>>
       - name: DUMMY_UDP
         fields:
@@ -39,5 +39,5 @@ sections:
         expressions:
           install: |
             add servicegroup <<name>> <<type>>
-            bind servicegroup <<name>> <<server>> 80
+            bind servicegroup <<name>> <<server>> *
           uninstall: rm servicegroup <<name>>

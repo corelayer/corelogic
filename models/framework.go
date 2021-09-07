@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 )
 
@@ -233,7 +234,7 @@ func (f *Framework) GetDependencyList(expressions map[string]string) DependencyL
 	output := make(DependencyList, len(expressions))
 
 	i := 0
-	for k, _ := range expressions {
+	for k := range expressions {
 
 		output[i] = Dependency{
 			Name:  k,
@@ -242,5 +243,14 @@ func (f *Framework) GetDependencyList(expressions map[string]string) DependencyL
 		i++
 	}
 
-	return output
+	return f.SortDependencyList(output)
+}
+
+func (f *Framework) SortDependencyList(input DependencyList) DependencyList {
+	// output := make(DependencyList, len(input))
+	sort.Sort(sort.Reverse(input))
+
+	// maxCount := input[0].Count
+
+	return input
 }

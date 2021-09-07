@@ -58,3 +58,461 @@ sections:
         expressions:
           install: add policy stringmap <<name>>
           uninstall: rm policy stringmap <<name>>
+  - name: appexpert.stringmaps.data
+    elements:
+      - name: ENDPOINT_IPV4_HTTP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IP.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=http;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV6_HTTP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IPV6.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=http;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV4_SSL
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IP.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=ssl;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV6_SSL
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IPV6.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=ssl;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV4_TCP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IP.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=tcp;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV6_TCP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IPV6.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=tcp;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV4_SSLTCP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IP.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=ssl_tcp;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV6_SSLTCP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IPV6.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=ssl_tcp;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV4_UDP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IP.DST + ";port=" + CLIENT.UDP.DSTPORT + ";protocol=udp;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV6_UDP
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IPV6.DST + ";port=" + CLIENT.UDP.DSTPORT + ";protocol=udp;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV4_SSLBRIDGE
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IP.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=ssl_bridge;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value>>.VALUE("state").EQ("maintenance")
+      - name: ENDPOINT_IPV6_SSLBRIDGE
+        fields:
+          - id: key
+            data: ("vip=" + CLIENT.IPV6.DST + ";port=" + CLIENT.TCP.DSTPORT + ";protocol=ssl_bridge;").TO_LOWER
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_tenantid
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value>>.VALUE("tenant")
+          - id: value_vserver
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value>>.VALUE("vserver")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV4_HTTP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_HTTP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_HTTP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV6_HTTP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_HTTP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_HTTP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV4_SSL
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSL/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSL/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV6_SSL
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSL/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSL/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV4_TCP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_TCP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_TCP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV6_TCP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_TCP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_TCP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV4_SSLTCP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLTCP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLTCP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV6_SSLTCP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLTCP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLTCP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV4_UDP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_UDP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_UDP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV6_UDP
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_UDP/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_UDP/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV4_SSLBRIDGE
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV4_SSLBRIDGE/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV4_SSLBRIDGE/value>>.VALUE("state").EQ("maintenance")
+      - name: TENANT_IPV6_SSLBRIDGE
+        fields:
+          - id: key
+            data: ("tenant=" + <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value_tenantid>> + ";")
+          - id: key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>")
+          - id: value
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.TENANT/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: value_name
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value>>.VALUE("name")
+          - id: value_state
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value>>.VALUE("state")
+          - id: value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value>>.VALUE("state").EQ("enabled")
+          - id: value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value>>.VALUE("state").EQ("disabled")
+          - id: value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value>>.VALUE("state").EQ("maintenance")

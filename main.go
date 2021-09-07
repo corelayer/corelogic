@@ -18,13 +18,14 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/corelayer/corelogic/controllers"
-	"github.com/corelayer/corelogic/models"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"sort"
 	"strings"
+
+	"github.com/corelayer/corelogic/controllers"
+	"github.com/corelayer/corelogic/models"
+	"gopkg.in/yaml.v2"
 )
 
 func main() {
@@ -84,19 +85,23 @@ func main() {
 		log.Fatal(err7)
 	}
 	fmt.Printf(string(output))
+	fmt.Println("")
+	fmt.Println("===================== END UNMARSHAL ===========================")
 
-	fmt.Println("================================================")
-
+	fmt.Println("")
+	fmt.Println("===================== BEGIN FIELDS ===========================")
 	fields, err8 := controller.Framework.GetFields()
 	if err8 != nil {
 		fmt.Println(err8)
 	}
-	//for k,v := range fields {
-	//	fmt.Println(k, v)
-	//}
-	//
-	//fmt.Println("================================================")
+	for k, v := range fields {
+		fmt.Println(k, v)
+	}
+	fmt.Println("")
+	fmt.Println("===================== END FIELDS ===========================")
 
+	fmt.Println("")
+	fmt.Println("===================== BEGIN INSTALL EXPRESSIONS ===========================")
 	install, err9 := controller.Framework.GetInstallExpressions()
 	if err9 != nil {
 		fmt.Println(err9)
@@ -104,34 +109,45 @@ func main() {
 	//for k, v := range install {
 	//	fmt.Println(k, "\t", v)
 	//}
+	fmt.Println("")
+	fmt.Println("===================== END INSTALL EXPRESSIONS ===========================")
 
-	fmt.Println("================================================")
-	fmt.Println("================================================")
-
+	fmt.Println("")
+	fmt.Println("===================== BEGIN DEPENDENCY COUNT ===========================")
 	sortedExpressions := controller.Framework.GetDependencyList(install)
+	// sort.Sort(sort.Reverse(sortedExpressions))
+
 	for _, v := range sortedExpressions {
 		fmt.Println(v.Name, v.Count)
 	}
+	fmt.Println("")
+	fmt.Println("===================== END DEPENDENCY COUNT ===========================")
 
-	fmt.Println("================================================")
-	fmt.Println("================================================")
-	fmt.Println("================================================")
-	fmt.Println("================================================")
-
-	sort.Sort(sort.Reverse(sortedExpressions))
+	fmt.Println("")
+	fmt.Println("===================== BEGIN INSTALL EXPRESSIONS ===========================")
+	// sort.Sort(sort.Reverse(sortedExpressions))
 	for _, v := range sortedExpressions {
-		//fmt.Println(v.Name, v.Count)
+		sortedFieldKeys := make([]string, 0, len(fields))
+		for f := range fields {
+			sortedFieldKeys = append(sortedFieldKeys, f)
+		}
+		sort.Sort(sort.Reverse(sort.StringSlice(sortedFieldKeys)))
+
+		// fmt.Println(v.Name, v.Count)
 		//count := strings.Count(install[v.Name], "\n")
+
 		if install[v.Name] != "" {
-			for n, e := range fields {
-				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<" + n + ">>", e)
+			for _, e := range sortedFieldKeys {
+				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
 			}
 
-			for k, _ := range framework.GetPrefixMap() {
+			for k := range framework.GetPrefixMap() {
 				//fmt.Println("1", k, "2", p, "3")
-				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<" + k + ">>", framework.GetPrefixWithVersion(k))
+				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+k+">>", framework.GetPrefixWithVersion(k))
 			}
 			fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
 		}
 	}
+	fmt.Println("")
+	fmt.Println("===================== END INSTALL EXPRESSIONS ===========================")
 }
