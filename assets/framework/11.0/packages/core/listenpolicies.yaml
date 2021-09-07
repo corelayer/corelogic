@@ -107,7 +107,7 @@ sections:
           - id: name
             data: <<prefix>>_LISTEN_VS_IPV6_SSLBRIDGE
           - id: expression
-            data: q{(<<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/key_exists>> && <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value_state_isdisabled>>.NOT) & (<<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/key_exists>> && <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value_state_isdisabled>>.NOT)}
+            data: q{(<<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/key_exists>> && <<core.stringmaps.appexpert.stringmaps.data.ENDPOINT_IPV6_SSLBRIDGE/value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/key_exists>> && <<core.stringmaps.appexpert.stringmaps.data.TENANT_IPV6_SSLBRIDGE/value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
