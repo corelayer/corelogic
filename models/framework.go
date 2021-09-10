@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"log"
 	"sort"
 	"strings"
 )
@@ -102,7 +103,7 @@ func (p *Package) AppendData(source map[string]string, destination map[string]st
 	for k, v := range source {
 		if _, isMapContainsKey := destination[k]; isMapContainsKey {
 			err = fmt.Errorf("duplicate key %q found in package %q", k, p.Name)
-			break
+			log.Fatal(err)
 		} else {
 			destination[k] = v
 		}
@@ -144,7 +145,7 @@ func (f *Framework) GetFields() (map[string]string, error) {
 	for _, p := range f.Packages {
 		fields, err = p.GetFields()
 		if err != nil {
-			break
+			log.Fatal(err)
 		} else {
 			output, err = f.AppendData(fields, output)
 		}
@@ -161,7 +162,7 @@ func (f *Framework) GetInstallExpressions() (map[string]string, error) {
 	for _, p := range f.Packages {
 		expressions, err = p.GetInstallExpressions()
 		if err != nil {
-			break
+			log.Fatal(err)
 		} else {
 			output, err = f.AppendData(expressions, output)
 		}
@@ -178,7 +179,7 @@ func (f *Framework) GetUninstallExpressions() (map[string]string, error) {
 	for _, p := range f.Packages {
 		expressions, err = p.GetUninstallExpressions()
 		if err != nil {
-			break
+			log.Fatal(err)
 		} else {
 			output, err = f.AppendData(expressions, output)
 		}
@@ -193,7 +194,7 @@ func (f *Framework) AppendData(source map[string]string, destination map[string]
 	for k, v := range source {
 		if _, isMapContainsKey := destination[k]; isMapContainsKey {
 			err = fmt.Errorf("duplicate key %q found in framework", k)
-			break
+			log.Fatal(err)
 		} else {
 			destination[k] = v
 		}
@@ -226,6 +227,10 @@ func (f *Framework) CountDependencies(search string, expressions map[string]stri
 		if strings.Contains(v, search) {
 			j++
 		}
+
+		// if !strings.Contains(v, search) && strings.Contains(v, "ENDPOINT") {
+		// 	fmt.Println(search, v)
+		// }
 	}
 	return j
 }

@@ -7,50 +7,209 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CS
           - id: expression
-            data: q{true}
+            data: true
         expressions:
-          install: add policy expression <<name>> <<expression>>
-          uninstall: rm policy expression <<name>>
+          install: add policy expression <<name>> q{<<expression>>}
   - name: trafficmanagement.contentswitching.policies
     elements:
-      - name: INIT_IPV4_HTTP
+      - name: INIT_TENANT_IPV4_IPFILTER_HTTP
         fields:
           - id: name
-            data: <<prefix>>_INIT_IPV4_HTTP
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_HTTP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: INIT_IPV6_HTTP
+      - name: INIT_TENANT_IPV6_IPFILTER_HTTP
         fields:
           - id: name
-            data: <<prefix>>_INIT_IPV6_HTTP
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_HTTP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
+
+      # - name: INIT_TENANT_IPV4_IPFILTER_SSL
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_SSL
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+      # - name: INIT_TENANT_IPV6_IPFILTER_SSL
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_SSL
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+
+      # - name: INIT_TENANT_IPV4_IPFILTER_TCP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_TCP
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+      # - name: INIT_TENANT_IPV6_IPFILTER_TCP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_TCP
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+
+      # - name: INIT_TENANT_IPV4_IPFILTER_SSLTCP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_SSLTCP
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+      # - name: INIT_TENANT_IPV6_IPFILTER_SSLTCP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_SSLTCP
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+
+      # - name: INIT_TENANT_IPV4_IPFILTER_UDP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_UDP
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+      # - name: INIT_TENANT_IPV6_IPFILTER_UDP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_UDP
+      #     - id: expression
+      #       data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+      #   expressions:
+      #     install: add cs policy <<name>> -rule q{<<expression>>}
+      #     uninstall: rm cs policy <<name>>
+  
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: INIT_HTTP
         fields:
           - id: name
             data: <<prefix>>_INIT_HTTP
+          
+          - id: 10141001_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_HTTP/name>>
+          - id: 10141001_policylabel
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_HTTP/name>>
+
+          - id: 10161001_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_HTTP/name>>
+          - id: 10161001_policylabel
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
         expressions:
-          install: add cs policylabel <<name>> HTTP
+          install: |
+            add cs policylabel <<name>> HTTP
+            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
           uninstall: rm cs policylabel <<name>>
-      - name: INIT_TCP
-        fields:
-          - id: name
-            data: <<prefix>>_INIT_TCP
-        expressions:
-          install: add cs policylabel <<name>> TCP
-          uninstall: rm cs policylabel <<name>>
-      - name: INIT_UDP
-        fields:
-          - id: name
-            data: <<prefix>>_INIT_UDP
-        expressions:
-          install: add cs policylabel <<name>> UDP
-          uninstall: rm cs policylabel <<name>>
+
+      # - name: INIT_SSL
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_SSL
+          
+      #     - id: 10141001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSL/name>>
+      #     - id: 10141001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
+
+      #     - id: 10161001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_SSL/name>>
+      #     - id: 10161001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
+      #   expressions:
+      #     install: |
+      #       add cs policylabel <<name>> HTTP
+      #       bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+      #       bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+      #     uninstall: rm cs policylabel <<name>>
+
+      # - name: INIT_TCP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_TCP
+          
+      #     - id: 10141001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_TCP/name>>
+      #     - id: 10141001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_TCP/name>>
+
+      #     - id: 10161001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_TCP/name>>
+      #     - id: 10161001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_TCP/name>>
+      #   expressions:
+      #     install: |
+      #       add cs policylabel <<name>> TCP
+      #       bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+      #       bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+      #     uninstall: rm cs policylabel <<name>>
+
+      # - name: INIT_SSLTCP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_SSLTCP
+          
+      #     - id: 10141001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSLTCP/name>>
+      #     - id: 10141001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSLTCP/name>>
+
+      #     - id: 10161001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_SSLTCP/name>>
+      #     - id: 10161001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSLTCP/name>>
+      #   expressions:
+      #     install: |
+      #       add cs policylabel <<name>> SSLTCP
+      #       bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+      #       bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+      #     uninstall: rm cs policylabel <<name>>
+
+      # - name: INIT_UDP
+      #   fields:
+      #     - id: name
+      #       data: <<prefix>>_INIT_UDP
+          
+      #     - id: 10141001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_UDP/name>>
+      #     - id: 10141001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_UDP/name>>
+
+      #     - id: 10161001_policy
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_UDP/name>>
+      #     - id: 10161001_policylabel
+      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_UDP/name>>
+      #   expressions:
+      #     install: |
+      #       add cs policylabel <<name>> UDP
+      #       bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+      #       bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+      #     uninstall: rm cs policylabel <<name>>

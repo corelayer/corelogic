@@ -1,0 +1,476 @@
+name: contentswitching
+sections:
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: TENANT_IPV4_IPFILTER_TERMINATE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_TERMINATE_HTTP
+          - id: expression
+            data: VS_TENANT_IPV4_IPFILTER_TERMINATE_HTTP
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: TENANT_IPV4_IPFILTER_TERMINATE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_TERMINATE_HTTP
+          - id: expression
+            data: true
+          - id: action
+            data: <<core.contentswitching.trafficmanagement.contentswitching.actions.TENANT_IPV4_IPFILTER_TERMINATE_HTTP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV4_IPFILTER_DONE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_DONE_HTTP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_032
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_031
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_030
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_029
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_028
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_027
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_026
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_025
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_024
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_023
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_022
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_021
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_020
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_019
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_018
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_017
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_016
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_015
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_014
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_013
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_012
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_011
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_010
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_009
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_008
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_007
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_006
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_005
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_004
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_003
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_002
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_HTTP_001
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_HTTP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+          
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_HTTP
+
+
+          - id: 10341001_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_032/name>>
+          - id: 10341002_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_031/name>>
+          - id: 10341003_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_030/name>>
+          - id: 10341004_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_029/name>>
+          - id: 10341005_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_028/name>>
+          - id: 10341006_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_027/name>>
+          - id: 10341007_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_026/name>>
+          - id: 10341008_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_025/name>>
+          - id: 10341009_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_024/name>>
+          - id: 10341010_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_023/name>>
+          - id: 10341011_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_022/name>>
+          - id: 10341012_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_021/name>>
+          - id: 10341013_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_020/name>>
+          - id: 10341014_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_019/name>>
+          - id: 10341015_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_018/name>>
+          - id: 10341016_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_017/name>>
+          - id: 10341017_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_016/name>>
+          - id: 10341018_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_015/name>>
+          - id: 10341019_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_014/name>>
+          - id: 10341020_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_013/name>>
+          - id: 10341021_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_012/name>>
+          - id: 10341022_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_011/name>>
+          - id: 10341023_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_010/name>>
+          - id: 10341024_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_009/name>>
+          - id: 10341025_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_008/name>>
+          - id: 10341026_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_007/name>>
+          - id: 10341027_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_006/name>>
+          - id: 10341028_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_005/name>>
+          - id: 10341029_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_004/name>>
+          - id: 10341030_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_003/name>>
+          - id: 10341031_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_002/name>>
+          - id: 10341032_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_HTTP_001/name>>
+
+
+          - id: 10342001_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TERMINATE_HTTP/name>>
+          - id: 10342002_policy
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_DONE_HTTP/name>>
+          - id: 10342002_policylabel
+            data: <<core.contentswitching.trafficmanagement.contentswitching.policylabel.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
+        expressions:
+          install: |
+            add cs policylabel <<name>> HTTP
+            bind cs policylabel <<name>> <<10341001_policy>> -priority 10341001 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341002_policy>> -priority 10341002 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341003_policy>> -priority 10341003 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341004_policy>> -priority 10341004 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341005_policy>> -priority 10341005 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341006_policy>> -priority 10341006 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341007_policy>> -priority 10341007 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341008_policy>> -priority 10341008 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341009_policy>> -priority 10341009 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341010_policy>> -priority 10341010 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341011_policy>> -priority 10341011 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341012_policy>> -priority 10341012 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341013_policy>> -priority 10341013 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341014_policy>> -priority 10341014 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341015_policy>> -priority 10341015 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341016_policy>> -priority 10341016 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341017_policy>> -priority 10341017 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341018_policy>> -priority 10341018 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341019_policy>> -priority 10341019 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341020_policy>> -priority 10341020 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341021_policy>> -priority 10341021 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341022_policy>> -priority 10341022 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341023_policy>> -priority 10341023 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341024_policy>> -priority 10341024 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341025_policy>> -priority 10341025 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341026_policy>> -priority 10341026 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341027_policy>> -priority 10341027 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341028_policy>> -priority 10341028 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341029_policy>> -priority 10341029 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341030_policy>> -priority 10341030 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341031_policy>> -priority 10341031 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10341032_policy>> -priority 10341032 -gotoPriorityExpression 10342002
+            bind cs policylabel <<name>> <<10342001_policy>> -priority 10342001
+            bind cs policylabel <<name>> <<10342002_policy>> -priority 10342002 -gotoPriorityExpression NEXT -invoke policylabel <<10342002_policylabel>>
+          uninstall: rm cs policylabel <<name>>

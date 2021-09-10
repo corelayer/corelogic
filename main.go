@@ -61,7 +61,7 @@ func main() {
 				log.Fatal(err4)
 			}
 			for _, m := range files {
-				if m.IsDir() == false {
+				if !m.IsDir() {
 					fmt.Println(m.Name())
 					moduleSource, err5 := ioutil.ReadFile(rootDir + "/packages/" + v.Name() + "/" + m.Name())
 					if err5 != nil {
@@ -84,7 +84,7 @@ func main() {
 	if err7 != nil {
 		log.Fatal(err7)
 	}
-	fmt.Printf(string(output))
+	fmt.Print(string(output))
 	fmt.Println("")
 	fmt.Println("===================== END UNMARSHAL ===========================")
 
@@ -92,7 +92,7 @@ func main() {
 	fmt.Println("===================== BEGIN FIELDS ===========================")
 	fields, err8 := controller.Framework.GetFields()
 	if err8 != nil {
-		fmt.Println(err8)
+		log.Fatal(err8)
 	}
 	for k, v := range fields {
 		fmt.Println(k, v)
@@ -104,11 +104,11 @@ func main() {
 	fmt.Println("===================== BEGIN INSTALL EXPRESSIONS ===========================")
 	install, err9 := controller.Framework.GetInstallExpressions()
 	if err9 != nil {
-		fmt.Println(err9)
+		log.Fatal(err9)
 	}
-	//for k, v := range install {
-	//	fmt.Println(k, "\t", v)
-	//}
+	for k, v := range install {
+		fmt.Println(k, "\t", v)
+	}
 	fmt.Println("")
 	fmt.Println("===================== END INSTALL EXPRESSIONS ===========================")
 
@@ -137,7 +137,15 @@ func main() {
 		//count := strings.Count(install[v.Name], "\n")
 
 		if install[v.Name] != "" {
+			// Replace fields referenced in expressions
 			for _, e := range sortedFieldKeys {
+
+				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
+			}
+
+			// Replace fields referenced in fields
+			for _, e := range sortedFieldKeys {
+
 				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
 			}
 
@@ -145,6 +153,7 @@ func main() {
 				//fmt.Println("1", k, "2", p, "3")
 				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+k+">>", framework.GetPrefixWithVersion(k))
 			}
+			// fmt.Println(v.Name)
 			fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
 		}
 	}

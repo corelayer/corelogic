@@ -1,0 +1,112 @@
+# name: contentswitching
+# sections:
+#   - name: trafficmanagement.contentswitching.policies
+#     elements:
+#       - name: IPV4_ENDPOINT_IPFILTER_HTTP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV4_ENDPOINT_IPFILTER_HTTP
+#           - id: expression
+#             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+#         expressions:
+#           install: add cs policy <<name>> -rule q{<<expression>>}
+#           uninstall: rm cs policy <<name>>
+#       - name: IPV6_ENDPOINT_IPFILTER_HTTP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV6_ENDPOINT_IPFILTER_HTTP
+#           - id: expression
+#             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+#         expressions:
+#           install: add cs policy <<name>> -rule q{<<expression>>}
+#           uninstall: rm cs policy <<name>>
+
+#       - name: IPV4_ENDPOINT_IPFILTER_TCP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV4_ENDPOINT_IPFILTER_TCP
+#           - id: expression
+#             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+#         expressions:
+#           install: add cs policy <<name>> -rule q{<<expression>>}
+#           uninstall: rm cs policy <<name>>
+#       - name: IPV6_ENDPOINT_IPFILTER_TCP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV6_ENDPOINT_IPFILTER_TCP
+#           - id: expression
+#             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+#         expressions:
+#           install: add cs policy <<name>> -rule q{<<expression>>}
+#           uninstall: rm cs policy <<name>>
+
+#       - name: IPV4_ENDPOINT_IPFILTER_UDP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV4_ENDPOINT_IPFILTER_UDP
+#           - id: expression
+#             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+#         expressions:
+#           install: add cs policy <<name>> -rule q{<<expression>>}
+#           uninstall: rm cs policy <<name>>
+#       - name: IPV6_ENDPOINT_IPFILTER_UDP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV6_ENDPOINT_IPFILTER_UDP
+#           - id: expression
+#             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+#         expressions:
+#           install: add cs policy <<name>> -rule q{<<expression>>}
+#           uninstall: rm cs policy <<name>>
+
+          
+#   - name: trafficmanagement.contentswitching.policylabels
+#     elements:
+#       - name: IPV4_ENDPOINT_IPFILTER_HTTP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV4_ENDPOINT_IPFILTER_HTTP
+#         expressions:
+#           install: |
+#             add cs policylabel <<name>> HTTP
+#             bind cs policylabel <<name>> 
+#           uninstall: rm cs policylabel <<name>>
+#       - name: IPV6_ENDPOINT_IPFILTER_HTTP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV6_ENDPOINT_IPFILTER_HTTP
+#         expressions:
+#           install: |
+#             add cs policylabel <<name>> HTTP
+#             bind cs policylabel <<name>> 
+#           uninstall: rm cs policylabel <<name>>
+      
+#       - name: IPV4_ENDPOINT_IPFILTER_TCP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV4_ENDPOINT_IPFILTER_TCP
+#         expressions:
+#           install: add cs policylabel <<name>> TCP
+#           uninstall: rm cs policylabel <<name>>
+#       - name: IPV6_ENDPOINT_IPFILTER_TCP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV6_ENDPOINT_IPFILTER_TCP
+#         expressions:
+#           install: add cs policylabel <<name>> TCP
+#           uninstall: rm cs policylabel <<name>>
+
+#       - name: IPV4_ENDPOINT_IPFILTER_UDP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV4_ENDPOINT_IPFILTER_UDP
+#         expressions:
+#           install: add cs policylabel <<name>> UDP
+#           uninstall: rm cs policylabel <<name>>
+#       - name: IPV6_ENDPOINT_IPFILTER_UDP
+#         fields:
+#           - id: name
+#             data: <<prefix>>_IPV6_ENDPOINT_IPFILTER_UDP
+#         expressions:
+#           install: add cs policylabel <<name>> UDP
+#           uninstall: rm cs policylabel <<name>>
