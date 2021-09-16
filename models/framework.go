@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 	"log"
+	"regexp"
 	"sort"
 	"strings"
 )
@@ -40,11 +41,11 @@ func (f *Framework) GetPrefixWithVersion(sectionName string) string {
 
 func (f *Framework) GetFields() (map[string]string, error) {
 	output := make(map[string]string)
-	var fields map[string]string
 	var err error
 
+	// var fields map[string]string
 	for _, p := range f.Packages {
-		fields, err = p.GetFields()
+		fields, err := p.GetFields()
 		if err != nil {
 			log.Fatal(err)
 		} else {
@@ -52,6 +53,40 @@ func (f *Framework) GetFields() (map[string]string, error) {
 		}
 	}
 
+	re := regexp.MustCompile(`<<[a-zA-Z0-9_.]*/[a-zA-Z0-9_]*>>`)
+	//var foundKeys []string
+	for key, _ := range output {
+		// fmt.Println("Current key", key)
+		// fmt.Println("Current value", value)
+		// fmt.Println("=========")
+		loop := true
+		for loop {
+			foundKeys := re.FindAllString(output[key], -1)
+			// fmt.Printf("%d\n", len(foundKeys))
+			for _, foundKey := range foundKeys {
+				// fmt.Println("Found key", foundKey)
+				searchKey := strings.ReplaceAll(foundKey, "<<", "")
+				searchKey = strings.ReplaceAll(searchKey, ">>", "")
+				// fmt.Println("Search key", searchKey)
+				// fmt.Println("Search value", output[searchKey])
+				output[key] = strings.ReplaceAll(output[key], foundKey, output[searchKey])
+				// fmt.Println("Temp output", output[key])
+				// fmt.Println("----")
+
+			}
+			// fmt.Println("====")
+			// fmt.Println("New output K", key)
+			// fmt.Println("New output V", output[key])
+			// fmt.Println("")
+			// fmt.Println("")
+
+			if re.MatchString(output[key]) {
+				loop = true
+			} else {
+				loop = false
+			}
+		}
+	}
 	return output, err
 }
 

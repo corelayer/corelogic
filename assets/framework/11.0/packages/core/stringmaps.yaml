@@ -565,6 +565,7 @@ sections:
           install: add policy stringmap <<name>>
           uninstall: rm policy stringmap <<name>>
 
+      - name: IPFILTER_CSGROUP
         fields:
           - id: name
             data: <<prefix>>_IPFILTER_CSGROUP
