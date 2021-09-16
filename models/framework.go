@@ -7,109 +7,14 @@ import (
 	"strings"
 )
 
-type Release struct {
-	Major int `yaml:major`
-	Minor int `yaml:minor`
-}
-
-type SectionPrefix struct {
-	Section string `yaml:section`
-	Prefix  string `yaml:prefix`
-}
-
-type Package struct {
-	Name    string   `yaml:string`
-	Modules []Module `yaml:modules`
-}
-
-type Framework struct {
-	Release  Release         `yaml:release`
-	Prefixes []SectionPrefix `yaml:prefixes`
-	Packages []Package       `yaml:packages`
-}
-
 type DataMapWriter interface {
 	AppendData(source map[string]string, destination map[string]string) (map[string]string, error)
 }
 
-type ReleaseReader interface {
-	GetVersionAsString() string
-}
-
-func (f *Release) GetVersionAsString() string {
-	return fmt.Sprintf("CL%02d%02d", f.Major, f.Minor)
-}
-
-type PackageReader interface {
-	GetFields() (map[string]string, error)
-	GetInstallExpressions() (map[string]string, error)
-	GetUninstallExpressions() (map[string]string, error)
-}
-
-func (p *Package) GetFields() (map[string]string, error) {
-	output := make(map[string]string)
-	var fields map[string]string
-	var err error
-
-	for _, m := range p.Modules {
-		fields, err = m.GetFields(p.Name)
-		if err != nil {
-			break
-		} else {
-			output, err = p.AppendData(fields, output)
-		}
-	}
-
-	return output, err
-}
-
-func (p *Package) GetInstallExpressions() (map[string]string, error) {
-	output := make(map[string]string)
-	var expressions map[string]string
-	var err error
-
-	for _, m := range p.Modules {
-		expressions, err = m.GetInstallExpressions(p.Name)
-		if err != nil {
-			break
-		} else {
-			output, err = p.AppendData(expressions, output)
-		}
-	}
-
-	return output, err
-}
-
-func (p *Package) GetUninstallExpressions() (map[string]string, error) {
-	output := make(map[string]string)
-	var expressions map[string]string
-	var err error
-
-	for _, m := range p.Modules {
-		expressions, err = m.GetUninstallExpressions(p.Name)
-		if err != nil {
-			break
-		} else {
-			output, err = p.AppendData(expressions, output)
-		}
-	}
-
-	return output, err
-}
-
-func (p *Package) AppendData(source map[string]string, destination map[string]string) (map[string]string, error) {
-	var err error
-
-	for k, v := range source {
-		if _, isMapContainsKey := destination[k]; isMapContainsKey {
-			err = fmt.Errorf("duplicate key %q found in package %q", k, p.Name)
-			log.Fatal(err)
-		} else {
-			destination[k] = v
-		}
-	}
-
-	return destination, err
+type Framework struct {
+	Release  Release   `yaml:release`
+	Prefixes []Prefix  `yaml:prefixes`
+	Packages []Package `yaml:packages`
 }
 
 type FrameworkReader interface {
@@ -130,10 +35,6 @@ func (f *Framework) GetPrefixMap() map[string]string {
 }
 
 func (f *Framework) GetPrefixWithVersion(sectionName string) string {
-	//var output []string
-	//output = append(output, f.GetPrefixMap()[sectionName])
-	//output = append(output, f.Release.GetVersionAsString())
-
 	return strings.Join([]string{f.GetPrefixMap()[sectionName], f.Release.GetVersionAsString()}, "_")
 }
 
@@ -201,24 +102,6 @@ func (f *Framework) AppendData(source map[string]string, destination map[string]
 	}
 
 	return destination, err
-}
-
-type Dependency struct {
-	Name  string
-	Count int
-}
-
-type DependencyList []Dependency
-
-func (d DependencyList) Len() int {
-	return len(d)
-}
-
-func (d DependencyList) Swap(i, j int) {
-	d[i], d[j] = d[j], d[i]
-}
-func (d DependencyList) Less(i, j int) bool {
-	return d[i].Count < d[j].Count
 }
 
 func (f *Framework) CountDependencies(search string, expressions map[string]string) int {

@@ -80,11 +80,12 @@ func main() {
 		}
 	}
 
-	output, err7 := json.MarshalIndent(controller.Framework, "", "\t")
+	// output, err7 := json.MarshalIndent(controller.Framework, "", "\t")
+	_, err7 := json.MarshalIndent(controller.Framework, "", "\t")
 	if err7 != nil {
 		log.Fatal(err7)
 	}
-	fmt.Print(string(output))
+	// fmt.Print(string(output))
 	fmt.Println("")
 	fmt.Println("===================== END UNMARSHAL ===========================")
 
@@ -94,9 +95,9 @@ func main() {
 	if err8 != nil {
 		log.Fatal(err8)
 	}
-	for k, v := range fields {
-		fmt.Println(k, v)
-	}
+	// for k, v := range fields {
+	// 	fmt.Println(k, v)
+	// }
 	fmt.Println("")
 	fmt.Println("===================== END FIELDS ===========================")
 
@@ -106,55 +107,97 @@ func main() {
 	if err9 != nil {
 		log.Fatal(err9)
 	}
-	for k, v := range install {
-		fmt.Println(k, "\t", v)
-	}
+	// for k, v := range install {
+	// 	fmt.Println(k, "\t", v)
+	// }
 	fmt.Println("")
 	fmt.Println("===================== END INSTALL EXPRESSIONS ===========================")
 
 	fmt.Println("")
 	fmt.Println("===================== BEGIN DEPENDENCY COUNT ===========================")
-	sortedExpressions := controller.Framework.GetDependencyList(install)
+	// sortedExpressions := controller.Framework.GetDependencyList(install)
 	// sort.Sort(sort.Reverse(sortedExpressions))
 
-	for _, v := range sortedExpressions {
-		fmt.Println(v.Name, v.Count)
-	}
+	// for _, v := range sortedExpressions {
+	// 	fmt.Println(v.Name, v.Count)
+	// }
 	fmt.Println("")
 	fmt.Println("===================== END DEPENDENCY COUNT ===========================")
 
 	fmt.Println("")
 	fmt.Println("===================== BEGIN INSTALL EXPRESSIONS ===========================")
 	// sort.Sort(sort.Reverse(sortedExpressions))
-	for _, v := range sortedExpressions {
+	// for _, v := range sortedExpressions {
+	// 	sortedFieldKeys := make([]string, 0, len(fields))
+	// 	for f := range fields {
+	// 		sortedFieldKeys = append(sortedFieldKeys, f)
+	// 		// fmt.Println(f)
+	// 	}
+	// 	sort.Sort(sort.Reverse(sort.StringSlice(sortedFieldKeys)))
+
+	// 	// fmt.Println(v.Name, v.Count)
+	// 	//count := strings.Count(install[v.Name], "\n")
+
+	// 	if install[v.Name] != "" {
+	// 		// Replace fields referenced in expressions
+	// 		for _, e := range sortedFieldKeys {
+
+	// 			install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
+	// 		}
+
+	// 		// Replace fields referenced in fields
+	// 		for _, e := range sortedFieldKeys {
+
+	// 			install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
+	// 		}
+
+	// 		for k := range framework.GetPrefixMap() {
+	// 			//fmt.Println("1", k, "2", p, "3")
+	// 			install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+k+">>", framework.GetPrefixWithVersion(k))
+	// 		}
+	// 		// fmt.Println(v.Name)
+	// 		// fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
+	// 	}
+	// }
+	// fmt.Println("")
+
+	// sort.Sort(sort.Reverse(sortedExpressions))
+	for InstallKey, InstallValue := range install {
 		sortedFieldKeys := make([]string, 0, len(fields))
 		for f := range fields {
 			sortedFieldKeys = append(sortedFieldKeys, f)
 		}
-		sort.Sort(sort.Reverse(sort.StringSlice(sortedFieldKeys)))
+		sort.Sort(sort.StringSlice(sortedFieldKeys))
 
-		// fmt.Println(v.Name, v.Count)
-		//count := strings.Count(install[v.Name], "\n")
+		// for fieldKey, fieldValue := range sortedFieldKeys {
+		// 	fmt.Println(fieldKey, fieldValue)
+		// }
 
-		if install[v.Name] != "" {
+		if install[InstallKey] != "" {
+			fmt.Println(InstallKey)
+			fmt.Println(InstallValue)
+			fmt.Println("")
+
 			// Replace fields referenced in expressions
 			for _, e := range sortedFieldKeys {
 
-				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
+				install[InstallKey] = strings.ReplaceAll(install[InstallKey], "<<"+e+">>", fields[e])
 			}
 
-			// Replace fields referenced in fields
-			for _, e := range sortedFieldKeys {
+			// // Replace fields referenced in fields
+			// for _, e := range sortedFieldKeys {
 
-				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+e+">>", fields[e])
-			}
+			// 	install[InstallKey] = strings.ReplaceAll(install[InstallKey], "<<"+e+">>", fields[e])
+			// }
 
-			for k := range framework.GetPrefixMap() {
-				//fmt.Println("1", k, "2", p, "3")
-				install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+k+">>", framework.GetPrefixWithVersion(k))
-			}
-			// fmt.Println(v.Name)
-			fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
+			// fmt.Println(install[InstallKey])
+
+			// 	for k := range framework.GetPrefixMap() {
+			// 		//fmt.Println("1", k, "2", p, "3")
+			// 		install[v.Name] = strings.ReplaceAll(install[v.Name], "<<"+k+">>", framework.GetPrefixWithVersion(k))
+			// 	}
+			// 	// fmt.Println(v.Name)
+			// 	// fmt.Println(strings.TrimSuffix(install[v.Name], "\n"))
 		}
 	}
 	fmt.Println("")

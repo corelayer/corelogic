@@ -184,7 +184,7 @@ func TestPackage_GetFields2(t *testing.T) {
 
 func TestFramework_GetPrefixMap(t *testing.T) {
 	f := Framework{
-		Prefixes: []SectionPrefix{
+		Prefixes: []Prefix{
 			{Section: "appexpert.stringmaps", Prefix: "PSM"},
 		},
 	}
@@ -205,7 +205,7 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 			Major: 10,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{
+		Prefixes: []Prefix{
 			{Section: "AppExpert.Stringmaps", Prefix: "PSM"},
 		},
 	}
@@ -306,7 +306,7 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -379,7 +379,7 @@ func TestFramework_GetInstallExpressions2(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -464,7 +464,7 @@ func TestFramework_GetInstallExpressions3(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -538,7 +538,7 @@ func TestFramework_GetInstallExpressions4(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -627,7 +627,7 @@ func TestFramework_GetUninstallExpressions(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -700,7 +700,7 @@ func TestFramework_GetUninstallExpressions2(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -774,7 +774,7 @@ func TestFramework_GetUninstallExpressions3(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -862,7 +862,7 @@ func TestFramework_GetUninstallExpressions4(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
@@ -953,7 +953,7 @@ func TestFramework_AppendData(t *testing.T) {
 			Major: 11,
 			Minor: 2,
 		},
-		Prefixes: []SectionPrefix{{
+		Prefixes: []Prefix{{
 			Section: "appexpert.stringmaps",
 			Prefix:  "PSM",
 		}, {
