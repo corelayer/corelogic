@@ -17,7 +17,7 @@ type Section struct {
 
 type SectionReader interface {
 	GetFullName(moduleName string) string
-	ExpandSectionPrefix(expression string) string
+	expandSectionPrefix(expression string) string
 	GetFields(moduleName string) (map[string]string, error)
 	GetInstallExpressions(moduleName string) (map[string]string, error)
 	GetUninstallExpressions(moduleName string) (map[string]string, error)
@@ -27,7 +27,7 @@ func (s *Section) GetFullName(moduleName string) string {
 	return moduleName + "." + s.Name
 }
 
-func (s *Section) ExpandSectionPrefix(expression string) string {
+func (s *Section) expandSectionPrefix(expression string) string {
 	return strings.ReplaceAll(expression, "prefix", s.Name)
 }
 
@@ -43,7 +43,7 @@ func (s *Section) GetFields(moduleName string) (map[string]string, error) {
 				err = fmt.Errorf("duplicate key in fields: %q", outputKey)
 				break
 			} else {
-				output[outputKey] = s.ExpandSectionPrefix(f.Data)
+				output[outputKey] = s.expandSectionPrefix(f.Data)
 			}
 		}
 	}
@@ -68,7 +68,7 @@ func (s *Section) GetInstallExpressions(moduleName string) (map[string]string, e
 				err = fmt.Errorf("duplicate key in section: %q", outputKey)
 				break
 			} else {
-				output[outputKey] = s.ExpandSectionPrefix(outputValue)
+				output[outputKey] = s.expandSectionPrefix(outputValue)
 			}
 		}
 	}
@@ -93,7 +93,7 @@ func (s *Section) GetUninstallExpressions(moduleName string) (map[string]string,
 				err = fmt.Errorf("duplicate key in section: %q", outputKey)
 				break
 			} else {
-				output[outputKey] = s.ExpandSectionPrefix(outputValue)
+				output[outputKey] = s.expandSectionPrefix(outputValue)
 			}
 		}
 	}

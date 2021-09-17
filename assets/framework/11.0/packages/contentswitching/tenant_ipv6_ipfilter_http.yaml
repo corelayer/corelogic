@@ -1,0 +1,75 @@
+name: tenant_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_HTTP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_HTTP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV6_IPFILTER_NONE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_NONE_HTTP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: TENANT_IPV6_IPFILTER_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_HTTP
+        expressions:
+          install: add cs policylabel <<name>> HTTP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: TENANT_IPV6_IPFILTER_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_HTTP
+
+          - id: label
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
+
+          - id: 10261001_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>
+          - id: 10261001_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>
+
+          - id: 10261002_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_HTTP/name>>
+          - id: 10261002_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_BLOCKLIST_HTTP/name>>
+
+          - id: 10261003_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_NONE_HTTP/name>>
+          - id: 10261003_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_HTTP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10261001_policy>> -priority 10261001 -gotoPriorityExpression NEXT -invoke policylabel <<10261001_policylabel>>
+            bind cs policylabel <<label>> <<10261002_policy>> -priority 10261002 -gotoPriorityExpression NEXT -invoke policylabel <<10261002_policylabel>>
+            bind cs policylabel <<label>> <<10261003_policy>> -priority 10261003 -gotoPriorityExpression NEXT -invoke policylabel <<10261003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10261001_policy>>
+            unbind cs policylabel <<label>> <<10261002_policy>>
+            unbind cs policylabel <<label>> <<10261003_policy>>

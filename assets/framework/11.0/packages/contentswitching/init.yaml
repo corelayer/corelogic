@@ -1,4 +1,4 @@
-name: contentswitching
+name: init
 sections:
   - name: appexpert.expressions.advanced
     elements:
@@ -115,14 +115,14 @@ sections:
             data: <<prefix>>_INIT_HTTP
           
           - id: 10141001_policy
-            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_HTTP/name>>
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_HTTP/name>>
           - id: 10141001_policylabel
-            data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_HTTP/name>>
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_HTTP/name>>
 
           - id: 10161001_policy
-            data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_HTTP/name>>
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_HTTP/name>>
           - id: 10161001_policylabel
-            data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
         expressions:
           install: |
             add cs policylabel <<name>> HTTP
@@ -136,14 +136,14 @@ sections:
       #       data: <<prefix>>_INIT_SSL
           
       #     - id: 10141001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSL/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSL/name>>
       #     - id: 10141001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
 
       #     - id: 10161001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_SSL/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_SSL/name>>
       #     - id: 10161001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
       #   expressions:
       #     install: |
       #       add cs policylabel <<name>> HTTP
@@ -157,14 +157,14 @@ sections:
       #       data: <<prefix>>_INIT_TCP
           
       #     - id: 10141001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_TCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_TCP/name>>
       #     - id: 10141001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_TCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_TCP/name>>
 
       #     - id: 10161001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_TCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_TCP/name>>
       #     - id: 10161001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_TCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_TCP/name>>
       #   expressions:
       #     install: |
       #       add cs policylabel <<name>> TCP
@@ -178,14 +178,14 @@ sections:
       #       data: <<prefix>>_INIT_SSLTCP
           
       #     - id: 10141001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSLTCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSLTCP/name>>
       #     - id: 10141001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSLTCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSLTCP/name>>
 
       #     - id: 10161001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_SSLTCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_SSLTCP/name>>
       #     - id: 10161001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSLTCP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSLTCP/name>>
       #   expressions:
       #     install: |
       #       add cs policylabel <<name>> SSLTCP
@@ -199,14 +199,14 @@ sections:
       #       data: <<prefix>>_INIT_UDP
           
       #     - id: 10141001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_UDP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_UDP/name>>
       #     - id: 10141001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_UDP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_UDP/name>>
 
       #     - id: 10161001_policy
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_UDP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_UDP/name>>
       #     - id: 10161001_policylabel
-      #       data: <<core.contentswitching.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_UDP/name>>
+      #       data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_UDP/name>>
       #   expressions:
       #     install: |
       #       add cs policylabel <<name>> UDP

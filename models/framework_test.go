@@ -189,7 +189,7 @@ func TestFramework_GetPrefixMap(t *testing.T) {
 		},
 	}
 
-	output := f.GetPrefixMap()
+	output := f.getPrefixMap()
 
 	expectedOutputKey := "appexpert.stringmaps"
 	expectedOutputValue := "PSM"
@@ -210,7 +210,7 @@ func TestFramework_GetPrefixWithVersion(t *testing.T) {
 		},
 	}
 
-	output := f.GetPrefixWithVersion("AppExpert.Stringmaps")
+	output := f.getPrefixWithVersion("AppExpert.Stringmaps")
 	expectedOutput := "PSM_CL10_02"
 
 	if output != expectedOutput {
@@ -247,7 +247,7 @@ func TestFramework_GetFields(t *testing.T) {
 		},
 	}
 
-	output, err := f.GetFields()
+	output, err := f.getFields()
 	if err != nil {
 		t.Errorf("%s", err)
 	}
@@ -294,7 +294,7 @@ func TestFramework_GetFields2(t *testing.T) {
 		},
 	}
 
-	_, err := f.GetFields()
+	_, err := f.getFields()
 	if err == nil {
 		t.Errorf("Expected duplicate key in fields")
 	}
@@ -367,7 +367,7 @@ func TestFramework_GetInstallExpressions(t *testing.T) {
 		},
 	}
 
-	_, err := f.GetInstallExpressions()
+	_, err := f.getInstallExpressions()
 	if err != nil {
 		t.Errorf("%s", err)
 	}
@@ -449,7 +449,7 @@ func TestFramework_GetInstallExpressions2(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetInstallExpressions()
+	_, err = f.getInstallExpressions()
 	if err == nil {
 		t.Errorf("Expected duplicate key in section")
 	}
@@ -523,7 +523,7 @@ func TestFramework_GetInstallExpressions3(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetInstallExpressions()
+	_, err = f.getInstallExpressions()
 	if err == nil {
 		t.Errorf("Expected duplicate key in fields")
 	}
@@ -612,7 +612,7 @@ func TestFramework_GetInstallExpressions4(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetInstallExpressions()
+	_, err = f.getInstallExpressions()
 	if err == nil {
 		t.Errorf("Expected duplicate key in module")
 	}
@@ -685,7 +685,7 @@ func TestFramework_GetUninstallExpressions(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetUninstallExpressions()
+	_, err = f.getUninstallExpressions()
 	if err != nil {
 		t.Errorf("%s", err)
 	}
@@ -759,7 +759,7 @@ func TestFramework_GetUninstallExpressions2(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetUninstallExpressions()
+	_, err = f.getUninstallExpressions()
 	if err == nil {
 		t.Errorf("Expected duplicate key in fields")
 	}
@@ -847,7 +847,7 @@ func TestFramework_GetUninstallExpressions3(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetUninstallExpressions()
+	_, err = f.getUninstallExpressions()
 	if err == nil {
 		t.Errorf("Expected duplicate key in section")
 	}
@@ -938,7 +938,7 @@ func TestFramework_GetUninstallExpressions4(t *testing.T) {
 	//var output = make(map[string]string)
 	var err error
 
-	_, err = f.GetUninstallExpressions()
+	_, err = f.getUninstallExpressions()
 	if err == nil {
 		t.Errorf("Expected duplicate key in module")
 	}
@@ -1008,10 +1008,10 @@ func TestFramework_AppendData(t *testing.T) {
 		},
 	}
 
-	input1, _ := f.GetInstallExpressions()
+	input1, _ := f.getInstallExpressions()
 	input2 := input1
 
-	_, err := f.AppendData(input2, input1)
+	_, err := f.appendData(input2, input1)
 	if err == nil {
 		t.Errorf("Expected duplicate key in framework")
 	}

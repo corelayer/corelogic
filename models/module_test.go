@@ -42,7 +42,6 @@ func TestElement_GetFullyQualifiedExpression(t *testing.T) {
 		},
 	}
 
-
 	output, _ := e.GetFullyQualifiedExpression(e.Expressions.Install, "packageName.moduleName")
 	expectedOutput := "add cs policy <<prefix>>TRUSTED_FULL q{<<core.appexpert.expressions.contentswitching.policies.trusted_full/name>>} <<core.placeholders.csa_trusted_full>>"
 
@@ -67,10 +66,10 @@ func TestSection_GetFullName(t *testing.T) {
 
 func TestSection_ExpandSectionPrefix(t *testing.T) {
 	s := Section{
-		Name:     "trafficmanagement.loadbalancing.servers",
+		Name: "trafficmanagement.loadbalancing.servers",
 	}
 
-	output := s.ExpandSectionPrefix("<<prefix>>expression")
+	output := s.expandSectionPrefix("<<prefix>>expression")
 	expectedOutput := "<<trafficmanagement.loadbalancing.servers>>expression"
 	if output != expectedOutput {
 		t.Errorf("Output string is incorrect, got: %s, want: %s", output, expectedOutput)
@@ -318,7 +317,6 @@ func TestSection_GetInstallExpressions3(t *testing.T) {
 	var err error
 	_, err = s.GetInstallExpressions("packageName.moduleName")
 
-
 	if err == nil {
 		t.Errorf("Expected duplicate key in fields")
 	}
@@ -469,7 +467,7 @@ func TestSection_GetUninstallExpressions3(t *testing.T) {
 
 func TestModule_GetFullModuleName(t *testing.T) {
 	m := Module{
-		Name:     "moduleName",
+		Name: "moduleName",
 	}
 
 	output := m.GetFullModuleName("packageName")
@@ -579,7 +577,6 @@ func TestModule_GetFields2(t *testing.T) {
 			},
 		},
 	}
-
 
 	var err error
 	_, err = m.GetFields("packageName")
