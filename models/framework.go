@@ -239,7 +239,7 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 				Count: j,
 			}
 			i++
-			fmt.Println()
+			// fmt.Println()
 		}
 	}
 

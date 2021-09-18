@@ -1,0 +1,37 @@
+name: cs_ipfilter
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: CS_IPV4_IPFILTER_TERMINATE_HTTP
+        fields:
+        - id: name
+          data: <<prefix>>_CS_IPV4_IPFILTER_TERMINATE_HTTP
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_HTTP/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> HTTP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+          uninstall: rm lb vserver <<name>>
+      - name: CS_IPV4_IPFILTER_TERMINATE_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_CS_IPV4_IPFILTER_TERMINATE_TCP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
+        expressions:
+         install: |
+           add lb vserver <<name>> TCP 0.0.0.0 0
+           bind lb vserver <<name>> <<servicegroup>>
+         uninstall: rm lb vserver <<name>>
+      - name: CS_IPV4_IPFILTER_TERMINATE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CS_IPV4_IPFILTER_TERMINATE_UDP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_UDP/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> UDP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+          uninstall: rm lb vserver <<name>>
