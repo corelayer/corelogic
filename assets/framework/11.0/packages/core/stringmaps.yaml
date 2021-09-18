@@ -380,7 +380,7 @@ sections:
           - id: ipv6_http_value_state_ismaintenance
             data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_state>>.EQ("maintenance")
           - id: ipv6_http_value_ipfilter
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value>>.VALUE("ipfilter")
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value>>.VALUE("ipfilter")
           - id: ipv6_http_value_ipfilter_isnone
             data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter>>.EQ("none")
           - id: ipv6_http_value_ipfilter_isallow
@@ -668,6 +668,7 @@ sections:
         expressions:
           install: add policy stringmap <<name>>
           uninstall: rm policy stringmap <<name>>
+
       - name: IPFILTER_ENDPOINT
         fields:
           - id: name
