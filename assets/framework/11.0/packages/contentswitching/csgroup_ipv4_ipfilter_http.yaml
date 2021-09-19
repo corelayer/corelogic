@@ -406,7 +406,7 @@ sections:
           - id: 10641001_policy
             data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV4_IPFILTER_NONE_HTTP/name>>
           - id: 10641001_policylabel
-            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV4_IPFILTER_HTTP/name>>
+            data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV4_IPFILTER_HTTP/name>>
 
           - id: 10641002_policy
             data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV4_IPFILTER_ALLOWLIST_HTTP/name>>

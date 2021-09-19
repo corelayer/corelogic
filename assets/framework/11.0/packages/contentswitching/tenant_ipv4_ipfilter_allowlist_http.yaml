@@ -90,7 +90,7 @@ sections:
           - id: 10342002_policy
             data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_DONE_HTTP/name>>
           - id: 10342002_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_HTTP/name>>
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_HTTP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10341001_policy>> -priority 10341001 -gotoPriorityExpression 10342002
