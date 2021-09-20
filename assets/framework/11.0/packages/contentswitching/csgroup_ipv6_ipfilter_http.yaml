@@ -1,0 +1,1263 @@
+name: csgroup_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_TERMINATE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_TERMINATE_HTTP
+          - id: expression
+            data: <<loadbalancers.csgroup_ipfilter.trafficmanagement.loadbalancing.virtualservers.CSGROUP_IPV6_IPFILTER_TERMINATE_HTTP/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+          
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_TERMINATE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_TERMINATE_HTTP
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.actions.CSGROUP_IPV6_IPFILTER_TERMINATE_HTTP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_DONE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_DONE_HTTP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_HTTP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv6_http_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSGROUP_IPV6_IPFILTER_BLOCKLIST_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV6_IPFILTER_BLOCKLIST_HTTP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv6_http_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSGROUP_IPV6_IPFILTER_NONE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV6_IPFILTER_NONE_HTTP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv6_http_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_128
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_128
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_128>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_127
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_127
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_127>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_126
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_126
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_126>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_125
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_125
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_125>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_124
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_124
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_124>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_123
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_123
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_123>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_122
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_122
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_122>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_121
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_121
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_121>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_120
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_120
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_120>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_119
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_119
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_119>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_118
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_118
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_118>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_117
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_117
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_117>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_116
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_116
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_116>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_115
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_115
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_115>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_114
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_114
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_114>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_113
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_113
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_113>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_112
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_112
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_112>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_111
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_111
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_111>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_110
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_110
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_110>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_109
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_109
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_109>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_108
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_108
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_108>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_107
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_107
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_107>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_106
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_106
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_106>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_105
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_105
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_105>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_104
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_104
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_104>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_103
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_103
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_103>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_102
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_102
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_102>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_101
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_101
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_101>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_100
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_100
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_100>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_099
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_099
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_099>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_098
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_098
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_098>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_097
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_097
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_097>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_096
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_096
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_096>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_095
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_095
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_095>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_094
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_094
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_094>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_093
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_093
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_093>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_092
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_092
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_092>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_091
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_091
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_091>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_090
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_090
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_090>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_089
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_089
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_089>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_088
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_088
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_088>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_087
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_087
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_087>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_086
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_086
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_086>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_085
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_085
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_085>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_084
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_084
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_084>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_083
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_083
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_083>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_082
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_082
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_082>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_081
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_081
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_081>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_080
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_080
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_080>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_079
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_079
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_079>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_078
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_078
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_078>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_077
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_077
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_077>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_076
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_076
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_076>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_075
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_075
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_075>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_074
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_074
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_074>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_073
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_073
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_073>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_072
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_072
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_072>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_071
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_071
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_071>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_070
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_070
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_070>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_069
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_069
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_069>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_068
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_068
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_068>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_067
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_067
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_067>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_066
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_066
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_066>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_065
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_065
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_065>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_064
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_064
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_064>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_063
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_063
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_063>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_062
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_062
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_062>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_061
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_061
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_061>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_060
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_060
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_060>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_059
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_059
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_059>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_058
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_058
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_058>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_057
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_057
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_057>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_056
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_056
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_056>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_055
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_055
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_055>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_054
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_054
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_054>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_053
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_053
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_053>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_052
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_052
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_052>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_051
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_051
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_051>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_050
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_050
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_050>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_049
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_049
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_049>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_048
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_048
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_048>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_047
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_047
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_047>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_046
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_046
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_046>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_045
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_045
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_045>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_044
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_044
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_044>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_043
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_043
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_043>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_042
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_042
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_042>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_041
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_041
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_041>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_040
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_040
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_040>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_039
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_039
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_039>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_038
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_038
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_038>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_037
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_037
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_037>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_036
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_036
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_036>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_035
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_035
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_035>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_034
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_034
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_034>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_033
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_033
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_033>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_HTTP_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP
+        expressions:
+          install: add cs policylabel <<name>> HTTP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_HTTP
+
+          - id: label
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_HTTP/name>>
+
+          - id: 10661001_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_NONE_HTTP/name>>
+          - id: 10661001_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV6_IPFILTER_HTTP/name>>
+            
+          - id: 10661002_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>
+          - id: 10661002_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>
+
+          - id: 10661003_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_BLOCKLIST_HTTP/name>>
+          - id: 10661003_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_BLOCKLIST_HTTP/name>>
+
+          
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10661001_policy>> -priority 10661001 -gotoPriorityExpression NEXT -invoke policylabel <<10661001_policylabel>>
+            bind cs policylabel <<label>> <<10661002_policy>> -priority 10661002 -gotoPriorityExpression NEXT -invoke policylabel <<10661002_policylabel>>
+            bind cs policylabel <<label>> <<10661003_policy>> -priority 10661003 -gotoPriorityExpression NEXT -invoke policylabel <<10661003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10661001_policy>>
+            unbind cs policylabel <<label>> <<10661002_policy>>
+            unbind cs policylabel <<label>> <<10661003_policy>>
