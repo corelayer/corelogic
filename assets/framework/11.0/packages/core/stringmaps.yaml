@@ -14,11 +14,11 @@ sections:
           - id: ipv4_http_value
             data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.ENDPOINT/name>>").TYPECAST_NVLIST_T(';','=')
           - id: ipv4_http_value_tenantid
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value>>.VALUE("tenant")
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value>>.VALUE("tenant").TO_LOWER
           - id: ipv4_http_value_vserver
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value>>.VALUE("vserver")
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value>>.VALUE("vserver").TO_LOWER
           - id: ipv4_http_value_state
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value>>.VALUE("state")
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value>>.VALUE("state").TO_LOWER
           - id: ipv4_http_value_state_isenabled
             data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value_state>>.EQ("enabled")
           - id: ipv4_http_value_state_isdisabled
