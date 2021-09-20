@@ -403,26 +403,26 @@ sections:
           - id: label
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
 
-          - id: 10441001_policy
+          - id: 10241001_policy
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NONE_HTTP/name>>
-          - id: 10441001_policylabel
+          - id: 10241001_policylabel
             data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_HTTP/name>>
 
-          - id: 10441002_policy
+          - id: 10241002_policy
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_ALLOWLIST_HTTP/name>>
-          - id: 10441002_policylabel
+          - id: 10241002_policylabel
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_ALLOWLIST_HTTP/name>>
 
-          - id: 10441003_policy
+          - id: 10241003_policy
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_BLOCKLIST_HTTP/name>>
-          - id: 10441003_policylabel
+          - id: 10241003_policylabel
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_HTTP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10441001_policy>> -priority 10441001 -gotoPriorityExpression NEXT -invoke policylabel <<10441001_policylabel>>
-            bind cs policylabel <<label>> <<10441002_policy>> -priority 10441002 -gotoPriorityExpression NEXT -invoke policylabel <<10441002_policylabel>>
-            bind cs policylabel <<label>> <<10441003_policy>> -priority 10441003 -gotoPriorityExpression NEXT -invoke policylabel <<10441003_policylabel>>
+            bind cs policylabel <<label>> <<10241001_policy>> -priority 10241001 -gotoPriorityExpression NEXT -invoke policylabel <<10241001_policylabel>>
+            bind cs policylabel <<label>> <<10241002_policy>> -priority 10241002 -gotoPriorityExpression NEXT -invoke policylabel <<10241002_policylabel>>
+            bind cs policylabel <<label>> <<10241003_policy>> -priority 10241003 -gotoPriorityExpression NEXT -invoke policylabel <<10241003_policylabel>>
           uninstall: |
-            unbind cs policylabel <<label>> <<10441001_policy>>
-            unbind cs policylabel <<label>> <<10441002_policy>>
-            unbind cs policylabel <<label>> <<10441003_policy>>
+            unbind cs policylabel <<label>> <<10241001_policy>>
+            unbind cs policylabel <<label>> <<10241002_policy>>
+            unbind cs policylabel <<label>> <<10241003_policy>>
