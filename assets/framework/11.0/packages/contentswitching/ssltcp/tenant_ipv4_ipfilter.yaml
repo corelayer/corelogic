@@ -1,0 +1,429 @@
+name: tenant_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP
+          - id: expression
+            data: <<loadbalancers.tenant_ipfilter.trafficmanagement.loadbalancing.virtualservers.TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+          
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.actions.TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV4_IPFILTER_DONE_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_DONE_SSLTCP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV4_IPFILTER_BLOCKLIST_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_BLOCKLIST_SSLTCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV4_IPFILTER_NONE_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_NONE_SSLTCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_032
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_031
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_030
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_029
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_028
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_027
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_026
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_025
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_024
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_023
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_022
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_021
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_020
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_019
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_018
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_017
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_016
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_015
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_014
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_013
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_012
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_011
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_010
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_009
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_008
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_007
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_006
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_005
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_004
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_003
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_002
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV4_IPFILTER_SSLTCP_001
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: TENANT_IPV4_IPFILTER_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP
+        expressions:
+          install: add cs policylabel <<name>> TCP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: TENANT_IPV4_IPFILTER_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SSLTCP
+
+          - id: label
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSLTCP/name>>
+
+          - id: 10441001_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_NONE_SSLTCP/name>>
+          - id: 10441001_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_SSLTCP/name>>
+            
+          - id: 10441002_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP/name>>
+          - id: 10441002_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP/name>>
+
+          - id: 10441003_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10441003_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10441001_policy>> -priority 10441001 -gotoPriorityExpression NEXT -invoke policylabel <<10441001_policylabel>>
+            bind cs policylabel <<label>> <<10441002_policy>> -priority 10441002 -gotoPriorityExpression NEXT -invoke policylabel <<10441002_policylabel>>
+            bind cs policylabel <<label>> <<10441003_policy>> -priority 10441003 -gotoPriorityExpression NEXT -invoke policylabel <<10441003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10441001_policy>>
+            unbind cs policylabel <<label>> <<10441002_policy>>
+            unbind cs policylabel <<label>> <<10441003_policy>>

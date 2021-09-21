@@ -268,4 +268,3 @@ sections:
             data: CLIENT.IPV6.SRC.SUBNET(2).TYPECAST_TEXT_T + "/2"
           - id: 001
             data: CLIENT.IPV6.SRC.SUBNET(1).TYPECAST_TEXT_T + "/1"
-          

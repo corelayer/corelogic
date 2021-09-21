@@ -36,7 +36,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("=============================")
 	for k := range install {
 		fmt.Println(install[k])
 	}

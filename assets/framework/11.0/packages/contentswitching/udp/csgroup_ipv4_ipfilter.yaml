@@ -1,0 +1,428 @@
+name: csgroup_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: CSGROUP_IPV4_IPFILTER_TERMINATE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_TERMINATE_UDP
+          - id: expression
+            data: <<loadbalancers.csgroup_ipfilter.trafficmanagement.loadbalancing.virtualservers.CSGROUP_IPV4_IPFILTER_TERMINATE_UDP/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+          
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: CSGROUP_IPV4_IPFILTER_TERMINATE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_TERMINATE_UDP
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.actions.CSGROUP_IPV4_IPFILTER_TERMINATE_UDP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV4_IPFILTER_DONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_DONE_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+          
+      - name: INIT_CSGROUP_IPV4_IPFILTER_ALLOWLIST_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV4_IPFILTER_ALLOWLIST_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv4_http_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSGROUP_IPV4_IPFILTER_BLOCKLIST_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV4_IPFILTER_BLOCKLIST_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv4_http_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSGROUP_IPV4_IPFILTER_NONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV4_IPFILTER_NONE_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv4_http_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV4_IPFILTER_UDP_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv4_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: CSGROUP_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP
+        expressions:
+          install: add cs policylabel <<name>> UDP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: CSGROUP_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV4_IPFILTER_UDP
+
+          - id: label
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_UDP/name>>
+
+          - id: 10641001_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV4_IPFILTER_NONE_UDP/name>>
+          - id: 10641001_policylabel
+            data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV4_IPFILTER_UDP/name>>
+
+          - id: 10641002_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
+          - id: 10641002_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
+
+          - id: 10641003_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV4_IPFILTER_BLOCKLIST_UDP/name>>
+          - id: 10641003_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_BLOCKLIST_UDP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10641001_policy>> -priority 10641001 -gotoPriorityExpression NEXT -invoke policylabel <<10641001_policylabel>>
+            bind cs policylabel <<label>> <<10641002_policy>> -priority 10641002 -gotoPriorityExpression NEXT -invoke policylabel <<10641002_policylabel>>
+            bind cs policylabel <<label>> <<10641003_policy>> -priority 10641003 -gotoPriorityExpression NEXT -invoke policylabel <<10641003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10641001_policy>>
+            unbind cs policylabel <<label>> <<10641002_policy>>
+            unbind cs policylabel <<label>> <<10641003_policy>>

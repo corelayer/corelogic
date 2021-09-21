@@ -13,10 +13,32 @@ sections:
             add lb vserver <<name>> HTTP 0.0.0.0 0
             bind lb vserver <<name>> <<servicegroup>>
           uninstall: rm lb vserver <<name>>
+      - name: TENANT_IPV6_IPFILTER_TERMINATE_SSL
+        fields:
+        - id: name
+          data: <<prefix>>_TENANT_IPV6_IPFILTER_TERMINATE_SSL
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_HTTP/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> HTTP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+          uninstall: rm lb vserver <<name>>
       - name: TENANT_IPV6_IPFILTER_TERMINATE_TCP
         fields:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_TERMINATE_TCP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
+        expressions:
+         install: |
+           add lb vserver <<name>> TCP 0.0.0.0 0
+           bind lb vserver <<name>> <<servicegroup>>
+         uninstall: rm lb vserver <<name>>
+      - name: TENANT_IPV6_IPFILTER_TERMINATE_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_TERMINATE_SSLTCP
           - id: servicegroup
             data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
         expressions:

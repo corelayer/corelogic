@@ -205,6 +205,9 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 			for p := range f.getPrefixMap() {
 				expressions[k] = strings.ReplaceAll(expressions[k], "<<"+p+">>", f.getPrefixWithVersion(p))
 			}
+
+			// Strip newline at end of each expression
+			expressions[k] = strings.TrimSuffix(expressions[k], "\n")
 		}
 	}
 
@@ -244,12 +247,14 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 	}
 
 	sort.Sort(sort.Reverse(counter))
-	fmt.Println("----------------------- COUNTER -----------------------")
+	// fmt.Println("----------------------- COUNTER -----------------------")
 	for o := range counter {
-		output = append(output, expressions[counter[o].Name])
-		fmt.Println(counter[o].Name, counter[o].Count)
+		if expressions[counter[o].Name] != "" {
+			output = append(output, expressions[counter[o].Name])
+			// fmt.Println(counter[o].Name, counter[o].Count)
+		}
 	}
-	fmt.Println("----------------------- COUNTER -----------------------")
+	// fmt.Println("----------------------- COUNTER -----------------------")
 
 	return output, err
 }

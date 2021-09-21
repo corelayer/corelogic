@@ -1,0 +1,164 @@
+name: tenant_ipfilter
+sections:          
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP
+        expressions:
+          install: add cs policylabel <<name>> TCP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP
+
+          - id: label
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_ALLOWLIST_TCP/name>>
+
+          - id: 10541001_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_032/name>>
+          - id: 10541002_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_031/name>>
+          - id: 10541003_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_030/name>>
+          - id: 10541004_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_029/name>>
+          - id: 10541005_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_028/name>>
+          - id: 10541006_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_027/name>>
+          - id: 10541007_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_026/name>>
+          - id: 10541008_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_025/name>>
+          - id: 10541009_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_024/name>>
+          - id: 10541010_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_023/name>>
+          - id: 10541011_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_022/name>>
+          - id: 10541012_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_021/name>>
+          - id: 10541013_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_020/name>>
+          - id: 10541014_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_019/name>>
+          - id: 10541015_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_018/name>>
+          - id: 10541016_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_017/name>>
+          - id: 10541017_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_016/name>>
+          - id: 10541018_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_015/name>>
+          - id: 10541019_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_014/name>>
+          - id: 10541020_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_013/name>>
+          - id: 10541021_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_012/name>>
+          - id: 10541022_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_011/name>>
+          - id: 10541023_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_010/name>>
+          - id: 10541024_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_009/name>>
+          - id: 10541025_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_008/name>>
+          - id: 10541026_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_007/name>>
+          - id: 10541027_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_006/name>>
+          - id: 10541028_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_005/name>>
+          - id: 10541029_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_004/name>>
+          - id: 10541030_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_003/name>>
+          - id: 10541031_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_002/name>>
+          - id: 10541032_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TCP_001/name>>
+
+          - id: 10542001_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TERMINATE_TCP/name>>
+          - id: 10542002_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_DONE_TCP/name>>
+          - id: 10542002_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_TCP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10541001_policy>> -priority 10541001 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541002_policy>> -priority 10541002 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541003_policy>> -priority 10541003 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541004_policy>> -priority 10541004 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541005_policy>> -priority 10541005 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541006_policy>> -priority 10541006 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541007_policy>> -priority 10541007 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541008_policy>> -priority 10541008 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541009_policy>> -priority 10541009 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541010_policy>> -priority 10541010 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541011_policy>> -priority 10541011 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541012_policy>> -priority 10541012 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541013_policy>> -priority 10541013 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541014_policy>> -priority 10541014 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541015_policy>> -priority 10541015 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541016_policy>> -priority 10541016 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541017_policy>> -priority 10541017 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541018_policy>> -priority 10541018 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541019_policy>> -priority 10541019 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541020_policy>> -priority 10541020 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541021_policy>> -priority 10541021 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541022_policy>> -priority 10541022 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541023_policy>> -priority 10541023 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541024_policy>> -priority 10541024 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541025_policy>> -priority 10541025 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541026_policy>> -priority 10541026 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541027_policy>> -priority 10541027 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541028_policy>> -priority 10541028 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541029_policy>> -priority 10541029 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541030_policy>> -priority 10541030 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541031_policy>> -priority 10541031 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10541032_policy>> -priority 10541032 -gotoPriorityExpression 10542002
+            bind cs policylabel <<label>> <<10542001_policy>> -priority 10542001
+            bind cs policylabel <<label>> <<10542002_policy>> -priority 10542002 -gotoPriorityExpression NEXT -invoke policylabel <<10542002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10541001_policy>>
+            unbind cs policylabel <<label>> <<10541002_policy>>
+            unbind cs policylabel <<label>> <<10541003_policy>>
+            unbind cs policylabel <<label>> <<10541004_policy>>
+            unbind cs policylabel <<label>> <<10541005_policy>>
+            unbind cs policylabel <<label>> <<10541006_policy>>
+            unbind cs policylabel <<label>> <<10541007_policy>>
+            unbind cs policylabel <<label>> <<10541008_policy>>
+            unbind cs policylabel <<label>> <<10541009_policy>>
+            unbind cs policylabel <<label>> <<10541010_policy>>
+            unbind cs policylabel <<label>> <<10541011_policy>>
+            unbind cs policylabel <<label>> <<10541012_policy>>
+            unbind cs policylabel <<label>> <<10541013_policy>>
+            unbind cs policylabel <<label>> <<10541014_policy>>
+            unbind cs policylabel <<label>> <<10541015_policy>>
+            unbind cs policylabel <<label>> <<10541016_policy>>
+            unbind cs policylabel <<label>> <<10541017_policy>>
+            unbind cs policylabel <<label>> <<10541018_policy>>
+            unbind cs policylabel <<label>> <<10541019_policy>>
+            unbind cs policylabel <<label>> <<10541020_policy>>
+            unbind cs policylabel <<label>> <<10541021_policy>>
+            unbind cs policylabel <<label>> <<10541022_policy>>
+            unbind cs policylabel <<label>> <<10541023_policy>>
+            unbind cs policylabel <<label>> <<10541024_policy>>
+            unbind cs policylabel <<label>> <<10541025_policy>>
+            unbind cs policylabel <<label>> <<10541026_policy>>
+            unbind cs policylabel <<label>> <<10541027_policy>>
+            unbind cs policylabel <<label>> <<10541028_policy>>
+            unbind cs policylabel <<label>> <<10541029_policy>>
+            unbind cs policylabel <<label>> <<10541030_policy>>
+            unbind cs policylabel <<label>> <<10541031_policy>>
+            unbind cs policylabel <<label>> <<10541032_policy>>
+            unbind cs policylabel <<label>> <<10542001_policy>>
+            unbind cs policylabel <<label>> <<10542002_policy>>

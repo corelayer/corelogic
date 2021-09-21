@@ -1,0 +1,1263 @@
+name: csgroup_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_TERMINATE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_TERMINATE_UDP
+          - id: expression
+            data: <<loadbalancers.csgroup_ipfilter.trafficmanagement.loadbalancing.virtualservers.CSGROUP_IPV6_IPFILTER_TERMINATE_UDP/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+          
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_TERMINATE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_TERMINATE_UDP
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.actions.CSGROUP_IPV6_IPFILTER_TERMINATE_UDP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_DONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_DONE_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv6_http_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSGROUP_IPV6_IPFILTER_BLOCKLIST_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV6_IPFILTER_BLOCKLIST_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv6_http_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSGROUP_IPV6_IPFILTER_NONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSGROUP_IPV6_IPFILTER_NONE_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSGROUP/ipv6_http_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSGROUP_IPV6_IPFILTER_UDP_128
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_128
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_128>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_127
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_127
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_127>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_126
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_126
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_126>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_125
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_125
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_125>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_124
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_124
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_124>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_123
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_123
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_123>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_122
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_122
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_122>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_121
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_121
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_121>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_120
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_120
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_120>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_119
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_119
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_119>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_118
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_118
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_118>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_117
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_117
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_117>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_116
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_116
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_116>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_115
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_115
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_115>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_114
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_114
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_114>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_113
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_113
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_113>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_112
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_112
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_112>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_111
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_111
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_111>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_110
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_110
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_110>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_109
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_109
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_109>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_108
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_108
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_108>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_107
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_107
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_107>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_106
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_106
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_106>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_105
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_105
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_105>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_104
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_104
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_104>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_103
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_103
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_103>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_102
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_102
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_102>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_101
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_101
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_101>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_100
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_100
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_100>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_099
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_099
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_099>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_098
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_098
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_098>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_097
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_097
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_097>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_096
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_096
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_096>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_095
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_095
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_095>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_094
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_094
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_094>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_093
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_093
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_093>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_092
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_092
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_092>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_091
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_091
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_091>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_090
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_090
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_090>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_089
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_089
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_089>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_088
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_088
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_088>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_087
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_087
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_087>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_086
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_086
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_086>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_085
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_085
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_085>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_084
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_084
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_084>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_083
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_083
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_083>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_082
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_082
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_082>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_081
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_081
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_081>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_080
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_080
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_080>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_079
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_079
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_079>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_078
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_078
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_078>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_077
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_077
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_077>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_076
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_076
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_076>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_075
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_075
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_075>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_074
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_074
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_074>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_073
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_073
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_073>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_072
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_072
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_072>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_071
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_071
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_071>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_070
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_070
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_070>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_069
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_069
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_069>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_068
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_068
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_068>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_067
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_067
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_067>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_066
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_066
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_066>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_065
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_065
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_065>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_064
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_064
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_064>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_063
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_063
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_063>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_062
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_062
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_062>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_061
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_061
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_061>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_060
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_060
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_060>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_059
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_059
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_059>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_058
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_058
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_058>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_057
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_057
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_057>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_056
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_056
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_056>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_055
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_055
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_055>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_054
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_054
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_054>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_053
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_053
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_053>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_052
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_052
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_052>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_051
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_051
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_051>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_050
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_050
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_050>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_049
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_049
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_049>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_048
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_048
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_048>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_047
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_047
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_047>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_046
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_046
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_046>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_045
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_045
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_045>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_044
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_044
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_044>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_043
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_043
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_043>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_042
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_042
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_042>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_041
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_041
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_041>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_040
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_040
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_040>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_039
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_039
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_039>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_038
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_038
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_038>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_037
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_037
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_037>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_036
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_036
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_036>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_035
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_035
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_035>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_034
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_034
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_034>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_033
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_033
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_033>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSGROUP_IPV6_IPFILTER_UDP_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSGROUP/ipv6_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP
+        expressions:
+          install: add cs policylabel <<name>> UDP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: CSGROUP_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSGROUP_IPV6_IPFILTER_UDP
+
+          - id: label
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_UDP/name>>
+
+          - id: 10661001_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_NONE_UDP/name>>
+          - id: 10661001_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV6_IPFILTER_UDP/name>>
+            
+          - id: 10661002_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_UDP/name>>
+          - id: 10661002_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_ALLOWLIST_UDP/name>>
+
+          - id: 10661003_policy
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
+          - id: 10661003_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
+
+          
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10661001_policy>> -priority 10661001 -gotoPriorityExpression NEXT -invoke policylabel <<10661001_policylabel>>
+            bind cs policylabel <<label>> <<10661002_policy>> -priority 10661002 -gotoPriorityExpression NEXT -invoke policylabel <<10661002_policylabel>>
+            bind cs policylabel <<label>> <<10661003_policy>> -priority 10661003 -gotoPriorityExpression NEXT -invoke policylabel <<10661003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10661001_policy>>
+            unbind cs policylabel <<label>> <<10661002_policy>>
+            unbind cs policylabel <<label>> <<10661003_policy>>

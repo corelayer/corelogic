@@ -1,0 +1,1262 @@
+name: tenant_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: TENANT_IPV6_IPFILTER_TERMINATE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_TERMINATE_SSL
+          - id: expression
+            data: <<loadbalancers.tenant_ipfilter.trafficmanagement.loadbalancing.virtualservers.TENANT_IPV6_IPFILTER_TERMINATE_SSL/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+          
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: TENANT_IPV6_IPFILTER_TERMINATE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_TERMINATE_SSL
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.actions.TENANT_IPV6_IPFILTER_TERMINATE_SSL/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_DONE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_DONE_SSL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV6_IPFILTER_NONE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_NONE_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV6_IPFILTER_SSL_128
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_128
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_128>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_127
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_127
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_127>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_126
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_126
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_126>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_125
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_125
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_125>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_124
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_124
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_124>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_123
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_123
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_123>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_122
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_122
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_122>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_121
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_121
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_121>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_120
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_120
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_120>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_119
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_119
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_119>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_118
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_118
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_118>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_117
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_117
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_117>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_116
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_116
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_116>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_115
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_115
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_115>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_114
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_114
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_114>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_113
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_113
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_113>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_112
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_112
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_112>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_111
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_111
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_111>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_110
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_110
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_110>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_109
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_109
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_109>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_108
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_108
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_108>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_107
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_107
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_107>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_106
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_106
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_106>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_105
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_105
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_105>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_104
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_104
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_104>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_103
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_103
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_103>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_102
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_102
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_102>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_101
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_101
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_101>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_100
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_100
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_100>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_099
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_099
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_099>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_098
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_098
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_098>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_097
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_097
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_097>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_096
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_096
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_096>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_095
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_095
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_095>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_094
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_094
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_094>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_093
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_093
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_093>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_092
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_092
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_092>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_091
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_091
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_091>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_090
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_090
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_090>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_089
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_089
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_089>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_088
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_088
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_088>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_087
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_087
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_087>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_086
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_086
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_086>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_085
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_085
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_085>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_084
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_084
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_084>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_083
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_083
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_083>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_082
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_082
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_082>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_081
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_081
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_081>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_080
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_080
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_080>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_079
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_079
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_079>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_078
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_078
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_078>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_077
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_077
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_077>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_076
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_076
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_076>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_075
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_075
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_075>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_074
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_074
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_074>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_073
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_073
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_073>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_072
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_072
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_072>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_071
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_071
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_071>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_070
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_070
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_070>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_069
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_069
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_069>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_068
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_068
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_068>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_067
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_067
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_067>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_066
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_066
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_066>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_065
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_065
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_065>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_064
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_064
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_064>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_063
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_063
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_063>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_062
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_062
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_062>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_061
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_061
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_061>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_060
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_060
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_060>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_059
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_059
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_059>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_058
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_058
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_058>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_057
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_057
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_057>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_056
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_056
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_056>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_055
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_055
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_055>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_054
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_054
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_054>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_053
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_053
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_053>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_052
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_052
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_052>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_051
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_051
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_051>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_050
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_050
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_050>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_049
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_049
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_049>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_048
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_048
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_048>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_047
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_047
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_047>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_046
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_046
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_046>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_045
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_045
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_045>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_044
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_044
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_044>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_043
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_043
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_043>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_042
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_042
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_042>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_041
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_041
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_041>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_040
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_040
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_040>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_039
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_039
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_039>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_038
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_038
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_038>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_037
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_037
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_037>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_036
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_036
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_036>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_035
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_035
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_035>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_034
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_034
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_034>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_033
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_033
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_033>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_032
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_031
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_030
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_029
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_028
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_027
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_026
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_025
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_024
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_023
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_022
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_021
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_020
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_019
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_018
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_017
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_016
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_015
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_014
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_013
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_012
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_011
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_010
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_009
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_008
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_007
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_006
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_005
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_004
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_003
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_002
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_SSL_001
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: TENANT_IPV6_IPFILTER_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL
+        expressions:
+          install: add cs policylabel <<name>> HTTP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: TENANT_IPV6_IPFILTER_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_SSL
+
+          - id: label
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
+
+          - id: 10461001_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_NONE_SSL/name>>
+          - id: 10461001_policylabel
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_SSL/name>>
+            
+          - id: 10461002_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
+          - id: 10461002_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
+
+          - id: 10461003_policy
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+          - id: 10461003_policylabel
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10461001_policy>> -priority 10461001 -gotoPriorityExpression NEXT -invoke policylabel <<10461001_policylabel>>
+            bind cs policylabel <<label>> <<10461002_policy>> -priority 10461002 -gotoPriorityExpression NEXT -invoke policylabel <<10461002_policylabel>>
+            bind cs policylabel <<label>> <<10461003_policy>> -priority 10461003 -gotoPriorityExpression NEXT -invoke policylabel <<10461003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10461001_policy>>
+            unbind cs policylabel <<label>> <<10461002_policy>>
+            unbind cs policylabel <<label>> <<10461003_policy>>

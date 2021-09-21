@@ -334,7 +334,6 @@ sections:
           install: add policy stringmap <<name>>
           uninstall: rm policy stringmap <<name>>
 
-
       - name: TENANT
         fields:
           - id: name
@@ -640,7 +639,6 @@ sections:
             data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_sslbridge_value_ipfilter>>.EQ("allow")
           - id: ipv6_sslbridge_value_ipfilter_isblock
             data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_sslbridge_value_ipfilter>>.EQ("block")
-
 
       - name: CS
         fields:
@@ -975,9 +973,6 @@ sections:
           install: add policy stringmap <<name>>
           uninstall: rm policy stringmap <<name>>
 
-
-          
-          
       - name: CSGROUP
         fields:
           - id: name
@@ -1310,9 +1305,6 @@ sections:
         expressions:
           install: add policy stringmap <<name>>
           uninstall: rm policy stringmap <<name>>
-
-
-
 
       - name: FQDN
         fields:
