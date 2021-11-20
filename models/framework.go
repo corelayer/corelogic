@@ -2,11 +2,19 @@ package models
 
 import (
 	"fmt"
+	"github.com/corelayer/corelogic/general"
 	"log"
 	"regexp"
 	"sort"
 	"strings"
+	"sync"
+	"time"
 )
+
+type UnfoldedExpressionData struct {
+	key string
+	value string
+}
 
 type DataMapWriter interface {
 	AppendData(source map[string]string, destination map[string]string) (map[string]string, error)
@@ -16,6 +24,10 @@ type Framework struct {
 	Release  Release   `yaml:release`
 	Prefixes []Prefix  `yaml:prefixes`
 	Packages []Package `yaml:packages`
+
+	Expressions map[string]string
+	Fields map[string]string
+	SortedFieldKeys []string
 }
 
 type FrameworkReader interface {
@@ -62,7 +74,9 @@ func (f *Framework) appendData(source map[string]string, destination map[string]
 	return destination, err
 }
 
-func (f *Framework) retrieveFieldsFromPackages() (map[string]string, error) {
+func (f *Framework) getFieldsFromPackages() (map[string]string, error) {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get fields from packages"))
+
 	output := make(map[string]string)
 	var err error
 
@@ -86,6 +100,8 @@ func (f *Framework) retrieveFieldsFromPackages() (map[string]string, error) {
 }
 
 func (f *Framework) unfoldFields(fields map[string]string) map[string]string {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " unfold fields"))
+
 	re := regexp.MustCompile(`<<[a-zA-Z0-9_.]*/[a-zA-Z0-9_]*>>`)
 	for key := range fields {
 		loop := true
@@ -111,7 +127,7 @@ func (f *Framework) unfoldFields(fields map[string]string) map[string]string {
 }
 
 func (f *Framework) getFields() (map[string]string, error) {
-	fields, err := f.retrieveFieldsFromPackages()
+	fields, err := f.getFieldsFromPackages()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -119,17 +135,21 @@ func (f *Framework) getFields() (map[string]string, error) {
 	return f.unfoldFields(fields), err
 }
 
-func (f *Framework) getSortedFieldKeys(fields map[string]string) []string {
+func (f *Framework) setSortedFieldKeys(fields map[string]string) {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " set sorted field keys"))
+
 	fieldKeys := make([]string, 0, len(fields))
 	for f := range fields {
 		fieldKeys = append(fieldKeys, f)
 	}
 	sort.Sort(sort.Reverse(sort.StringSlice(fieldKeys)))
 
-	return fieldKeys
+	f.SortedFieldKeys = fieldKeys
 }
 
-func (f *Framework) getInstallExpressions() (map[string]string, error) {
+func (f *Framework) getInstallExpressionsFromPackages() (map[string]string, error) {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get install expressions from packages"))
+
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
@@ -146,7 +166,9 @@ func (f *Framework) getInstallExpressions() (map[string]string, error) {
 	return output, err
 }
 
-func (f *Framework) getUninstallExpressions() (map[string]string, error) {
+func (f *Framework) getUninstallExpressionsFromPackages() (map[string]string, error) {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get uninstall expressions from packages"))
+
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
@@ -168,90 +190,152 @@ func (f *Framework) getExpressions(kind string) (map[string]string, error) {
 	var err error
 
 	if kind == "install" {
-		output, err = f.getInstallExpressions()
+		output, err = f.getInstallExpressionsFromPackages()
 	} else if kind == "uninstall" {
-		output, err = f.getUninstallExpressions()
+		output, err = f.getUninstallExpressionsFromPackages()
 	}
 
 	return output, err
 }
 
+func (f *Framework) unfoldExpression(k string, ch chan<- UnfoldedExpressionData, wg *sync.WaitGroup) {
+	//defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " unfold expression " + k))
+
+	output := UnfoldedExpressionData{
+		key:   k,
+		value: f.Expressions[k],
+	}
+
+	if output.value != "" {
+		// Replace fields referenced in expressions
+		for _, e := range f.SortedFieldKeys {
+			//if strings.Contains(f.Expressions[k], e) {
+			output.value = strings.ReplaceAll(output.value, "<<"+e+">>", f.Fields[e])
+			//}
+		}
+
+		// Replace prefixes in expressions
+		for p := range f.getPrefixMap() {
+			output.value = strings.ReplaceAll(output.value, "<<"+p+">>", f.getPrefixWithVersion(p))
+		}
+
+		// Strip newline at end of each expression
+		output.value = strings.TrimSuffix(output.value, "\n")
+	}
+	ch <- output
+	wg.Done()
+}
+
+func (f *Framework) unfoldedExpressionCollector(count int, ch <-chan UnfoldedExpressionData, wg *sync.WaitGroup) {
+	//defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " expression updater channel"))
+	completed := false
+
+	var expressions = make(map[string]string)
+	for !completed {
+		select {
+		case data, ok := <-ch:
+			if !ok {
+				completed = true
+			}
+			expressions[data.key] = data.value
+			count--
+		default:
+			time.Sleep(time.Millisecond * 500)
+			if count == 0 {
+				completed = true
+			}
+		}
+	}
+	f.Expressions = expressions
+	wg.Done()
+}
+
+func (f *Framework) unfoldExpressions() {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " unfold expressions"))
+
+	wg := &sync.WaitGroup{}
+	ch := make(chan UnfoldedExpressionData)
+
+	count := 0
+	for k := range f.Expressions {
+		wg.Add(1)
+		count++
+		go f.unfoldExpression(k, ch, wg)
+	}
+	wg.Add(1)
+	go f.unfoldedExpressionCollector(count, ch, wg)
+
+	wg.Wait()
+	close(ch)
+}
+
+func (f *Framework) countUniqueFields() int {
+	counter := 0
+
+	for u := range f.SortedFieldKeys {
+		if strings.Contains(f.SortedFieldKeys[u], "/name") {
+			counter++
+		}
+	}
+
+	return counter
+}
+
 func (f *Framework) GetOutput(kind string) ([]string, error) {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get " + kind + " output"))
+
 	var output []string
-	expressions, err := f.getExpressions(kind)
+	//f.Expressions = make(map[string]string)
+	var err error
+	f.Expressions, err = f.getExpressions(kind)
 	if err != nil {
 		log.Fatal(err)
 		return output, err
 	}
 
-	fields, err := f.getFields()
+	f.Fields, err = f.getFields()
 	if err != nil {
 		log.Fatal(err)
 		return output, err
 	}
 
-	fieldKeys := f.getSortedFieldKeys(fields)
+	f.setSortedFieldKeys(f.Fields)
+	f.unfoldExpressions()
 
-	for k := range expressions {
-		if expressions[k] != "" {
-			// Replace fields referenced in expressions
-			for _, e := range fieldKeys {
-				if strings.Contains(expressions[k], e) {
-					expressions[k] = strings.ReplaceAll(expressions[k], "<<"+e+">>", fields[e])
-				}
-			}
+	//uniqueElementNames := f.countUniqueFields()
 
-			// Replace prefixes in expressions
-			for p := range f.getPrefixMap() {
-				expressions[k] = strings.ReplaceAll(expressions[k], "<<"+p+">>", f.getPrefixWithVersion(p))
-			}
 
-			// Strip newline at end of each expression
-			expressions[k] = strings.TrimSuffix(expressions[k], "\n")
-		}
-	}
-
-	uniqueElementNames := 0
-	for u := range fieldKeys {
-		if strings.Contains(fieldKeys[u], "/name") {
-			uniqueElementNames++
-		}
-	}
-
-	// uniqueElementNames := len(fieldKeys)
-
-	counter := make(DependencyList, uniqueElementNames)
+	dependencyList := make(DependencyList, f.countUniqueFields())
 	i := 0
-	for f := range fieldKeys {
-		if strings.Contains(fieldKeys[f], "/name") {
+	for fieldKey := range f.SortedFieldKeys {
+		if strings.Contains(f.SortedFieldKeys[fieldKey], "/name") {
 			j := 0
-			for e := range expressions {
-				if e != strings.TrimSuffix(fieldKeys[f], "/name") {
-					if strings.Contains(expressions[e], fields[fieldKeys[f]]) {
-						// fmt.Println(e, fieldKeys[f])
-						re := regexp.MustCompile(fields[fieldKeys[f]])
-						count := len(re.FindAllString(expressions[e], -1))
+			for e := range f.Expressions {
+				if e != strings.TrimSuffix(f.SortedFieldKeys[fieldKey], "/name") {
+					if strings.Contains(f.Expressions[e], f.Fields[f.SortedFieldKeys[fieldKey]]) {
+						// fmt.Println(e, sortedFieldKeys[f])
+						re := regexp.MustCompile(f.Fields[f.SortedFieldKeys[fieldKey]])
+						count := len(re.FindAllString(f.Expressions[e], -1))
 						j = j + count
 
-						// fmt.Println(fields[fieldKeys[f]], count, j, "\n", expressions[e])
+						// fmt.Println(fields[sortedFieldKeys[f]], count, j, "\n", expressions[e])
 					}
 				}
 			}
-			counter[i] = Dependency{
-				Name:  strings.TrimSuffix(fieldKeys[f], "/name"),
+			dependencyList[i] = Dependency{
+				Name:  strings.TrimSuffix(f.SortedFieldKeys[fieldKey], "/name"),
 				Count: j,
 			}
 			i++
-			// fmt.Println()
 		}
 	}
 
-	sort.Sort(sort.Reverse(counter))
+	sort.Sort(sort.Reverse(dependencyList))
 	// fmt.Println("----------------------- COUNTER -----------------------")
-	for o := range counter {
-		if expressions[counter[o].Name] != "" {
-			output = append(output, expressions[counter[o].Name])
-			// fmt.Println(counter[o].Name, counter[o].Count)
+	for o := range dependencyList {
+		if f.Expressions[dependencyList[o].Name] != "" {
+			output = append(output, f.Expressions[dependencyList[o].Name])
+			// fmt.Println(dependencyList[o].Name, dependencyList[o].Count)
 		}
 	}
 	// fmt.Println("----------------------- COUNTER -----------------------")
@@ -260,6 +344,8 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 }
 
 func (f *Framework) CountDependencies(search string, expressions map[string]string) int {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " count dependencies for " + search))
+
 	j := 0
 	for _, v := range expressions {
 		if strings.Contains(v, search) {
@@ -270,6 +356,8 @@ func (f *Framework) CountDependencies(search string, expressions map[string]stri
 }
 
 func (f *Framework) GetDependencyList(expressions map[string]string) DependencyList {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get dependencylist"))
+
 	output := make(DependencyList, len(expressions))
 
 	i := 0

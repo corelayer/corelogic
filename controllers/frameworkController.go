@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"github.com/corelayer/corelogic/general"
 	"io/ioutil"
 	"log"
 
@@ -19,6 +20,7 @@ type FrameworkControllerReader interface {
 }
 
 func (c *FrameworkController) Load(version string) error {
+	defer general.FinishTimer(general.StartTimer("Loading framework " + version))
 	rootDir := "assets/framework/" + version
 	var source []byte
 	var err error
@@ -43,70 +45,102 @@ func (c *FrameworkController) Load(version string) error {
 		return err
 	}
 
-	for _, v := range subDirs {
-		if v.IsDir() {
-			myPackage := models.Package{
-				Name:    v.Name(),
-				Modules: []models.Module{},
-			}
-
-			files, err := ioutil.ReadDir(rootDir + "/packages/" + v.Name())
+	for _, d := range subDirs {
+		if d.IsDir() {
+			var p models.Package
+			p, err = c.GetPackagesFromDirectory(rootDir, d.Name())
 			if err != nil {
-				log.Fatal(err)
 				return err
 			}
-
-			for _, m := range files {
-				if !m.IsDir() {
-					// fmt.Println(m.Name())
-					moduleSource, err := ioutil.ReadFile(rootDir + "/packages/" + v.Name() + "/" + m.Name())
-					if err != nil {
-						log.Fatal(err)
-						return err
-					}
-
-					module := &models.Module{}
-					err = yaml.Unmarshal(moduleSource, module)
-					if err != nil {
-						log.Fatal(err)
-						return err
-					}
-					myPackage.Modules = append(myPackage.Modules, *module)
-				} else {
-					subfiles, err := ioutil.ReadDir(rootDir + "/packages/" + v.Name() + "/" + m.Name())
-					if err != nil {
-						log.Fatal(err)
-						return err
-					}
-
-					for _, sm := range subfiles {
-						if !sm.IsDir() {
-							// fmt.Println(m.Name())
-							moduleSource, err := ioutil.ReadFile(rootDir + "/packages/" + v.Name() + "/" + m.Name() + "/" + sm.Name())
-							if err != nil {
-								log.Fatal(err)
-								return err
-							}
-
-							module := &models.Module{}
-							err = yaml.Unmarshal(moduleSource, module)
-							if err != nil {
-								log.Fatal(err)
-								return err
-							}
-							myPackage.Modules = append(myPackage.Modules, *module)
-						}
-					}
-				}
-			}
-			c.Framework.Packages = append(c.Framework.Packages, myPackage)
+			c.Framework.Packages = append(c.Framework.Packages, p)
 		}
 	}
 
 	return err
 }
 
+
+func (c *FrameworkController) GetPackagesFromDirectory(rootDir string, directoryName string) (models.Package, error) {
+	defer general.FinishTimer(general.StartTimer("GetPackagesFromDirectory " + rootDir + "/packages/" + directoryName))
+
+	myPackage := models.Package{
+		Name:    directoryName,
+		Modules: []models.Module{},
+	}
+
+	files, err := ioutil.ReadDir(rootDir + "/packages/" + myPackage.Name)
+	if err != nil {
+		log.Fatal(err)
+		return myPackage, err
+	}
+
+	for _, f := range files {
+		if !f.IsDir() {
+			var module models.Module
+			module, err = c.GetModuleFromFile(rootDir + "/packages/" + myPackage.Name + "/" + f.Name())
+			if err != nil {
+				return myPackage, err
+			}
+			myPackage.Modules = append(myPackage.Modules, module)
+		} else {
+			var modules []models.Module
+			modules, err = c.GetModulesFromDirectory(rootDir + "/packages/" + myPackage.Name + "/" + f.Name())
+			if err != nil {
+				return myPackage, err
+			}
+			myPackage.Modules = append(myPackage.Modules, modules...)
+		}
+	}
+	return myPackage, err
+}
+
+func (c *FrameworkController) GetModuleFromFile(filePath string) (models.Module, error) {
+	defer general.FinishTimer(general.StartTimer("GetModuleFromFile " + filePath))
+
+	module := models.Module{}
+
+	moduleSource, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		log.Fatal(err)
+		return module, err
+	}
+
+	err = yaml.Unmarshal(moduleSource, &module)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return module, err
+}
+
+func (c *FrameworkController) GetModulesFromDirectory(filePath string) ([]models.Module, error) {
+	defer general.FinishTimer(general.StartTimer("GetModulesFromDirectory " + filePath))
+
+	var modules []models.Module
+
+	files, err := ioutil.ReadDir(filePath)
+	if err != nil {
+		log.Fatal(err)
+		return modules, err
+	}
+
+	for _, f := range files {
+		if !f.IsDir() {
+			module, err := c.GetModuleFromFile(filePath + "/" + f.Name())
+			if err != nil {
+				log.Fatal(err)
+				return modules, err
+			}
+			modules = append(modules, module)
+		}
+	}
+
+	return modules, err
+}
+
 func (c *FrameworkController) GetFrameworkAsJson(indent string) string {
+	defer general.FinishTimer(general.StartTimer("GetFrameworkAsJson"))
+
 	output, err := json.MarshalIndent(c.Framework, "", indent)
 	if err != nil {
 		log.Fatal(err)
