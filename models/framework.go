@@ -8,13 +8,8 @@ import (
 	"sort"
 	"strings"
 	"sync"
-	"time"
 )
 
-type UnfoldedExpressionData struct {
-	key string
-	value string
-}
 
 type DataMapWriter interface {
 	AppendData(source map[string]string, destination map[string]string) (map[string]string, error)
@@ -87,13 +82,13 @@ func (f *Framework) getFieldsFromPackages() (map[string]string, error) {
 		fields, err = p.GetFields()
 		if err != nil {
 			log.Fatal(err)
-			break
+			//break
 		}
 
 		output, err = f.appendData(fields, output)
 		if err != nil {
 			log.Fatal(err)
-			break
+			//break
 		}
 	}
 	return output, err
@@ -240,7 +235,7 @@ func (f *Framework) unfoldedExpressionCollector(count int, ch <-chan UnfoldedExp
 			expressions[data.key] = data.value
 			count--
 		default:
-			time.Sleep(time.Millisecond * 500)
+			//time.Sleep(time.Millisecond * 10)
 			if count == 0 {
 				completed = true
 			}
@@ -310,15 +305,14 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 	for fieldKey := range f.SortedFieldKeys {
 		if strings.Contains(f.SortedFieldKeys[fieldKey], "/name") {
 			j := 0
-			for e := range f.Expressions {
-				if e != strings.TrimSuffix(f.SortedFieldKeys[fieldKey], "/name") {
-					if strings.Contains(f.Expressions[e], f.Fields[f.SortedFieldKeys[fieldKey]]) {
-						// fmt.Println(e, sortedFieldKeys[f])
+			for expression := range f.Expressions {
+				if expression != strings.TrimSuffix(f.SortedFieldKeys[fieldKey], "/name") {
+					if strings.Contains(f.Expressions[expression], f.Fields[f.SortedFieldKeys[fieldKey]]) {
+						// fmt.Println(expression, sortedFieldKeys[f])
 						re := regexp.MustCompile(f.Fields[f.SortedFieldKeys[fieldKey]])
-						count := len(re.FindAllString(f.Expressions[e], -1))
+						count := len(re.FindAllString(f.Expressions[expression], -1))
 						j = j + count
-
-						// fmt.Println(fields[sortedFieldKeys[f]], count, j, "\n", expressions[e])
+						// fmt.Println(fields[sortedFieldKeys[f]], count, j, "\n", expressions[expression])
 					}
 				}
 			}
@@ -332,10 +326,10 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 
 	sort.Sort(sort.Reverse(dependencyList))
 	// fmt.Println("----------------------- COUNTER -----------------------")
-	for o := range dependencyList {
-		if f.Expressions[dependencyList[o].Name] != "" {
-			output = append(output, f.Expressions[dependencyList[o].Name])
-			// fmt.Println(dependencyList[o].Name, dependencyList[o].Count)
+	for dependency := range dependencyList {
+		if f.Expressions[dependencyList[dependency].Name] != "" {
+			output = append(output, f.Expressions[dependencyList[dependency].Name])
+			// fmt.Println(dependencyList[dependency].Name, dependencyList[dependency].Count)
 		}
 	}
 	// fmt.Println("----------------------- COUNTER -----------------------")
@@ -356,7 +350,7 @@ func (f *Framework) CountDependencies(search string, expressions map[string]stri
 }
 
 func (f *Framework) GetDependencyList(expressions map[string]string) DependencyList {
-	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get dependencylist"))
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get dependency list"))
 
 	output := make(DependencyList, len(expressions))
 
