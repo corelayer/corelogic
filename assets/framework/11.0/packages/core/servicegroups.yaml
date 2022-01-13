@@ -1,4 +1,6 @@
 name: servicegroups
+tags:
+  - core
 sections:
   - name: trafficmanagement.loadbalancing.servicegroups
     elements:

@@ -51,14 +51,14 @@ cidr                10.0.0.0/8
 description
 
 
-CSGROUP_IPFILTER
+CSVGROUP_IPFILTER
 csgroup             name
 cidr                10.0.0.0/8
 
 description
 
 
-CS_IPFILTER
+CSV_IPFILTER
 cs                  name
 cidr                10.0.0.0/8
 

@@ -1,5 +1,8 @@
-name: endpoint_ipfilter
-sections:
+name: endpoint_ipv4_ipfilter
+tags:
+  - ipv4
+  - endpoint_ipfilter
+sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:
       - name: ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL
@@ -7,7 +10,7 @@ sections:
           - id: name
             data: <<prefix>>_ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL
           - id: expression
-            data: <<loadbalancers.endpoint_ipfilter.trafficmanagement.loadbalancing.virtualservers.ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL/name>>
+            data: <<loadbalancers.endpoint_ipv4_ipfilter.trafficmanagement.loadbalancing.virtualservers.ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL/name>>
         expressions:
           install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
           uninstall: rm cs action <<name>>
@@ -21,7 +24,7 @@ sections:
           - id: expression
             data: true
           - id: action
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
           uninstall: rm cs policy <<name>>
@@ -401,22 +404,22 @@ sections:
             data: <<prefix>>_ENDPOINT_IPV4_IPFILTER_SSL
 
           - id: label
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSL/name>>
 
           - id: 10241001_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NONE_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NONE_SSL/name>>
           - id: 10241001_policylabel
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
 
           - id: 10241002_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_ALLOWLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_ALLOWLIST_SSL/name>>
           - id: 10241002_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_ALLOWLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_ALLOWLIST_SSL/name>>
 
           - id: 10241003_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
           - id: 10241003_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10241001_policy>> -priority 10241001 -gotoPriorityExpression NEXT -invoke policylabel <<10241001_policylabel>>

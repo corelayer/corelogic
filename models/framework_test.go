@@ -49,11 +49,11 @@ package models
 // 					Name: "appexpert.stringmaps",
 // 					Elements: []Element{
 // 						{
-// 							Name: "cs_control",
+// 							Name: "csv_control",
 // 							Fields: []Field{
 // 								{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								},
 // 							},
 // 							Expressions: Expression{
@@ -110,11 +110,11 @@ package models
 // 					Name: "appexpert.stringmaps",
 // 					Elements: []Element{
 // 						{
-// 							Name: "cs_control",
+// 							Name: "csv_control",
 // 							Fields: []Field{
 // 								{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								},
 // 							},
 // 							Expressions: Expression{
@@ -349,9 +349,9 @@ package models
 // 								Name: "appexpert.stringmaps",
 // 								Elements: []Element{
 // 									{
-// 										Name: "cs_control",
+// 										Name: "csv_control",
 // 										Fields: []Field{
-// 											{Id: "name", Data: "{{prefix}}CS_CONTROL"},
+// 											{Id: "name", Data: "{{prefix}}CSV_CONTROL"},
 // 										},
 // 										Expressions: Expression{
 // 											Install:   "add policy stringmap {{name}}",
@@ -429,10 +429,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -503,10 +503,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -592,10 +592,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -665,10 +665,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -739,10 +739,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -827,10 +827,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -918,10 +918,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",
@@ -991,10 +991,10 @@ package models
 // 						Sections: []Section{{
 // 							Name: "appexpert.stringmaps",
 // 							Elements: []Element{{
-// 								Name: "cs_control",
+// 								Name: "csv_control",
 // 								Fields: []Field{{
 // 									Id:   "name",
-// 									Data: "{{prefix}}CS_CONTROL",
+// 									Data: "{{prefix}}CSV_CONTROL",
 // 								}},
 // 								Expressions: Expression{
 // 									Install:   "add policy stringmap {{name}}",

@@ -26,7 +26,7 @@ import (
 
 func main() {
 	defer general.FinishTimer(general.StartTimer("Program execution"))
-	tagFilter := []string{"ipv6"}
+	tagFilter := []string{}
 	controller := controllers.FrameworkController{}
 	err := controller.Load("11.0")
 

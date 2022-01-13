@@ -1,47 +1,49 @@
 name: listenpolicies
+tags:
+  - core
 sections:
   - name: appexpert.expressions.advanced
     elements:
-      - name: LISTEN_CS_IPV4_HTTP
+      - name: LISTEN_CSV_IPV4_HTTP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV4_HTTP
+            data: <<prefix>>_LISTEN_CSV_IPV4_HTTP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV4_SSL
+      - name: LISTEN_CSV_IPV4_SSL
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV4_SSL
+            data: <<prefix>>_LISTEN_CSV_IPV4_SSL
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssl_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssl_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssl_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssl_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV4_TCP
+      - name: LISTEN_CSV_IPV4_TCP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV4_TCP
+            data: <<prefix>>_LISTEN_CSV_IPV4_TCP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_tcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_tcp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_tcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_tcp_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV4_SSLTCP
+      - name: LISTEN_CSV_IPV4_SSLTCP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV4_SSLTCP
+            data: <<prefix>>_LISTEN_CSV_IPV4_SSLTCP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssltcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssltcp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssltcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssltcp_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV4_UDP
+      - name: LISTEN_CSV_IPV4_UDP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV4_UDP
+            data: <<prefix>>_LISTEN_CSV_IPV4_UDP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_udp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_udp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_udp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_udp_value_state_isdisabled>>.NOT)}
         expressions:
@@ -57,46 +59,46 @@ sections:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
       
-      - name: LISTEN_CS_IPV6_HTTP
+      - name: LISTEN_CSV_IPV6_HTTP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV6_HTTP
+            data: <<prefix>>_LISTEN_CSV_IPV6_HTTP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_http_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_http_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV6_SSL
+      - name: LISTEN_CSV_IPV6_SSL
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV6_SSL
+            data: <<prefix>>_LISTEN_CSV_IPV6_SSL
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssl_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssl_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_ssl_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_ssl_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV6_TCP
+      - name: LISTEN_CSV_IPV6_TCP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV6_TCP
+            data: <<prefix>>_LISTEN_CSV_IPV6_TCP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_tcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_tcp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_tcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_tcp_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV6_SSLTCP
+      - name: LISTEN_CSV_IPV6_SSLTCP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV6_SSLTCP
+            data: <<prefix>>_LISTEN_CSV_IPV6_SSLTCP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssltcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssltcp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_ssltcp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_ssltcp_value_state_isdisabled>>.NOT)}
         expressions:
           install: add policy expression <<name>> <<expression>>
           uninstall: rm policy expression <<name>>
-      - name: LISTEN_CS_IPV6_UDP
+      - name: LISTEN_CSV_IPV6_UDP
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_CS_IPV6_UDP
+            data: <<prefix>>_LISTEN_CSV_IPV6_UDP
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_udp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_udp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_udp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_udp_value_state_isdisabled>>.NOT)}
         expressions:

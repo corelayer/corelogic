@@ -1,7 +1,8 @@
-name: tenant_ipfilter
+name: tenant_ipv6_ipfilter
 tags:
   - ipv6
-sections:
+  - tenant_ipfilter
+sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:
       - name: TENANT_IPV6_IPFILTER_TERMINATE_UDP
@@ -9,7 +10,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_TERMINATE_UDP
           - id: expression
-            data: <<loadbalancers.tenant_ipfilter.trafficmanagement.loadbalancing.virtualservers.TENANT_IPV6_IPFILTER_TERMINATE_UDP/name>>
+            data: <<loadbalancers.tenant_ipv6_ipfilter.trafficmanagement.loadbalancing.virtualservers.TENANT_IPV6_IPFILTER_TERMINATE_UDP/name>>
         expressions:
           install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
           uninstall: rm cs action <<name>>
@@ -23,7 +24,7 @@ sections:
           - id: expression
             data: true
           - id: action
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.actions.TENANT_IPV6_IPFILTER_TERMINATE_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.actions.TENANT_IPV6_IPFILTER_TERMINATE_UDP/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
           uninstall: rm cs policy <<name>>
@@ -1236,22 +1237,22 @@ sections:
             data: <<prefix>>_TENANT_IPV6_IPFILTER_UDP
 
           - id: label
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_UDP/name>>
 
           - id: 10461001_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_NONE_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_NONE_UDP/name>>
           - id: 10461001_policylabel
-            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV6_IPFILTER_UDP/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_UDP/name>>
             
           - id: 10461002_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_ALLOWLIST_UDP/name>>
           - id: 10461002_policylabel
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_ALLOWLIST_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_ALLOWLIST_UDP/name>>
 
           - id: 10461003_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
           - id: 10461003_policylabel
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
 
         expressions:
           install: |

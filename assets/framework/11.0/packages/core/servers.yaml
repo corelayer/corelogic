@@ -1,4 +1,6 @@
 name: servers
+tags:
+  - core
 sections:
   - name: trafficmanagement.loadbalancing.servers
     elements:

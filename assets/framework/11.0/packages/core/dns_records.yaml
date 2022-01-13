@@ -1,4 +1,6 @@
 name: dns
+tags:
+  - core
 sections:
   - name: trafficmanagement.dns.addressrecords
     elements:

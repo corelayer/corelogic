@@ -1,4 +1,6 @@
 name: placeholders
+tags:
+  - core
 sections:
   - name: appexpert.expressions.advanced
     elements:

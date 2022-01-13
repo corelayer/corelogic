@@ -1,5 +1,8 @@
-name: endpoint_ipfilter
-sections:
+name: endpoint_ipv4_ipfilter
+tags:
+  - ipv4
+  - endpoint_ipfilter
+sections:          
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL
@@ -18,80 +21,80 @@ sections:
             data: <<prefix>>_ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL
 
           - id: label
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
 
           - id: 10341001_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_032/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_032/name>>
           - id: 10341002_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_031/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_031/name>>
           - id: 10341003_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_030/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_030/name>>
           - id: 10341004_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_029/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_029/name>>
           - id: 10341005_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_028/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_028/name>>
           - id: 10341006_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_027/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_027/name>>
           - id: 10341007_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_026/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_026/name>>
           - id: 10341008_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_025/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_025/name>>
           - id: 10341009_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_024/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_024/name>>
           - id: 10341010_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_023/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_023/name>>
           - id: 10341011_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_022/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_022/name>>
           - id: 10341012_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_021/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_021/name>>
           - id: 10341013_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_020/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_020/name>>
           - id: 10341014_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_019/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_019/name>>
           - id: 10341015_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_018/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_018/name>>
           - id: 10341016_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_017/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_017/name>>
           - id: 10341017_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_016/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_016/name>>
           - id: 10341018_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_015/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_015/name>>
           - id: 10341019_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_014/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_014/name>>
           - id: 10341020_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_013/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_013/name>>
           - id: 10341021_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_012/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_012/name>>
           - id: 10341022_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_011/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_011/name>>
           - id: 10341023_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_010/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_010/name>>
           - id: 10341024_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_009/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_009/name>>
           - id: 10341025_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_008/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_008/name>>
           - id: 10341026_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_007/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_007/name>>
           - id: 10341027_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_006/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_006/name>>
           - id: 10341028_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_005/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_005/name>>
           - id: 10341029_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_004/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_004/name>>
           - id: 10341030_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_003/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_003/name>>
           - id: 10341031_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_002/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_002/name>>
           - id: 10341032_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_001/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_SSL_001/name>>
 
 
           - id: 10342001_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_DONE_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_DONE_SSL/name>>
           - id: 10342001_policylabel
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
           - id: 10342002_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10341001_policy>> -priority 10341001 -gotoPriorityExpression 10342002

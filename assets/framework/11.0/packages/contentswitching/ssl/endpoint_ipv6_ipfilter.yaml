@@ -1,6 +1,7 @@
-name: endpoint_ipfilter
+name: endpoint_ipv6_ipfilter
 tags:
   - ipv6
+  - endpoint_ipfilter
 sections:
   - name: trafficmanagement.contentswitching.actions
     elements:
@@ -9,7 +10,7 @@ sections:
           - id: name
             data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_TERMINATE_SSL
           - id: expression
-            data: <<loadbalancers.endpoint_ipfilter.trafficmanagement.loadbalancing.virtualservers.ENDPOINT_IPV6_IPFILTER_TERMINATE_SSL/name>>
+            data: <<loadbalancers.endpoint_ipv6_ipfilter.trafficmanagement.loadbalancing.virtualservers.ENDPOINT_IPV6_IPFILTER_TERMINATE_SSL/name>>
         expressions:
           install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
           uninstall: rm cs action <<name>>
@@ -23,7 +24,7 @@ sections:
           - id: expression
             data: true
           - id: action
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV6_IPFILTER_TERMINATE_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV6_IPFILTER_TERMINATE_SSL/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
           uninstall: rm cs policy <<name>>
@@ -1236,22 +1237,22 @@ sections:
             data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_SSL
 
           - id: label
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSL/name>>
 
           - id: 10261001_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_NONE_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_NONE_SSL/name>>
           - id: 10261001_policylabel
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
             
           - id: 10261002_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
           - id: 10261002_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
 
           - id: 10261003_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
           - id: 10261003_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
 
           
         expressions:

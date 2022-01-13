@@ -1,0 +1,20 @@
+name: patternsets
+tags:
+  - core
+sections:
+  - name: appexpert.patternsets
+    elements:
+      - name: BYPASS_CSV_IPFILTER
+        fields:
+          - id: name
+            data: <<prefix>>_BYPASS_CSV_IPFILTER
+        expressions:
+          install: add policy patset <<name>>
+          uninstall: rm policy patset <<name>>
+      - name: BYPASS_LBV_IPFILTER
+        fields:
+          - id: name
+            data: <<prefix>>_BYPASS_LBV_IPFILTER
+        expressions:
+          install: add policy patset <<name>>
+          uninstall: rm policy patset <<name>>

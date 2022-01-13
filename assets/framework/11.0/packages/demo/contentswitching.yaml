@@ -1,4 +1,6 @@
 name: contentswitching
+tags:
+  - demo
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
@@ -56,7 +58,7 @@ sections:
         - id: ipaddress
           data: 169.254.254.251
         - id: listenpolicy
-          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_HTTP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_HTTP/name>>}
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV4_HTTP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV6_HTTP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_HTTP/name>>
         - id: policylabel
@@ -74,7 +76,7 @@ sections:
         - id: ipaddress
           data: 169.254.254.251
         - id: listenpolicy
-          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_SSL/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_SSL/name>>}
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV4_SSL/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV6_SSL/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_SSL/name>>
         - id: policylabel
@@ -92,7 +94,7 @@ sections:
         - id: ipaddress
           data: 169.254.254.251
         - id: listenpolicy
-          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_TCP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_TCP/name>>}
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV4_TCP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV6_TCP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_TCP/name>>
         - id: policylabel
@@ -110,7 +112,7 @@ sections:
         - id: ipaddress
           data: 169.254.254.251
         - id: listenpolicy
-          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_SSLTCP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_SSLTCP/name>>}
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV4_SSLTCP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV6_SSLTCP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_SSLTCP/name>>
         - id: policylabel
@@ -128,7 +130,7 @@ sections:
         - id: ipaddress
           data: 169.254.254.251
         - id: listenpolicy
-          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV4_UDP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CS_IPV6_UDP/name>>}
+          data: q{<<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV4_UDP/name>> || <<core.listenpolicies.appexpert.expressions.advanced.LISTEN_CSV_IPV6_UDP/name>>}
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_UDP/name>>
         - id: policylabel

@@ -1,4 +1,6 @@
 name: drop
+tags:
+  - core
 sections:
   - name: trafficmanagement.loadbalancing.virtualservers
     elements:

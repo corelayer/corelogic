@@ -1,5 +1,8 @@
-name: endpoint_ipfilter
-sections:
+name: endpoint_ipv4_ipfilter
+tags:
+  - ipv4
+  - endpoint_ipfilter
+sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:
       - name: ENDPOINT_IPV4_IPFILTER_TERMINATE_UDP
@@ -7,7 +10,7 @@ sections:
           - id: name
             data: <<prefix>>_ENDPOINT_IPV4_IPFILTER_TERMINATE_UDP
           - id: expression
-            data: <<loadbalancers.endpoint_ipfilter.trafficmanagement.loadbalancing.virtualservers.ENDPOINT_IPV4_IPFILTER_TERMINATE_UDP/name>>
+            data: <<loadbalancers.endpoint_ipv4_ipfilter.trafficmanagement.loadbalancing.virtualservers.ENDPOINT_IPV4_IPFILTER_TERMINATE_UDP/name>>
         expressions:
           install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
           uninstall: rm cs action <<name>>
@@ -21,7 +24,7 @@ sections:
           - id: expression
             data: true
           - id: action
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV4_IPFILTER_TERMINATE_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV4_IPFILTER_TERMINATE_UDP/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
           uninstall: rm cs policy <<name>>
@@ -401,22 +404,22 @@ sections:
             data: <<prefix>>_ENDPOINT_IPV4_IPFILTER_UDP
 
           - id: label
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_UDP/name>>
 
           - id: 10241001_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NONE_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NONE_UDP/name>>
           - id: 10241001_policylabel
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_UDP/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_UDP/name>>
 
           - id: 10241002_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
           - id: 10241002_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
 
           - id: 10241003_policy
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_BLOCKLIST_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_BLOCKLIST_UDP/name>>
           - id: 10241003_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_UDP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10241001_policy>> -priority 10241001 -gotoPriorityExpression NEXT -invoke policylabel <<10241001_policylabel>>

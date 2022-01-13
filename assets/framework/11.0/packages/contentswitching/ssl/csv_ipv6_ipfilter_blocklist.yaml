@@ -1,0 +1,551 @@
+name: csv_ipv6_ipfilter
+tags:
+  - ipv6
+  - csv_ipfilter
+sections:          
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: CSV_IPV6_IPFILTER_BLOCKLIST_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV6_IPFILTER_BLOCKLIST_SSL
+        expressions:
+          install: add cs policylabel <<name>> HTTP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: CSV_IPV6_IPFILTER_BLOCKLIST_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV6_IPFILTER_BLOCKLIST_SSL
+
+          - id: label
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+
+          - id: 10961001_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_128/name>>
+          - id: 10961002_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_127/name>>
+          - id: 10961003_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_126/name>>
+          - id: 10961004_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_125/name>>
+          - id: 10961005_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_124/name>>
+          - id: 10961006_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_123/name>>
+          - id: 10961007_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_122/name>>
+          - id: 10961008_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_121/name>>
+          - id: 10961009_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_120/name>>
+          - id: 10961010_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_119/name>>
+          - id: 10961011_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_118/name>>
+          - id: 10961012_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_117/name>>
+          - id: 10961013_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_116/name>>
+          - id: 10961014_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_115/name>>
+          - id: 10961015_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_114/name>>
+          - id: 10961016_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_113/name>>
+          - id: 10961017_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_112/name>>
+          - id: 10961018_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_111/name>>
+          - id: 10961019_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_110/name>>
+          - id: 10961020_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_109/name>>
+          - id: 10961021_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_108/name>>
+          - id: 10961022_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_107/name>>
+          - id: 10961023_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_106/name>>
+          - id: 10961024_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_105/name>>
+          - id: 10961025_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_104/name>>
+          - id: 10961026_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_103/name>>
+          - id: 10961027_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_102/name>>
+          - id: 10961028_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_101/name>>
+          - id: 10961029_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_100/name>>
+          - id: 10961030_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_099/name>>
+          - id: 10961031_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_098/name>>
+          - id: 10961032_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_097/name>>
+          - id: 10961033_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_096/name>>
+          - id: 10961034_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_095/name>>
+          - id: 10961035_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_094/name>>
+          - id: 10961036_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_093/name>>
+          - id: 10961037_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_092/name>>
+          - id: 10961038_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_091/name>>
+          - id: 10961039_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_090/name>>
+          - id: 10961040_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_089/name>>
+          - id: 10961041_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_088/name>>
+          - id: 10961042_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_087/name>>
+          - id: 10961043_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_086/name>>
+          - id: 10961044_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_085/name>>
+          - id: 10961045_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_084/name>>
+          - id: 10961046_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_083/name>>
+          - id: 10961047_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_082/name>>
+          - id: 10961048_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_081/name>>
+          - id: 10961049_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_080/name>>
+          - id: 10961050_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_079/name>>
+          - id: 10961051_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_078/name>>
+          - id: 10961052_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_077/name>>
+          - id: 10961053_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_076/name>>
+          - id: 10961054_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_075/name>>
+          - id: 10961055_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_074/name>>
+          - id: 10961056_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_073/name>>
+          - id: 10961057_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_072/name>>
+          - id: 10961058_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_071/name>>
+          - id: 10961059_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_070/name>>
+          - id: 10961060_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_069/name>>
+          - id: 10961061_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_068/name>>
+          - id: 10961062_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_067/name>>
+          - id: 10961063_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_066/name>>
+          - id: 10961064_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_065/name>>
+          - id: 10961065_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_064/name>>
+          - id: 10961066_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_063/name>>
+          - id: 10961067_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_062/name>>
+          - id: 10961068_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_061/name>>
+          - id: 10961069_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_060/name>>
+          - id: 10961070_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_059/name>>
+          - id: 10961071_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_058/name>>
+          - id: 10961072_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_057/name>>
+          - id: 10961073_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_056/name>>
+          - id: 10961074_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_055/name>>
+          - id: 10961075_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_054/name>>
+          - id: 10961076_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_053/name>>
+          - id: 10961077_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_052/name>>
+          - id: 10961078_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_051/name>>
+          - id: 10961079_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_050/name>>
+          - id: 10961080_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_049/name>>
+          - id: 10961081_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_048/name>>
+          - id: 10961082_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_047/name>>
+          - id: 10961083_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_046/name>>
+          - id: 10961084_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_045/name>>
+          - id: 10961085_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_044/name>>
+          - id: 10961086_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_043/name>>
+          - id: 10961087_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_042/name>>
+          - id: 10961088_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_041/name>>
+          - id: 10961089_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_040/name>>
+          - id: 10961090_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_039/name>>
+          - id: 10961091_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_038/name>>
+          - id: 10961092_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_037/name>>
+          - id: 10961093_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_036/name>>
+          - id: 10961094_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_035/name>>
+          - id: 10961095_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_034/name>>
+          - id: 10961096_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_033/name>>
+          - id: 10961097_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_032/name>>
+          - id: 10961098_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_031/name>>
+          - id: 10961099_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_030/name>>
+          - id: 10961100_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_029/name>>
+          - id: 10961101_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_028/name>>
+          - id: 10961102_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_027/name>>
+          - id: 10961103_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_026/name>>
+          - id: 10961104_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_025/name>>
+          - id: 10961105_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_024/name>>
+          - id: 10961106_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_023/name>>
+          - id: 10961107_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_022/name>>
+          - id: 10961108_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_021/name>>
+          - id: 10961109_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_020/name>>
+          - id: 10961110_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_019/name>>
+          - id: 10961111_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_018/name>>
+          - id: 10961112_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_017/name>>
+          - id: 10961113_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_016/name>>
+          - id: 10961114_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_015/name>>
+          - id: 10961115_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_014/name>>
+          - id: 10961116_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_013/name>>
+          - id: 10961117_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_012/name>>
+          - id: 10961118_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_011/name>>
+          - id: 10961119_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_010/name>>
+          - id: 10961120_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_009/name>>
+          - id: 10961121_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_008/name>>
+          - id: 10961122_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_007/name>>
+          - id: 10961123_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_006/name>>
+          - id: 10961124_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_005/name>>
+          - id: 10961125_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_004/name>>
+          - id: 10961126_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_003/name>>
+          - id: 10961127_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_002/name>>
+          - id: 10961128_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_SSL_001/name>>
+
+          - id: 10962001_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_DONE_SSL/name>>
+          - id: 10962001_policylabel
+            data: <<contentswitching.zone_ipv6_secure.trafficmanagement.contentswitching.policylabels.CSV_IPV6_ZONE_SECURE_SSL/name>>
+          - id: 10962002_policy
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV6_IPFILTER_TERMINATE_SSL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10961001_policy>> -priority 10961001 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961002_policy>> -priority 10961002 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961003_policy>> -priority 10961003 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961004_policy>> -priority 10961004 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961005_policy>> -priority 10961005 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961006_policy>> -priority 10961006 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961007_policy>> -priority 10961007 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961008_policy>> -priority 10961008 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961009_policy>> -priority 10961009 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961010_policy>> -priority 10961010 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961011_policy>> -priority 10961011 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961012_policy>> -priority 10961012 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961013_policy>> -priority 10961013 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961014_policy>> -priority 10961014 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961015_policy>> -priority 10961015 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961016_policy>> -priority 10961016 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961017_policy>> -priority 10961017 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961018_policy>> -priority 10961018 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961019_policy>> -priority 10961019 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961020_policy>> -priority 10961020 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961021_policy>> -priority 10961021 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961022_policy>> -priority 10961022 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961023_policy>> -priority 10961023 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961024_policy>> -priority 10961024 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961025_policy>> -priority 10961025 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961026_policy>> -priority 10961026 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961027_policy>> -priority 10961027 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961028_policy>> -priority 10961028 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961029_policy>> -priority 10961029 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961030_policy>> -priority 10961030 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961031_policy>> -priority 10961031 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961032_policy>> -priority 10961032 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961033_policy>> -priority 10961033 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961034_policy>> -priority 10961034 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961035_policy>> -priority 10961035 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961036_policy>> -priority 10961036 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961037_policy>> -priority 10961037 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961038_policy>> -priority 10961038 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961039_policy>> -priority 10961039 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961040_policy>> -priority 10961040 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961041_policy>> -priority 10961041 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961042_policy>> -priority 10961042 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961043_policy>> -priority 10961043 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961044_policy>> -priority 10961044 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961045_policy>> -priority 10961045 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961046_policy>> -priority 10961046 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961047_policy>> -priority 10961047 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961048_policy>> -priority 10961048 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961049_policy>> -priority 10961049 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961050_policy>> -priority 10961050 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961051_policy>> -priority 10961051 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961052_policy>> -priority 10961052 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961053_policy>> -priority 10961053 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961054_policy>> -priority 10961054 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961055_policy>> -priority 10961055 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961056_policy>> -priority 10961056 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961057_policy>> -priority 10961057 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961058_policy>> -priority 10961058 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961059_policy>> -priority 10961059 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961060_policy>> -priority 10961060 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961061_policy>> -priority 10961061 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961062_policy>> -priority 10961062 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961063_policy>> -priority 10961063 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961064_policy>> -priority 10961064 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961065_policy>> -priority 10961065 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961066_policy>> -priority 10961066 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961067_policy>> -priority 10961067 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961068_policy>> -priority 10961068 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961069_policy>> -priority 10961069 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961070_policy>> -priority 10961070 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961071_policy>> -priority 10961071 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961072_policy>> -priority 10961072 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961073_policy>> -priority 10961073 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961074_policy>> -priority 10961074 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961075_policy>> -priority 10961075 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961076_policy>> -priority 10961076 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961077_policy>> -priority 10961077 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961078_policy>> -priority 10961078 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961079_policy>> -priority 10961079 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961080_policy>> -priority 10961080 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961081_policy>> -priority 10961081 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961082_policy>> -priority 10961082 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961083_policy>> -priority 10961083 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961084_policy>> -priority 10961084 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961085_policy>> -priority 10961085 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961086_policy>> -priority 10961086 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961087_policy>> -priority 10961087 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961088_policy>> -priority 10961088 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961089_policy>> -priority 10961089 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961090_policy>> -priority 10961090 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961091_policy>> -priority 10961091 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961092_policy>> -priority 10961092 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961093_policy>> -priority 10961093 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961094_policy>> -priority 10961094 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961095_policy>> -priority 10961095 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961096_policy>> -priority 10961096 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961097_policy>> -priority 10961097 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961098_policy>> -priority 10961098 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961099_policy>> -priority 10961099 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961100_policy>> -priority 10961100 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961101_policy>> -priority 10961101 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961102_policy>> -priority 10961102 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961103_policy>> -priority 10961103 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961104_policy>> -priority 10961104 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961105_policy>> -priority 10961105 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961106_policy>> -priority 10961106 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961107_policy>> -priority 10961107 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961108_policy>> -priority 10961108 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961109_policy>> -priority 10961109 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961110_policy>> -priority 10961110 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961111_policy>> -priority 10961111 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961112_policy>> -priority 10961112 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961113_policy>> -priority 10961113 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961114_policy>> -priority 10961114 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961115_policy>> -priority 10961115 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961116_policy>> -priority 10961116 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961117_policy>> -priority 10961117 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961118_policy>> -priority 10961118 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961119_policy>> -priority 10961119 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961120_policy>> -priority 10961120 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961121_policy>> -priority 10961121 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961122_policy>> -priority 10961122 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961123_policy>> -priority 10961123 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961124_policy>> -priority 10961124 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961125_policy>> -priority 10961125 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961126_policy>> -priority 10961126 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961127_policy>> -priority 10961127 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10961128_policy>> -priority 10961128 -gotoPriorityExpression 10962002
+            bind cs policylabel <<label>> <<10962001_policy>> -priority 10962001 -gotoPriorityExpression NEXT -invoke policylabel <<10962001_policylabel>>
+            bind cs policylabel <<label>> <<10962002_policy>> -priority 10962002
+          uninstall: |
+            unbind cs policylabel <<label>> <<10961001_policy>>
+            unbind cs policylabel <<label>> <<10961002_policy>>
+            unbind cs policylabel <<label>> <<10961003_policy>>
+            unbind cs policylabel <<label>> <<10961004_policy>>
+            unbind cs policylabel <<label>> <<10961005_policy>>
+            unbind cs policylabel <<label>> <<10961006_policy>>
+            unbind cs policylabel <<label>> <<10961007_policy>>
+            unbind cs policylabel <<label>> <<10961008_policy>>
+            unbind cs policylabel <<label>> <<10961009_policy>>
+            unbind cs policylabel <<label>> <<10961010_policy>>
+            unbind cs policylabel <<label>> <<10961011_policy>>
+            unbind cs policylabel <<label>> <<10961012_policy>>
+            unbind cs policylabel <<label>> <<10961013_policy>>
+            unbind cs policylabel <<label>> <<10961014_policy>>
+            unbind cs policylabel <<label>> <<10961015_policy>>
+            unbind cs policylabel <<label>> <<10961016_policy>>
+            unbind cs policylabel <<label>> <<10961017_policy>>
+            unbind cs policylabel <<label>> <<10961018_policy>>
+            unbind cs policylabel <<label>> <<10961019_policy>>
+            unbind cs policylabel <<label>> <<10961020_policy>>
+            unbind cs policylabel <<label>> <<10961021_policy>>
+            unbind cs policylabel <<label>> <<10961022_policy>>
+            unbind cs policylabel <<label>> <<10961023_policy>>
+            unbind cs policylabel <<label>> <<10961024_policy>>
+            unbind cs policylabel <<label>> <<10961025_policy>>
+            unbind cs policylabel <<label>> <<10961026_policy>>
+            unbind cs policylabel <<label>> <<10961027_policy>>
+            unbind cs policylabel <<label>> <<10961028_policy>>
+            unbind cs policylabel <<label>> <<10961029_policy>>
+            unbind cs policylabel <<label>> <<10961030_policy>>
+            unbind cs policylabel <<label>> <<10961031_policy>>
+            unbind cs policylabel <<label>> <<10961032_policy>>
+            unbind cs policylabel <<label>> <<10961033_policy>>
+            unbind cs policylabel <<label>> <<10961034_policy>>
+            unbind cs policylabel <<label>> <<10961035_policy>>
+            unbind cs policylabel <<label>> <<10961036_policy>>
+            unbind cs policylabel <<label>> <<10961037_policy>>
+            unbind cs policylabel <<label>> <<10961038_policy>>
+            unbind cs policylabel <<label>> <<10961039_policy>>
+            unbind cs policylabel <<label>> <<10961040_policy>>
+            unbind cs policylabel <<label>> <<10961041_policy>>
+            unbind cs policylabel <<label>> <<10961042_policy>>
+            unbind cs policylabel <<label>> <<10961043_policy>>
+            unbind cs policylabel <<label>> <<10961044_policy>>
+            unbind cs policylabel <<label>> <<10961045_policy>>
+            unbind cs policylabel <<label>> <<10961046_policy>>
+            unbind cs policylabel <<label>> <<10961047_policy>>
+            unbind cs policylabel <<label>> <<10961048_policy>>
+            unbind cs policylabel <<label>> <<10961049_policy>>
+            unbind cs policylabel <<label>> <<10961050_policy>>
+            unbind cs policylabel <<label>> <<10961051_policy>>
+            unbind cs policylabel <<label>> <<10961052_policy>>
+            unbind cs policylabel <<label>> <<10961053_policy>>
+            unbind cs policylabel <<label>> <<10961054_policy>>
+            unbind cs policylabel <<label>> <<10961055_policy>>
+            unbind cs policylabel <<label>> <<10961056_policy>>
+            unbind cs policylabel <<label>> <<10961057_policy>>
+            unbind cs policylabel <<label>> <<10961058_policy>>
+            unbind cs policylabel <<label>> <<10961059_policy>>
+            unbind cs policylabel <<label>> <<10961060_policy>>
+            unbind cs policylabel <<label>> <<10961061_policy>>
+            unbind cs policylabel <<label>> <<10961062_policy>>
+            unbind cs policylabel <<label>> <<10961063_policy>>
+            unbind cs policylabel <<label>> <<10961064_policy>>
+            unbind cs policylabel <<label>> <<10961065_policy>>
+            unbind cs policylabel <<label>> <<10961066_policy>>
+            unbind cs policylabel <<label>> <<10961067_policy>>
+            unbind cs policylabel <<label>> <<10961068_policy>>
+            unbind cs policylabel <<label>> <<10961069_policy>>
+            unbind cs policylabel <<label>> <<10961070_policy>>
+            unbind cs policylabel <<label>> <<10961071_policy>>
+            unbind cs policylabel <<label>> <<10961072_policy>>
+            unbind cs policylabel <<label>> <<10961073_policy>>
+            unbind cs policylabel <<label>> <<10961074_policy>>
+            unbind cs policylabel <<label>> <<10961075_policy>>
+            unbind cs policylabel <<label>> <<10961076_policy>>
+            unbind cs policylabel <<label>> <<10961077_policy>>
+            unbind cs policylabel <<label>> <<10961078_policy>>
+            unbind cs policylabel <<label>> <<10961079_policy>>
+            unbind cs policylabel <<label>> <<10961080_policy>>
+            unbind cs policylabel <<label>> <<10961081_policy>>
+            unbind cs policylabel <<label>> <<10961082_policy>>
+            unbind cs policylabel <<label>> <<10961083_policy>>
+            unbind cs policylabel <<label>> <<10961084_policy>>
+            unbind cs policylabel <<label>> <<10961085_policy>>
+            unbind cs policylabel <<label>> <<10961086_policy>>
+            unbind cs policylabel <<label>> <<10961087_policy>>
+            unbind cs policylabel <<label>> <<10961088_policy>>
+            unbind cs policylabel <<label>> <<10961089_policy>>
+            unbind cs policylabel <<label>> <<10961090_policy>>
+            unbind cs policylabel <<label>> <<10961091_policy>>
+            unbind cs policylabel <<label>> <<10961092_policy>>
+            unbind cs policylabel <<label>> <<10961093_policy>>
+            unbind cs policylabel <<label>> <<10961094_policy>>
+            unbind cs policylabel <<label>> <<10961095_policy>>
+            unbind cs policylabel <<label>> <<10961096_policy>>
+            unbind cs policylabel <<label>> <<10961097_policy>>
+            unbind cs policylabel <<label>> <<10961098_policy>>
+            unbind cs policylabel <<label>> <<10961099_policy>>
+            unbind cs policylabel <<label>> <<10961100_policy>>
+            unbind cs policylabel <<label>> <<10961101_policy>>
+            unbind cs policylabel <<label>> <<10961102_policy>>
+            unbind cs policylabel <<label>> <<10961103_policy>>
+            unbind cs policylabel <<label>> <<10961104_policy>>
+            unbind cs policylabel <<label>> <<10961105_policy>>
+            unbind cs policylabel <<label>> <<10961106_policy>>
+            unbind cs policylabel <<label>> <<10961107_policy>>
+            unbind cs policylabel <<label>> <<10961108_policy>>
+            unbind cs policylabel <<label>> <<10961109_policy>>
+            unbind cs policylabel <<label>> <<10961110_policy>>
+            unbind cs policylabel <<label>> <<10961111_policy>>
+            unbind cs policylabel <<label>> <<10961112_policy>>
+            unbind cs policylabel <<label>> <<10961113_policy>>
+            unbind cs policylabel <<label>> <<10961114_policy>>
+            unbind cs policylabel <<label>> <<10961115_policy>>
+            unbind cs policylabel <<label>> <<10961116_policy>>
+            unbind cs policylabel <<label>> <<10961117_policy>>
+            unbind cs policylabel <<label>> <<10961118_policy>>
+            unbind cs policylabel <<label>> <<10961119_policy>>
+            unbind cs policylabel <<label>> <<10961120_policy>>
+            unbind cs policylabel <<label>> <<10961121_policy>>
+            unbind cs policylabel <<label>> <<10961122_policy>>
+            unbind cs policylabel <<label>> <<10961123_policy>>
+            unbind cs policylabel <<label>> <<10961124_policy>>
+            unbind cs policylabel <<label>> <<10961125_policy>>
+            unbind cs policylabel <<label>> <<10961126_policy>>
+            unbind cs policylabel <<label>> <<10961127_policy>>
+            unbind cs policylabel <<label>> <<10961128_policy>>
+            unbind cs policylabel <<label>> <<10962001_policy>>
+            unbind cs policylabel <<label>> <<10962002_policy>>

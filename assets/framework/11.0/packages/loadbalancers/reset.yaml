@@ -1,4 +1,6 @@
 name: reset
+tags:
+  - core
 sections:
   - name: trafficmanagement.loadbalancing.virtualservers
     elements:

@@ -1,4 +1,6 @@
 name: init
+tags:
+  - core
 sections:
   - name: appexpert.expressions.advanced
     elements:
@@ -117,12 +119,12 @@ sections:
           - id: 10141001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_HTTP/name>>
           - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
 
           - id: 10161001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_HTTP/name>>
           - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_HTTP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_HTTP/name>>
         expressions:
           install: |
             add cs policylabel <<name>> HTTP
@@ -138,12 +140,12 @@ sections:
           - id: 10141001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_SSL/name>>
           - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSL/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSL/name>>
 
           - id: 10161001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_SSL/name>>
           - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSL/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSL/name>>
         expressions:
           install: |
             add cs policylabel <<name>> HTTP
@@ -159,12 +161,12 @@ sections:
           - id: 10141001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_TCP/name>>
           - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_TCP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_TCP/name>>
 
           - id: 10161001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_TCP/name>>
           - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_TCP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_TCP/name>>
         expressions:
           install: |
             add cs policylabel <<name>> TCP
@@ -180,12 +182,12 @@ sections:
           - id: 10141001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_SSLTCP/name>>
           - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
 
           - id: 10161001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_SSLTCP/name>>
           - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSLTCP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSLTCP/name>>
         expressions:
           install: |
             add cs policylabel <<name>> SSLTCP
@@ -201,12 +203,12 @@ sections:
           - id: 10141001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_UDP/name>>
           - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_UDP/name>>
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_UDP/name>>
 
           - id: 10161001_policy
             data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_UDP/name>>
           - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_UDP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_UDP/name>>
         expressions:
           install: |
             add cs policylabel <<name>> UDP

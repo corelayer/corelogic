@@ -1,4 +1,7 @@
-name: tenant_ipfilter
+name: tenant_ipv4_ipfilter
+tags:
+  - ipv4
+  - tenant_ipfilter
 sections:          
   - name: trafficmanagement.contentswitching.policylabels
     elements:
@@ -18,79 +21,79 @@ sections:
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP
 
           - id: label
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_ALLOWLIST_SSLTCP/name>>
 
           - id: 10541001_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_032/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_032/name>>
           - id: 10541002_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_031/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_031/name>>
           - id: 10541003_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_030/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_030/name>>
           - id: 10541004_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_029/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_029/name>>
           - id: 10541005_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_028/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_028/name>>
           - id: 10541006_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_027/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_027/name>>
           - id: 10541007_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_026/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_026/name>>
           - id: 10541008_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_025/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_025/name>>
           - id: 10541009_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_024/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_024/name>>
           - id: 10541010_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_023/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_023/name>>
           - id: 10541011_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_022/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_022/name>>
           - id: 10541012_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_021/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_021/name>>
           - id: 10541013_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_020/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_020/name>>
           - id: 10541014_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_019/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_019/name>>
           - id: 10541015_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_018/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_018/name>>
           - id: 10541016_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_017/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_017/name>>
           - id: 10541017_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_016/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_016/name>>
           - id: 10541018_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_015/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_015/name>>
           - id: 10541019_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_014/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_014/name>>
           - id: 10541020_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_013/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_013/name>>
           - id: 10541021_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_012/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_012/name>>
           - id: 10541022_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_011/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_011/name>>
           - id: 10541023_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_010/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_010/name>>
           - id: 10541024_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_009/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_009/name>>
           - id: 10541025_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_008/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_008/name>>
           - id: 10541026_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_007/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_007/name>>
           - id: 10541027_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_006/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_006/name>>
           - id: 10541028_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_005/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_005/name>>
           - id: 10541029_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_004/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_004/name>>
           - id: 10541030_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_003/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_003/name>>
           - id: 10541031_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_002/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_002/name>>
           - id: 10541032_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_001/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_SSLTCP_001/name>>
 
           - id: 10542001_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
           - id: 10542002_policy
-            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_DONE_SSLTCP/name>>
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_DONE_SSLTCP/name>>
           - id: 10542002_policylabel
-            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CSGROUP_IPV4_IPFILTER_SSLTCP/name>>
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_SSLTCP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10541001_policy>> -priority 10541001 -gotoPriorityExpression 10542002
