@@ -1,0 +1,98 @@
+name: init_ipv4
+tags:
+  - core
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_BYPASS_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_IPV4_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_ENDPOINT_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_TENANT_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_CSVGROUP_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_CSV_IPV4_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+  
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: INIT_IPV4_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_UDP
+          
+          - id: 10141001_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_BYPASS_IPV4_IPFILTER_UDP/name>>
+          - id: 10141001_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_UDP/name>>
+
+          - id: 10141002_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_UDP/name>>
+          - id: 10141002_policylabel
+            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_UDP/name>>
+
+          - id: 10141003_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_UDP/name>>
+          - id: 10141003_policylabel
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_UDP/name>>
+
+          - id: 10141004_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_UDP/name>>
+          - id: 10141004_policylabel
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_UDP/name>>
+
+          - id: 10141005_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_UDP/name>>
+          - id: 10141005_policylabel
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_UDP/name>>
+
+
+        expressions:
+          install: |
+            add cs policylabel <<name>> UDP
+            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+            bind cs policylabel <<name>> <<10141002_policy>> -priority 10141002 -gotoPriorityExpression NEXT -invoke policylabel <<10141002_policylabel>>
+            bind cs policylabel <<name>> <<10141003_policy>> -priority 10141003 -gotoPriorityExpression NEXT -invoke policylabel <<10141003_policylabel>>
+            bind cs policylabel <<name>> <<10141004_policy>> -priority 10141004 -gotoPriorityExpression NEXT -invoke policylabel <<10141004_policylabel>>
+            bind cs policylabel <<name>> <<10141005_policy>> -priority 10141005 -gotoPriorityExpression NEXT -invoke policylabel <<10141005_policylabel>>
+          uninstall: rm cs policylabel <<name>>

@@ -405,7 +405,6 @@ sections:
 
           - id: label
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
-
           - id: 10241001_policy
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NONE_HTTP/name>>
           - id: 10241001_policylabel

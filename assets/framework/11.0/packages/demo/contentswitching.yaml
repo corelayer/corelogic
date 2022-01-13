@@ -116,7 +116,7 @@ sections:
         - id: policy
           data: <<demo.contentswitching.trafficmanagement.contentswitching.policies.DEMO_INIT_SSLTCP/name>>
         - id: policylabel
-          data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_TCP/name>>
+          data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_SSLTCP/name>>
         expressions:
           install: |
             add cs vserver <<name>> SSL_TCP <<ipaddress>> * -Listenpriority 45 -Listenpolicy <<listenpolicy>>

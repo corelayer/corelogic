@@ -1,0 +1,98 @@
+name: init_ipv6
+tags:
+  - core
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_BYPASS_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_IPV6_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_ENDPOINT_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_TENANT_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: INIT_CSV_IPV6_IPFILTER_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+  
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: INIT_IPV6_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_UDP
+          
+          - id: 10161001_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_BYPASS_IPV6_IPFILTER_UDP/name>>
+          - id: 10161001_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+          - id: 10161002_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_UDP/name>>
+          - id: 10161002_policylabel
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER/name>>
+
+          - id: 10161003_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_UDP/name>>
+          - id: 10161003_policylabel
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER/name>>
+
+          - id: 10161004_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_UDP/name>>
+          - id: 10161004_policylabel
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER/name>>
+
+          - id: 10161005_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_UDP/name>>
+          - id: 10161005_policylabel
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER/name>>
+
+
+        expressions:
+          install: |
+            add cs policylabel <<name>> UDP
+            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+            bind cs policylabel <<name>> <<10161002_policy>> -priority 10161002 -gotoPriorityExpression NEXT -invoke policylabel <<10161002_policylabel>>
+            bind cs policylabel <<name>> <<10161003_policy>> -priority 10161003 -gotoPriorityExpression NEXT -invoke policylabel <<10161003_policylabel>>
+            bind cs policylabel <<name>> <<10161004_policy>> -priority 10161004 -gotoPriorityExpression NEXT -invoke policylabel <<10161004_policylabel>>
+            bind cs policylabel <<name>> <<10161005_policy>> -priority 10161005 -gotoPriorityExpression NEXT -invoke policylabel <<10161005_policylabel>>
+          uninstall: rm cs policylabel <<name>>

@@ -12,97 +12,98 @@ sections:
             data: true
         expressions:
           install: add policy expression <<name>> q{<<expression>>}
+
   - name: trafficmanagement.contentswitching.policies
     elements:
-      - name: IPV4_IPFILTER_HTTP
+      - name: INIT_IPV4_HTTP
         fields:
           - id: name
-            data: <<prefix>>_IPV4_IPFILTER_HTTP
+            data: <<prefix>>_INIT_IPV4_HTTP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: IPV6_IPFILTER_HTTP
+      - name: INIT_IPV6_HTTP
         fields:
           - id: name
-            data: <<prefix>>_IPV6_IPFILTER_HTTP
+            data: <<prefix>>_INIT_IPV6_HTTP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
-      - name: IPV4_IPFILTER_SSL
+      - name: INIT_IPV4_SSL
         fields:
           - id: name
-            data: <<prefix>>_IPV4_IPFILTER_SSL
+            data: <<prefix>>_INIT_IPV4_SSL
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: IPV6_IPFILTER_SSL
+      - name: INIT_IPV6_SSL
         fields:
           - id: name
-            data: <<prefix>>_IPV6_IPFILTER_SSL
+            data: <<prefix>>_INIT_IPV6_SSL
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
-      - name: IPV4_IPFILTER_TCP
+      - name: INIT_IPV4_TCP
         fields:
           - id: name
-            data: <<prefix>>_IPV4_IPFILTER_TCP
+            data: <<prefix>>_INIT_IPV4_TCP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: IPV6_IPFILTER_TCP
+      - name: INIT_IPV6_TCP
         fields:
           - id: name
-            data: <<prefix>>_IPV6_IPFILTER_TCP
+            data: <<prefix>>_INIT_IPV6_TCP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
-      - name: IPV4_IPFILTER_SSLTCP
+      - name: INIT_IPV4_SSLTCP
         fields:
           - id: name
-            data: <<prefix>>_IPV4_IPFILTER_SSLTCP
+            data: <<prefix>>_INIT_IPV4_SSLTCP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: IPV6_IPFILTER_SSLTCP
+      - name: INIT_IPV6_SSLTCP
         fields:
           - id: name
-            data: <<prefix>>_IPV6_IPFILTER_SSLTCP
+            data: <<prefix>>_INIT_IPV6_SSLTCP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
-      - name: IPV4_IPFILTER_UDP
+      - name: INIT_IPV4_UDP
         fields:
           - id: name
-            data: <<prefix>>_IPV4_IPFILTER_UDP
+            data: <<prefix>>_INIT_IPV4_UDP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: IPV6_IPFILTER_UDP
+      - name: INIT_IPV6_UDP
         fields:
           - id: name
-            data: <<prefix>>_IPV6_IPFILTER_UDP
+            data: <<prefix>>_INIT_IPV6_UDP
           - id: expression
             data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
         expressions:
@@ -116,20 +117,8 @@ sections:
           - id: name
             data: <<prefix>>_INIT_HTTP
           
-          - id: 10141001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_HTTP/name>>
-          - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
-
-          - id: 10161001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_HTTP/name>>
-          - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_HTTP/name>>
         expressions:
-          install: |
-            add cs policylabel <<name>> HTTP
-            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          install: add cs policylabel <<name>> HTTP
           uninstall: rm cs policylabel <<name>>
 
       - name: INIT_SSL
@@ -137,20 +126,8 @@ sections:
           - id: name
             data: <<prefix>>_INIT_SSL
           
-          - id: 10141001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_SSL/name>>
-          - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSL/name>>
-
-          - id: 10161001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_SSL/name>>
-          - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSL/name>>
         expressions:
-          install: |
-            add cs policylabel <<name>> HTTP
-            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          install: add cs policylabel <<name>> HTTP
           uninstall: rm cs policylabel <<name>>
 
       - name: INIT_TCP
@@ -158,20 +135,8 @@ sections:
           - id: name
             data: <<prefix>>_INIT_TCP
           
-          - id: 10141001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_TCP/name>>
-          - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_TCP/name>>
-
-          - id: 10161001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_TCP/name>>
-          - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_TCP/name>>
         expressions:
-          install: |
-            add cs policylabel <<name>> TCP
-            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          install: add cs policylabel <<name>> TCP
           uninstall: rm cs policylabel <<name>>
 
       - name: INIT_SSLTCP
@@ -179,20 +144,8 @@ sections:
           - id: name
             data: <<prefix>>_INIT_SSLTCP
           
-          - id: 10141001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_SSLTCP/name>>
-          - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
-
-          - id: 10161001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_SSLTCP/name>>
-          - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSLTCP/name>>
         expressions:
-          install: |
-            add cs policylabel <<name>> SSLTCP
-            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          install: add cs policylabel <<name>> SSLTCP
           uninstall: rm cs policylabel <<name>>
 
       - name: INIT_UDP
@@ -200,18 +153,189 @@ sections:
           - id: name
             data: <<prefix>>_INIT_UDP
           
-          - id: 10141001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV4_IPFILTER_UDP/name>>
-          - id: 10141001_policylabel
-            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_UDP/name>>
-
-          - id: 10161001_policy
-            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.IPV6_IPFILTER_UDP/name>>
-          - id: 10161001_policylabel
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_UDP/name>>
         expressions:
-          install: |
-            add cs policylabel <<name>> UDP
-            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          install: add cs policylabel <<name>> UDP
           uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: INIT_IPV4_HTTP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_HTTP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_HTTP/name>>
+          
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_HTTP/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+
+      - name: INIT_IPV4_SSL
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_SSL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_SSL/name>>
+          
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_SSL/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSL/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+
+      - name: INIT_IPV4_TCP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_TCP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_TCP/name>>
+          
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_TCP/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_TCP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+
+      - name: INIT_IPV4_SSLTCP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_SSLTCP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_SSLTCP/name>>
+          
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_SSLTCP/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+
+      - name: INIT_IPV4_UDP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_UDP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_UDP/name>>
+          
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_UDP/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+
+
+      - name: INIT_IPV6_HTTP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_HTTP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_HTTP/name>>
+          
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_HTTP/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_HTTP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
+
+      - name: INIT_IPV6_SSL
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_SSL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_SSL/name>>
+          
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_SSL/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_SSL/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
+
+      - name: INIT_IPV6_TCP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_TCP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_TCP/name>>
+          
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_TCP/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
+
+      - name: INIT_IPV6_SSLTCP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_SSLTCP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_SSLTCP/name>>
+          
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_SSLTCP/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_SSLTCP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
+
+      - name: INIT_IPV6_UDP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_UDP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_UDP/name>>
+          
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_UDP/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>

@@ -324,14 +324,14 @@ func (f *Framework) GetOutput(kind string, tagFilter []string) ([]string, error)
 	}
 
 	sort.Sort(sort.Reverse(dependencyList))
-	// fmt.Println("----------------------- COUNTER -----------------------")
+	fmt.Println("----------------------- COUNTER -----------------------")
 	for dependency := range dependencyList {
 		if f.Expressions[dependencyList[dependency].Name] != "" {
 			output = append(output, f.Expressions[dependencyList[dependency].Name])
-			// fmt.Println(dependencyList[dependency].Name, dependencyList[dependency].Count)
+			fmt.Println(dependencyList[dependency].Name, dependencyList[dependency].Count)
 		}
 	}
-	// fmt.Println("----------------------- COUNTER -----------------------")
+	fmt.Println("----------------------- COUNTER -----------------------")
 
 	return output, err
 }
