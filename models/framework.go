@@ -2,26 +2,26 @@ package models
 
 import (
 	"fmt"
-	"github.com/corelayer/corelogic/general"
 	"log"
 	"regexp"
 	"sort"
 	"strings"
 	"sync"
-)
 
+	"github.com/corelayer/corelogic/general"
+)
 
 type DataMapWriter interface {
 	AppendData(source map[string]string, destination map[string]string) (map[string]string, error)
 }
 
 type Framework struct {
-	Release  Release   `yaml:release`
-	Prefixes []Prefix  `yaml:prefixes`
-	Packages []Package `yaml:packages`
+	Release  Release   `yaml:"release"`
+	Prefixes []Prefix  `yaml:"prefixes"`
+	Packages []Package `yaml:"packages"`
 
-	Expressions map[string]string
-	Fields map[string]string
+	Expressions     map[string]string
+	Fields          map[string]string
 	SortedFieldKeys []string
 }
 
@@ -142,7 +142,7 @@ func (f *Framework) setSortedFieldKeys(fields map[string]string) {
 	f.SortedFieldKeys = fieldKeys
 }
 
-func (f *Framework) getInstallExpressionsFromPackages() (map[string]string, error) {
+func (f *Framework) getInstallExpressionsFromPackages(tagFilter []string) (map[string]string, error) {
 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get install expressions from packages"))
 
 	output := make(map[string]string)
@@ -150,7 +150,7 @@ func (f *Framework) getInstallExpressionsFromPackages() (map[string]string, erro
 	var err error
 
 	for _, p := range f.Packages {
-		expressions, err = p.GetInstallExpressions()
+		expressions, err = p.GetInstallExpressions(tagFilter)
 		if err != nil {
 			log.Fatal(err)
 		} else {
@@ -161,7 +161,7 @@ func (f *Framework) getInstallExpressionsFromPackages() (map[string]string, erro
 	return output, err
 }
 
-func (f *Framework) getUninstallExpressionsFromPackages() (map[string]string, error) {
+func (f *Framework) getUninstallExpressionsFromPackages(tagFilter []string) (map[string]string, error) {
 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get uninstall expressions from packages"))
 
 	output := make(map[string]string)
@@ -169,7 +169,7 @@ func (f *Framework) getUninstallExpressionsFromPackages() (map[string]string, er
 	var err error
 
 	for _, p := range f.Packages {
-		expressions, err = p.GetUninstallExpressions()
+		expressions, err = p.GetUninstallExpressions(tagFilter)
 		if err != nil {
 			log.Fatal(err)
 		} else {
@@ -180,14 +180,14 @@ func (f *Framework) getUninstallExpressionsFromPackages() (map[string]string, er
 	return output, err
 }
 
-func (f *Framework) getExpressions(kind string) (map[string]string, error) {
+func (f *Framework) getExpressions(kind string, tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var err error
 
 	if kind == "install" {
-		output, err = f.getInstallExpressionsFromPackages()
+		output, err = f.getInstallExpressionsFromPackages(tagFilter)
 	} else if kind == "uninstall" {
-		output, err = f.getUninstallExpressionsFromPackages()
+		output, err = f.getUninstallExpressionsFromPackages(tagFilter)
 	}
 
 	return output, err
@@ -276,13 +276,13 @@ func (f *Framework) countUniqueFields() int {
 	return counter
 }
 
-func (f *Framework) GetOutput(kind string) ([]string, error) {
+func (f *Framework) GetOutput(kind string, tagFilter []string) ([]string, error) {
 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get " + kind + " output"))
 
 	var output []string
 	//f.Expressions = make(map[string]string)
 	var err error
-	f.Expressions, err = f.getExpressions(kind)
+	f.Expressions, err = f.getExpressions(kind, tagFilter)
 	if err != nil {
 		log.Fatal(err)
 		return output, err
@@ -298,7 +298,6 @@ func (f *Framework) GetOutput(kind string) ([]string, error) {
 	f.unfoldExpressions()
 
 	//uniqueElementNames := f.countUniqueFields()
-
 
 	dependencyList := make(DependencyList, f.countUniqueFields())
 	i := 0

@@ -1,4 +1,6 @@
 name: csgroup_ipfilter
+tags:
+  - ipv6
 sections:
   - name: trafficmanagement.contentswitching.actions
     elements:
@@ -1239,7 +1241,7 @@ sections:
           - id: 10661001_policy
             data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_NONE_SSLTCP/name>>
           - id: 10661001_policylabel
-            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV6_IPFILTER_SSLTCP/name>>
+            data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV6_IPFILTER_SSLTCP/name>>
             
           - id: 10661002_policy
             data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSGROUP_IPV6_IPFILTER_ALLOWLIST_SSLTCP/name>>

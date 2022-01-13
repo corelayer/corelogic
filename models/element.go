@@ -6,14 +6,15 @@ import (
 )
 
 type Expression struct {
-	Install   string `yaml:install`
-	Uninstall string `yaml:uninstall`
+	Install   string `yaml:"install"`
+	Uninstall string `yaml:"uninstall"`
 }
 
 type Element struct {
-	Name        string     `yaml:name`
-	Fields      []Field    `yaml:fields`
-	Expressions Expression `yaml:expressions`
+	Name        string     `yaml:"name"`
+	Tags        []string   `yaml:"tags"`
+	Fields      []Field    `yaml:"fields"`
+	Expressions Expression `yaml:"expressions"`
 }
 
 type ElementReader interface {

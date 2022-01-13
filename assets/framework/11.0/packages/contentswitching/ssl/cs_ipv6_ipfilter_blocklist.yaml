@@ -1,4 +1,6 @@
 name: cs_ipfilter
+tags:
+  - ipv6
 sections:          
   - name: trafficmanagement.contentswitching.policylabels
     elements:
@@ -280,7 +282,7 @@ sections:
           - id: 10962001_policy
             data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policies.CS_IPV6_IPFILTER_DONE_SSL/name>>
           - id: 10962001_policylabel
-            data: <<contentswitching.zone_lan.trafficmanagement.contentswitching.policylabels.CS_IPV6_ZONE_LAN_SSL/name>>
+            data: <<contentswitching.zone_secure.trafficmanagement.contentswitching.policylabels.CS_IPV6_ZONE_SECURE_SSL/name>>
           - id: 10962002_policy
             data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policies.CS_IPV6_IPFILTER_TERMINATE_SSL/name>>
         expressions:

@@ -1,4 +1,6 @@
 name: endpoint_ipfilter
+tags:
+  - ipv6
 sections:
   - name: trafficmanagement.loadbalancing.virtualservers
     elements:

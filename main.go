@@ -17,14 +17,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/corelayer/corelogic/general"
 	"log"
+
+	"github.com/corelayer/corelogic/general"
 
 	"github.com/corelayer/corelogic/controllers"
 )
 
 func main() {
-	defer general.FinishTimer(general.StartTimer("Start Execution"))
+	defer general.FinishTimer(general.StartTimer("Program execution"))
+	tagFilter := []string{"ipv6"}
 	controller := controllers.FrameworkController{}
 	err := controller.Load("11.0")
 
@@ -33,7 +35,7 @@ func main() {
 	}
 
 	var install []string
-	install, err = controller.Framework.GetOutput("install")
+	install, err = controller.Framework.GetOutput("install", tagFilter)
 	if err != nil {
 		log.Fatal(err)
 	}

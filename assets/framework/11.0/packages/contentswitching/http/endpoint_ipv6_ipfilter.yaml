@@ -1,4 +1,6 @@
 name: endpoint_ipfilter
+tags:
+  - ipv6
 sections:
   - name: trafficmanagement.contentswitching.actions
     elements:
@@ -1239,7 +1241,7 @@ sections:
           - id: 10261001_policy
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_NONE_HTTP/name>>
           - id: 10261001_policylabel
-            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
+            data: <<contentswitching.tenant_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
             
           - id: 10261002_policy
             data: <<contentswitching.endpoint_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>

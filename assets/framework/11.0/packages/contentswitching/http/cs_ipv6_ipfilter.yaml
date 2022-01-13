@@ -1,4 +1,6 @@
 name: cs_ipfilter
+tags:
+  - ipv6
 sections:
   - name: trafficmanagement.contentswitching.actions
     elements:
@@ -1239,7 +1241,7 @@ sections:
           - id: 10861001_policy
             data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policies.INIT_CS_IPV6_IPFILTER_NONE_HTTP/name>>
           - id: 10861001_policylabel
-            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV6_ZONE_LAN_HTTP/name>>
+            data: <<contentswitching.csgroup_ipfilter.trafficmanagement.contentswitching.policylabels.CS_IPV6_ZONE_SECURE_HTTP/name>>
             
           - id: 10861002_policy
             data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policies.INIT_CS_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>

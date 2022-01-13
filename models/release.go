@@ -3,8 +3,8 @@ package models
 import "fmt"
 
 type Release struct {
-	Major int `yaml:major`
-	Minor int `yaml:minor`
+	Major int `yaml:"major"`
+	Minor int `yaml:"minor"`
 }
 
 type ReleaseReader interface {

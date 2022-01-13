@@ -406,7 +406,7 @@ sections:
           - id: 10841001_policy
             data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policies.INIT_CS_IPV4_IPFILTER_NONE_SSL/name>>
           - id: 10841001_policylabel
-            data: <<contentswitching.zone_lan.trafficmanagement.contentswitching.policylabels.CS_IPV4_ZONE_LAN_SSL/name>>
+            data: <<contentswitching.zone_secure.trafficmanagement.contentswitching.policylabels.CS_IPV4_ZONE_SECURE_SSL/name>>
 
           - id: 10841002_policy
             data: <<contentswitching.cs_ipfilter.trafficmanagement.contentswitching.policies.INIT_CS_IPV4_IPFILTER_ALLOWLIST_SSL/name>>

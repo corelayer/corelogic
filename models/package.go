@@ -6,8 +6,8 @@ import (
 )
 
 type Package struct {
-	Name    string   `yaml:string`
-	Modules []Module `yaml:modules`
+	Name    string   `yaml:"name"`
+	Modules []Module `yaml:"modules"`
 }
 
 type PackageReader interface {
@@ -33,13 +33,13 @@ func (p *Package) GetFields() (map[string]string, error) {
 	return output, err
 }
 
-func (p *Package) GetInstallExpressions() (map[string]string, error) {
+func (p *Package) GetInstallExpressions(tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
 
 	for _, m := range p.Modules {
-		expressions, err = m.GetInstallExpressions(p.Name)
+		expressions, err = m.GetInstallExpressions(p.Name, tagFilter)
 		if err != nil {
 			break
 		} else {
@@ -50,13 +50,13 @@ func (p *Package) GetInstallExpressions() (map[string]string, error) {
 	return output, err
 }
 
-func (p *Package) GetUninstallExpressions() (map[string]string, error) {
+func (p *Package) GetUninstallExpressions(tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
 
 	for _, m := range p.Modules {
-		expressions, err = m.GetUninstallExpressions(p.Name)
+		expressions, err = m.GetUninstallExpressions(p.Name, tagFilter)
 		if err != nil {
 			break
 		} else {

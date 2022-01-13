@@ -2,11 +2,13 @@ package models
 
 import (
 	"fmt"
+	"log"
 )
 
 type Module struct {
-	Name     string    `yaml:name`
-	Sections []Section `yaml:sections`
+	Name     string    `yaml:"name"`
+	Tags     []string  `yaml:"tags"`
+	Sections []Section `yaml:"sections"`
 }
 
 type ModuleReader interface {
@@ -38,37 +40,67 @@ func (m *Module) GetFields(packageName string) (map[string]string, error) {
 	return output, err
 }
 
-func (m *Module) GetInstallExpressions(packageName string) (map[string]string, error) {
+func (m *Module) GetInstallExpressions(packageName string, tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
 
-	fullModuleName := m.GetFullModuleName(packageName)
-	for _, s := range m.Sections {
-		expressions, err = s.GetInstallExpressions(fullModuleName)
-		if err != nil {
-			break
-		} else {
-			output, err = m.AppendData(expressions, output)
+	filterModule := false
+	for _, t := range m.Tags {
+		for _, f := range tagFilter {
+			if t == f {
+				filterModule = true
+				break
+			}
 		}
+	}
+
+	if !filterModule {
+		fullModuleName := m.GetFullModuleName(packageName)
+		for _, s := range m.Sections {
+			expressions, err = s.GetInstallExpressions(fullModuleName)
+			if err != nil {
+				break
+			} else {
+				output, err = m.AppendData(expressions, output)
+			}
+		}
+	} else {
+		log.Printf("Skipping module %s", m.GetFullModuleName(packageName))
+
 	}
 
 	return output, err
 }
 
-func (m *Module) GetUninstallExpressions(packageName string) (map[string]string, error) {
+func (m *Module) GetUninstallExpressions(packageName string, tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var expressions map[string]string
 	var err error
 
-	fullModuleName := m.GetFullModuleName(packageName)
-	for _, s := range m.Sections {
-		expressions, err = s.GetUninstallExpressions(fullModuleName)
-		if err != nil {
-			break
-		} else {
-			output, err = m.AppendData(expressions, output)
+	filterModule := false
+	for _, t := range m.Tags {
+		for _, f := range tagFilter {
+			if t == f {
+				filterModule = true
+				break
+			}
 		}
+	}
+
+	if !filterModule {
+		fullModuleName := m.GetFullModuleName(packageName)
+		for _, s := range m.Sections {
+			expressions, err = s.GetUninstallExpressions(fullModuleName)
+			if err != nil {
+				break
+			} else {
+				output, err = m.AppendData(expressions, output)
+			}
+		}
+	} else {
+		log.Printf("Skipping module %s", m.GetFullModuleName(packageName))
+
 	}
 
 	return output, err
