@@ -93,7 +93,7 @@ sections:
           - id: 10942002_policy
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_DONE_TCP/name>>
           - id: 10942002_policylabel
-            data: <<contentswitching.zone_ipv4_secure.trafficmanagement.contentswitching.policylabels.CSV_IPV4_ZONE_SECURE_TCP/name>>
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_TCP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10941001_policy>> -priority 10941001 -gotoPriorityExpression 10942002

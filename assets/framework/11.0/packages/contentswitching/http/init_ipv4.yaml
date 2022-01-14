@@ -16,45 +16,63 @@ sections:
           uninstall: rm cs policy <<name>>
 
       - name: INIT_ENDPOINT_IPV4_IPFILTER_HTTP
+        tags:
+          - endpoint_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_TENANT_IPV4_IPFILTER_HTTP
+        tags:
+          - tenant_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_CSVGROUP_IPV4_IPFILTER_HTTP
+        tags:
+          - csvgroup_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv4_http_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_CSV_IPV4_IPFILTER_HTTP
+        tags:
+          - csv_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_http_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-  
+
+      - name: INIT_NO_IPV4_IPFILTER_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_IPV4_IPFILTER_HTTP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
 
   - name: trafficmanagement.contentswitching.policylabels
     elements:
@@ -70,10 +88,10 @@ sections:
 
   - name: trafficmanagement.contentswitching.policylabels.bindings
     elements:
-      - name: INIT_BYPASS_IPV4_HTTP
+      - name: INIT_BYPASS_IPV4_IPFILTER_HTTP
         fields:
           - id: name
-            data: <<prefix>>_INIT_BYPASS_IPV4_HTTP
+            data: <<prefix>>_INIT_BYPASS_IPV4_IPFILTER_HTTP
           - id: label
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
 
@@ -86,12 +104,12 @@ sections:
           install: bind cs policylabel <<label>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10141001_policy>>
 
-      - name: INIT_ENDPOINT_IPV4_HTTP
+      - name: INIT_ENDPOINT_IPV4_IPFILTER_HTTP
         tags:
           - endpoint_ipfilter
         fields:
           - id: name
-            data: <<prefix>>_INIT_ENDPOINT_IPV4_HTTP
+            data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_HTTP
           - id: label
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
 
@@ -104,12 +122,12 @@ sections:
           install: bind cs policylabel <<label>> <<10141002_policy>> -priority 10141002 -gotoPriorityExpression NEXT -invoke policylabel <<10141002_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10141002_policy>>
 
-      - name: INIT_TENANT_IPV4_HTTP
+      - name: INIT_TENANT_IPV4_IPFILTER_HTTP
         tags:
           - tenant_ipfilter
         fields:
           - id: name
-            data: <<prefix>>_INIT_TENANT_IPV4_HTTP
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_HTTP
           - id: label
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
 
@@ -122,12 +140,12 @@ sections:
           install: bind cs policylabel <<label>> <<10141003_policy>> -priority 10141003 -gotoPriorityExpression NEXT -invoke policylabel <<10141003_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10141003_policy>>
 
-      - name: INIT_CSVGROUP_IPV4_HTTP
+      - name: INIT_CSVGROUP_IPV4_IPFILTER_HTTP
         tags:
           - csvgroup_ipfilter
         fields:
           - id: name
-            data: <<prefix>>_INIT_CSVGROUP_IPV4_HTTP
+            data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_HTTP
           - id: label
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
 
@@ -140,12 +158,12 @@ sections:
           install: bind cs policylabel <<label>> <<10141004_policy>> -priority 10141004 -gotoPriorityExpression NEXT -invoke policylabel <<10141004_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10141004_policy>>
 
-      - name: INIT_CSV_IPV4_HTTP
+      - name: INIT_CSV_IPV4_IPFILTER_HTTP
         tags:
           - csv_ipfilter
         fields:
           - id: name
-            data: <<prefix>>_INIT_CSV_IPV4_HTTP
+            data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_HTTP
           - id: label
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
 
@@ -157,3 +175,15 @@ sections:
         expressions:
           install: bind cs policylabel <<label>> <<10141005_policy>> -priority 10141005 -gotoPriorityExpression NEXT -invoke policylabel <<10141005_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10141005_policy>>
+
+      - name: INIT_NO_IPV4_IPFILTER_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_IPV4_IPFILTER_HTTP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
+
+          - id: 10141006_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_NO_IPV4_IPFILTER_HTTP/name>>
+          - id: 10141006_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_HTTP/name>>

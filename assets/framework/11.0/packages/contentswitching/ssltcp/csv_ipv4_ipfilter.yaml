@@ -409,7 +409,7 @@ sections:
           - id: 10841001_policy
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSV_IPV4_IPFILTER_NONE_SSLTCP/name>>
           - id: 10841001_policylabel
-            data: <<contentswitching.zone_ipv4_secure.trafficmanagement.contentswitching.policylabels.CSV_IPV4_ZONE_SECURE_SSLTCP/name>>
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSLTCP/name>>
 
           - id: 10841002_policy
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSV_IPV4_IPFILTER_ALLOWLIST_SSLTCP/name>>

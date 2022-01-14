@@ -1,0 +1,133 @@
+name: zone_ipv6
+tags:
+  - core
+  - ipv6
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: ZONE_BYPASS_IPV6_IPZONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_BYPASS_IPV6_IPZONE_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: ZONE_CSVGROUP_IPV6_IPZONE_SECURE_UDP
+        tags:
+          - csvgroup_ipzone
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_CSVGROUP_IPV6_IPZONE_SECURE_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: ZONE_CSVGROUP_IPV6_IPZONE_PUBLIC_UDP
+        tags:
+          - csvgroup_ipzone
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_CSVGROUP_IPV6_IPZONE_PUBLIC_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: ZONE_NO_IPV6_IPZONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_NO_IPV6_IPZONE_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: ZONE_IPV6_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_IPV6_UDP
+          
+        expressions:
+          install: add cs policylabel <<name>> UDP
+          uninstall: rm cs policylabel <<name>>
+
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: ZONE_BYPASS_IPV6_IPZONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_BYPASS_IPV6_IPZONE_UDP
+          - id: label
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+          - id: 11061001_policy
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policies.ZONE_BYPASS_IPV6_IPZONE_UDP/name>>
+          - id: 11061001_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<11061001_policy>> -priority 11061001 -gotoPriorityExpression NEXT -invoke policylabel <<11061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<11061001_policy>>
+
+      - name: ZONE_CSVGROUP_IPV6_IPZONE_SECURE_UDP
+        tags:
+          - csvgroup_ipzone
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_CSVGROUP_IPV6_IPZONE_SECURE_UDP
+          - id: label
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+          - id: 11061002_policy
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policies.ZONE_CSVGROUP_IPV6_IPZONE_SECURE_UDP/name>>
+          - id: 11061002_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<11061002_policy>> -priority 11061002 -gotoPriorityExpression NEXT -invoke policylabel <<11061002_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<11061002_policy>>
+
+      - name: ZONE_CSVGROUP_IPV6_IPZONE_PUBLIC_UDP
+        tags:
+          - csvgroup_ipzone
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_CSVGROUP_IPV6_IPZONE_PUBLIC_UDP
+          - id: label
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+          - id: 11061003_policy
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policies.ZONE_CSVGROUP_IPV6_IPZONE_PUBLIC_UDP/name>>
+          - id: 11061003_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<11061003_policy>> -priority 11061003 -gotoPriorityExpression NEXT -invoke policylabel <<11061003_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<11061003_policy>>
+
+      - name: ZONE_NO_IPV6_IPZONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_ZONE_NO_IPV6_IPZONE_UDP
+          - id: label
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+          - id: 11061004_policy
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policies.ZONE_NO_IPV6_IPZONE_UDP/name>>
+          - id: 11061004_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<11061004_policy>> -priority 11061004 -gotoPriorityExpression NEXT -invoke policylabel <<11061004_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<11061004_policy>>

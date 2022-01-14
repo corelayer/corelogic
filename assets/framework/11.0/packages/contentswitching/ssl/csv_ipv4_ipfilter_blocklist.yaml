@@ -92,7 +92,7 @@ sections:
           - id: 10942001_policy
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_DONE_SSL/name>>
           - id: 10942001_policylabel
-            data: <<contentswitching.zone_ipv4_secure.trafficmanagement.contentswitching.policylabels.CSV_IPV4_ZONE_SECURE_SSL/name>>
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSL/name>>
           - id: 10942002_policy
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_TERMINATE_SSL/name>>
         expressions:

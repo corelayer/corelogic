@@ -1,6 +1,7 @@
 name: init_ipv4
 tags:
   - core
+  - ipv4
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
@@ -15,45 +16,64 @@ sections:
           uninstall: rm cs policy <<name>>
 
       - name: INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP
+        tags:
+          - endpoint_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssltcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_TENANT_IPV4_IPFILTER_SSLTCP
+        tags:
+          - tenant_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_SSLTCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssltcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_CSVGROUP_IPV4_IPFILTER_SSLTCP
+        tags:
+          - csvgroup_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_SSLTCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv4_ssltcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_CSV_IPV4_IPFILTER_SSLTCP
+        tags:
+          - csv_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_SSLTCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_ssltcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-  
+
+      - name: INIT_NO_IPV4_IPFILTER_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_IPV4_IPFILTER_SSLTCP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: INIT_IPV4_SSLTCP
@@ -61,38 +81,109 @@ sections:
           - id: name
             data: <<prefix>>_INIT_IPV4_SSLTCP
           
+        expressions:
+          install: add cs policylabel <<name>> SSLTCP
+          uninstall: rm cs policylabel <<name>>
+
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: INIT_BYPASS_IPV4_IPFILTER_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
+
           - id: 10141001_policy
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_BYPASS_IPV4_IPFILTER_SSLTCP/name>>
           - id: 10141001_policylabel
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSLTCP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10141001_policy>>
+
+      - name: INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP
+        tags:
+          - endpoint_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
 
           - id: 10141002_policy
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
           - id: 10141002_policylabel
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
 
+        expressions:
+          install: bind cs policylabel <<label>> <<10141002_policy>> -priority 10141002 -gotoPriorityExpression NEXT -invoke policylabel <<10141002_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10141002_policy>>
+
+      - name: INIT_TENANT_IPV4_IPFILTER_SSLTCP
+        tags:
+          - tenant_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
+
           - id: 10141003_policy
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SSLTCP/name>>
           - id: 10141003_policylabel
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSLTCP/name>>
 
+        expressions:
+          install: bind cs policylabel <<label>> <<10141003_policy>> -priority 10141003 -gotoPriorityExpression NEXT -invoke policylabel <<10141003_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10141003_policy>>
+
+      - name: INIT_CSVGROUP_IPV4_IPFILTER_SSLTCP
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
+
           - id: 10141004_policy
-            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV4_IPFILTER_SSLTCP/name>>
           - id: 10141004_policylabel
             data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_SSLTCP/name>>
 
+        expressions:
+          install: bind cs policylabel <<label>> <<10141004_policy>> -priority 10141004 -gotoPriorityExpression NEXT -invoke policylabel <<10141004_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10141004_policy>>
+
+      - name: INIT_CSV_IPV4_IPFILTER_SSLTCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
+
           - id: 10141005_policy
-            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP/name>>
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_CSV_IPV4_IPFILTER_SSLTCP/name>>
           - id: 10141005_policylabel
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_SSLTCP/name>>
 
-
         expressions:
-          install: |
-            add cs policylabel <<name>> SSLTCP
-            bind cs policylabel <<name>> <<10141001_policy>> -priority 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-            bind cs policylabel <<name>> <<10141002_policy>> -priority 10141002 -gotoPriorityExpression NEXT -invoke policylabel <<10141002_policylabel>>
-            bind cs policylabel <<name>> <<10141003_policy>> -priority 10141003 -gotoPriorityExpression NEXT -invoke policylabel <<10141003_policylabel>>
-            bind cs policylabel <<name>> <<10141004_policy>> -priority 10141004 -gotoPriorityExpression NEXT -invoke policylabel <<10141004_policylabel>>
-            bind cs policylabel <<name>> <<10141005_policy>> -priority 10141005 -gotoPriorityExpression NEXT -invoke policylabel <<10141005_policylabel>>
-          uninstall: rm cs policylabel <<name>>
+          install: bind cs policylabel <<label>> <<10141005_policy>> -priority 10141005 -gotoPriorityExpression NEXT -invoke policylabel <<10141005_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10141005_policy>>
+
+      - name: INIT_NO_IPV4_IPFILTER_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
+
+          - id: 10141006_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_NO_IPV4_IPFILTER_SSLTCP/name>>
+          - id: 10141006_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSLTCP/name>>

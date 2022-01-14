@@ -1,6 +1,7 @@
 name: init_ipv6
 tags:
   - core
+  - ipv6
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
@@ -15,45 +16,64 @@ sections:
           uninstall: rm cs policy <<name>>
 
       - name: INIT_ENDPOINT_IPV6_IPFILTER_TCP
+        tags:
+          - endpoint_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_TCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_tcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_TENANT_IPV6_IPFILTER_TCP
+        tags:
+          - tenant_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_TCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_tcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_CSVGROUP_IPV6_IPFILTER_TCP
+        tags:
+          - csvgroup_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_TCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv6_tcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_CSV_IPV6_IPFILTER_TCP
+        tags:
+          - csv_ipfilter
         fields:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_TCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_tcp_value_ipfilter_isnone>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-  
+
+      - name: INIT_NO_IPV6_IPFILTER_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_IPV6_IPFILTER_TCP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: INIT_IPV6_TCP
@@ -61,38 +81,109 @@ sections:
           - id: name
             data: <<prefix>>_INIT_IPV6_TCP
           
+        expressions:
+          install: add cs policylabel <<name>> TCP
+          uninstall: rm cs policylabel <<name>>
+
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: INIT_BYPASS_IPV6_IPFILTER_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_IPV6_IPFILTER_TCP
+          - id: label
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
+
           - id: 10161001_policy
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_BYPASS_IPV6_IPFILTER_TCP/name>>
           - id: 10161001_policylabel
             data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_TCP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10161001_policy>>
+
+      - name: INIT_ENDPOINT_IPV6_IPFILTER_TCP
+        tags:
+          - endpoint_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_TCP
+          - id: label
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
 
           - id: 10161002_policy
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_TCP/name>>
           - id: 10161002_policylabel
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_TCP/name>>
 
+        expressions:
+          install: bind cs policylabel <<label>> <<10161002_policy>> -priority 10161002 -gotoPriorityExpression NEXT -invoke policylabel <<10161002_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10161002_policy>>
+
+      - name: INIT_TENANT_IPV6_IPFILTER_TCP
+        tags:
+          - tenant_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV6_IPFILTER_TCP
+          - id: label
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
+
           - id: 10161003_policy
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV6_IPFILTER_TCP/name>>
           - id: 10161003_policylabel
             data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_TCP/name>>
 
+        expressions:
+          install: bind cs policylabel <<label>> <<10161003_policy>> -priority 10161003 -gotoPriorityExpression NEXT -invoke policylabel <<10161003_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10161003_policy>>
+
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_TCP
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_TCP
+          - id: label
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
+
           - id: 10161004_policy
-            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_TCP/name>>
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV6_IPFILTER_TCP/name>>
           - id: 10161004_policylabel
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_TCP/name>>
 
+        expressions:
+          install: bind cs policylabel <<label>> <<10161004_policy>> -priority 10161004 -gotoPriorityExpression NEXT -invoke policylabel <<10161004_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10161004_policy>>
+
+      - name: INIT_CSV_IPV6_IPFILTER_TCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_TCP
+          - id: label
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
+
           - id: 10161005_policy
-            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_TCP/name>>
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_CSV_IPV6_IPFILTER_TCP/name>>
           - id: 10161005_policylabel
             data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_TCP/name>>
 
-
         expressions:
-          install: |
-            add cs policylabel <<name>> TCP
-            bind cs policylabel <<name>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
-            bind cs policylabel <<name>> <<10161002_policy>> -priority 10161002 -gotoPriorityExpression NEXT -invoke policylabel <<10161002_policylabel>>
-            bind cs policylabel <<name>> <<10161003_policy>> -priority 10161003 -gotoPriorityExpression NEXT -invoke policylabel <<10161003_policylabel>>
-            bind cs policylabel <<name>> <<10161004_policy>> -priority 10161004 -gotoPriorityExpression NEXT -invoke policylabel <<10161004_policylabel>>
-            bind cs policylabel <<name>> <<10161005_policy>> -priority 10161005 -gotoPriorityExpression NEXT -invoke policylabel <<10161005_policylabel>>
-          uninstall: rm cs policylabel <<name>>
+          install: bind cs policylabel <<label>> <<10161005_policy>> -priority 10161005 -gotoPriorityExpression NEXT -invoke policylabel <<10161005_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10161005_policy>>
+
+      - name: INIT_NO_IPV6_IPFILTER_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_IPV6_IPFILTER_TCP
+          - id: label
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
+
+          - id: 10161006_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_NO_IPV6_IPFILTER_TCP/name>>
+          - id: 10161006_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_TCP/name>>
