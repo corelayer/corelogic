@@ -58,7 +58,7 @@ func (m *Module) GetInstallExpressions(packageName string, tagFilter []string) (
 	if !filterModule {
 		fullModuleName := m.GetFullModuleName(packageName)
 		for _, s := range m.Sections {
-			expressions, err = s.GetInstallExpressions(fullModuleName)
+			expressions, err = s.GetInstallExpressions(fullModuleName, tagFilter)
 			if err != nil {
 				break
 			} else {
@@ -91,7 +91,7 @@ func (m *Module) GetUninstallExpressions(packageName string, tagFilter []string)
 	if !filterModule {
 		fullModuleName := m.GetFullModuleName(packageName)
 		for _, s := range m.Sections {
-			expressions, err = s.GetUninstallExpressions(fullModuleName)
+			expressions, err = s.GetUninstallExpressions(fullModuleName, tagFilter)
 			if err != nil {
 				break
 			} else {

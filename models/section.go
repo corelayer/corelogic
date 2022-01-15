@@ -51,24 +51,36 @@ func (s *Section) GetFields(moduleName string) (map[string]string, error) {
 	return output, err
 }
 
-func (s *Section) GetInstallExpressions(moduleName string) (map[string]string, error) {
+func (s *Section) GetInstallExpressions(moduleName string, tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var err error
 
 	for _, e := range s.Elements {
-		outputKey := e.GetFullName(s.GetFullName(moduleName))
-		var outputValue string
-		outputValue, err = e.GetFullyQualifiedExpression(e.Expressions.Install, s.GetFullName(moduleName))
+		filterElement := false
+		for _, t := range e.Tags {
+			for _, f := range tagFilter {
+				if t == f {
+					filterElement = true
+					break
+				}
+			}
+		}
 
-		if err != nil {
-			break
-		} else {
-			if _, isMapContainsKey := output[outputKey]; isMapContainsKey {
-				//key exist
-				err = fmt.Errorf("duplicate key in section: %q", outputKey)
+		if !filterElement {
+			outputKey := e.GetFullName(s.GetFullName(moduleName))
+			var outputValue string
+			outputValue, err = e.GetFullyQualifiedExpression(e.Expressions.Install, s.GetFullName(moduleName))
+
+			if err != nil {
 				break
 			} else {
-				output[outputKey] = s.expandSectionPrefix(outputValue)
+				if _, isMapContainsKey := output[outputKey]; isMapContainsKey {
+					//key exist
+					err = fmt.Errorf("duplicate key in section: %q", outputKey)
+					break
+				} else {
+					output[outputKey] = s.expandSectionPrefix(outputValue)
+				}
 			}
 		}
 	}
@@ -76,24 +88,36 @@ func (s *Section) GetInstallExpressions(moduleName string) (map[string]string, e
 	return output, err
 }
 
-func (s *Section) GetUninstallExpressions(moduleName string) (map[string]string, error) {
+func (s *Section) GetUninstallExpressions(moduleName string, tagFilter []string) (map[string]string, error) {
 	output := make(map[string]string)
 	var err error
 
 	for _, e := range s.Elements {
-		outputKey := e.GetFullName(s.GetFullName(moduleName))
-		var outputValue string
-		outputValue, err = e.GetFullyQualifiedExpression(e.Expressions.Uninstall, s.GetFullName(moduleName))
+		filterElement := false
+		for _, t := range e.Tags {
+			for _, f := range tagFilter {
+				if t == f {
+					filterElement = true
+					break
+				}
+			}
+		}
 
-		if err != nil {
-			break
-		} else {
-			if _, isMapContainsKey := output[outputKey]; isMapContainsKey {
-				//key exist
-				err = fmt.Errorf("duplicate key in section: %q", outputKey)
+		if !filterElement {
+			outputKey := e.GetFullName(s.GetFullName(moduleName))
+			var outputValue string
+			outputValue, err = e.GetFullyQualifiedExpression(e.Expressions.Uninstall, s.GetFullName(moduleName))
+
+			if err != nil {
 				break
 			} else {
-				output[outputKey] = s.expandSectionPrefix(outputValue)
+				if _, isMapContainsKey := output[outputKey]; isMapContainsKey {
+					//key exist
+					err = fmt.Errorf("duplicate key in section: %q", outputKey)
+					break
+				} else {
+					output[outputKey] = s.expandSectionPrefix(outputValue)
+				}
 			}
 		}
 	}

@@ -16,96 +16,116 @@ sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
       - name: INIT_IPV4_HTTP
+        tags:
+          - ipv4
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV4_HTTP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
       - name: INIT_IPV6_HTTP
+        tags:
+          - ipv6
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV6_HTTP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_IPV4_SSL
+        tags:
+          - ipv4
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV4_SSL
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
       - name: INIT_IPV6_SSL
+        tags:
+          - ipv6
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV6_SSL
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_IPV4_TCP
+        tags:
+          - ipv4
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV4_TCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
       - name: INIT_IPV6_TCP
+        tags:
+          - ipv6
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV6_TCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_IPV4_SSLTCP
+        tags:
+          - ipv4
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV4_SSLTCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
       - name: INIT_IPV6_SSLTCP
+        tags:
+          - ipv6
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV6_SSLTCP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
       - name: INIT_IPV4_UDP
+        tags:
+          - ipv4
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV4_UDP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
       - name: INIT_IPV6_UDP
+        tags:
+          - ipv6
         fields:
           - id: name
             data: <<prefix>>_INIT_IPV6_UDP
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/name>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>

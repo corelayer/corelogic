@@ -8,10 +8,8 @@ sections:
         fields:
           - id: name
             data: <<prefix>>_CLIENT_IS_IPV4
-          - id: expression
+          - id: data
             data: CLIENT.IP.SRC.IS_IPV6.NOT
-        expressions:
-          install: add policy expression <<name>> <<expression>>
       - name: CLIENT_IPV4_SUBNET
         fields:
           - id: 032
