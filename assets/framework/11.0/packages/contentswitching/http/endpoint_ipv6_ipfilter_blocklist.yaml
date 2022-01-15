@@ -2,7 +2,1184 @@ name: endpoint_ipv6_ipfilter
 tags:
   - ipv6
   - endpoint_ipfilter
-sections:          
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_HTTP
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV6_IPFILTER_TERMINATE_HTTP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_DONE_HTTP
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_DONE_HTTP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_128
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_128
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_128>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_127
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_127
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_127>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_126
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_126
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_126>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_125
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_125
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_125>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_124
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_124
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_124>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_123
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_123
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_123>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_122
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_122
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_122>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_121
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_121
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_121>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_120
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_120
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_120>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_119
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_119
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_119>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_118
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_118
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_118>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_117
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_117
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_117>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_116
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_116
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_116>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_115
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_115
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_115>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_114
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_114
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_114>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_113
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_113
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_113>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_112
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_112
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_112>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_111
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_111
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_111>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_110
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_110
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_110>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_109
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_109
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_109>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_108
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_108
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_108>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_107
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_107
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_107>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_106
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_106
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_106>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_105
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_105
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_105>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_104
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_104
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_104>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_103
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_103
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_103>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_102
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_102
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_102>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_101
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_101
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_101>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_100
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_100
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_100>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_099
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_099
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_099>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_098
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_098
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_098>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_097
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_097
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_097>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_096
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_096
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_096>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_095
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_095
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_095>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_094
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_094
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_094>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_093
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_093
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_093>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_092
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_092
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_092>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_091
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_091
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_091>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_090
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_090
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_090>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_089
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_089
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_089>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_088
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_088
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_088>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_087
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_087
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_087>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_086
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_086
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_086>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_085
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_085
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_085>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_084
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_084
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_084>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_083
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_083
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_083>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_082
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_082
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_082>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_081
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_081
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_081>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_080
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_080
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_080>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_079
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_079
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_079>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_078
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_078
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_078>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_077
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_077
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_077>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_076
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_076
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_076>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_075
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_075
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_075>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_074
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_074
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_074>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_073
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_073
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_073>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_072
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_072
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_072>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_071
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_071
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_071>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_070
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_070
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_070>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_069
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_069
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_069>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_068
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_068
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_068>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_067
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_067
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_067>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_066
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_066
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_066>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_065
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_065
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_065>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_064
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_064
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_064>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_063
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_063
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_063>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_062
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_062
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_062>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_061
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_061
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_061>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_060
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_060
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_060>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_059
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_059
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_059>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_058
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_058
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_058>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_057
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_057
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_057>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_056
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_056
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_056>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_055
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_055
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_055>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_054
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_054
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_054>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_053
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_053
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_053>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_052
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_052
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_052>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_051
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_051
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_051>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_050
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_050
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_050>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_049
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_049
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_049>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_048
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_048
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_048>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_047
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_047
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_047>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_046
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_046
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_046>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_045
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_045
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_045>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_044
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_044
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_044>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_043
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_043
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_043>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_042
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_042
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_042>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_041
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_041
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_041>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_040
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_040
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_040>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_039
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_039
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_039>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_038
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_038
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_038>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_037
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_037
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_037>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_036
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_036
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_036>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_035
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_035
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_035>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_034
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_034
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_034>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_033
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_033
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_033>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_032
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_031
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_030
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_029
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_028
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_027
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_026
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_025
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_024
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_023
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_022
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_021
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_020
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_019
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_018
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_017
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_016
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_015
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_014
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_013
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_012
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_011
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_010
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_009
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_008
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_007
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_006
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_005
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_004
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_003
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_002
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_001
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_http_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP
@@ -24,400 +1201,400 @@ sections:
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP/name>>
 
           - id: 10361001_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_128/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_128/name>>
           - id: 10361002_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_127/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_127/name>>
           - id: 10361003_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_126/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_126/name>>
           - id: 10361004_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_125/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_125/name>>
           - id: 10361005_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_124/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_124/name>>
           - id: 10361006_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_123/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_123/name>>
           - id: 10361007_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_122/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_122/name>>
           - id: 10361008_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_121/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_121/name>>
           - id: 10361009_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_120/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_120/name>>
           - id: 10361010_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_119/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_119/name>>
           - id: 10361011_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_118/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_118/name>>
           - id: 10361012_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_117/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_117/name>>
           - id: 10361013_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_116/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_116/name>>
           - id: 10361014_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_115/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_115/name>>
           - id: 10361015_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_114/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_114/name>>
           - id: 10361016_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_113/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_113/name>>
           - id: 10361017_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_112/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_112/name>>
           - id: 10361018_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_111/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_111/name>>
           - id: 10361019_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_110/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_110/name>>
           - id: 10361020_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_109/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_109/name>>
           - id: 10361021_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_108/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_108/name>>
           - id: 10361022_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_107/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_107/name>>
           - id: 10361023_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_106/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_106/name>>
           - id: 10361024_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_105/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_105/name>>
           - id: 10361025_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_104/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_104/name>>
           - id: 10361026_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_103/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_103/name>>
           - id: 10361027_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_102/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_102/name>>
           - id: 10361028_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_101/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_101/name>>
           - id: 10361029_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_100/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_100/name>>
           - id: 10361030_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_099/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_099/name>>
           - id: 10361031_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_098/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_098/name>>
           - id: 10361032_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_097/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_097/name>>
           - id: 10361033_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_096/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_096/name>>
           - id: 10361034_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_095/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_095/name>>
           - id: 10361035_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_094/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_094/name>>
           - id: 10361036_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_093/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_093/name>>
           - id: 10361037_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_092/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_092/name>>
           - id: 10361038_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_091/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_091/name>>
           - id: 10361039_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_090/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_090/name>>
           - id: 10361040_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_089/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_089/name>>
           - id: 10361041_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_088/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_088/name>>
           - id: 10361042_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_087/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_087/name>>
           - id: 10361043_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_086/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_086/name>>
           - id: 10361044_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_085/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_085/name>>
           - id: 10361045_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_084/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_084/name>>
           - id: 10361046_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_083/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_083/name>>
           - id: 10361047_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_082/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_082/name>>
           - id: 10361048_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_081/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_081/name>>
           - id: 10361049_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_080/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_080/name>>
           - id: 10361050_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_079/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_079/name>>
           - id: 10361051_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_078/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_078/name>>
           - id: 10361052_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_077/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_077/name>>
           - id: 10361053_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_076/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_076/name>>
           - id: 10361054_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_075/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_075/name>>
           - id: 10361055_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_074/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_074/name>>
           - id: 10361056_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_073/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_073/name>>
           - id: 10361057_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_072/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_072/name>>
           - id: 10361058_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_071/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_071/name>>
           - id: 10361059_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_070/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_070/name>>
           - id: 10361060_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_069/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_069/name>>
           - id: 10361061_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_068/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_068/name>>
           - id: 10361062_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_067/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_067/name>>
           - id: 10361063_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_066/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_066/name>>
           - id: 10361064_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_065/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_065/name>>
           - id: 10361065_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_064/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_064/name>>
           - id: 10361066_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_063/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_063/name>>
           - id: 10361067_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_062/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_062/name>>
           - id: 10361068_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_061/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_061/name>>
           - id: 10361069_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_060/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_060/name>>
           - id: 10361070_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_059/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_059/name>>
           - id: 10361071_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_058/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_058/name>>
           - id: 10361072_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_057/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_057/name>>
           - id: 10361073_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_056/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_056/name>>
           - id: 10361074_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_055/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_055/name>>
           - id: 10361075_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_054/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_054/name>>
           - id: 10361076_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_053/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_053/name>>
           - id: 10361077_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_052/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_052/name>>
           - id: 10361078_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_051/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_051/name>>
           - id: 10361079_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_050/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_050/name>>
           - id: 10361080_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_049/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_049/name>>
           - id: 10361081_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_048/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_048/name>>
           - id: 10361082_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_047/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_047/name>>
           - id: 10361083_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_046/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_046/name>>
           - id: 10361084_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_045/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_045/name>>
           - id: 10361085_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_044/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_044/name>>
           - id: 10361086_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_043/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_043/name>>
           - id: 10361087_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_042/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_042/name>>
           - id: 10361088_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_041/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_041/name>>
           - id: 10361089_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_040/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_040/name>>
           - id: 10361090_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_039/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_039/name>>
           - id: 10361091_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_038/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_038/name>>
           - id: 10361092_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_037/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_037/name>>
           - id: 10361093_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_036/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_036/name>>
           - id: 10361094_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_035/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_035/name>>
           - id: 10361095_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_034/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_034/name>>
           - id: 10361096_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_033/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_033/name>>
           - id: 10361097_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_032/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_032/name>>
           - id: 10361098_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_031/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_031/name>>
           - id: 10361099_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_030/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_030/name>>
           - id: 10361100_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_029/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_029/name>>
           - id: 10361101_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_028/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_028/name>>
           - id: 10361102_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_027/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_027/name>>
           - id: 10361103_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_026/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_026/name>>
           - id: 10361104_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_025/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_025/name>>
           - id: 10361105_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_024/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_024/name>>
           - id: 10361106_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_023/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_023/name>>
           - id: 10361107_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_022/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_022/name>>
           - id: 10361108_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_021/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_021/name>>
           - id: 10361109_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_020/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_020/name>>
           - id: 10361110_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_019/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_019/name>>
           - id: 10361111_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_018/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_018/name>>
           - id: 10361112_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_017/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_017/name>>
           - id: 10361113_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_016/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_016/name>>
           - id: 10361114_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_015/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_015/name>>
           - id: 10361115_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_014/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_014/name>>
           - id: 10361116_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_013/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_013/name>>
           - id: 10361117_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_012/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_012/name>>
           - id: 10361118_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_011/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_011/name>>
           - id: 10361119_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_010/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_010/name>>
           - id: 10361120_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_009/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_009/name>>
           - id: 10361121_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_008/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_008/name>>
           - id: 10361122_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_007/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_007/name>>
           - id: 10361123_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_006/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_006/name>>
           - id: 10361124_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_005/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_005/name>>
           - id: 10361125_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_004/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_004/name>>
           - id: 10361126_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_003/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_003/name>>
           - id: 10361127_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_002/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_002/name>>
           - id: 10361128_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_HTTP_001/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP_001/name>>
 
           - id: 10362001_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_DONE_HTTP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_DONE_HTTP/name>>
           - id: 10362001_policylabel
             data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_HTTP/name>>
           - id: 10362002_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_TERMINATE_HTTP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_HTTP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10361001_policy>> -priority 10361001 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361002_policy>> -priority 10361002 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361003_policy>> -priority 10361003 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361004_policy>> -priority 10361004 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361005_policy>> -priority 10361005 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361006_policy>> -priority 10361006 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361007_policy>> -priority 10361007 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361008_policy>> -priority 10361008 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361009_policy>> -priority 10361009 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361010_policy>> -priority 10361010 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361011_policy>> -priority 10361011 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361012_policy>> -priority 10361012 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361013_policy>> -priority 10361013 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361014_policy>> -priority 10361014 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361015_policy>> -priority 10361015 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361016_policy>> -priority 10361016 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361017_policy>> -priority 10361017 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361018_policy>> -priority 10361018 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361019_policy>> -priority 10361019 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361020_policy>> -priority 10361020 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361021_policy>> -priority 10361021 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361022_policy>> -priority 10361022 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361023_policy>> -priority 10361023 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361024_policy>> -priority 10361024 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361025_policy>> -priority 10361025 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361026_policy>> -priority 10361026 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361027_policy>> -priority 10361027 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361028_policy>> -priority 10361028 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361029_policy>> -priority 10361029 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361030_policy>> -priority 10361030 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361031_policy>> -priority 10361031 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361032_policy>> -priority 10361032 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361033_policy>> -priority 10361033 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361034_policy>> -priority 10361034 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361035_policy>> -priority 10361035 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361036_policy>> -priority 10361036 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361037_policy>> -priority 10361037 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361038_policy>> -priority 10361038 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361039_policy>> -priority 10361039 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361040_policy>> -priority 10361040 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361041_policy>> -priority 10361041 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361042_policy>> -priority 10361042 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361043_policy>> -priority 10361043 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361044_policy>> -priority 10361044 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361045_policy>> -priority 10361045 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361046_policy>> -priority 10361046 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361047_policy>> -priority 10361047 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361048_policy>> -priority 10361048 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361049_policy>> -priority 10361049 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361050_policy>> -priority 10361050 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361051_policy>> -priority 10361051 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361052_policy>> -priority 10361052 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361053_policy>> -priority 10361053 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361054_policy>> -priority 10361054 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361055_policy>> -priority 10361055 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361056_policy>> -priority 10361056 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361057_policy>> -priority 10361057 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361058_policy>> -priority 10361058 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361059_policy>> -priority 10361059 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361060_policy>> -priority 10361060 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361061_policy>> -priority 10361061 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361062_policy>> -priority 10361062 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361063_policy>> -priority 10361063 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361064_policy>> -priority 10361064 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361065_policy>> -priority 10361065 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361066_policy>> -priority 10361066 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361067_policy>> -priority 10361067 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361068_policy>> -priority 10361068 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361069_policy>> -priority 10361069 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361070_policy>> -priority 10361070 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361071_policy>> -priority 10361071 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361072_policy>> -priority 10361072 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361073_policy>> -priority 10361073 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361074_policy>> -priority 10361074 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361075_policy>> -priority 10361075 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361076_policy>> -priority 10361076 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361077_policy>> -priority 10361077 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361078_policy>> -priority 10361078 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361079_policy>> -priority 10361079 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361080_policy>> -priority 10361080 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361081_policy>> -priority 10361081 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361082_policy>> -priority 10361082 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361083_policy>> -priority 10361083 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361084_policy>> -priority 10361084 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361085_policy>> -priority 10361085 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361086_policy>> -priority 10361086 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361087_policy>> -priority 10361087 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361088_policy>> -priority 10361088 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361089_policy>> -priority 10361089 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361090_policy>> -priority 10361090 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361091_policy>> -priority 10361091 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361092_policy>> -priority 10361092 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361093_policy>> -priority 10361093 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361094_policy>> -priority 10361094 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361095_policy>> -priority 10361095 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361096_policy>> -priority 10361096 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361097_policy>> -priority 10361097 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361098_policy>> -priority 10361098 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361099_policy>> -priority 10361099 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361100_policy>> -priority 10361100 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361101_policy>> -priority 10361101 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361102_policy>> -priority 10361102 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361103_policy>> -priority 10361103 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361104_policy>> -priority 10361104 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361105_policy>> -priority 10361105 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361106_policy>> -priority 10361106 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361107_policy>> -priority 10361107 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361108_policy>> -priority 10361108 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361109_policy>> -priority 10361109 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361110_policy>> -priority 10361110 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361111_policy>> -priority 10361111 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361112_policy>> -priority 10361112 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361113_policy>> -priority 10361113 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361114_policy>> -priority 10361114 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361115_policy>> -priority 10361115 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361116_policy>> -priority 10361116 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361117_policy>> -priority 10361117 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361118_policy>> -priority 10361118 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361119_policy>> -priority 10361119 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361120_policy>> -priority 10361120 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361121_policy>> -priority 10361121 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361122_policy>> -priority 10361122 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361123_policy>> -priority 10361123 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361124_policy>> -priority 10361124 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361125_policy>> -priority 10361125 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361126_policy>> -priority 10361126 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361127_policy>> -priority 10361127 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10361128_policy>> -priority 10361128 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10362001_policy>> -priority 10362001 -gotoPriorityExpression NEXT -invoke policylabel <<10362001_policylabel>>
-            bind cs policylabel <<label>> <<10362002_policy>> -priority 10362002
+            bind cs policylabel <<label>> <<10361001_policy>> 10361001 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361002_policy>> 10361002 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361003_policy>> 10361003 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361004_policy>> 10361004 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361005_policy>> 10361005 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361006_policy>> 10361006 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361007_policy>> 10361007 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361008_policy>> 10361008 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361009_policy>> 10361009 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361010_policy>> 10361010 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361011_policy>> 10361011 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361012_policy>> 10361012 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361013_policy>> 10361013 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361014_policy>> 10361014 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361015_policy>> 10361015 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361016_policy>> 10361016 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361017_policy>> 10361017 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361018_policy>> 10361018 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361019_policy>> 10361019 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361020_policy>> 10361020 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361021_policy>> 10361021 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361022_policy>> 10361022 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361023_policy>> 10361023 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361024_policy>> 10361024 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361025_policy>> 10361025 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361026_policy>> 10361026 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361027_policy>> 10361027 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361028_policy>> 10361028 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361029_policy>> 10361029 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361030_policy>> 10361030 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361031_policy>> 10361031 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361032_policy>> 10361032 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361033_policy>> 10361033 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361034_policy>> 10361034 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361035_policy>> 10361035 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361036_policy>> 10361036 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361037_policy>> 10361037 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361038_policy>> 10361038 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361039_policy>> 10361039 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361040_policy>> 10361040 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361041_policy>> 10361041 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361042_policy>> 10361042 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361043_policy>> 10361043 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361044_policy>> 10361044 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361045_policy>> 10361045 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361046_policy>> 10361046 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361047_policy>> 10361047 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361048_policy>> 10361048 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361049_policy>> 10361049 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361050_policy>> 10361050 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361051_policy>> 10361051 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361052_policy>> 10361052 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361053_policy>> 10361053 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361054_policy>> 10361054 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361055_policy>> 10361055 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361056_policy>> 10361056 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361057_policy>> 10361057 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361058_policy>> 10361058 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361059_policy>> 10361059 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361060_policy>> 10361060 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361061_policy>> 10361061 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361062_policy>> 10361062 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361063_policy>> 10361063 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361064_policy>> 10361064 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361065_policy>> 10361065 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361066_policy>> 10361066 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361067_policy>> 10361067 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361068_policy>> 10361068 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361069_policy>> 10361069 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361070_policy>> 10361070 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361071_policy>> 10361071 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361072_policy>> 10361072 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361073_policy>> 10361073 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361074_policy>> 10361074 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361075_policy>> 10361075 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361076_policy>> 10361076 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361077_policy>> 10361077 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361078_policy>> 10361078 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361079_policy>> 10361079 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361080_policy>> 10361080 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361081_policy>> 10361081 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361082_policy>> 10361082 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361083_policy>> 10361083 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361084_policy>> 10361084 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361085_policy>> 10361085 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361086_policy>> 10361086 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361087_policy>> 10361087 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361088_policy>> 10361088 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361089_policy>> 10361089 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361090_policy>> 10361090 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361091_policy>> 10361091 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361092_policy>> 10361092 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361093_policy>> 10361093 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361094_policy>> 10361094 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361095_policy>> 10361095 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361096_policy>> 10361096 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361097_policy>> 10361097 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361098_policy>> 10361098 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361099_policy>> 10361099 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361100_policy>> 10361100 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361101_policy>> 10361101 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361102_policy>> 10361102 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361103_policy>> 10361103 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361104_policy>> 10361104 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361105_policy>> 10361105 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361106_policy>> 10361106 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361107_policy>> 10361107 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361108_policy>> 10361108 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361109_policy>> 10361109 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361110_policy>> 10361110 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361111_policy>> 10361111 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361112_policy>> 10361112 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361113_policy>> 10361113 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361114_policy>> 10361114 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361115_policy>> 10361115 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361116_policy>> 10361116 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361117_policy>> 10361117 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361118_policy>> 10361118 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361119_policy>> 10361119 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361120_policy>> 10361120 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361121_policy>> 10361121 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361122_policy>> 10361122 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361123_policy>> 10361123 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361124_policy>> 10361124 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361125_policy>> 10361125 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361126_policy>> 10361126 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361127_policy>> 10361127 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10361128_policy>> 10361128 -gotoPriorityExpression 10362002
+            bind cs policylabel <<label>> <<10362001_policy>> 10362001 -gotoPriorityExpression NEXT -invoke policylabel <<10362001_policylabel>>
+            bind cs policylabel <<label>> <<10362002_policy>> 10362002
           uninstall: |
             unbind cs policylabel <<label>> <<10361001_policy>>
             unbind cs policylabel <<label>> <<10361002_policy>>

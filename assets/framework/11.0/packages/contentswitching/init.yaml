@@ -127,7 +127,7 @@ sections:
             data: <<prefix>>_INIT_SSL
           
         expressions:
-          install: add cs policylabel <<name>> HTTP
+          install: add cs policylabel <<name>> SSL
           uninstall: rm cs policylabel <<name>>
 
       - name: INIT_TCP
@@ -174,7 +174,7 @@ sections:
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_HTTP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
 
       - name: INIT_IPV4_SSL
@@ -192,7 +192,7 @@ sections:
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSL/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
 
       - name: INIT_IPV4_TCP
@@ -210,7 +210,7 @@ sections:
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_TCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
 
       - name: INIT_IPV4_SSLTCP
@@ -228,7 +228,7 @@ sections:
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
 
       - name: INIT_IPV4_UDP
@@ -246,7 +246,7 @@ sections:
             data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_UDP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10041001_policy>> -priority 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
 
 
@@ -265,7 +265,7 @@ sections:
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_HTTP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
 
       - name: INIT_IPV6_SSL
@@ -283,7 +283,7 @@ sections:
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_SSL/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
 
       - name: INIT_IPV6_TCP
@@ -301,7 +301,7 @@ sections:
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_TCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
 
       - name: INIT_IPV6_SSLTCP
@@ -319,7 +319,7 @@ sections:
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
 
       - name: INIT_IPV6_UDP
@@ -337,5 +337,5 @@ sections:
             data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_UDP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10061001_policy>> -priority 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10061001_policy>>

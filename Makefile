@@ -1,8 +1,13 @@
 run:
 	go run main.go
 
-output:
-	go run main.go > output.txt
+testcompile:
+	go run main.go > testcompile.txt
 
-linecount:
-	go run main.go > output.txt && wc -l output.txt
+testdeploy:
+	scp testcompile.txt nsroot@"$(DEVVPX)":/var/tmp/input.txt
+
+testclean:
+	rm testcompile.txt
+	rm output.txt
+	

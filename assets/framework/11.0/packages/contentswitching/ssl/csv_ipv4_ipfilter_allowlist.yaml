@@ -2,7 +2,350 @@ name: csv_ipv4_ipfilter
 tags:
   - ipv4
   - csv_ipfilter
-sections:          
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_SSL
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSL/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_DONE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_DONE_SSL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssl_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: CSV_IPV4_IPFILTER_ALLOWLIST_SSL
@@ -10,7 +353,7 @@ sections:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SSL
         expressions:
-          install: add cs policylabel <<name>> HTTP
+          install: add cs policylabel <<name>> SSL
           uninstall: rm cs policylabel <<name>>
 
   - name: trafficmanagement.contentswitching.policylabels.bindings
@@ -24,112 +367,112 @@ sections:
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_ALLOWLIST_SSL/name>>
 
           - id: 10941001_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_032/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_032/name>>
           - id: 10941002_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_031/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_031/name>>
           - id: 10941003_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_030/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_030/name>>
           - id: 10941004_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_029/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_029/name>>
           - id: 10941005_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_028/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_028/name>>
           - id: 10941006_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_027/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_027/name>>
           - id: 10941007_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_026/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_026/name>>
           - id: 10941008_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_025/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_025/name>>
           - id: 10941009_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_024/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_024/name>>
           - id: 10941010_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_023/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_023/name>>
           - id: 10941011_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_022/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_022/name>>
           - id: 10941012_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_021/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_021/name>>
           - id: 10941013_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_020/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_020/name>>
           - id: 10941014_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_019/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_019/name>>
           - id: 10941015_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_018/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_018/name>>
           - id: 10941016_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_017/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_017/name>>
           - id: 10941017_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_016/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_016/name>>
           - id: 10941018_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_015/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_015/name>>
           - id: 10941019_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_014/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_014/name>>
           - id: 10941020_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_013/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_013/name>>
           - id: 10941021_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_012/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_012/name>>
           - id: 10941022_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_011/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_011/name>>
           - id: 10941023_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_010/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_010/name>>
           - id: 10941024_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_009/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_009/name>>
           - id: 10941025_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_008/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_008/name>>
           - id: 10941026_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_007/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_007/name>>
           - id: 10941027_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_006/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_006/name>>
           - id: 10941028_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_005/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_005/name>>
           - id: 10941029_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_004/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_004/name>>
           - id: 10941030_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_003/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_003/name>>
           - id: 10941031_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_002/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_002/name>>
           - id: 10941032_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_SSL_001/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_SSL_001/name>>
 
           - id: 10942001_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_TERMINATE_SSL/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_SSL/name>>
           - id: 10942002_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_DONE_SSL/name>>
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_ALLOWLIST_DONE_SSL/name>>
           - id: 10942002_policylabel
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSL/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10941001_policy>> -priority 10941001 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941002_policy>> -priority 10941002 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941003_policy>> -priority 10941003 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941004_policy>> -priority 10941004 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941005_policy>> -priority 10941005 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941006_policy>> -priority 10941006 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941007_policy>> -priority 10941007 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941008_policy>> -priority 10941008 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941009_policy>> -priority 10941009 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941010_policy>> -priority 10941010 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941011_policy>> -priority 10941011 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941012_policy>> -priority 10941012 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941013_policy>> -priority 10941013 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941014_policy>> -priority 10941014 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941015_policy>> -priority 10941015 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941016_policy>> -priority 10941016 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941017_policy>> -priority 10941017 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941018_policy>> -priority 10941018 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941019_policy>> -priority 10941019 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941020_policy>> -priority 10941020 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941021_policy>> -priority 10941021 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941022_policy>> -priority 10941022 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941023_policy>> -priority 10941023 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941024_policy>> -priority 10941024 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941025_policy>> -priority 10941025 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941026_policy>> -priority 10941026 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941027_policy>> -priority 10941027 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941028_policy>> -priority 10941028 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941029_policy>> -priority 10941029 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941030_policy>> -priority 10941030 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941031_policy>> -priority 10941031 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941032_policy>> -priority 10941032 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10942001_policy>> -priority 10942001
-            bind cs policylabel <<label>> <<10942002_policy>> -priority 10942002 -gotoPriorityExpression NEXT -invoke policylabel <<10942002_policylabel>>
+            bind cs policylabel <<label>> <<10941001_policy>> 10941001 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941002_policy>> 10941002 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941003_policy>> 10941003 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941004_policy>> 10941004 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941005_policy>> 10941005 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941006_policy>> 10941006 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941007_policy>> 10941007 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941008_policy>> 10941008 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941009_policy>> 10941009 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941010_policy>> 10941010 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941011_policy>> 10941011 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941012_policy>> 10941012 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941013_policy>> 10941013 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941014_policy>> 10941014 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941015_policy>> 10941015 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941016_policy>> 10941016 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941017_policy>> 10941017 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941018_policy>> 10941018 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941019_policy>> 10941019 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941020_policy>> 10941020 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941021_policy>> 10941021 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941022_policy>> 10941022 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941023_policy>> 10941023 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941024_policy>> 10941024 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941025_policy>> 10941025 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941026_policy>> 10941026 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941027_policy>> 10941027 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941028_policy>> 10941028 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941029_policy>> 10941029 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941030_policy>> 10941030 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941031_policy>> 10941031 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941032_policy>> 10941032 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10942001_policy>> 10942001
+            bind cs policylabel <<label>> <<10942002_policy>> 10942002 -gotoPriorityExpression NEXT -invoke policylabel <<10942002_policylabel>>
           uninstall: |
             unbind cs policylabel <<label>> <<10941001_policy>>
             unbind cs policylabel <<label>> <<10941002_policy>>

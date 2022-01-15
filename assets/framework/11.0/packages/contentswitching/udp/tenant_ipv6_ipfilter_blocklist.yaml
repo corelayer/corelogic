@@ -2,7 +2,1183 @@ name: tenant_ipv6_ipfilter
 tags:
   - ipv6
   - tenant_ipfilter
-sections:          
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_UDP
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.actions.TENANT_IPV6_IPFILTER_TERMINATE_UDP/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_DONE_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_DONE_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_128
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_128
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_128>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_127
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_127
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_127>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_126
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_126
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_126>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_125
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_125
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_125>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_124
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_124
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_124>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_123
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_123
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_123>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_122
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_122
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_122>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_121
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_121
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_121>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_120
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_120
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_120>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_119
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_119
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_119>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_118
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_118
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_118>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_117
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_117
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_117>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_116
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_116
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_116>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_115
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_115
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_115>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_114
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_114
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_114>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_113
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_113
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_113>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_112
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_112
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_112>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_111
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_111
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_111>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_110
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_110
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_110>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_109
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_109
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_109>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_108
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_108
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_108>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_107
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_107
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_107>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_106
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_106
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_106>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_105
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_105
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_105>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_104
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_104
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_104>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_103
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_103
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_103>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_102
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_102
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_102>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_101
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_101
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_101>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_100
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_100
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_100>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_099
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_099
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_099>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_098
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_098
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_098>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_097
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_097
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_097>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_096
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_096
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_096>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_095
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_095
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_095>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_094
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_094
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_094>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_093
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_093
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_093>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_092
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_092
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_092>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_091
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_091
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_091>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_090
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_090
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_090>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_089
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_089
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_089>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_088
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_088
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_088>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_087
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_087
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_087>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_086
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_086
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_086>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_085
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_085
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_085>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_084
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_084
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_084>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_083
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_083
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_083>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_082
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_082
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_082>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_081
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_081
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_081>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_080
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_080
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_080>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_079
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_079
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_079>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_078
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_078
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_078>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_077
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_077
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_077>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_076
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_076
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_076>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_075
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_075
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_075>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_074
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_074
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_074>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_073
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_073
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_073>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_072
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_072
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_072>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_071
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_071
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_071>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_070
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_070
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_070>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_069
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_069
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_069>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_068
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_068
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_068>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_067
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_067
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_067>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_066
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_066
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_066>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_065
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_065
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_065>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_064
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_064
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_064>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_063
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_063
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_063>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_062
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_062
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_062>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_061
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_061
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_061>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_060
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_060
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_060>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_059
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_059
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_059>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_058
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_058
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_058>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_057
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_057
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_057>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_056
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_056
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_056>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_055
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_055
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_055>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_054
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_054
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_054>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_053
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_053
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_053>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_052
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_052
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_052>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_051
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_051
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_051>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_050
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_050
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_050>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_049
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_049
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_049>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_048
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_048
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_048>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_047
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_047
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_047>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_046
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_046
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_046>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_045
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_045
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_045>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_044
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_044
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_044>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_043
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_043
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_043>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_042
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_042
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_042>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_041
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_041
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_041>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_040
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_040
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_040>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_039
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_039
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_039>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_038
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_038
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_038>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_037
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_037
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_037>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_036
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_036
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_036>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_035
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_035
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_035>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_034
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_034
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_034>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_033
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_033
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_033>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_032
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_031
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_030
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_029
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_028
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_027
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_026
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_025
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_024
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_023
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_022
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_021
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_020
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_019
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_018
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_017
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_016
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_015
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_014
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_013
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_012
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_011
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_010
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_009
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_008
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_007
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_006
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_005
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_004
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_003
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_002
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_001
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_udp_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: TENANT_IPV6_IPFILTER_BLOCKLIST_UDP
@@ -24,400 +1200,400 @@ sections:
             data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
 
           - id: 10561001_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_128/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_128/name>>
           - id: 10561002_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_127/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_127/name>>
           - id: 10561003_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_126/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_126/name>>
           - id: 10561004_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_125/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_125/name>>
           - id: 10561005_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_124/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_124/name>>
           - id: 10561006_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_123/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_123/name>>
           - id: 10561007_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_122/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_122/name>>
           - id: 10561008_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_121/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_121/name>>
           - id: 10561009_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_120/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_120/name>>
           - id: 10561010_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_119/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_119/name>>
           - id: 10561011_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_118/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_118/name>>
           - id: 10561012_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_117/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_117/name>>
           - id: 10561013_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_116/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_116/name>>
           - id: 10561014_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_115/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_115/name>>
           - id: 10561015_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_114/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_114/name>>
           - id: 10561016_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_113/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_113/name>>
           - id: 10561017_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_112/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_112/name>>
           - id: 10561018_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_111/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_111/name>>
           - id: 10561019_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_110/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_110/name>>
           - id: 10561020_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_109/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_109/name>>
           - id: 10561021_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_108/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_108/name>>
           - id: 10561022_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_107/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_107/name>>
           - id: 10561023_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_106/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_106/name>>
           - id: 10561024_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_105/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_105/name>>
           - id: 10561025_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_104/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_104/name>>
           - id: 10561026_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_103/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_103/name>>
           - id: 10561027_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_102/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_102/name>>
           - id: 10561028_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_101/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_101/name>>
           - id: 10561029_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_100/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_100/name>>
           - id: 10561030_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_099/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_099/name>>
           - id: 10561031_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_098/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_098/name>>
           - id: 10561032_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_097/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_097/name>>
           - id: 10561033_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_096/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_096/name>>
           - id: 10561034_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_095/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_095/name>>
           - id: 10561035_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_094/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_094/name>>
           - id: 10561036_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_093/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_093/name>>
           - id: 10561037_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_092/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_092/name>>
           - id: 10561038_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_091/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_091/name>>
           - id: 10561039_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_090/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_090/name>>
           - id: 10561040_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_089/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_089/name>>
           - id: 10561041_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_088/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_088/name>>
           - id: 10561042_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_087/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_087/name>>
           - id: 10561043_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_086/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_086/name>>
           - id: 10561044_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_085/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_085/name>>
           - id: 10561045_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_084/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_084/name>>
           - id: 10561046_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_083/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_083/name>>
           - id: 10561047_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_082/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_082/name>>
           - id: 10561048_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_081/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_081/name>>
           - id: 10561049_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_080/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_080/name>>
           - id: 10561050_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_079/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_079/name>>
           - id: 10561051_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_078/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_078/name>>
           - id: 10561052_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_077/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_077/name>>
           - id: 10561053_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_076/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_076/name>>
           - id: 10561054_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_075/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_075/name>>
           - id: 10561055_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_074/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_074/name>>
           - id: 10561056_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_073/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_073/name>>
           - id: 10561057_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_072/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_072/name>>
           - id: 10561058_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_071/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_071/name>>
           - id: 10561059_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_070/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_070/name>>
           - id: 10561060_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_069/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_069/name>>
           - id: 10561061_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_068/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_068/name>>
           - id: 10561062_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_067/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_067/name>>
           - id: 10561063_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_066/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_066/name>>
           - id: 10561064_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_065/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_065/name>>
           - id: 10561065_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_064/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_064/name>>
           - id: 10561066_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_063/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_063/name>>
           - id: 10561067_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_062/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_062/name>>
           - id: 10561068_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_061/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_061/name>>
           - id: 10561069_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_060/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_060/name>>
           - id: 10561070_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_059/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_059/name>>
           - id: 10561071_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_058/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_058/name>>
           - id: 10561072_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_057/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_057/name>>
           - id: 10561073_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_056/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_056/name>>
           - id: 10561074_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_055/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_055/name>>
           - id: 10561075_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_054/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_054/name>>
           - id: 10561076_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_053/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_053/name>>
           - id: 10561077_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_052/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_052/name>>
           - id: 10561078_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_051/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_051/name>>
           - id: 10561079_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_050/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_050/name>>
           - id: 10561080_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_049/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_049/name>>
           - id: 10561081_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_048/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_048/name>>
           - id: 10561082_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_047/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_047/name>>
           - id: 10561083_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_046/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_046/name>>
           - id: 10561084_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_045/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_045/name>>
           - id: 10561085_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_044/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_044/name>>
           - id: 10561086_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_043/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_043/name>>
           - id: 10561087_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_042/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_042/name>>
           - id: 10561088_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_041/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_041/name>>
           - id: 10561089_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_040/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_040/name>>
           - id: 10561090_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_039/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_039/name>>
           - id: 10561091_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_038/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_038/name>>
           - id: 10561092_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_037/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_037/name>>
           - id: 10561093_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_036/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_036/name>>
           - id: 10561094_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_035/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_035/name>>
           - id: 10561095_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_034/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_034/name>>
           - id: 10561096_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_033/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_033/name>>
           - id: 10561097_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_032/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_032/name>>
           - id: 10561098_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_031/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_031/name>>
           - id: 10561099_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_030/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_030/name>>
           - id: 10561100_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_029/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_029/name>>
           - id: 10561101_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_028/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_028/name>>
           - id: 10561102_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_027/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_027/name>>
           - id: 10561103_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_026/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_026/name>>
           - id: 10561104_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_025/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_025/name>>
           - id: 10561105_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_024/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_024/name>>
           - id: 10561106_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_023/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_023/name>>
           - id: 10561107_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_022/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_022/name>>
           - id: 10561108_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_021/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_021/name>>
           - id: 10561109_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_020/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_020/name>>
           - id: 10561110_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_019/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_019/name>>
           - id: 10561111_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_018/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_018/name>>
           - id: 10561112_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_017/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_017/name>>
           - id: 10561113_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_016/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_016/name>>
           - id: 10561114_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_015/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_015/name>>
           - id: 10561115_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_014/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_014/name>>
           - id: 10561116_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_013/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_013/name>>
           - id: 10561117_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_012/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_012/name>>
           - id: 10561118_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_011/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_011/name>>
           - id: 10561119_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_010/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_010/name>>
           - id: 10561120_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_009/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_009/name>>
           - id: 10561121_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_008/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_008/name>>
           - id: 10561122_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_007/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_007/name>>
           - id: 10561123_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_006/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_006/name>>
           - id: 10561124_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_005/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_005/name>>
           - id: 10561125_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_004/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_004/name>>
           - id: 10561126_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_003/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_003/name>>
           - id: 10561127_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_002/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_002/name>>
           - id: 10561128_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_UDP_001/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_UDP_001/name>>
 
           - id: 10562001_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_DONE_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_DONE_UDP/name>>
           - id: 10562001_policylabel
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_UDP/name>>
           - id: 10562002_policy
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_TERMINATE_UDP/name>>
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_UDP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10561001_policy>> -priority 10561001 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561002_policy>> -priority 10561002 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561003_policy>> -priority 10561003 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561004_policy>> -priority 10561004 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561005_policy>> -priority 10561005 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561006_policy>> -priority 10561006 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561007_policy>> -priority 10561007 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561008_policy>> -priority 10561008 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561009_policy>> -priority 10561009 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561010_policy>> -priority 10561010 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561011_policy>> -priority 10561011 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561012_policy>> -priority 10561012 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561013_policy>> -priority 10561013 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561014_policy>> -priority 10561014 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561015_policy>> -priority 10561015 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561016_policy>> -priority 10561016 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561017_policy>> -priority 10561017 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561018_policy>> -priority 10561018 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561019_policy>> -priority 10561019 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561020_policy>> -priority 10561020 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561021_policy>> -priority 10561021 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561022_policy>> -priority 10561022 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561023_policy>> -priority 10561023 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561024_policy>> -priority 10561024 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561025_policy>> -priority 10561025 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561026_policy>> -priority 10561026 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561027_policy>> -priority 10561027 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561028_policy>> -priority 10561028 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561029_policy>> -priority 10561029 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561030_policy>> -priority 10561030 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561031_policy>> -priority 10561031 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561032_policy>> -priority 10561032 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561033_policy>> -priority 10561033 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561034_policy>> -priority 10561034 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561035_policy>> -priority 10561035 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561036_policy>> -priority 10561036 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561037_policy>> -priority 10561037 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561038_policy>> -priority 10561038 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561039_policy>> -priority 10561039 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561040_policy>> -priority 10561040 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561041_policy>> -priority 10561041 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561042_policy>> -priority 10561042 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561043_policy>> -priority 10561043 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561044_policy>> -priority 10561044 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561045_policy>> -priority 10561045 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561046_policy>> -priority 10561046 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561047_policy>> -priority 10561047 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561048_policy>> -priority 10561048 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561049_policy>> -priority 10561049 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561050_policy>> -priority 10561050 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561051_policy>> -priority 10561051 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561052_policy>> -priority 10561052 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561053_policy>> -priority 10561053 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561054_policy>> -priority 10561054 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561055_policy>> -priority 10561055 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561056_policy>> -priority 10561056 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561057_policy>> -priority 10561057 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561058_policy>> -priority 10561058 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561059_policy>> -priority 10561059 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561060_policy>> -priority 10561060 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561061_policy>> -priority 10561061 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561062_policy>> -priority 10561062 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561063_policy>> -priority 10561063 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561064_policy>> -priority 10561064 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561065_policy>> -priority 10561065 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561066_policy>> -priority 10561066 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561067_policy>> -priority 10561067 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561068_policy>> -priority 10561068 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561069_policy>> -priority 10561069 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561070_policy>> -priority 10561070 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561071_policy>> -priority 10561071 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561072_policy>> -priority 10561072 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561073_policy>> -priority 10561073 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561074_policy>> -priority 10561074 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561075_policy>> -priority 10561075 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561076_policy>> -priority 10561076 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561077_policy>> -priority 10561077 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561078_policy>> -priority 10561078 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561079_policy>> -priority 10561079 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561080_policy>> -priority 10561080 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561081_policy>> -priority 10561081 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561082_policy>> -priority 10561082 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561083_policy>> -priority 10561083 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561084_policy>> -priority 10561084 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561085_policy>> -priority 10561085 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561086_policy>> -priority 10561086 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561087_policy>> -priority 10561087 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561088_policy>> -priority 10561088 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561089_policy>> -priority 10561089 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561090_policy>> -priority 10561090 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561091_policy>> -priority 10561091 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561092_policy>> -priority 10561092 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561093_policy>> -priority 10561093 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561094_policy>> -priority 10561094 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561095_policy>> -priority 10561095 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561096_policy>> -priority 10561096 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561097_policy>> -priority 10561097 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561098_policy>> -priority 10561098 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561099_policy>> -priority 10561099 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561100_policy>> -priority 10561100 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561101_policy>> -priority 10561101 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561102_policy>> -priority 10561102 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561103_policy>> -priority 10561103 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561104_policy>> -priority 10561104 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561105_policy>> -priority 10561105 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561106_policy>> -priority 10561106 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561107_policy>> -priority 10561107 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561108_policy>> -priority 10561108 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561109_policy>> -priority 10561109 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561110_policy>> -priority 10561110 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561111_policy>> -priority 10561111 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561112_policy>> -priority 10561112 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561113_policy>> -priority 10561113 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561114_policy>> -priority 10561114 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561115_policy>> -priority 10561115 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561116_policy>> -priority 10561116 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561117_policy>> -priority 10561117 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561118_policy>> -priority 10561118 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561119_policy>> -priority 10561119 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561120_policy>> -priority 10561120 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561121_policy>> -priority 10561121 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561122_policy>> -priority 10561122 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561123_policy>> -priority 10561123 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561124_policy>> -priority 10561124 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561125_policy>> -priority 10561125 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561126_policy>> -priority 10561126 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561127_policy>> -priority 10561127 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10561128_policy>> -priority 10561128 -gotoPriorityExpression 10562002
-            bind cs policylabel <<label>> <<10562001_policy>> -priority 10562001 -gotoPriorityExpression NEXT -invoke policylabel <<10562001_policylabel>>
-            bind cs policylabel <<label>> <<10562002_policy>> -priority 10562002
+            bind cs policylabel <<label>> <<10561001_policy>> 10561001 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561002_policy>> 10561002 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561003_policy>> 10561003 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561004_policy>> 10561004 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561005_policy>> 10561005 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561006_policy>> 10561006 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561007_policy>> 10561007 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561008_policy>> 10561008 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561009_policy>> 10561009 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561010_policy>> 10561010 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561011_policy>> 10561011 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561012_policy>> 10561012 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561013_policy>> 10561013 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561014_policy>> 10561014 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561015_policy>> 10561015 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561016_policy>> 10561016 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561017_policy>> 10561017 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561018_policy>> 10561018 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561019_policy>> 10561019 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561020_policy>> 10561020 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561021_policy>> 10561021 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561022_policy>> 10561022 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561023_policy>> 10561023 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561024_policy>> 10561024 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561025_policy>> 10561025 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561026_policy>> 10561026 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561027_policy>> 10561027 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561028_policy>> 10561028 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561029_policy>> 10561029 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561030_policy>> 10561030 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561031_policy>> 10561031 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561032_policy>> 10561032 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561033_policy>> 10561033 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561034_policy>> 10561034 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561035_policy>> 10561035 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561036_policy>> 10561036 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561037_policy>> 10561037 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561038_policy>> 10561038 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561039_policy>> 10561039 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561040_policy>> 10561040 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561041_policy>> 10561041 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561042_policy>> 10561042 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561043_policy>> 10561043 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561044_policy>> 10561044 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561045_policy>> 10561045 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561046_policy>> 10561046 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561047_policy>> 10561047 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561048_policy>> 10561048 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561049_policy>> 10561049 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561050_policy>> 10561050 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561051_policy>> 10561051 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561052_policy>> 10561052 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561053_policy>> 10561053 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561054_policy>> 10561054 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561055_policy>> 10561055 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561056_policy>> 10561056 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561057_policy>> 10561057 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561058_policy>> 10561058 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561059_policy>> 10561059 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561060_policy>> 10561060 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561061_policy>> 10561061 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561062_policy>> 10561062 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561063_policy>> 10561063 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561064_policy>> 10561064 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561065_policy>> 10561065 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561066_policy>> 10561066 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561067_policy>> 10561067 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561068_policy>> 10561068 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561069_policy>> 10561069 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561070_policy>> 10561070 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561071_policy>> 10561071 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561072_policy>> 10561072 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561073_policy>> 10561073 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561074_policy>> 10561074 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561075_policy>> 10561075 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561076_policy>> 10561076 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561077_policy>> 10561077 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561078_policy>> 10561078 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561079_policy>> 10561079 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561080_policy>> 10561080 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561081_policy>> 10561081 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561082_policy>> 10561082 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561083_policy>> 10561083 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561084_policy>> 10561084 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561085_policy>> 10561085 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561086_policy>> 10561086 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561087_policy>> 10561087 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561088_policy>> 10561088 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561089_policy>> 10561089 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561090_policy>> 10561090 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561091_policy>> 10561091 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561092_policy>> 10561092 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561093_policy>> 10561093 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561094_policy>> 10561094 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561095_policy>> 10561095 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561096_policy>> 10561096 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561097_policy>> 10561097 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561098_policy>> 10561098 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561099_policy>> 10561099 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561100_policy>> 10561100 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561101_policy>> 10561101 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561102_policy>> 10561102 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561103_policy>> 10561103 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561104_policy>> 10561104 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561105_policy>> 10561105 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561106_policy>> 10561106 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561107_policy>> 10561107 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561108_policy>> 10561108 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561109_policy>> 10561109 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561110_policy>> 10561110 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561111_policy>> 10561111 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561112_policy>> 10561112 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561113_policy>> 10561113 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561114_policy>> 10561114 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561115_policy>> 10561115 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561116_policy>> 10561116 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561117_policy>> 10561117 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561118_policy>> 10561118 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561119_policy>> 10561119 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561120_policy>> 10561120 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561121_policy>> 10561121 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561122_policy>> 10561122 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561123_policy>> 10561123 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561124_policy>> 10561124 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561125_policy>> 10561125 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561126_policy>> 10561126 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561127_policy>> 10561127 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10561128_policy>> 10561128 -gotoPriorityExpression 10562002
+            bind cs policylabel <<label>> <<10562001_policy>> 10562001 -gotoPriorityExpression NEXT -invoke policylabel <<10562001_policylabel>>
+            bind cs policylabel <<label>> <<10562002_policy>> 10562002
           uninstall: |
             unbind cs policylabel <<label>> <<10561001_policy>>
             unbind cs policylabel <<label>> <<10561002_policy>>

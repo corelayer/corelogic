@@ -101,7 +101,7 @@ sections:
             data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10161001_policy>> -priority 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+          install: bind cs policylabel <<label>> <<10161001_policy>> 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10161001_policy>>
 
       - name: INIT_ENDPOINT_IPV6_IPFILTER_SSLTCP
@@ -119,7 +119,7 @@ sections:
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10161002_policy>> -priority 10161002 -gotoPriorityExpression NEXT -invoke policylabel <<10161002_policylabel>>
+          install: bind cs policylabel <<label>> <<10161002_policy>> 10161002 -gotoPriorityExpression NEXT -invoke policylabel <<10161002_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10161002_policy>>
 
       - name: INIT_TENANT_IPV6_IPFILTER_SSLTCP
@@ -137,7 +137,7 @@ sections:
             data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10161003_policy>> -priority 10161003 -gotoPriorityExpression NEXT -invoke policylabel <<10161003_policylabel>>
+          install: bind cs policylabel <<label>> <<10161003_policy>> 10161003 -gotoPriorityExpression NEXT -invoke policylabel <<10161003_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10161003_policy>>
 
       - name: INIT_CSVGROUP_IPV6_IPFILTER_SSLTCP
@@ -155,7 +155,7 @@ sections:
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10161004_policy>> -priority 10161004 -gotoPriorityExpression NEXT -invoke policylabel <<10161004_policylabel>>
+          install: bind cs policylabel <<label>> <<10161004_policy>> 10161004 -gotoPriorityExpression NEXT -invoke policylabel <<10161004_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10161004_policy>>
 
       - name: INIT_CSV_IPV6_IPFILTER_SSLTCP
@@ -173,7 +173,7 @@ sections:
             data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_SSLTCP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<10161005_policy>> -priority 10161005 -gotoPriorityExpression NEXT -invoke policylabel <<10161005_policylabel>>
+          install: bind cs policylabel <<label>> <<10161005_policy>> 10161005 -gotoPriorityExpression NEXT -invoke policylabel <<10161005_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<10161005_policy>>
 
       - name: INIT_NO_IPV6_IPFILTER_SSLTCP

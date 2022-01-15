@@ -77,7 +77,7 @@ sections:
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_UDP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<11041001_policy>> -priority 11041001 -gotoPriorityExpression NEXT -invoke policylabel <<11041001_policylabel>>
+          install: bind cs policylabel <<label>> <<11041001_policy>> 11041001 -gotoPriorityExpression NEXT -invoke policylabel <<11041001_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<11041001_policy>>
 
       - name: ZONE_CSVGROUP_IPV4_IPZONE_SECURE_UDP
@@ -95,7 +95,7 @@ sections:
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_UDP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<11041002_policy>> -priority 11041002 -gotoPriorityExpression NEXT -invoke policylabel <<11041002_policylabel>>
+          install: bind cs policylabel <<label>> <<11041002_policy>> 11041002 -gotoPriorityExpression NEXT -invoke policylabel <<11041002_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<11041002_policy>>
 
       - name: ZONE_CSVGROUP_IPV4_IPZONE_PUBLIC_UDP
@@ -113,7 +113,7 @@ sections:
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_UDP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<11041003_policy>> -priority 11041003 -gotoPriorityExpression NEXT -invoke policylabel <<11041003_policylabel>>
+          install: bind cs policylabel <<label>> <<11041003_policy>> 11041003 -gotoPriorityExpression NEXT -invoke policylabel <<11041003_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<11041003_policy>>
 
       - name: ZONE_NO_IPV4_IPZONE_UDP
@@ -129,5 +129,5 @@ sections:
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_UDP/name>>
 
         expressions:
-          install: bind cs policylabel <<label>> <<11041004_policy>> -priority 11041004 -gotoPriorityExpression NEXT -invoke policylabel <<11041004_policylabel>>
+          install: bind cs policylabel <<label>> <<11041004_policy>> 11041004 -gotoPriorityExpression NEXT -invoke policylabel <<11041004_policylabel>>
           uninstall: unbind cs policylabel <<label>> <<11041004_policy>>

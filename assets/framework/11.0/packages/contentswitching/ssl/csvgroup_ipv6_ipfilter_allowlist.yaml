@@ -2,7 +2,1183 @@ name: csvgroup_ipv6_ipfilter
 tags:
   - ipv6
   - csvgroup_ipfilter
-sections:          
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TERMINATE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TERMINATE_SSL
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.actions.CSVGROUP_IPV6_IPFILTER_TERMINATE_SSL/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_DONE_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_DONE_SSL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_128
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_128
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_128>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_127
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_127
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_127>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_126
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_126
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_126>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_125
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_125
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_125>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_124
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_124
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_124>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_123
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_123
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_123>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_122
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_122
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_122>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_121
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_121
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_121>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_120
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_120
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_120>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_119
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_119
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_119>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_118
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_118
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_118>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_117
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_117
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_117>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_116
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_116
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_116>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_115
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_115
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_115>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_114
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_114
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_114>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_113
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_113
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_113>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_112
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_112
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_112>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_111
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_111
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_111>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_110
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_110
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_110>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_109
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_109
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_109>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_108
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_108
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_108>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_107
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_107
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_107>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_106
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_106
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_106>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_105
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_105
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_105>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_104
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_104
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_104>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_103
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_103
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_103>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_102
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_102
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_102>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_101
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_101
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_101>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_100
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_100
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_100>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_099
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_099
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_099>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_098
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_098
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_098>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_097
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_097
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_097>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_096
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_096
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_096>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_095
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_095
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_095>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_094
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_094
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_094>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_093
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_093
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_093>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_092
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_092
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_092>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_091
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_091
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_091>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_090
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_090
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_090>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_089
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_089
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_089>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_088
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_088
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_088>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_087
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_087
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_087>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_086
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_086
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_086>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_085
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_085
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_085>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_084
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_084
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_084>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_083
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_083
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_083>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_082
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_082
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_082>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_081
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_081
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_081>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_080
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_080
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_080>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_079
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_079
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_079>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_078
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_078
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_078>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_077
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_077
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_077>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_076
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_076
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_076>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_075
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_075
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_075>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_074
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_074
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_074>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_073
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_073
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_073>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_072
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_072
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_072>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_071
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_071
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_071>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_070
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_070
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_070>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_069
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_069
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_069>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_068
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_068
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_068>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_067
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_067
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_067>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_066
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_066
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_066>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_065
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_065
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_065>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_064
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_064
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_064>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_063
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_063
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_063>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_062
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_062
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_062>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_061
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_061
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_061>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_060
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_060
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_060>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_059
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_059
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_059>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_058
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_058
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_058>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_057
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_057
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_057>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_056
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_056
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_056>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_055
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_055
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_055>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_054
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_054
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_054>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_053
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_053
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_053>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_052
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_052
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_052>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_051
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_051
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_051>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_050
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_050
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_050>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_049
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_049
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_049>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_048
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_048
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_048>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_047
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_047
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_047>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_046
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_046
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_046>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_045
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_045
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_045>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_044
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_044
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_044>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_043
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_043
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_043>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_042
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_042
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_042>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_041
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_041
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_041>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_040
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_040
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_040>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_039
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_039
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_039>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_038
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_038
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_038>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_037
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_037
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_037>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_036
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_036
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_036>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_035
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_035
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_035>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_034
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_034
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_034>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_033
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_033
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_033>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_ssl_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL
@@ -10,7 +1186,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL
         expressions:
-          install: add cs policylabel <<name>> HTTP
+          install: add cs policylabel <<name>> SSL
           uninstall: rm cs policylabel <<name>>
 
   - name: trafficmanagement.contentswitching.policylabels.bindings
@@ -24,400 +1200,400 @@ sections:
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL/name>>
 
           - id: 10761001_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_128/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_128/name>>
           - id: 10761002_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_127/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_127/name>>
           - id: 10761003_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_126/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_126/name>>
           - id: 10761004_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_125/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_125/name>>
           - id: 10761005_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_124/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_124/name>>
           - id: 10761006_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_123/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_123/name>>
           - id: 10761007_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_122/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_122/name>>
           - id: 10761008_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_121/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_121/name>>
           - id: 10761009_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_120/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_120/name>>
           - id: 10761010_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_119/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_119/name>>
           - id: 10761011_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_118/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_118/name>>
           - id: 10761012_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_117/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_117/name>>
           - id: 10761013_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_116/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_116/name>>
           - id: 10761014_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_115/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_115/name>>
           - id: 10761015_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_114/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_114/name>>
           - id: 10761016_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_113/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_113/name>>
           - id: 10761017_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_112/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_112/name>>
           - id: 10761018_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_111/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_111/name>>
           - id: 10761019_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_110/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_110/name>>
           - id: 10761020_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_109/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_109/name>>
           - id: 10761021_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_108/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_108/name>>
           - id: 10761022_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_107/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_107/name>>
           - id: 10761023_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_106/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_106/name>>
           - id: 10761024_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_105/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_105/name>>
           - id: 10761025_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_104/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_104/name>>
           - id: 10761026_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_103/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_103/name>>
           - id: 10761027_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_102/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_102/name>>
           - id: 10761028_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_101/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_101/name>>
           - id: 10761029_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_100/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_100/name>>
           - id: 10761030_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_099/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_099/name>>
           - id: 10761031_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_098/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_098/name>>
           - id: 10761032_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_097/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_097/name>>
           - id: 10761033_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_096/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_096/name>>
           - id: 10761034_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_095/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_095/name>>
           - id: 10761035_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_094/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_094/name>>
           - id: 10761036_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_093/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_093/name>>
           - id: 10761037_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_092/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_092/name>>
           - id: 10761038_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_091/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_091/name>>
           - id: 10761039_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_090/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_090/name>>
           - id: 10761040_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_089/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_089/name>>
           - id: 10761041_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_088/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_088/name>>
           - id: 10761042_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_087/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_087/name>>
           - id: 10761043_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_086/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_086/name>>
           - id: 10761044_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_085/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_085/name>>
           - id: 10761045_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_084/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_084/name>>
           - id: 10761046_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_083/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_083/name>>
           - id: 10761047_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_082/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_082/name>>
           - id: 10761048_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_081/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_081/name>>
           - id: 10761049_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_080/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_080/name>>
           - id: 10761050_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_079/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_079/name>>
           - id: 10761051_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_078/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_078/name>>
           - id: 10761052_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_077/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_077/name>>
           - id: 10761053_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_076/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_076/name>>
           - id: 10761054_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_075/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_075/name>>
           - id: 10761055_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_074/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_074/name>>
           - id: 10761056_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_073/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_073/name>>
           - id: 10761057_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_072/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_072/name>>
           - id: 10761058_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_071/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_071/name>>
           - id: 10761059_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_070/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_070/name>>
           - id: 10761060_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_069/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_069/name>>
           - id: 10761061_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_068/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_068/name>>
           - id: 10761062_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_067/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_067/name>>
           - id: 10761063_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_066/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_066/name>>
           - id: 10761064_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_065/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_065/name>>
           - id: 10761065_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_064/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_064/name>>
           - id: 10761066_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_063/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_063/name>>
           - id: 10761067_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_062/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_062/name>>
           - id: 10761068_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_061/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_061/name>>
           - id: 10761069_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_060/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_060/name>>
           - id: 10761070_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_059/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_059/name>>
           - id: 10761071_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_058/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_058/name>>
           - id: 10761072_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_057/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_057/name>>
           - id: 10761073_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_056/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_056/name>>
           - id: 10761074_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_055/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_055/name>>
           - id: 10761075_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_054/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_054/name>>
           - id: 10761076_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_053/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_053/name>>
           - id: 10761077_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_052/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_052/name>>
           - id: 10761078_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_051/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_051/name>>
           - id: 10761079_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_050/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_050/name>>
           - id: 10761080_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_049/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_049/name>>
           - id: 10761081_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_048/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_048/name>>
           - id: 10761082_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_047/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_047/name>>
           - id: 10761083_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_046/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_046/name>>
           - id: 10761084_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_045/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_045/name>>
           - id: 10761085_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_044/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_044/name>>
           - id: 10761086_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_043/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_043/name>>
           - id: 10761087_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_042/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_042/name>>
           - id: 10761088_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_041/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_041/name>>
           - id: 10761089_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_040/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_040/name>>
           - id: 10761090_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_039/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_039/name>>
           - id: 10761091_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_038/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_038/name>>
           - id: 10761092_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_037/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_037/name>>
           - id: 10761093_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_036/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_036/name>>
           - id: 10761094_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_035/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_035/name>>
           - id: 10761095_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_034/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_034/name>>
           - id: 10761096_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_033/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_033/name>>
           - id: 10761097_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_032/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_032/name>>
           - id: 10761098_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_031/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_031/name>>
           - id: 10761099_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_030/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_030/name>>
           - id: 10761100_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_029/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_029/name>>
           - id: 10761101_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_028/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_028/name>>
           - id: 10761102_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_027/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_027/name>>
           - id: 10761103_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_026/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_026/name>>
           - id: 10761104_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_025/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_025/name>>
           - id: 10761105_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_024/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_024/name>>
           - id: 10761106_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_023/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_023/name>>
           - id: 10761107_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_022/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_022/name>>
           - id: 10761108_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_021/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_021/name>>
           - id: 10761109_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_020/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_020/name>>
           - id: 10761110_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_019/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_019/name>>
           - id: 10761111_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_018/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_018/name>>
           - id: 10761112_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_017/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_017/name>>
           - id: 10761113_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_016/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_016/name>>
           - id: 10761114_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_015/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_015/name>>
           - id: 10761115_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_014/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_014/name>>
           - id: 10761116_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_013/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_013/name>>
           - id: 10761117_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_012/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_012/name>>
           - id: 10761118_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_011/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_011/name>>
           - id: 10761119_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_010/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_010/name>>
           - id: 10761120_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_009/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_009/name>>
           - id: 10761121_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_008/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_008/name>>
           - id: 10761122_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_007/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_007/name>>
           - id: 10761123_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_006/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_006/name>>
           - id: 10761124_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_005/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_005/name>>
           - id: 10761125_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_004/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_004/name>>
           - id: 10761126_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_003/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_003/name>>
           - id: 10761127_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_002/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_002/name>>
           - id: 10761128_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_SSL_001/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SSL_001/name>>
 
           - id: 10762001_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_TERMINATE_SSL/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TERMINATE_SSL/name>>
           - id: 10762002_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_DONE_SSL/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_DONE_SSL/name>>
           - id: 10762002_policylabel
             data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_SSL/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10761001_policy>> -priority 10761001 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761002_policy>> -priority 10761002 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761003_policy>> -priority 10761003 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761004_policy>> -priority 10761004 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761005_policy>> -priority 10761005 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761006_policy>> -priority 10761006 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761007_policy>> -priority 10761007 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761008_policy>> -priority 10761008 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761009_policy>> -priority 10761009 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761010_policy>> -priority 10761010 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761011_policy>> -priority 10761011 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761012_policy>> -priority 10761012 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761013_policy>> -priority 10761013 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761014_policy>> -priority 10761014 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761015_policy>> -priority 10761015 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761016_policy>> -priority 10761016 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761017_policy>> -priority 10761017 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761018_policy>> -priority 10761018 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761019_policy>> -priority 10761019 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761020_policy>> -priority 10761020 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761021_policy>> -priority 10761021 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761022_policy>> -priority 10761022 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761023_policy>> -priority 10761023 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761024_policy>> -priority 10761024 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761025_policy>> -priority 10761025 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761026_policy>> -priority 10761026 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761027_policy>> -priority 10761027 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761028_policy>> -priority 10761028 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761029_policy>> -priority 10761029 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761030_policy>> -priority 10761030 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761031_policy>> -priority 10761031 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761032_policy>> -priority 10761032 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761033_policy>> -priority 10761033 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761034_policy>> -priority 10761034 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761035_policy>> -priority 10761035 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761036_policy>> -priority 10761036 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761037_policy>> -priority 10761037 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761038_policy>> -priority 10761038 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761039_policy>> -priority 10761039 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761040_policy>> -priority 10761040 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761041_policy>> -priority 10761041 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761042_policy>> -priority 10761042 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761043_policy>> -priority 10761043 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761044_policy>> -priority 10761044 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761045_policy>> -priority 10761045 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761046_policy>> -priority 10761046 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761047_policy>> -priority 10761047 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761048_policy>> -priority 10761048 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761049_policy>> -priority 10761049 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761050_policy>> -priority 10761050 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761051_policy>> -priority 10761051 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761052_policy>> -priority 10761052 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761053_policy>> -priority 10761053 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761054_policy>> -priority 10761054 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761055_policy>> -priority 10761055 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761056_policy>> -priority 10761056 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761057_policy>> -priority 10761057 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761058_policy>> -priority 10761058 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761059_policy>> -priority 10761059 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761060_policy>> -priority 10761060 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761061_policy>> -priority 10761061 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761062_policy>> -priority 10761062 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761063_policy>> -priority 10761063 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761064_policy>> -priority 10761064 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761065_policy>> -priority 10761065 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761066_policy>> -priority 10761066 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761067_policy>> -priority 10761067 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761068_policy>> -priority 10761068 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761069_policy>> -priority 10761069 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761070_policy>> -priority 10761070 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761071_policy>> -priority 10761071 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761072_policy>> -priority 10761072 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761073_policy>> -priority 10761073 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761074_policy>> -priority 10761074 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761075_policy>> -priority 10761075 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761076_policy>> -priority 10761076 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761077_policy>> -priority 10761077 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761078_policy>> -priority 10761078 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761079_policy>> -priority 10761079 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761080_policy>> -priority 10761080 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761081_policy>> -priority 10761081 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761082_policy>> -priority 10761082 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761083_policy>> -priority 10761083 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761084_policy>> -priority 10761084 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761085_policy>> -priority 10761085 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761086_policy>> -priority 10761086 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761087_policy>> -priority 10761087 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761088_policy>> -priority 10761088 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761089_policy>> -priority 10761089 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761090_policy>> -priority 10761090 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761091_policy>> -priority 10761091 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761092_policy>> -priority 10761092 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761093_policy>> -priority 10761093 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761094_policy>> -priority 10761094 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761095_policy>> -priority 10761095 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761096_policy>> -priority 10761096 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761097_policy>> -priority 10761097 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761098_policy>> -priority 10761098 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761099_policy>> -priority 10761099 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761100_policy>> -priority 10761100 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761101_policy>> -priority 10761101 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761102_policy>> -priority 10761102 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761103_policy>> -priority 10761103 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761104_policy>> -priority 10761104 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761105_policy>> -priority 10761105 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761106_policy>> -priority 10761106 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761107_policy>> -priority 10761107 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761108_policy>> -priority 10761108 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761109_policy>> -priority 10761109 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761110_policy>> -priority 10761110 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761111_policy>> -priority 10761111 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761112_policy>> -priority 10761112 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761113_policy>> -priority 10761113 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761114_policy>> -priority 10761114 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761115_policy>> -priority 10761115 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761116_policy>> -priority 10761116 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761117_policy>> -priority 10761117 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761118_policy>> -priority 10761118 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761119_policy>> -priority 10761119 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761120_policy>> -priority 10761120 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761121_policy>> -priority 10761121 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761122_policy>> -priority 10761122 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761123_policy>> -priority 10761123 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761124_policy>> -priority 10761124 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761125_policy>> -priority 10761125 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761126_policy>> -priority 10761126 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761127_policy>> -priority 10761127 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10761128_policy>> -priority 10761128 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10762001_policy>> -priority 10762001
-            bind cs policylabel <<label>> <<10762002_policy>> -priority 10762002 -gotoPriorityExpression NEXT -invoke policylabel <<10762002_policylabel>>
+            bind cs policylabel <<label>> <<10761001_policy>> 10761001 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761002_policy>> 10761002 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761003_policy>> 10761003 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761004_policy>> 10761004 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761005_policy>> 10761005 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761006_policy>> 10761006 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761007_policy>> 10761007 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761008_policy>> 10761008 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761009_policy>> 10761009 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761010_policy>> 10761010 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761011_policy>> 10761011 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761012_policy>> 10761012 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761013_policy>> 10761013 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761014_policy>> 10761014 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761015_policy>> 10761015 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761016_policy>> 10761016 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761017_policy>> 10761017 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761018_policy>> 10761018 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761019_policy>> 10761019 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761020_policy>> 10761020 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761021_policy>> 10761021 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761022_policy>> 10761022 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761023_policy>> 10761023 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761024_policy>> 10761024 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761025_policy>> 10761025 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761026_policy>> 10761026 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761027_policy>> 10761027 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761028_policy>> 10761028 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761029_policy>> 10761029 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761030_policy>> 10761030 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761031_policy>> 10761031 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761032_policy>> 10761032 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761033_policy>> 10761033 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761034_policy>> 10761034 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761035_policy>> 10761035 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761036_policy>> 10761036 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761037_policy>> 10761037 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761038_policy>> 10761038 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761039_policy>> 10761039 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761040_policy>> 10761040 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761041_policy>> 10761041 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761042_policy>> 10761042 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761043_policy>> 10761043 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761044_policy>> 10761044 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761045_policy>> 10761045 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761046_policy>> 10761046 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761047_policy>> 10761047 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761048_policy>> 10761048 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761049_policy>> 10761049 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761050_policy>> 10761050 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761051_policy>> 10761051 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761052_policy>> 10761052 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761053_policy>> 10761053 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761054_policy>> 10761054 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761055_policy>> 10761055 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761056_policy>> 10761056 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761057_policy>> 10761057 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761058_policy>> 10761058 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761059_policy>> 10761059 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761060_policy>> 10761060 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761061_policy>> 10761061 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761062_policy>> 10761062 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761063_policy>> 10761063 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761064_policy>> 10761064 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761065_policy>> 10761065 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761066_policy>> 10761066 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761067_policy>> 10761067 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761068_policy>> 10761068 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761069_policy>> 10761069 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761070_policy>> 10761070 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761071_policy>> 10761071 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761072_policy>> 10761072 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761073_policy>> 10761073 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761074_policy>> 10761074 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761075_policy>> 10761075 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761076_policy>> 10761076 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761077_policy>> 10761077 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761078_policy>> 10761078 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761079_policy>> 10761079 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761080_policy>> 10761080 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761081_policy>> 10761081 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761082_policy>> 10761082 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761083_policy>> 10761083 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761084_policy>> 10761084 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761085_policy>> 10761085 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761086_policy>> 10761086 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761087_policy>> 10761087 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761088_policy>> 10761088 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761089_policy>> 10761089 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761090_policy>> 10761090 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761091_policy>> 10761091 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761092_policy>> 10761092 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761093_policy>> 10761093 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761094_policy>> 10761094 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761095_policy>> 10761095 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761096_policy>> 10761096 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761097_policy>> 10761097 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761098_policy>> 10761098 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761099_policy>> 10761099 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761100_policy>> 10761100 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761101_policy>> 10761101 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761102_policy>> 10761102 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761103_policy>> 10761103 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761104_policy>> 10761104 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761105_policy>> 10761105 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761106_policy>> 10761106 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761107_policy>> 10761107 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761108_policy>> 10761108 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761109_policy>> 10761109 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761110_policy>> 10761110 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761111_policy>> 10761111 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761112_policy>> 10761112 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761113_policy>> 10761113 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761114_policy>> 10761114 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761115_policy>> 10761115 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761116_policy>> 10761116 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761117_policy>> 10761117 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761118_policy>> 10761118 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761119_policy>> 10761119 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761120_policy>> 10761120 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761121_policy>> 10761121 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761122_policy>> 10761122 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761123_policy>> 10761123 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761124_policy>> 10761124 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761125_policy>> 10761125 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761126_policy>> 10761126 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761127_policy>> 10761127 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10761128_policy>> 10761128 -gotoPriorityExpression 10762002
+            bind cs policylabel <<label>> <<10762001_policy>> 10762001
+            bind cs policylabel <<label>> <<10762002_policy>> 10762002 -gotoPriorityExpression NEXT -invoke policylabel <<10762002_policylabel>>
           uninstall: |
             unbind cs policylabel <<label>> <<10761001_policy>>
             unbind cs policylabel <<label>> <<10761002_policy>>
