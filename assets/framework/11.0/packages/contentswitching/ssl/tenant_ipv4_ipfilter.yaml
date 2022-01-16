@@ -1,7 +1,8 @@
 name: tenant_ipv4_ipfilter
 tags:
+  - ssl
   - ipv4
-  - tenant_ipfilter
+  - endpoint_ipfilter
 sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:
@@ -22,7 +23,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_ALLOWLIST_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssl_value_ipfilter_isallow>>
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssl_value_ipfilter_isallow>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -31,7 +32,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_BLOCKLIST_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssl_value_ipfilter_isblock>>
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssl_value_ipfilter_isblock>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -40,7 +41,38 @@ sections:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_NONE_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_ssl_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_ssl_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV4_IPFILTER_NEXT_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_NEXT_SSL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV4_IPFILTER_SKIP_CSVGROUP_SSL
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_SKIP_CSVGROUP_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv4_ssl_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_IPV4_IPFILTER_SKIP_CSV_SSL
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_SKIP_CSV_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_ssl_value_ipfilter_isnone>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -64,12 +96,9 @@ sections:
 
           - id: label
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
-
           - id: 10441001_policy
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_NONE_SSL/name>>
-          - id: 10441001_policylabel
-            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_SSL/name>>
-            
+
           - id: 10441002_policy
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_ALLOWLIST_SSL/name>>
           - id: 10441002_policylabel
@@ -80,12 +109,56 @@ sections:
           - id: 10441003_policylabel
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_BLOCKLIST_SSL/name>>
 
+          - id: 10443001_policy
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_NEXT_SSL/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10441001_policy>> 10441001 -gotoPriorityExpression NEXT -invoke policylabel <<10441001_policylabel>>
+            bind cs policylabel <<label>> <<10441001_policy>> 10441001 -gotoPriorityExpression 10443001
             bind cs policylabel <<label>> <<10441002_policy>> 10441002 -gotoPriorityExpression NEXT -invoke policylabel <<10441002_policylabel>>
             bind cs policylabel <<label>> <<10441003_policy>> 10441003 -gotoPriorityExpression NEXT -invoke policylabel <<10441003_policylabel>>
+            bind cs policylabel <<label>> <<10443001_policy>> 10443001 -gotoPriorityExpression NEXT
+
           uninstall: |
             unbind cs policylabel <<label>> <<10441001_policy>>
             unbind cs policylabel <<label>> <<10441002_policy>>
             unbind cs policylabel <<label>> <<10441003_policy>>
+            unbind cs policylabel <<label>> <<10443001_policy>>
+
+
+      - name: TENANT_IPV4_IPFILTER_SKIP_CSVGROUP_SSL
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SKIP_CSVGROUP_SSL
+
+          - id: label
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
+          - id: 10443002_policy
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SKIP_CSVGROUP_SSL/name>>
+          - id: 10443002_policylabel
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_SSL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10443002_policy>> 10443002 -gotoPriorityExpression NEXT -invoke policylabel <<10443002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10443002_policy>>
+
+      - name: TENANT_IPV4_IPFILTER_SKIP_CSV_SSL
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_SKIP_CSV_SSL
+
+          - id: label
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_SSL/name>>
+          - id: 10443003_policy
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_TENANT_IPV4_IPFILTER_SKIP_CSV_SSL/name>>
+          - id: 10443003_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10443003_policy>> 10443003 -gotoPriorityExpression NEXT -invoke policylabel <<10443003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10443003_policy>>

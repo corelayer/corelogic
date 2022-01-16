@@ -26,7 +26,7 @@ import (
 
 func main() {
 	defer general.FinishTimer(general.StartTimer("Program execution"))
-	tagFilter := []string{}
+	tagFilter := []string{"fake", "ipv4"}
 	controller := controllers.FrameworkController{}
 	err := controller.Load("11.0")
 

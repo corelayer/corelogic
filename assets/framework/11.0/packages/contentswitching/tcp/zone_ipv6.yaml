@@ -1,5 +1,6 @@
 name: zone_ipv6
 tags:
+  - tcp
   - core
   - ipv6
 sections:

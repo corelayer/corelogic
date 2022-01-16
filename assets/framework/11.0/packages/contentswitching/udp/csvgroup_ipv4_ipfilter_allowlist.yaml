@@ -1,8 +1,9 @@
 name: csvgroup_ipv4_ipfilter
 tags:
+  - udp
   - ipv4
-  - csvgroup_ipfilter
-sections:
+  - endpoint_ipfilter
+sections:          
   - name: trafficmanagement.contentswitching.policies
     elements:
       - name: CSVGROUP_IPV4_IPFILTER_ALLOWLIST_TERMINATE_UDP
@@ -25,13 +26,34 @@ sections:
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-          
+
+      - name: CSVGROUP_IPV4_IPFILTER_ALLOWLIST_NEXT_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_NEXT_UDP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_UDP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_UDP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_udp_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
       - name: CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_032
         fields:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_032
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_032>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_032>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -41,7 +63,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_031
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_031>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_031>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -51,7 +73,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_030
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_030>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_030>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -61,7 +83,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_029
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_029>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_029>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -71,7 +93,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_028
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_028>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_028>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -81,7 +103,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_027
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_027>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_027>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -91,7 +113,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_026
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_026>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_026>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -101,7 +123,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_025
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_025>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_025>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -111,7 +133,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_024
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_024>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_024>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -121,7 +143,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_023
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_023>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_023>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -131,7 +153,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_022
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_022>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_022>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -141,7 +163,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_021
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_021>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_021>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -151,7 +173,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_020
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_020>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_020>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -161,7 +183,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_019
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_019>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_019>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -171,7 +193,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_018
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_018>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_018>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -181,7 +203,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_017
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_017>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_017>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -191,7 +213,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_016
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_016>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_016>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -201,7 +223,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_015
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_015>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_015>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -211,7 +233,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_014
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_014>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_014>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -221,7 +243,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_013
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_013>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_013>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -231,7 +253,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_012
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_012>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_012>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -241,7 +263,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_011
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_011>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_011>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -251,7 +273,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_010
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_010>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_010>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -261,7 +283,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_009
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_009>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_009>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -271,7 +293,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_008
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_008>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_008>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -281,7 +303,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_007
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_007>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_007>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -291,7 +313,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_006
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_006>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_006>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -301,7 +323,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_005
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_005>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_005>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -311,7 +333,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_004
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_004>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_004>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -321,7 +343,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_003
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_003>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_003>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -331,7 +353,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_002
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_002>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_002>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -341,7 +363,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP_001
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv4_udp_key_exists_001>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_udp_key_exists_001>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -435,8 +457,9 @@ sections:
             data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV4_IPFILTER_ALLOWLIST_TERMINATE_UDP/name>>
           - id: 10742002_policy
             data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV4_IPFILTER_ALLOWLIST_DONE_UDP/name>>
-          - id: 10742002_policylabel
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_UDP/name>>
+
+          - id: 10743001_policy
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV4_IPFILTER_ALLOWLIST_NEXT_UDP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10741001_policy>> 10741001 -gotoPriorityExpression 10742002
@@ -472,7 +495,8 @@ sections:
             bind cs policylabel <<label>> <<10741031_policy>> 10741031 -gotoPriorityExpression 10742002
             bind cs policylabel <<label>> <<10741032_policy>> 10741032 -gotoPriorityExpression 10742002
             bind cs policylabel <<label>> <<10742001_policy>> 10742001
-            bind cs policylabel <<label>> <<10742002_policy>> 10742002 -gotoPriorityExpression NEXT -invoke policylabel <<10742002_policylabel>>
+            bind cs policylabel <<label>> <<10742002_policy>> 10742002 -gotoPriorityExpression NEXT
+            bind cs policylabel <<label>> <<10743001_policy>> 10743001 -gotoPriorityExpression NEXT
           uninstall: |
             unbind cs policylabel <<label>> <<10741001_policy>>
             unbind cs policylabel <<label>> <<10741002_policy>>
@@ -508,3 +532,23 @@ sections:
             unbind cs policylabel <<label>> <<10741032_policy>>
             unbind cs policylabel <<label>> <<10742001_policy>>
             unbind cs policylabel <<label>> <<10742002_policy>>
+            unbind cs policylabel <<label>> <<10743001_policy>>
+
+      - name: CSVGROUP_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_UDP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_UDP
+
+          - id: label
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP/name>>
+          - id: 10743002_policy
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_UDP/name>>
+          - id: 10743002_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_UDP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10743002_policy>> 10743002 -gotoPriorityExpression NEXT -invoke policylabel <<10743002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10743002_policy>>

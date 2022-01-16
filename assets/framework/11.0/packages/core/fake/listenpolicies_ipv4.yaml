@@ -1,0 +1,17 @@
+name: listenpolicies
+tags:
+  - fake
+  - core
+  - ipv4
+sections:
+  - name: appexpert.expressions.advanced
+    elements:
+      - name: LISTEN_CSV_IPV4_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_LISTEN_CSV_IPV4_FAKE
+          - id: expression
+            data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_fake_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_fake_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_fake_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_fake_value_state_isdisabled>>.NOT)}
+        expressions:
+          install: add policy expression <<name>> <<expression>>
+          uninstall: rm policy expression <<name>>

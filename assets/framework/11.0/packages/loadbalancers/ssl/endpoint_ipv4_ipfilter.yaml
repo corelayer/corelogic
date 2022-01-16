@@ -1,0 +1,24 @@
+name: endpoint_ipv4_ipfilter
+tags:
+  - ssl
+  - ipv4
+  - endpoint_ipfilter
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL
+        fields:
+        - id: name
+          data: <<prefix>>_ENDPOINT_IPV4_IPFILTER_TERMINATE_SSL
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_SSL/name>>
+        - id: patset
+          data: <<core.patternsets.appexpert.patternsets.BYPASS_LBV_IPFILTER/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> HTTP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+            bind policy patset <<patset>> <<name>>
+          uninstall: |
+            rm lb vserver <<name>>
+            unbind policy patset <<patset>> <<name>>

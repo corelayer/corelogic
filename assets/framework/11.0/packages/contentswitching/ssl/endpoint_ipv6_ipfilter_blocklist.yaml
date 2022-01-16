@@ -1,5 +1,6 @@
 name: endpoint_ipv6_ipfilter
 tags:
+  - ssl
   - ipv6
   - endpoint_ipfilter
 sections:
@@ -22,6 +23,49 @@ sections:
             data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_DONE_SSL
           - id: expression
             data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_NEXT_SSL
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_NEXT_SSL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_TENANT_SSL
+        tags:
+          - tenant_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_TENANT_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_ssl_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSVGROUP_SSL
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSVGROUP_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv6_ssl_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_SSL
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_SSL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_ssl_value_ipfilter_isnone>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1459,10 +1503,12 @@ sections:
 
           - id: 10362001_policy
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_DONE_SSL/name>>
-          - id: 10362001_policylabel
-            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
           - id: 10362002_policy
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_TERMINATE_SSL/name>>
+
+          - id: 10363001_policy
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_NEXT_SSL/name>>
+
         expressions:
           install: |
             bind cs policylabel <<label>> <<10361001_policy>> 10361001 -gotoPriorityExpression 10362002
@@ -1593,8 +1639,10 @@ sections:
             bind cs policylabel <<label>> <<10361126_policy>> 10361126 -gotoPriorityExpression 10362002
             bind cs policylabel <<label>> <<10361127_policy>> 10361127 -gotoPriorityExpression 10362002
             bind cs policylabel <<label>> <<10361128_policy>> 10361128 -gotoPriorityExpression 10362002
-            bind cs policylabel <<label>> <<10362001_policy>> 10362001 -gotoPriorityExpression NEXT -invoke policylabel <<10362001_policylabel>>
+            bind cs policylabel <<label>> <<10362001_policy>> 10362001 -gotoPriorityExpression 10363001
             bind cs policylabel <<label>> <<10362002_policy>> 10362002
+            bind cs policylabel <<label>> <<10363001_policy>> 10363001 -gotoPriorityExpression NEXT
+
           uninstall: |
             unbind cs policylabel <<label>> <<10361001_policy>>
             unbind cs policylabel <<label>> <<10361002_policy>>
@@ -1726,3 +1774,62 @@ sections:
             unbind cs policylabel <<label>> <<10361128_policy>>
             unbind cs policylabel <<label>> <<10362001_policy>>
             unbind cs policylabel <<label>> <<10362002_policy>>
+            unbind cs policylabel <<label>> <<10363001_policy>>
+
+
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_TENANT_SSL
+        tags:
+          - tenant_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_TENANT_SSL
+
+          - id: label
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+          - id: 10363002_policy
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_TENANT_SSL/name>>
+          - id: 10363002_policylabel
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_SSL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10363002_policy>> 10363002 -gotoPriorityExpression NEXT -invoke policylabel <<10363002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10363002_policy>>
+
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSVGROUP_SSL
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSVGROUP_SSL
+
+          - id: label
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+          - id: 10363003_policy
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSVGROUP_SSL/name>>
+          - id: 10363003_policylabel
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_SSL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10363003_policy>> 10363003 -gotoPriorityExpression NEXT -invoke policylabel <<10363003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10363003_policy>>
+
+      - name: ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_SSL
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_SSL
+
+          - id: label
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SSL/name>>
+          - id: 10363004_policy
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.ENDPOINT_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_SSL/name>>
+          - id: 10363004_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_SSL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10363004_policy>> 10363004 -gotoPriorityExpression NEXT -invoke policylabel <<10363004_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10363004_policy>>

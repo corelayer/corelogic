@@ -1,0 +1,33 @@
+name: servicegroups
+tags:
+  - udp
+  - core
+sections:
+  - name: trafficmanagement.loadbalancing.servicegroups
+    elements:
+      - name: DUMMY_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_DUMMY_UDP
+          - id: type
+            data: UDP
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: add servicegroup <<name>> <<type>> -healthMonitor NO
+          uninstall: rm servicegroup <<name>>
+
+
+  - name: trafficmanagement.loadbalancing.servicegroups.bindings
+    elements:
+      - name: DUMMY_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_DUMMY_UDP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_UDP/name>>
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: bind servicegroup <<servicegroup>> <<server>> *
+          uninstall: unbind servicegroup <<servicegroup>> <server>> *

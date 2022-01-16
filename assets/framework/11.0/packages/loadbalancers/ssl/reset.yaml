@@ -1,0 +1,18 @@
+name: reset
+tags:
+  - ssl
+  - core
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: RESET_SSL
+        fields:
+        - id: name
+          data: <<prefix>>_RESET_SSL
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_SSL/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> HTTP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+          uninstall: rm lb vserver <<name>>

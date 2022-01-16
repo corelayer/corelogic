@@ -1,0 +1,24 @@
+name: csvgroup_ipv6_ipfilter
+tags:
+  - udp
+  - ipv6
+  - csvgroup_ipfilter
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: CSVGROUP_IPV6_IPFILTER_TERMINATE_UDP
+        fields:
+        - id: name
+          data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_TERMINATE_UDP
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_UDP/name>>
+        - id: patset
+          data: <<core.patternsets.appexpert.patternsets.BYPASS_LBV_IPFILTER/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> UDP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+            bind policy patset <<patset>> <<name>>
+          uninstall: |
+            rm lb vserver <<name>>
+            unbind policy patset <<patset>> <<name>>

@@ -1,0 +1,17 @@
+name: listenpolicies
+tags:
+  - udp
+  - core
+  - ipv6
+sections:
+  - name: appexpert.expressions.advanced
+    elements:    
+      - name: LISTEN_CSV_IPV6_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_LISTEN_CSV_IPV6_UDP
+          - id: expression
+            data: q{(<<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_udp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_udp_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_udp_key_exists>> && <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_udp_value_state_isdisabled>>.NOT)}
+        expressions:
+          install: add policy expression <<name>> <<expression>>
+          uninstall: rm policy expression <<name>>

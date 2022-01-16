@@ -1,8 +1,9 @@
 name: tenant_ipv4_ipfilter
 tags:
+  - tcp
   - ipv4
-  - tenant_ipfilter
-sections:
+  - endpoint_ipfilter
+sections:          
   - name: trafficmanagement.contentswitching.policies
     elements:
       - name: TENANT_IPV4_IPFILTER_ALLOWLIST_TERMINATE_TCP
@@ -26,12 +27,44 @@ sections:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_NEXT_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_NEXT_TCP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_TCP
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_TCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv4_tcp_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_tcp_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
       - name: TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_032
         fields:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_032
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_032>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_032>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -41,7 +74,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_031
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_031>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_031>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -51,7 +84,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_030
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_030>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_030>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -61,7 +94,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_029
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_029>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_029>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -71,7 +104,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_028
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_028>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_028>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -81,7 +114,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_027
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_027>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_027>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -91,7 +124,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_026
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_026>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_026>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -101,7 +134,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_025
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_025>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_025>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -111,7 +144,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_024
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_024>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_024>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -121,7 +154,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_023
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_023>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_023>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -131,7 +164,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_022
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_022>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_022>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -141,7 +174,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_021
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_021>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_021>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -151,7 +184,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_020
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_020>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_020>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -161,7 +194,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_019
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_019>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_019>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -171,7 +204,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_018
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_018>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_018>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -181,7 +214,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_017
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_017>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_017>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -191,7 +224,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_016
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_016>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_016>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -201,7 +234,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_015
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_015>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_015>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -211,7 +244,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_014
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_014>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_014>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -221,7 +254,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_013
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_013>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_013>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -231,7 +264,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_012
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_012>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_012>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -241,7 +274,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_011
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_011>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_011>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -251,7 +284,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_010
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_010>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_010>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -261,7 +294,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_009
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_009>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_009>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -271,7 +304,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_008
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_008>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_008>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -281,7 +314,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_007
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_007>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_007>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -291,7 +324,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_006
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_006>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_006>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -301,7 +334,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_005
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_005>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_005>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -311,7 +344,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_004
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_004>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_004>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -321,7 +354,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_003
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_003>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_003>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -331,7 +364,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_002
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_002>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_002>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -341,11 +374,10 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_TCP_001
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv4_tcp_key_exists_001>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_tcp_key_exists_001>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-
 
   - name: trafficmanagement.contentswitching.policylabels
     elements:
@@ -436,8 +468,9 @@ sections:
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_ALLOWLIST_TERMINATE_TCP/name>>
           - id: 10542002_policy
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_ALLOWLIST_DONE_TCP/name>>
-          - id: 10542002_policylabel
-            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_TCP/name>>
+
+          - id: 10543001_policy
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_ALLOWLIST_NEXT_TCP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10541001_policy>> 10541001 -gotoPriorityExpression 10542002
@@ -473,7 +506,8 @@ sections:
             bind cs policylabel <<label>> <<10541031_policy>> 10541031 -gotoPriorityExpression 10542002
             bind cs policylabel <<label>> <<10541032_policy>> 10541032 -gotoPriorityExpression 10542002
             bind cs policylabel <<label>> <<10542001_policy>> 10542001
-            bind cs policylabel <<label>> <<10542002_policy>> 10542002 -gotoPriorityExpression NEXT -invoke policylabel <<10542002_policylabel>>
+            bind cs policylabel <<label>> <<10542002_policy>> 10542002 -gotoPriorityExpression NEXT
+            bind cs policylabel <<label>> <<10543001_policy>> 10543001 -gotoPriorityExpression NEXT
           uninstall: |
             unbind cs policylabel <<label>> <<10541001_policy>>
             unbind cs policylabel <<label>> <<10541002_policy>>
@@ -509,3 +543,43 @@ sections:
             unbind cs policylabel <<label>> <<10541032_policy>>
             unbind cs policylabel <<label>> <<10542001_policy>>
             unbind cs policylabel <<label>> <<10542002_policy>>
+            unbind cs policylabel <<label>> <<10543001_policy>>
+
+
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_TCP
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_TCP
+
+          - id: label
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_ALLOWLIST_TCP/name>>
+          - id: 10543002_policy
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_TCP/name>>
+          - id: 10543002_policylabel
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_TCP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10543002_policy>> 10543002 -gotoPriorityExpression NEXT -invoke policylabel <<10543002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10543002_policy>>
+
+      - name: TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+
+          - id: label
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_ALLOWLIST_TCP/name>>
+          - id: 10543003_policy
+            data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_TCP/name>>
+          - id: 10543003_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_TCP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10543003_policy>> 10543003 -gotoPriorityExpression NEXT -invoke policylabel <<10543003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10543003_policy>>

@@ -1,0 +1,133 @@
+name: csvgroup_ipv6_ipfilter
+tags:
+  - fake
+  - ipv6
+  - endpoint_ipfilter
+sections:          
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: CSVGROUP_IPV6_IPFILTER_TERMINATE_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_TERMINATE_FAKE
+          - id: expression
+            data: <<loadbalancers.csvgroup_ipv6_ipfilter.trafficmanagement.loadbalancing.virtualservers.CSVGROUP_IPV6_IPFILTER_TERMINATE_FAKE/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>
+          
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_FAKE
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_fake_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_FAKE
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_fake_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_NONE_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_NONE_FAKE
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_fake_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_NEXT_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_NEXT_FAKE
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSVGROUP_IPV6_IPFILTER_SKIP_CSV_FAKE
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_IPV6_IPFILTER_SKIP_CSV_FAKE
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_fake_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: CSVGROUP_IPV6_IPFILTER_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_FAKE
+        expressions:
+          install: add cs policylabel <<name>> FAKE
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: CSVGROUP_IPV6_IPFILTER_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_FAKE
+
+          - id: label
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_FAKE/name>>
+          - id: 10661001_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV6_IPFILTER_NONE_FAKE/name>>
+
+          - id: 10661002_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_FAKE/name>>
+          - id: 10661002_policylabel
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_FAKE/name>>
+
+          - id: 10661003_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_FAKE/name>>
+          - id: 10661003_policylabel
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_FAKE/name>>
+
+          - id: 10663001_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV6_IPFILTER_NEXT_FAKE/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10661001_policy>> 10661001 -gotoPriorityExpression 10663001
+            bind cs policylabel <<label>> <<10661002_policy>> 10661002 -gotoPriorityExpression NEXT -invoke policylabel <<10661002_policylabel>>
+            bind cs policylabel <<label>> <<10661003_policy>> 10661003 -gotoPriorityExpression NEXT -invoke policylabel <<10661003_policylabel>>
+            bind cs policylabel <<label>> <<10663001_policy>> 10663001 -gotoPriorityExpression NEXT
+
+          uninstall: |
+            unbind cs policylabel <<label>> <<10661001_policy>>
+            unbind cs policylabel <<label>> <<10661002_policy>>
+            unbind cs policylabel <<label>> <<10661003_policy>>
+            unbind cs policylabel <<label>> <<10663001_policy>>
+
+      - name: CSVGROUP_IPV6_IPFILTER_SKIP_CSV_FAKE
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_SKIP_CSV_FAKE
+
+          - id: label
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_FAKE/name>>
+          - id: 10663002_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV6_IPFILTER_SKIP_CSV_FAKE/name>>
+          - id: 10663002_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_FAKE/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10663002_policy>> 10663002 -gotoPriorityExpression NEXT -invoke policylabel <<10663002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10663002_policy>>

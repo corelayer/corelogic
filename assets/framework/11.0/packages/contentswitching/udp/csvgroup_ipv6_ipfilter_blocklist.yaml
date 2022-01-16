@@ -1,7 +1,8 @@
 name: csvgroup_ipv6_ipfilter
 tags:
+  - udp
   - ipv6
-  - csvgroup_ipfilter
+  - endpoint_ipfilter
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
@@ -26,1158 +27,1180 @@ sections:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_128
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_NEXT_UDP
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_128
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_NEXT_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_128>>
+            data: true
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_127
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_UDP
+        tags:
+          - csv_ipfilter
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_127
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_127>>
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_udp_value_ipfilter_isnone>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_126
+
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_128
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_126
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_128
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_126>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_128>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_125
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_127
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_125
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_127
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_125>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_127>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_124
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_126
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_124
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_126
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_124>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_126>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_123
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_125
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_123
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_125
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_123>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_125>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_122
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_124
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_122
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_124
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_122>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_124>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_121
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_123
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_121
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_123
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_121>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_123>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_120
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_122
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_120
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_122
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_120>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_122>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_119
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_121
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_119
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_121
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_119>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_121>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_118
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_120
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_118
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_120
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_118>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_120>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_117
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_119
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_117
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_119
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_117>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_119>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_116
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_118
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_116
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_118
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_116>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_118>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_115
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_117
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_115
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_117
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_115>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_117>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_114
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_116
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_114
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_116
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_114>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_116>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_113
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_115
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_113
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_115
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_113>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_115>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_112
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_114
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_112
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_114
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_112>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_114>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_111
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_113
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_111
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_113
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_111>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_113>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_110
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_112
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_110
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_112
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_110>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_112>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_109
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_111
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_109
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_111
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_109>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_111>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_108
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_110
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_108
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_110
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_108>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_110>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_107
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_109
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_107
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_109
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_107>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_109>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_106
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_108
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_106
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_108
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_106>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_108>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_105
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_107
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_105
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_107
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_105>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_107>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_104
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_106
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_104
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_106
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_104>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_106>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_103
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_105
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_103
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_105
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_103>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_105>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_102
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_104
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_102
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_104
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_102>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_104>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_101
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_103
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_101
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_103
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_101>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_103>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_100
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_102
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_100
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_102
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_100>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_102>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_099
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_101
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_099
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_101
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_099>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_101>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_098
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_100
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_098
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_100
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_098>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_100>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_097
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_099
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_097
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_099
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_097>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_099>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_096
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_098
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_096
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_098
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_096>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_098>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_095
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_097
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_095
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_097
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_095>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_097>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_094
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_096
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_094
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_096
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_094>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_096>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_093
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_095
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_093
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_095
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_093>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_095>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_092
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_094
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_092
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_094
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_092>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_094>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_091
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_093
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_091
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_093
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_091>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_093>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_090
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_092
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_090
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_092
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_090>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_092>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_089
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_091
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_089
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_091
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_089>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_091>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_088
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_090
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_088
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_090
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_088>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_090>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_087
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_089
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_087
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_089
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_087>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_089>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_086
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_088
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_086
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_088
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_086>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_088>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_085
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_087
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_085
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_087
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_085>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_087>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_084
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_086
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_084
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_086
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_084>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_086>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_083
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_085
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_083
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_085
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_083>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_085>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_082
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_084
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_082
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_084
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_082>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_084>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_081
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_083
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_081
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_083
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_081>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_083>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_080
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_082
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_080
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_082
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_080>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_082>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_079
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_081
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_079
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_081
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_079>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_081>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_078
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_080
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_078
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_080
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_078>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_080>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_077
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_079
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_077
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_079
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_077>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_079>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_076
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_078
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_076
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_078
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_076>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_078>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_075
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_077
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_075
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_077
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_075>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_077>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_074
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_076
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_074
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_076
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_074>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_076>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_073
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_075
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_073
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_075
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_073>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_075>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_072
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_074
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_072
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_074
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_072>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_074>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_071
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_073
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_071
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_073
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_071>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_073>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_070
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_072
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_070
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_072
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_070>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_072>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_069
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_071
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_069
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_071
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_069>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_071>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_068
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_070
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_068
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_070
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_068>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_070>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_067
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_069
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_067
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_069
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_067>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_069>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_066
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_068
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_066
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_068
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_066>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_068>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_065
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_067
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_065
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_067
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_065>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_067>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_064
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_066
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_064
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_066
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_064>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_066>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_063
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_065
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_063
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_065
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_063>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_065>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_062
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_064
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_062
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_064
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_062>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_064>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_061
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_063
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_061
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_063
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_061>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_063>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_060
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_062
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_060
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_062
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_060>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_062>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_059
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_061
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_059
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_061
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_059>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_061>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_058
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_060
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_058
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_060
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_058>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_060>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_057
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_059
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_057
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_059
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_057>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_059>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_056
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_058
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_056
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_058
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_056>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_058>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_055
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_057
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_055
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_057
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_055>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_057>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_054
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_056
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_054
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_056
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_054>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_056>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_053
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_055
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_053
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_055
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_053>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_055>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_052
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_054
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_052
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_054
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_052>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_054>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_051
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_053
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_051
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_053
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_051>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_053>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_050
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_052
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_050
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_052
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_050>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_052>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_049
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_051
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_049
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_051
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_049>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_051>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_048
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_050
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_048
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_050
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_048>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_050>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_047
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_049
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_047
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_049
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_047>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_049>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_046
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_048
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_046
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_048
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_046>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_048>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_045
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_047
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_045
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_047
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_045>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_047>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_044
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_046
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_044
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_046
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_044>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_046>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_043
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_045
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_043
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_045
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_043>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_045>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_042
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_044
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_042
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_044
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_042>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_044>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_041
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_043
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_041
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_043
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_041>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_043>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_040
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_042
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_040
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_042
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_040>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_042>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_039
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_041
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_039
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_041
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_039>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_041>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_038
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_040
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_038
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_040
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_038>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_040>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_037
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_039
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_037
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_039
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_037>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_039>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_036
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_038
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_036
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_038
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_036>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_038>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_035
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_037
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_035
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_037
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_035>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_037>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_034
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_036
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_034
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_036
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_034>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_036>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_033
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_035
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_033
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_035
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_033>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_035>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_032
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_034
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_032
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_034
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_032>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_034>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_031
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_033
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_031
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_033
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_031>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_033>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_030
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_032
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_030
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_032
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_030>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_032>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_029
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_031
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_029
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_031
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_029>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_031>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_028
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_030
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_028
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_030
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_028>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_030>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_027
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_029
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_027
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_029
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_027>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_029>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_026
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_028
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_026
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_028
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_026>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_028>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_025
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_027
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_025
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_027
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_025>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_027>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_024
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_026
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_024
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_026
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_024>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_026>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_023
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_025
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_023
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_025
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_023>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_025>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_022
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_024
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_022
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_024
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_022>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_024>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_021
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_023
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_021
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_023
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_021>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_023>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_020
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_022
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_020
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_022
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_020>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_022>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_019
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_021
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_019
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_021
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_019>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_021>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_018
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_020
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_018
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_020
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_018>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_020>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_017
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_019
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_017
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_019
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_017>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_019>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_016
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_018
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_016
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_018
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_016>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_018>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_015
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_017
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_015
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_017
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_015>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_017>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_014
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_016
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_014
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_016
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_014>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_016>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_013
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_015
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_013
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_015
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_013>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_015>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_012
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_014
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_012
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_014
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_012>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_014>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_011
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_013
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_011
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_013
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_011>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_013>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_010
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_012
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_010
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_012
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_010>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_012>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_009
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_011
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_009
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_011
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_009>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_011>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_008
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_010
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_008
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_010
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_008>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_010>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_007
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_009
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_007
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_009
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_007>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_009>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_006
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_008
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_006
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_008
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_006>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_008>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_005
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_007
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_005
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_007
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_005>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_007>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_004
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_006
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_004
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_006
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_004>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_006>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_003
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_005
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_003
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_005
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_003>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_005>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_002
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_004
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_002
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_004
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_002>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_004>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: CSVGROUP_IPV6_IPFILTER_UDP_001
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_003
         fields:
           - id: name
-            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_UDP_001
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_003
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_udp_key_exists_001>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_003>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_udp_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
 
   - name: trafficmanagement.contentswitching.policylabels
     elements:
@@ -1200,268 +1223,270 @@ sections:
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
 
           - id: 10761001_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_128/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_128/name>>
           - id: 10761002_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_127/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_127/name>>
           - id: 10761003_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_126/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_126/name>>
           - id: 10761004_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_125/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_125/name>>
           - id: 10761005_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_124/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_124/name>>
           - id: 10761006_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_123/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_123/name>>
           - id: 10761007_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_122/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_122/name>>
           - id: 10761008_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_121/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_121/name>>
           - id: 10761009_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_120/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_120/name>>
           - id: 10761010_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_119/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_119/name>>
           - id: 10761011_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_118/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_118/name>>
           - id: 10761012_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_117/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_117/name>>
           - id: 10761013_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_116/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_116/name>>
           - id: 10761014_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_115/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_115/name>>
           - id: 10761015_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_114/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_114/name>>
           - id: 10761016_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_113/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_113/name>>
           - id: 10761017_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_112/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_112/name>>
           - id: 10761018_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_111/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_111/name>>
           - id: 10761019_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_110/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_110/name>>
           - id: 10761020_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_109/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_109/name>>
           - id: 10761021_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_108/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_108/name>>
           - id: 10761022_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_107/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_107/name>>
           - id: 10761023_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_106/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_106/name>>
           - id: 10761024_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_105/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_105/name>>
           - id: 10761025_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_104/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_104/name>>
           - id: 10761026_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_103/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_103/name>>
           - id: 10761027_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_102/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_102/name>>
           - id: 10761028_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_101/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_101/name>>
           - id: 10761029_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_100/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_100/name>>
           - id: 10761030_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_099/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_099/name>>
           - id: 10761031_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_098/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_098/name>>
           - id: 10761032_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_097/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_097/name>>
           - id: 10761033_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_096/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_096/name>>
           - id: 10761034_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_095/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_095/name>>
           - id: 10761035_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_094/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_094/name>>
           - id: 10761036_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_093/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_093/name>>
           - id: 10761037_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_092/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_092/name>>
           - id: 10761038_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_091/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_091/name>>
           - id: 10761039_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_090/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_090/name>>
           - id: 10761040_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_089/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_089/name>>
           - id: 10761041_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_088/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_088/name>>
           - id: 10761042_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_087/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_087/name>>
           - id: 10761043_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_086/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_086/name>>
           - id: 10761044_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_085/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_085/name>>
           - id: 10761045_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_084/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_084/name>>
           - id: 10761046_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_083/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_083/name>>
           - id: 10761047_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_082/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_082/name>>
           - id: 10761048_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_081/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_081/name>>
           - id: 10761049_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_080/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_080/name>>
           - id: 10761050_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_079/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_079/name>>
           - id: 10761051_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_078/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_078/name>>
           - id: 10761052_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_077/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_077/name>>
           - id: 10761053_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_076/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_076/name>>
           - id: 10761054_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_075/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_075/name>>
           - id: 10761055_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_074/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_074/name>>
           - id: 10761056_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_073/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_073/name>>
           - id: 10761057_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_072/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_072/name>>
           - id: 10761058_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_071/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_071/name>>
           - id: 10761059_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_070/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_070/name>>
           - id: 10761060_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_069/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_069/name>>
           - id: 10761061_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_068/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_068/name>>
           - id: 10761062_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_067/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_067/name>>
           - id: 10761063_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_066/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_066/name>>
           - id: 10761064_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_065/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_065/name>>
           - id: 10761065_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_064/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_064/name>>
           - id: 10761066_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_063/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_063/name>>
           - id: 10761067_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_062/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_062/name>>
           - id: 10761068_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_061/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_061/name>>
           - id: 10761069_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_060/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_060/name>>
           - id: 10761070_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_059/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_059/name>>
           - id: 10761071_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_058/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_058/name>>
           - id: 10761072_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_057/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_057/name>>
           - id: 10761073_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_056/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_056/name>>
           - id: 10761074_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_055/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_055/name>>
           - id: 10761075_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_054/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_054/name>>
           - id: 10761076_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_053/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_053/name>>
           - id: 10761077_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_052/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_052/name>>
           - id: 10761078_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_051/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_051/name>>
           - id: 10761079_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_050/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_050/name>>
           - id: 10761080_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_049/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_049/name>>
           - id: 10761081_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_048/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_048/name>>
           - id: 10761082_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_047/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_047/name>>
           - id: 10761083_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_046/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_046/name>>
           - id: 10761084_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_045/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_045/name>>
           - id: 10761085_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_044/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_044/name>>
           - id: 10761086_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_043/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_043/name>>
           - id: 10761087_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_042/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_042/name>>
           - id: 10761088_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_041/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_041/name>>
           - id: 10761089_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_040/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_040/name>>
           - id: 10761090_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_039/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_039/name>>
           - id: 10761091_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_038/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_038/name>>
           - id: 10761092_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_037/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_037/name>>
           - id: 10761093_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_036/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_036/name>>
           - id: 10761094_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_035/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_035/name>>
           - id: 10761095_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_034/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_034/name>>
           - id: 10761096_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_033/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_033/name>>
           - id: 10761097_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_032/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_032/name>>
           - id: 10761098_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_031/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_031/name>>
           - id: 10761099_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_030/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_030/name>>
           - id: 10761100_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_029/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_029/name>>
           - id: 10761101_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_028/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_028/name>>
           - id: 10761102_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_027/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_027/name>>
           - id: 10761103_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_026/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_026/name>>
           - id: 10761104_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_025/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_025/name>>
           - id: 10761105_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_024/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_024/name>>
           - id: 10761106_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_023/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_023/name>>
           - id: 10761107_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_022/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_022/name>>
           - id: 10761108_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_021/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_021/name>>
           - id: 10761109_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_020/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_020/name>>
           - id: 10761110_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_019/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_019/name>>
           - id: 10761111_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_018/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_018/name>>
           - id: 10761112_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_017/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_017/name>>
           - id: 10761113_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_016/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_016/name>>
           - id: 10761114_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_015/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_015/name>>
           - id: 10761115_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_014/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_014/name>>
           - id: 10761116_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_013/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_013/name>>
           - id: 10761117_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_012/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_012/name>>
           - id: 10761118_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_011/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_011/name>>
           - id: 10761119_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_010/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_010/name>>
           - id: 10761120_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_009/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_009/name>>
           - id: 10761121_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_008/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_008/name>>
           - id: 10761122_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_007/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_007/name>>
           - id: 10761123_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_006/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_006/name>>
           - id: 10761124_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_005/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_005/name>>
           - id: 10761125_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_004/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_004/name>>
           - id: 10761126_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_003/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_003/name>>
           - id: 10761127_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_002/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_002/name>>
           - id: 10761128_policy
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_UDP_001/name>>
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP_001/name>>
 
           - id: 10762001_policy
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_DONE_UDP/name>>
-          - id: 10762001_policylabel
-            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_UDP/name>>
           - id: 10762002_policy
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_TERMINATE_UDP/name>>
+
+          - id: 10763001_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_NEXT_UDP/name>>
+
         expressions:
           install: |
             bind cs policylabel <<label>> <<10761001_policy>> 10761001 -gotoPriorityExpression 10762002
@@ -1592,8 +1617,10 @@ sections:
             bind cs policylabel <<label>> <<10761126_policy>> 10761126 -gotoPriorityExpression 10762002
             bind cs policylabel <<label>> <<10761127_policy>> 10761127 -gotoPriorityExpression 10762002
             bind cs policylabel <<label>> <<10761128_policy>> 10761128 -gotoPriorityExpression 10762002
-            bind cs policylabel <<label>> <<10762001_policy>> 10762001 -gotoPriorityExpression NEXT -invoke policylabel <<10762001_policylabel>>
+            bind cs policylabel <<label>> <<10762001_policy>> 10762001 -gotoPriorityExpression 10763001
             bind cs policylabel <<label>> <<10762002_policy>> 10762002
+            bind cs policylabel <<label>> <<10763001_policy>> 10763001 -gotoPriorityExpression NEXT
+
           uninstall: |
             unbind cs policylabel <<label>> <<10761001_policy>>
             unbind cs policylabel <<label>> <<10761002_policy>>
@@ -1725,3 +1752,23 @@ sections:
             unbind cs policylabel <<label>> <<10761128_policy>>
             unbind cs policylabel <<label>> <<10762001_policy>>
             unbind cs policylabel <<label>> <<10762002_policy>>
+            unbind cs policylabel <<label>> <<10763001_policy>>
+
+      - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_UDP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_UDP
+
+          - id: label
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_UDP/name>>
+          - id: 10763002_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_BLOCKLIST_SKIP_CSV_UDP/name>>
+          - id: 10763002_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_UDP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10763002_policy>> 10763002 -gotoPriorityExpression NEXT -invoke policylabel <<10763002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10763002_policy>>

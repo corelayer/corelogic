@@ -1,5 +1,6 @@
 name: endpoint_ipv4_ipfilter
 tags:
+  - http
   - ipv4
   - endpoint_ipfilter
 sections:          
@@ -50,8 +51,6 @@ sections:
             data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_NEXT_HTTP
           - id: expression
             data: true
-          - id: action
-            data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.actions.ENDPOINT_IPV4_IPFILTER_NEXT_HTTP/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -121,20 +120,20 @@ sections:
           - id: 10241003_policylabel
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_BLOCKLIST_HTTP/name>>
 
-          - id: 10242001_policy
+          - id: 10243001_policy
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_NEXT_HTTP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10241001_policy>> 10241001 -gotoPriorityExpression 10242001
+            bind cs policylabel <<label>> <<10241001_policy>> 10241001 -gotoPriorityExpression 10243001
             bind cs policylabel <<label>> <<10241002_policy>> 10241002 -gotoPriorityExpression NEXT -invoke policylabel <<10241002_policylabel>>
             bind cs policylabel <<label>> <<10241003_policy>> 10241003 -gotoPriorityExpression NEXT -invoke policylabel <<10241003_policylabel>>
-            bind cs policylabel <<label>> <<10242001_policy>> 10242001 -gotoPriorityExpression NEXT
+            bind cs policylabel <<label>> <<10243001_policy>> 10243001 -gotoPriorityExpression NEXT
 
           uninstall: |
             unbind cs policylabel <<label>> <<10241001_policy>>
             unbind cs policylabel <<label>> <<10241002_policy>>
             unbind cs policylabel <<label>> <<10241003_policy>>
-            unbind cs policylabel <<label>> <<10242001_policy>>
+            unbind cs policylabel <<label>> <<10243001_policy>>
 
       - name: ENDPOINT_IPV4_IPFILTER_SKIP_TENANT_HTTP
         tags:
@@ -145,15 +144,15 @@ sections:
 
           - id: label
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
-          - id: 10242002_policy
+          - id: 10243002_policy
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_SKIP_TENANT_HTTP/name>>
-          - id: 10242002_policylabel
+          - id: 10243002_policylabel
             data: <<contentswitching.tenant_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV4_IPFILTER_HTTP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10242002_policy>> 10242002 -gotoPriorityExpression NEXT -invoke policylabel <<10242002_policylabel>>
+            bind cs policylabel <<label>> <<10243002_policy>> 10243002 -gotoPriorityExpression NEXT -invoke policylabel <<10243002_policylabel>>
           uninstall: |
-            unbind cs policylabel <<label>> <<10242002_policy>>
+            unbind cs policylabel <<label>> <<10243002_policy>>
 
       - name: ENDPOINT_IPV4_IPFILTER_SKIP_CSVGROUP_HTTP
         tags:
@@ -164,15 +163,15 @@ sections:
 
           - id: label
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
-          - id: 10242003_policy
+          - id: 10243003_policy
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_SKIP_CSVGROUP_HTTP/name>>
-          - id: 10242003_policylabel
+          - id: 10243003_policylabel
             data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_HTTP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10242003_policy>> 10242003 -gotoPriorityExpression NEXT -invoke policylabel <<10242003_policylabel>>
+            bind cs policylabel <<label>> <<10243003_policy>> 10243003 -gotoPriorityExpression NEXT -invoke policylabel <<10243003_policylabel>>
           uninstall: |
-            unbind cs policylabel <<label>> <<10242003_policy>>
+            unbind cs policylabel <<label>> <<10243003_policy>>
 
       - name: ENDPOINT_IPV4_IPFILTER_SKIP_CSV_HTTP
         tags:
@@ -183,12 +182,12 @@ sections:
 
           - id: label
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV4_IPFILTER_HTTP/name>>
-          - id: 10242004_policy
+          - id: 10243004_policy
             data: <<contentswitching.endpoint_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV4_IPFILTER_SKIP_CSV_HTTP/name>>
-          - id: 10242004_policylabel
+          - id: 10243004_policylabel
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_HTTP/name>>
         expressions:
           install: |
-            bind cs policylabel <<label>> <<10242004_policy>> 10242004 -gotoPriorityExpression NEXT -invoke policylabel <<10242004_policylabel>>
+            bind cs policylabel <<label>> <<10243004_policy>> 10243004 -gotoPriorityExpression NEXT -invoke policylabel <<10243004_policylabel>>
           uninstall: |
-            unbind cs policylabel <<label>> <<10242004_policy>>
+            unbind cs policylabel <<label>> <<10243004_policy>>

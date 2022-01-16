@@ -1,0 +1,80 @@
+name: init
+tags:
+  - udp
+  - core
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_IPV4_UDP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_IPV6_UDP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_UDP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: INIT_UDP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_UDP
+          
+        expressions:
+          install: add cs policylabel <<name>> UDP
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: INIT_IPV4_UDP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_UDP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_UDP/name>>
+          
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_UDP/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policylabels.INIT_IPV4_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+
+
+      - name: INIT_IPV6_UDP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_UDP
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_UDP/name>>
+          
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_UDP/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policylabels.INIT_IPV6_UDP/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>

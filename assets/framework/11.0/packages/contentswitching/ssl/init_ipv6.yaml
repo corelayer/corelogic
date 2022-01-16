@@ -1,5 +1,6 @@
 name: init_ipv6
 tags:
+  - ssl
   - core
   - ipv6
 sections:
@@ -100,9 +101,18 @@ sections:
           - id: 10161001_policylabel
             data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_SSL/name>>
 
+          - id: 10163001_policy
+            data: <<contentswitching.init_ipv6.trafficmanagement.contentswitching.policies.INIT_NO_IPV6_IPFILTER_SSL/name>>
+          - id: 10163001_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_SSL/name>>
+
         expressions:
-          install: bind cs policylabel <<label>> <<10161001_policy>> 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
-          uninstall: unbind cs policylabel <<label>> <<10161001_policy>>
+          install: |
+            bind cs policylabel <<label>> <<10161001_policy>> 10161001 -gotoPriorityExpression NEXT -invoke policylabel <<10161001_policylabel>>
+            bind cs policylabel <<label>> <<10163001_policy>> 10163001 -gotoPriorityExpression NEXT -invoke policylabel <<10163001_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10161001_policy>>
+            unbind cs policylabel <<label>> <<10163001_policy>>
 
       - name: INIT_ENDPOINT_IPV6_IPFILTER_SSL
         tags:

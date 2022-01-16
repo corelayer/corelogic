@@ -1,0 +1,33 @@
+name: servicegroups
+tags:
+  - tcp
+  - core
+sections:
+  - name: trafficmanagement.loadbalancing.servicegroups
+    elements:
+      - name: DUMMY_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_DUMMY_TCP
+          - id: type
+            data: TCP
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: add servicegroup <<name>> <<type>> -healthMonitor NO
+          uninstall: rm servicegroup <<name>>
+
+
+  - name: trafficmanagement.loadbalancing.servicegroups.bindings
+    elements:
+      - name: DUMMY_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_DUMMY_TCP
+          - id: servicegroup
+            data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_TCP/name>>
+          - id: server
+            data: <<core.servers.trafficmanagement.loadbalancing.servers.DUMMY/name>>
+        expressions:
+          install: bind servicegroup <<servicegroup>> <<server>> *
+          uninstall: unbind servicegroup <<servicegroup>> <server>> *

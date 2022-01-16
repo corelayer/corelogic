@@ -1,5 +1,6 @@
 name: zone_ipv4
 tags:
+  - ssltcp
   - core
   - ipv4
 sections:

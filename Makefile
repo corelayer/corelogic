@@ -1,23 +1,43 @@
+clean_config:
+	sh scripts/clean_config.sh
+
+generate_config:
+	go run main.go > config.txt
+	make verify_config
+
+verify_config:
+	sh scripts/count_lines.sh config.txt
+
+deploy_config:
+	sh scripts/deploy_config.sh $(DEVVPX)
+
+verify_deployment:
+	sh scripts/verify_deployment.sh $(DEVVPX)
+
 run:
-	go run main.go
+	make remove_protocols
+	make add_protocols
+	make clean_config
+	make generate_config
+	make deploy_config
+	make verify_deployment
 
-testcompile:
-	go run main.go > testcompile.txt && wc -l testcompile.txt
+regenerate_protocols:
+	make remove_protocols
+	sleep 2
+	make add_protocols
 
-testdeploy:
-	scp testcompile.txt nsroot@"$(DEVVPX)":/var/tmp/input.txt
-	ssh -l nsroot "$(DEVVPX)" 'batch -f /var/tmp/input.txt -outfile /var/tmp/output.txt'
+add_protocols:
+	sh scripts/add_protocol.sh 11.0 http http
+	sh scripts/add_protocol.sh 11.0 ssl http
+	sh scripts/add_protocol.sh 11.0 tcp tcp
+	sh scripts/add_protocol.sh 11.0 ssltcp tcp
+	sh scripts/add_protocol.sh 11.0 udp udp
 
-testresult:
-	scp nsroot@"$(DEVVPX)":/var/tmp/output.txt .
-	cat output.txt | grep ERROR
-
-testrun:
-	make testcompile
-	make testdeploy
-	make testresult
-
-testclean:
-	rm testcompile.txt
-	rm output.txt
+remove_protocols:
+	sh scripts/remove_protocol.sh 11.0 http
+	sh scripts/remove_protocol.sh 11.0 ssl
+	sh scripts/remove_protocol.sh 11.0 tcp
+	sh scripts/remove_protocol.sh 11.0 ssltcp
+	sh scripts/remove_protocol.sh 11.0 udp
 	

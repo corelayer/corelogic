@@ -1,7 +1,8 @@
 name: csvgroup_ipv6_ipfilter
 tags:
+  - tcp
   - ipv6
-  - csvgroup_ipfilter
+  - endpoint_ipfilter
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
@@ -26,12 +27,33 @@ sections:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_NEXT_TCP
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_NEXT_TCP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_tcp_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
       - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_128
         fields:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_128
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_128>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_128>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -40,7 +62,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_127
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_127>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_127>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -49,7 +71,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_126
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_126>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_126>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -58,7 +80,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_125
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_125>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_125>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -67,7 +89,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_124
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_124>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_124>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -76,7 +98,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_123
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_123>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_123>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -85,7 +107,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_122
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_122>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_122>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -94,7 +116,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_121
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_121>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_121>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -103,7 +125,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_120
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_120>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_120>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -112,7 +134,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_119
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_119>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_119>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -121,7 +143,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_118
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_118>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_118>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -130,7 +152,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_117
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_117>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_117>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -139,7 +161,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_116
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_116>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_116>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -148,7 +170,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_115
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_115>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_115>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -157,7 +179,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_114
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_114>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_114>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -166,7 +188,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_113
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_113>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_113>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -175,7 +197,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_112
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_112>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_112>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -184,7 +206,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_111
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_111>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_111>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -193,7 +215,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_110
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_110>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_110>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -202,7 +224,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_109
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_109>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_109>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -211,7 +233,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_108
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_108>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_108>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -220,7 +242,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_107
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_107>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_107>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -229,7 +251,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_106
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_106>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_106>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -238,7 +260,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_105
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_105>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_105>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -247,7 +269,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_104
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_104>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_104>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -256,7 +278,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_103
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_103>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_103>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -265,7 +287,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_102
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_102>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_102>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -274,7 +296,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_101
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_101>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_101>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -283,7 +305,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_100
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_100>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_100>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -292,7 +314,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_099
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_099>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_099>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -301,7 +323,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_098
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_098>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_098>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -310,7 +332,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_097
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_097>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_097>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -319,7 +341,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_096
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_096>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_096>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -328,7 +350,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_095
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_095>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_095>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -337,7 +359,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_094
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_094>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_094>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -346,7 +368,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_093
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_093>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_093>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -355,7 +377,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_092
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_092>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_092>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -364,7 +386,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_091
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_091>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_091>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -373,7 +395,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_090
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_090>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_090>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -382,7 +404,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_089
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_089>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_089>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -391,7 +413,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_088
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_088>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_088>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -400,7 +422,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_087
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_087>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_087>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -409,7 +431,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_086
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_086>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_086>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -418,7 +440,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_085
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_085>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_085>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -427,7 +449,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_084
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_084>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_084>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -436,7 +458,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_083
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_083>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_083>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -445,7 +467,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_082
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_082>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_082>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -454,7 +476,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_081
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_081>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_081>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -463,7 +485,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_080
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_080>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_080>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -472,7 +494,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_079
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_079>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_079>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -481,7 +503,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_078
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_078>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_078>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -490,7 +512,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_077
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_077>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_077>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -499,7 +521,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_076
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_076>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_076>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -508,7 +530,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_075
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_075>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_075>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -517,7 +539,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_074
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_074>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_074>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -526,7 +548,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_073
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_073>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_073>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -535,7 +557,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_072
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_072>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_072>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -544,7 +566,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_071
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_071>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_071>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -553,7 +575,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_070
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_070>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_070>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -562,7 +584,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_069
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_069>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_069>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -571,7 +593,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_068
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_068>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_068>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -580,7 +602,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_067
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_067>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_067>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -589,7 +611,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_066
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_066>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_066>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -598,7 +620,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_065
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_065>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_065>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -607,7 +629,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_064
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_064>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_064>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -616,7 +638,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_063
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_063>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_063>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -625,7 +647,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_062
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_062>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_062>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -634,7 +656,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_061
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_061>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_061>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -643,7 +665,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_060
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_060>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_060>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -652,7 +674,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_059
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_059>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_059>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -661,7 +683,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_058
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_058>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_058>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -670,7 +692,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_057
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_057>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_057>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -679,7 +701,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_056
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_056>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_056>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -688,7 +710,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_055
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_055>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_055>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -697,7 +719,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_054
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_054>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_054>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -706,7 +728,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_053
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_053>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_053>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -715,7 +737,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_052
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_052>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_052>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -724,7 +746,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_051
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_051>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_051>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -733,7 +755,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_050
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_050>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_050>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -742,7 +764,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_049
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_049>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_049>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -751,7 +773,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_048
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_048>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_048>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -760,7 +782,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_047
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_047>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_047>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -769,7 +791,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_046
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_046>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_046>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -778,7 +800,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_045
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_045>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_045>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -787,7 +809,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_044
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_044>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_044>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -796,7 +818,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_043
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_043>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_043>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -805,7 +827,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_042
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_042>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_042>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -814,7 +836,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_041
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_041>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_041>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -823,7 +845,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_040
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_040>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_040>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -832,7 +854,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_039
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_039>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_039>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -841,7 +863,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_038
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_038>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_038>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -850,7 +872,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_037
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_037>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_037>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -859,7 +881,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_036
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_036>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_036>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -868,7 +890,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_035
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_035>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_035>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -877,7 +899,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_034
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_034>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_034>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -886,7 +908,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_033
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_033>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_033>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -895,7 +917,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_032
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_032>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_032>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -904,7 +926,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_031
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_031>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_031>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -913,7 +935,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_030
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_030>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_030>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -922,7 +944,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_029
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_029>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_029>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -931,7 +953,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_028
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_028>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_028>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -940,7 +962,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_027
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_027>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_027>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -949,7 +971,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_026
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_026>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_026>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -958,7 +980,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_025
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_025>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_025>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -967,7 +989,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_024
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_024>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_024>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -976,7 +998,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_023
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_023>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_023>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -985,7 +1007,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_022
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_022>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_022>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -994,7 +1016,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_021
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_021>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_021>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1003,7 +1025,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_020
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_020>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_020>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1012,7 +1034,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_019
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_019>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_019>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1021,7 +1043,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_018
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_018>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_018>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1030,7 +1052,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_017
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_017>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_017>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1039,7 +1061,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_016
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_016>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_016>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1048,7 +1070,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_015
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_015>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_015>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1057,7 +1079,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_014
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_014>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_014>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1066,7 +1088,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_013
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_013>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_013>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1075,7 +1097,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_012
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_012>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_012>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1084,7 +1106,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_011
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_011>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_011>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1093,7 +1115,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_010
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_010>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_010>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1102,7 +1124,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_009
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_009>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_009>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1111,7 +1133,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_008
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_008>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_008>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1120,7 +1142,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_007
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_007>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_007>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1129,7 +1151,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_006
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_006>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_006>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1138,7 +1160,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_005
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_005>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_005>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1147,7 +1169,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_004
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_004>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_004>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1156,7 +1178,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_003
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_003>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_003>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1165,7 +1187,7 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_002
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_002>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_002>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1174,10 +1196,11 @@ sections:
           - id: name
             data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP_001
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSVGROUP/ipv6_tcp_key_exists_001>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_tcp_key_exists_001>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
+
 
   - name: trafficmanagement.contentswitching.policylabels
     elements:
@@ -1460,8 +1483,9 @@ sections:
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TERMINATE_TCP/name>>
           - id: 10762002_policy
             data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_DONE_TCP/name>>
-          - id: 10762002_policylabel
-            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_TCP/name>>
+
+          - id: 10763001_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_NEXT_TCP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10761001_policy>> 10761001 -gotoPriorityExpression 10762002
@@ -1593,7 +1617,9 @@ sections:
             bind cs policylabel <<label>> <<10761127_policy>> 10761127 -gotoPriorityExpression 10762002
             bind cs policylabel <<label>> <<10761128_policy>> 10761128 -gotoPriorityExpression 10762002
             bind cs policylabel <<label>> <<10762001_policy>> 10762001
-            bind cs policylabel <<label>> <<10762002_policy>> 10762002 -gotoPriorityExpression NEXT -invoke policylabel <<10762002_policylabel>>
+            bind cs policylabel <<label>> <<10762002_policy>> 10762002 -gotoPriorityExpression NEXT
+            bind cs policylabel <<label>> <<10763001_policy>> 10763001 -gotoPriorityExpression NEXT
+
           uninstall: |
             unbind cs policylabel <<label>> <<10761001_policy>>
             unbind cs policylabel <<label>> <<10761002_policy>>
@@ -1620,7 +1646,7 @@ sections:
             unbind cs policylabel <<label>> <<10761023_policy>>
             unbind cs policylabel <<label>> <<10761024_policy>>
             unbind cs policylabel <<label>> <<10761025_policy>>
-            unbind cs policylabel <<label>> <<10761026_policy>>
+            unbind cs policylabel <<label>> <<10761036_policy>>
             unbind cs policylabel <<label>> <<10761027_policy>>
             unbind cs policylabel <<label>> <<10761028_policy>>
             unbind cs policylabel <<label>> <<10761029_policy>>
@@ -1723,3 +1749,25 @@ sections:
             unbind cs policylabel <<label>> <<10761126_policy>>
             unbind cs policylabel <<label>> <<10761127_policy>>
             unbind cs policylabel <<label>> <<10761128_policy>>
+            unbind cs policylabel <<label>> <<10762001_policy>>
+            unbind cs policylabel <<label>> <<10762002_policy>>
+            unbind cs policylabel <<label>> <<10763001_policy>>
+
+      - name: CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_TCP
+
+          - id: label
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_TCP/name>>
+          - id: 10763002_policy
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policies.CSVGROUP_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_TCP/name>>
+          - id: 10763002_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_TCP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10763002_policy>> 10763002 -gotoPriorityExpression NEXT -invoke policylabel <<10763002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10763002_policy>>

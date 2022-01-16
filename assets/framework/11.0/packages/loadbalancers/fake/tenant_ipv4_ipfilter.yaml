@@ -1,0 +1,24 @@
+name: tenant_ipv4_ipfilter
+tags:
+  - fake
+  - ipv4
+  - tenant_ipfilter
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: TENANT_IPV4_IPFILTER_TERMINATE_FAKE
+        fields:
+        - id: name
+          data: <<prefix>>_TENANT_IPV4_IPFILTER_TERMINATE_FAKE
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_FAKE/name>>
+        - id: patset
+          data: <<core.patternsets.appexpert.patternsets.BYPASS_LBV_IPFILTER/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> BASEPROTOCOL 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+            bind policy patset <<patset>> <<name>>
+          uninstall: |
+            rm lb vserver <<name>>
+            unbind policy patset <<patset>> <<name>>

@@ -1,7 +1,8 @@
 name: tenant_ipv6_ipfilter
 tags:
+  - ssltcp
   - ipv6
-  - tenant_ipfilter
+  - endpoint_ipfilter
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:
@@ -26,12 +27,44 @@ sections:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
 
+      - name: TENANT_IPV6_IPFILTER_ALLOWLIST_NEXT_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_NEXT_SSLTCP
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_SSLTCP
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_SSLTCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv6_ssltcp_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_SSLTCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_SSLTCP
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_ssltcp_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
       - name: TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_128
         fields:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_128
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_128>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_128>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -40,7 +73,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_127
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_127>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_127>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -49,7 +82,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_126
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_126>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_126>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -58,7 +91,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_125
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_125>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_125>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -67,7 +100,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_124
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_124>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_124>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -76,7 +109,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_123
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_123>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_123>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -85,7 +118,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_122
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_122>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_122>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -94,7 +127,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_121
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_121>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_121>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -103,7 +136,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_120
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_120>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_120>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -112,7 +145,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_119
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_119>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_119>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -121,7 +154,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_118
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_118>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_118>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -130,7 +163,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_117
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_117>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_117>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -139,7 +172,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_116
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_116>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_116>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -148,7 +181,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_115
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_115>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_115>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -157,7 +190,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_114
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_114>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_114>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -166,7 +199,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_113
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_113>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_113>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -175,7 +208,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_112
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_112>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_112>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -184,7 +217,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_111
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_111>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_111>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -193,7 +226,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_110
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_110>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_110>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -202,7 +235,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_109
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_109>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_109>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -211,7 +244,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_108
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_108>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_108>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -220,7 +253,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_107
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_107>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_107>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -229,7 +262,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_106
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_106>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_106>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -238,7 +271,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_105
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_105>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_105>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -247,7 +280,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_104
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_104>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_104>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -256,7 +289,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_103
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_103>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_103>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -265,7 +298,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_102
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_102>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_102>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -274,7 +307,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_101
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_101>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_101>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -283,7 +316,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_100
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_100>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_100>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -292,7 +325,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_099
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_099>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_099>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -301,7 +334,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_098
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_098>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_098>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -310,7 +343,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_097
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_097>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_097>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -319,7 +352,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_096
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_096>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_096>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -328,7 +361,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_095
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_095>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_095>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -337,7 +370,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_094
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_094>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_094>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -346,7 +379,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_093
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_093>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_093>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -355,7 +388,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_092
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_092>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_092>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -364,7 +397,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_091
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_091>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_091>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -373,7 +406,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_090
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_090>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_090>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -382,7 +415,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_089
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_089>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_089>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -391,7 +424,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_088
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_088>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_088>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -400,7 +433,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_087
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_087>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_087>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -409,7 +442,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_086
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_086>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_086>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -418,7 +451,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_085
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_085>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_085>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -427,7 +460,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_084
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_084>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_084>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -436,7 +469,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_083
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_083>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_083>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -445,7 +478,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_082
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_082>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_082>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -454,7 +487,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_081
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_081>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_081>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -463,7 +496,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_080
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_080>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_080>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -472,7 +505,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_079
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_079>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_079>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -481,7 +514,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_078
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_078>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_078>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -490,7 +523,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_077
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_077>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_077>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -499,7 +532,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_076
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_076>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_076>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -508,7 +541,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_075
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_075>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_075>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -517,7 +550,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_074
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_074>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_074>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -526,7 +559,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_073
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_073>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_073>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -535,7 +568,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_072
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_072>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_072>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -544,7 +577,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_071
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_071>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_071>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -553,7 +586,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_070
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_070>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_070>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -562,7 +595,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_069
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_069>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_069>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -571,7 +604,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_068
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_068>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_068>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -580,7 +613,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_067
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_067>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_067>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -589,7 +622,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_066
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_066>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_066>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -598,7 +631,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_065
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_065>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_065>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -607,7 +640,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_064
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_064>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_064>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -616,7 +649,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_063
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_063>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_063>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -625,7 +658,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_062
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_062>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_062>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -634,7 +667,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_061
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_061>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_061>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -643,7 +676,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_060
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_060>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_060>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -652,7 +685,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_059
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_059>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_059>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -661,7 +694,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_058
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_058>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_058>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -670,7 +703,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_057
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_057>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_057>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -679,7 +712,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_056
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_056>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_056>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -688,7 +721,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_055
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_055>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_055>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -697,7 +730,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_054
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_054>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_054>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -706,7 +739,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_053
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_053>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_053>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -715,7 +748,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_052
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_052>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_052>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -724,7 +757,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_051
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_051>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_051>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -733,7 +766,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_050
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_050>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_050>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -742,7 +775,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_049
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_049>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_049>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -751,7 +784,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_048
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_048>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_048>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -760,7 +793,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_047
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_047>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_047>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -769,7 +802,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_046
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_046>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_046>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -778,7 +811,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_045
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_045>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_045>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -787,7 +820,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_044
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_044>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_044>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -796,7 +829,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_043
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_043>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_043>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -805,7 +838,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_042
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_042>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_042>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -814,7 +847,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_041
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_041>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_041>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -823,7 +856,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_040
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_040>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_040>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -832,7 +865,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_039
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_039>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_039>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -841,7 +874,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_038
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_038>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_038>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -850,7 +883,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_037
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_037>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_037>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -859,7 +892,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_036
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_036>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_036>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -868,7 +901,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_035
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_035>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_035>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -877,7 +910,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_034
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_034>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_034>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -886,7 +919,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_033
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_033>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_033>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -895,7 +928,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_032
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_032>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_032>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -904,7 +937,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_031
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_031>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_031>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -913,7 +946,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_030
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_030>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_030>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -922,7 +955,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_029
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_029>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_029>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -931,7 +964,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_028
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_028>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_028>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -940,7 +973,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_027
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_027>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_027>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -949,7 +982,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_026
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_026>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_026>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -958,7 +991,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_025
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_025>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_025>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -967,7 +1000,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_024
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_024>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_024>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -976,7 +1009,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_023
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_023>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_023>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -985,7 +1018,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_022
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_022>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_022>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -994,7 +1027,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_021
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_021>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_021>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1003,7 +1036,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_020
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_020>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_020>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1012,7 +1045,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_019
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_019>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_019>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1021,7 +1054,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_018
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_018>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_018>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1030,7 +1063,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_017
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_017>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_017>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1039,7 +1072,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_016
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_016>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_016>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1048,7 +1081,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_015
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_015>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_015>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1057,7 +1090,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_014
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_014>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_014>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1066,7 +1099,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_013
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_013>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_013>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1075,7 +1108,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_012
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_012>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_012>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1084,7 +1117,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_011
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_011>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_011>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1093,7 +1126,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_010
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_010>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_010>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1102,7 +1135,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_009
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_009>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_009>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1111,7 +1144,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_008
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_008>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_008>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1120,7 +1153,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_007
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_007>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_007>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1129,7 +1162,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_006
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_006>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_006>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1138,7 +1171,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_005
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_005>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_005>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1147,7 +1180,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_004
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_004>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_004>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1156,7 +1189,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_003
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_003>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_003>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1165,7 +1198,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_002
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_002>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_002>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1174,7 +1207,7 @@ sections:
           - id: name
             data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP_001
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_TENANT/ipv6_ssltcp_key_exists_001>>
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv6_ssltcp_key_exists_001>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -1461,8 +1494,9 @@ sections:
             data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_ALLOWLIST_TERMINATE_SSLTCP/name>>
           - id: 10562002_policy
             data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_ALLOWLIST_DONE_SSLTCP/name>>
-          - id: 10562002_policylabel
-            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_SSLTCP/name>>
+
+          - id: 10563001_policy
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_ALLOWLIST_NEXT_SSLTCP/name>>
         expressions:
           install: |
             bind cs policylabel <<label>> <<10561001_policy>> 10561001 -gotoPriorityExpression 10562002
@@ -1594,7 +1628,9 @@ sections:
             bind cs policylabel <<label>> <<10561127_policy>> 10561127 -gotoPriorityExpression 10562002
             bind cs policylabel <<label>> <<10561128_policy>> 10561128 -gotoPriorityExpression 10562002
             bind cs policylabel <<label>> <<10562001_policy>> 10562001
-            bind cs policylabel <<label>> <<10562002_policy>> 10562002 -gotoPriorityExpression NEXT -invoke policylabel <<10562002_policylabel>>
+            bind cs policylabel <<label>> <<10562002_policy>> 10562002 -gotoPriorityExpression NEXT
+            bind cs policylabel <<label>> <<10563001_policy>> 10563001 -gotoPriorityExpression NEXT
+
           uninstall: |
             unbind cs policylabel <<label>> <<10561001_policy>>
             unbind cs policylabel <<label>> <<10561002_policy>>
@@ -1621,7 +1657,7 @@ sections:
             unbind cs policylabel <<label>> <<10561023_policy>>
             unbind cs policylabel <<label>> <<10561024_policy>>
             unbind cs policylabel <<label>> <<10561025_policy>>
-            unbind cs policylabel <<label>> <<10561026_policy>>
+            unbind cs policylabel <<label>> <<10561036_policy>>
             unbind cs policylabel <<label>> <<10561027_policy>>
             unbind cs policylabel <<label>> <<10561028_policy>>
             unbind cs policylabel <<label>> <<10561029_policy>>
@@ -1724,3 +1760,44 @@ sections:
             unbind cs policylabel <<label>> <<10561126_policy>>
             unbind cs policylabel <<label>> <<10561127_policy>>
             unbind cs policylabel <<label>> <<10561128_policy>>
+            unbind cs policylabel <<label>> <<10562001_policy>>
+            unbind cs policylabel <<label>> <<10562002_policy>>
+            unbind cs policylabel <<label>> <<10563001_policy>>
+
+      - name: TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_SSLTCP
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_SSLTCP
+
+          - id: label
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP/name>>
+          - id: 10563002_policy
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_SSLTCP/name>>
+          - id: 10563002_policylabel
+            data: <<contentswitching.csvgroup_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV6_IPFILTER_SSLTCP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10563002_policy>> 10563002 -gotoPriorityExpression NEXT -invoke policylabel <<10563002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10563002_policy>>
+
+      - name: TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_SSLTCP
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_SSLTCP
+
+          - id: label
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_IPV6_IPFILTER_ALLOWLIST_SSLTCP/name>>
+          - id: 10563003_policy
+            data: <<contentswitching.tenant_ipv6_ipfilter.trafficmanagement.contentswitching.policies.TENANT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_SSLTCP/name>>
+          - id: 10563003_policylabel
+            data: <<contentswitching.zone_ipv6.trafficmanagement.contentswitching.policylabels.ZONE_IPV6_SSLTCP/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10563003_policy>> 10563003 -gotoPriorityExpression NEXT -invoke policylabel <<10563003_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10563003_policy>>

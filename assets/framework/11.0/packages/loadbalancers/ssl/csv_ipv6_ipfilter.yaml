@@ -1,0 +1,24 @@
+name: csv_ipv6_ipfilter
+tags:
+  - ssl
+  - ipv6
+  - csv_ipfilter
+sections:
+  - name: trafficmanagement.loadbalancing.virtualservers
+    elements:
+      - name: CSV_IPV6_IPFILTER_TERMINATE_SSL
+        fields:
+        - id: name
+          data: <<prefix>>_CSV_IPV6_IPFILTER_TERMINATE_SSL
+        - id: servicegroup
+          data: <<core.servicegroups.trafficmanagement.loadbalancing.servicegroups.DUMMY_SSL/name>>
+        - id: patset
+          data: <<core.patternsets.appexpert.patternsets.BYPASS_LBV_IPFILTER/name>>
+        expressions:
+          install: |
+            add lb vserver <<name>> HTTP 0.0.0.0 0
+            bind lb vserver <<name>> <<servicegroup>>
+            bind policy patset <<patset>> <<name>>
+          uninstall: |
+            rm lb vserver <<name>>
+            unbind policy patset <<patset>> <<name>>

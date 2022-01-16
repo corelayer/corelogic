@@ -1,5 +1,6 @@
 name: init_ipv4
 tags:
+  - ssltcp
   - core
   - ipv4
 sections:
@@ -100,9 +101,18 @@ sections:
           - id: 10141001_policylabel
             data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSLTCP/name>>
 
+          - id: 10143001_policy
+            data: <<contentswitching.init_ipv4.trafficmanagement.contentswitching.policies.INIT_NO_IPV4_IPFILTER_SSLTCP/name>>
+          - id: 10143001_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSLTCP/name>>
+
         expressions:
-          install: bind cs policylabel <<label>> <<10141001_policy>> 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
-          uninstall: unbind cs policylabel <<label>> <<10141001_policy>>
+          install: |
+            bind cs policylabel <<label>> <<10141001_policy>> 10141001 -gotoPriorityExpression NEXT -invoke policylabel <<10141001_policylabel>>
+            bind cs policylabel <<label>> <<10143001_policy>> 10143001 -gotoPriorityExpression NEXT -invoke policylabel <<10143001_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10141001_policy>>
+            unbind cs policylabel <<label>> <<10143001_policy>>
 
       - name: INIT_ENDPOINT_IPV4_IPFILTER_SSLTCP
         tags:

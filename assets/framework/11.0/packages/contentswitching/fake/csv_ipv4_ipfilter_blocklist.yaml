@@ -1,0 +1,556 @@
+name: csv_ipv4_ipfilter
+tags:
+  - fake
+  - ipv4
+  - endpoint_ipfilter
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_TERMINATE_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_TERMINATE_FAKE
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_FAKE/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          uninstall: rm cs policy <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_DONE_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_DONE_FAKE
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_NEXT_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_NEXT_FAKE
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_FAKE
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_FAKE
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_fake_value_ipfilter_isnone>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_032
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_032>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_031
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_031>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_030
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_030>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_029
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_029>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_028
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_028>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_027
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_027>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_026
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_026>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_025
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_025>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_024
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_024>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_023
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_023>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_022
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_022>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_021
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_021>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_020
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_020>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_019
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_019>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_018
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_018>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_017
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_017>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_016
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_016>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_015
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_015>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_014
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_014>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_013
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_013>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_012
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_012>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_011
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_011>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_010
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_010>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_009
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_009>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_008
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_008>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_007
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_007>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_006
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_006>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_005
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_005>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_004
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_004>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_003
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_003>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_002
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_002>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_001
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_fake_key_exists_001>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+          
+
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE
+        expressions:
+          install: add cs policylabel <<name>> FAKE
+          uninstall: rm cs policylabel <<name>>
+
+  - name: trafficmanagement.contentswitching.policylabels.bindings
+    elements:
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_FAKE
+
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE/name>>
+
+          - id: 10941001_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_032/name>>
+          - id: 10941002_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_031/name>>
+          - id: 10941003_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_030/name>>
+          - id: 10941004_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_029/name>>
+          - id: 10941005_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_028/name>>
+          - id: 10941006_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_027/name>>
+          - id: 10941007_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_026/name>>
+          - id: 10941008_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_025/name>>
+          - id: 10941009_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_024/name>>
+          - id: 10941010_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_023/name>>
+          - id: 10941011_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_022/name>>
+          - id: 10941012_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_021/name>>
+          - id: 10941013_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_020/name>>
+          - id: 10941014_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_019/name>>
+          - id: 10941015_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_018/name>>
+          - id: 10941016_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_017/name>>
+          - id: 10941017_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_016/name>>
+          - id: 10941018_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_015/name>>
+          - id: 10941019_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_014/name>>
+          - id: 10941020_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_013/name>>
+          - id: 10941021_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_012/name>>
+          - id: 10941022_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_011/name>>
+          - id: 10941023_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_010/name>>
+          - id: 10941024_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_009/name>>
+          - id: 10941025_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_008/name>>
+          - id: 10941026_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_007/name>>
+          - id: 10941027_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_006/name>>
+          - id: 10941028_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_005/name>>
+          - id: 10941029_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_004/name>>
+          - id: 10941030_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_003/name>>
+          - id: 10941031_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_002/name>>
+          - id: 10941032_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE_001/name>>
+
+
+          - id: 10942001_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_DONE_FAKE/name>>
+          - id: 10942002_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_TERMINATE_FAKE/name>>
+
+          - id: 10943001_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_NEXT_FAKE/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10941001_policy>> 10941001 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941002_policy>> 10941002 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941003_policy>> 10941003 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941004_policy>> 10941004 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941005_policy>> 10941005 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941006_policy>> 10941006 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941007_policy>> 10941007 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941008_policy>> 10941008 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941009_policy>> 10941009 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941010_policy>> 10941010 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941011_policy>> 10941011 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941012_policy>> 10941012 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941013_policy>> 10941013 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941014_policy>> 10941014 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941015_policy>> 10941015 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941016_policy>> 10941016 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941017_policy>> 10941017 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941018_policy>> 10941018 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941019_policy>> 10941019 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941020_policy>> 10941020 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941021_policy>> 10941021 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941022_policy>> 10941022 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941023_policy>> 10941023 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941024_policy>> 10941024 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941025_policy>> 10941025 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941026_policy>> 10941026 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941027_policy>> 10941027 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941028_policy>> 10941028 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941029_policy>> 10941029 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941030_policy>> 10941030 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941031_policy>> 10941031 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10941032_policy>> 10941032 -gotoPriorityExpression 10942002
+            bind cs policylabel <<label>> <<10942001_policy>> 10942001 -gotoPriorityExpression 10943001
+            bind cs policylabel <<label>> <<10942002_policy>> 10942002
+            bind cs policylabel <<label>> <<10943001_policy>> 10943001 -gotoPriorityExpression NEXT
+          uninstall: |
+            unbind cs policylabel <<label>> <<10941001_policy>>
+            unbind cs policylabel <<label>> <<10941002_policy>>
+            unbind cs policylabel <<label>> <<10941003_policy>>
+            unbind cs policylabel <<label>> <<10941004_policy>>
+            unbind cs policylabel <<label>> <<10941005_policy>>
+            unbind cs policylabel <<label>> <<10941006_policy>>
+            unbind cs policylabel <<label>> <<10941007_policy>>
+            unbind cs policylabel <<label>> <<10941008_policy>>
+            unbind cs policylabel <<label>> <<10941009_policy>>
+            unbind cs policylabel <<label>> <<10941010_policy>>
+            unbind cs policylabel <<label>> <<10941011_policy>>
+            unbind cs policylabel <<label>> <<10941012_policy>>
+            unbind cs policylabel <<label>> <<10941013_policy>>
+            unbind cs policylabel <<label>> <<10941014_policy>>
+            unbind cs policylabel <<label>> <<10941015_policy>>
+            unbind cs policylabel <<label>> <<10941016_policy>>
+            unbind cs policylabel <<label>> <<10941017_policy>>
+            unbind cs policylabel <<label>> <<10941018_policy>>
+            unbind cs policylabel <<label>> <<10941019_policy>>
+            unbind cs policylabel <<label>> <<10941020_policy>>
+            unbind cs policylabel <<label>> <<10941021_policy>>
+            unbind cs policylabel <<label>> <<10941022_policy>>
+            unbind cs policylabel <<label>> <<10941023_policy>>
+            unbind cs policylabel <<label>> <<10941024_policy>>
+            unbind cs policylabel <<label>> <<10941025_policy>>
+            unbind cs policylabel <<label>> <<10941026_policy>>
+            unbind cs policylabel <<label>> <<10941027_policy>>
+            unbind cs policylabel <<label>> <<10941028_policy>>
+            unbind cs policylabel <<label>> <<10941029_policy>>
+            unbind cs policylabel <<label>> <<10941030_policy>>
+            unbind cs policylabel <<label>> <<10941031_policy>>
+            unbind cs policylabel <<label>> <<10941032_policy>>
+            unbind cs policylabel <<label>> <<10942001_policy>>
+            unbind cs policylabel <<label>> <<10942002_policy>>
+            unbind cs policylabel <<label>> <<10943001_policy>>
+
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_FAKE
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_FAKE
+
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_FAKE/name>>
+          - id: 10943002_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_FAKE/name>>
+          - id: 10943002_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_FAKE/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<10943002_policy>> 10943002 -gotoPriorityExpression NEXT -invoke policylabel <<10943002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<10943002_policy>>
