@@ -389,7 +389,7 @@ sections:
           install: add cs policylabel <<name>> UDP
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: TENANT_IPV4_IPFILTER_ALLOWLIST_UDP
         fields:

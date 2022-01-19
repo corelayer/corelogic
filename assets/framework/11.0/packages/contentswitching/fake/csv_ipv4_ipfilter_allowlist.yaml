@@ -3,7 +3,20 @@ tags:
   - fake
   - ipv4
   - endpoint_ipfilter
-sections:          
+sections:
+  - name: system.auditing.messageactions
+    elements:
+      - name: CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_FAKE
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_FAKE
+          - id: level
+            data: INFORMATIONAL
+          - id: expression
+            data: ("blabla")
+        expressions:
+          install: add audit messageaction <<name>> <<level>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
   - name: trafficmanagement.contentswitching.policies
     elements:
       - name: CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_FAKE
@@ -14,8 +27,10 @@ sections:
             data: true
           - id: action
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_FAKE/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_ALLOWLIST_TERMINATE_FAKE/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logaction <<logaction>>
           uninstall: rm cs policy <<name>>
       - name: CSV_IPV4_IPFILTER_ALLOWLIST_DONE_FAKE
         fields:
@@ -378,7 +393,7 @@ sections:
           install: add cs policylabel <<name>> FAKE
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: CSV_IPV4_IPFILTER_ALLOWLIST_FAKE
         fields:

@@ -401,7 +401,7 @@ sections:
           install: add cs policylabel <<name>> TCP
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: ENDPOINT_IPV4_IPFILTER_BLOCKLIST_TCP
         fields:

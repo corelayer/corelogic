@@ -1212,7 +1212,7 @@ sections:
           install: add cs policylabel <<name>> FAKE
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: CSVGROUP_IPV6_IPFILTER_BLOCKLIST_FAKE
         fields:

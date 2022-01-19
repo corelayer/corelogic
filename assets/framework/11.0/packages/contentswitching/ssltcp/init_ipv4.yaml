@@ -87,7 +87,7 @@ sections:
           uninstall: rm cs policylabel <<name>>
 
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: INIT_BYPASS_IPV4_IPFILTER_SSLTCP
         fields:

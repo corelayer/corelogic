@@ -63,7 +63,7 @@ sections:
           uninstall: rm cs policylabel <<name>>
 
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: ZONE_BYPASS_IPV6_IPZONE_HTTP
         fields:

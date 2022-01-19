@@ -5,11 +5,6 @@ import (
 	"strings"
 )
 
-type Prefix struct {
-	Section string `yaml:"section"`
-	Prefix  string `yaml:"prefix"`
-}
-
 type Section struct {
 	Name     string    `yaml:"name"`
 	Elements []Element `yaml:"elements"`

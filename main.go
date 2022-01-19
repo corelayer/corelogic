@@ -26,7 +26,6 @@ import (
 
 func main() {
 	defer general.FinishTimer(general.StartTimer("Program execution"))
-	tagFilter := []string{"fake", "ipv4"}
 	controller := controllers.FrameworkController{}
 	err := controller.Load("11.0")
 
@@ -34,6 +33,8 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// fmt.Println(controller.GetFrameworkAsJson("\t"))
+	tagFilter := []string{"fake"}
 	var install []string
 	install, err = controller.Framework.GetOutput("install", tagFilter)
 	if err != nil {

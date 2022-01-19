@@ -50,6 +50,7 @@ func (m *Module) GetInstallExpressions(packageName string, tagFilter []string) (
 		for _, f := range tagFilter {
 			if t == f {
 				filterModule = true
+				// log.Printf("Skipping module %s for tag %s", m.GetFullModuleName(packageName), t)
 				break
 			}
 		}
@@ -58,6 +59,7 @@ func (m *Module) GetInstallExpressions(packageName string, tagFilter []string) (
 	if !filterModule {
 		fullModuleName := m.GetFullModuleName(packageName)
 		for _, s := range m.Sections {
+			// log.Println(s.Name)
 			expressions, err = s.GetInstallExpressions(fullModuleName, tagFilter)
 			if err != nil {
 				break
@@ -65,9 +67,6 @@ func (m *Module) GetInstallExpressions(packageName string, tagFilter []string) (
 				output, err = m.AppendData(expressions, output)
 			}
 		}
-	} else {
-		log.Printf("Skipping module %s", m.GetFullModuleName(packageName))
-
 	}
 
 	return output, err

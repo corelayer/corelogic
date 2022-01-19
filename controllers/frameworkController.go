@@ -2,9 +2,10 @@ package controllers
 
 import (
 	"encoding/json"
-	"github.com/corelayer/corelogic/general"
 	"io/ioutil"
 	"log"
+
+	"github.com/corelayer/corelogic/general"
 
 	"github.com/corelayer/corelogic/models"
 	"gopkg.in/yaml.v2"
@@ -59,9 +60,8 @@ func (c *FrameworkController) Load(version string) error {
 	return err
 }
 
-
 func (c *FrameworkController) GetPackagesFromDirectory(rootDir string, directoryName string) (models.Package, error) {
-	defer general.FinishTimer(general.StartTimer("GetPackagesFromDirectory " + rootDir + "/packages/" + directoryName))
+	// defer general.FinishTimer(general.StartTimer("GetPackagesFromDirectory " + rootDir + "/packages/" + directoryName))
 
 	myPackage := models.Package{
 		Name:    directoryName,
@@ -95,7 +95,7 @@ func (c *FrameworkController) GetPackagesFromDirectory(rootDir string, directory
 }
 
 func (c *FrameworkController) GetModuleFromFile(filePath string) (models.Module, error) {
-	defer general.FinishTimer(general.StartTimer("GetModuleFromFile " + filePath))
+	// defer general.FinishTimer(general.StartTimer("GetModuleFromFile " + filePath))
 
 	module := models.Module{}
 
@@ -114,7 +114,7 @@ func (c *FrameworkController) GetModuleFromFile(filePath string) (models.Module,
 }
 
 func (c *FrameworkController) GetModulesFromDirectory(filePath string) ([]models.Module, error) {
-	defer general.FinishTimer(general.StartTimer("GetModulesFromDirectory " + filePath))
+	// defer general.FinishTimer(general.StartTimer("GetModulesFromDirectory " + filePath))
 
 	var modules []models.Module
 

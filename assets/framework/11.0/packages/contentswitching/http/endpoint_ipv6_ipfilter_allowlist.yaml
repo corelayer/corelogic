@@ -1234,7 +1234,7 @@ sections:
           install: add cs policylabel <<name>> HTTP
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: ENDPOINT_IPV6_IPFILTER_ALLOWLIST_HTTP
         fields:

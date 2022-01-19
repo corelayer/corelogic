@@ -6,7 +6,7 @@
 ### DO NOT CALL THIS SCRIPT DIRECTLY               ###
 ######################################################
 
-create_protocol(){
+create_protocol_ipfilter(){
     local package=$1
     mkdir -p assets/framework/$version/packages/$package/$protocol
     cp -r assets/framework/$version/packages/$package/fake/* assets/framework/$version/packages/$package/$protocol/.
@@ -25,7 +25,7 @@ upperBaseProtocol=$(echo $baseProtocol | tr '[:lower:]' '[:upper:]')
 
 if [ $protocol != "fake" ]
 then
-create_protocol core
-create_protocol contentswitching
-create_protocol loadbalancers
+create_protocol_ipfilter core
+create_protocol_ipfilter contentswitching
+create_protocol_ipfilter loadbalancers
 fi

@@ -400,7 +400,7 @@ sections:
           install: add cs policylabel <<name>> FAKE
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: ENDPOINT_IPV4_IPFILTER_ALLOWLIST_FAKE
         fields:

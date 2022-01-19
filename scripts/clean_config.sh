@@ -8,5 +8,6 @@ clean_file() {
 }
 
 clean_file config.txt
+clean_file config.json
 clean_file output.txt
 sleep 2

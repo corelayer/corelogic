@@ -1223,7 +1223,7 @@ sections:
           install: add cs policylabel <<name>> TCP
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: TENANT_IPV6_IPFILTER_BLOCKLIST_TCP
         fields:

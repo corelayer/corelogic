@@ -6,10 +6,10 @@ sections:
     elements:
       - name: DUMMY
         fields:
-          - id: fqdn
+          - id: name
             data: dummy-v11.0.corelogic.local
           - id: address
             data: 169.254.0.11
         expressions:
-          install: add dns addRec <<fqdn>> <<address>> -TTL 300
-          uninstall: rm server <<fqdn>>
+          install: add dns addRec <<name>> <<address>> -TTL 300
+          uninstall: rm server <<name>>

@@ -18,7 +18,7 @@ sections:
           uninstall: rm servicegroup <<name>>
 
 
-  - name: trafficmanagement.loadbalancing.servicegroups.bindings
+  - name: trafficmanagement.loadbalancing.servicegroupbindings
     elements:
       - name: DUMMY_UDP
         fields:

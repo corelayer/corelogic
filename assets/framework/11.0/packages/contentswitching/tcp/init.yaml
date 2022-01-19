@@ -40,7 +40,7 @@ sections:
           install: add cs policylabel <<name>> TCP
           uninstall: rm cs policylabel <<name>>
 
-  - name: trafficmanagement.contentswitching.policylabels.bindings
+  - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
       - name: INIT_IPV4_TCP
         tags:

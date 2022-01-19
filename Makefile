@@ -1,7 +1,10 @@
 clean_config:
 	sh scripts/clean_config.sh
+	make remove_protocols
+	make add_protocols
 
 generate_config:
+	make clean_config
 	go run main.go > config.txt
 	make verify_config
 
@@ -28,16 +31,16 @@ regenerate_protocols:
 	make add_protocols
 
 add_protocols:
-	sh scripts/add_protocol.sh 11.0 http http
-	sh scripts/add_protocol.sh 11.0 ssl http
-	sh scripts/add_protocol.sh 11.0 tcp tcp
-	sh scripts/add_protocol.sh 11.0 ssltcp tcp
-	sh scripts/add_protocol.sh 11.0 udp udp
+	sh scripts/add_protocol_ipfilter.sh 11.0 http http
+	sh scripts/add_protocol_ipfilter.sh 11.0 ssl http
+	sh scripts/add_protocol_ipfilter.sh 11.0 tcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 ssltcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 udp udp
 
 remove_protocols:
-	sh scripts/remove_protocol.sh 11.0 http
-	sh scripts/remove_protocol.sh 11.0 ssl
-	sh scripts/remove_protocol.sh 11.0 tcp
-	sh scripts/remove_protocol.sh 11.0 ssltcp
-	sh scripts/remove_protocol.sh 11.0 udp
+	sh scripts/remove_protocol_ipfilter.sh 11.0 http
+	sh scripts/remove_protocol_ipfilter.sh 11.0 ssl
+	sh scripts/remove_protocol_ipfilter.sh 11.0 tcp
+	sh scripts/remove_protocol_ipfilter.sh 11.0 ssltcp
+	sh scripts/remove_protocol_ipfilter.sh 11.0 udp
 	
