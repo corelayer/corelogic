@@ -2,7 +2,7 @@ name: csvgroup_ipv4_ipfilter
 tags:
   - tcp
   - ipv4
-  - endpoint_ipfilter
+  - csvgroup_ipfilter
 sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:

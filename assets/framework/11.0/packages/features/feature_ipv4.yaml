@@ -1,0 +1,21 @@
+name: features
+tags:
+  - ipv4
+sections:
+  - name: appexpert.stringmapbindings
+    elements:
+      - name: IPV4
+        fields:
+          - id: name
+            data: <<prefix>>_IPV4
+          - id: stringmap
+            data: <<core.stringmaps.appexpert.stringmaps.FEATURES/name>>
+          - id: key
+            data: "feature=ipv4;"
+          - id: value_enabled
+            data: <<core.stringmaps.appexpert.stringmaps.FEATURES/value_enabled>>
+          - id: value_disabled
+            data: <<core.stringmaps.appexpert.stringmaps.FEATURES/value_disabled>>
+        expressions:
+          install: bind policy stringmap <<stringmap>> "<<key>>" "<<value_enabled>>"
+          uninstall: bind policy stringmap <<stringmap>> "<<key>>" "<<value_disabled>>"

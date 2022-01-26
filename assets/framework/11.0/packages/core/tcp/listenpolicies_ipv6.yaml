@@ -2,7 +2,6 @@ name: listenpolicies
 tags:
   - tcp
   - core
-  - ipv6
 sections:
   - name: appexpert.expressions.advanced
     elements:    

@@ -4,6 +4,18 @@ tags:
 sections:
   - name: appexpert.stringmaps
     elements:
+      - name: FEATURES
+        fields:
+          - id: name
+            data: <<prefix>>_FEATURES
+          - id: value_enabled
+            data: status=enabled;
+          - id: value_disabled
+            data: status=disabled;
+        expressions:
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
+
       - name: ENDPOINT
         fields:
           - id: name

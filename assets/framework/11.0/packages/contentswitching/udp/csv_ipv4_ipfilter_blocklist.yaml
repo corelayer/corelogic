@@ -2,7 +2,7 @@ name: csv_ipv4_ipfilter
 tags:
   - udp
   - ipv4
-  - endpoint_ipfilter
+  - csv_ipfilter
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:

@@ -2,7 +2,6 @@ name: listenpolicies
 tags:
   - ssltcp
   - core
-  - ipv4
 sections:
   - name: appexpert.expressions.advanced
     elements:

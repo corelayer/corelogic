@@ -2,7 +2,7 @@ name: csv_ipv6_ipfilter
 tags:
   - tcp
   - ipv6
-  - endpoint_ipfilter
+  - csv_ipfilter
 sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:

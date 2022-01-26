@@ -6,106 +6,110 @@ prefixes:
     prefix: PSM
     processingorder: 1
 
+  - section: appexpert.stringmapbindings
+    prefix: PSMB
+    processingorder: 2
+
   - section: appexpert.patternsets
     prefix: PPS
-    processingorder: 2
+    processingorder: 3
 
   - section: appexpert.variables
     prefix: VAR
-    processingorder: 3
+    processingorder: 4
 
   - section: appexpert.expressions.advanced
     prefix: PXP
-    processingorder: 4
+    processingorder: 5
 
   - section: appexpert.assignments
     prefix: SET
-    processingorder: 5
+    processingorder: 6
 
   - section: system.auditing.messageactions
     prefix: LOG
-    processingorder: 6
+    processingorder: 7
 
   - section: appexpert.rewrite.actions
     prefix: RWA
-    processingorder: 7
+    processingorder: 8
 
   - section: appexpert.rewrite.policies
     prefix: RWP
-    processingorder: 8
+    processingorder: 9
 
   - section: appexpert.rewrite.policylabels
     prefix: RWL
-    processingorder: 9
+    processingorder: 10
 
   - section: appexpert.responder.htmlpages
     prefix: RSH
-    processingorder: 10
+    processingorder: 11
 
   - section: appexpert.rewrite.policylabelbindings
     prefix: RWLB
-    processingorder: 11
+    processingorder: 12
 
   - section: appexpert.responder.actions
     prefix: RSA
-    processingorder: 12
+    processingorder: 13
 
   - section: appexpert.responder.policies
     prefix: RSP
-    processingorder: 13
+    processingorder: 14
 
   - section: appexpert.responder.policylabels
     prefix: RSL
-    processingorder: 14
+    processingorder: 15
 
   - section: appexpert.responder.policylabelbindings
     prefix: RSLB
-    processingorder: 15
+    processingorder: 16
 
   - section: trafficmanagement.dns.addressrecords
     prefix: DNS
-    processingorder: 16
+    processingorder: 17
   
   - section: trafficmanagement.loadbalancing.servers
     prefix: SRV
-    processingorder: 16
+    processingorder: 18
 
   - section: trafficmanagement.loadbalancing.servicegroups
     prefix: SVG
-    processingorder: 17
+    processingorder: 19
 
   - section: trafficmanagement.loadbalancing.servicegroupbindings
     prefix: SVGB
-    processingorder: 18
+    processingorder: 20
 
   - section: trafficmanagement.loadbalancing.virtualservers
     prefix: LBV
-    processingorder: 19
+    processingorder: 21
 
   - section: trafficmanagement.loadbalancing.virtualserverbindings
     prefix: LBVB
-    processingorder: 20
+    processingorder: 22
 
   - section: trafficmanagement.contentswitching.actions
     prefix: CSA
-    processingorder: 21
+    processingorder: 23
 
   - section: trafficmanagement.contentswitching.policies
     prefix: CSP
-    processingorder: 22
+    processingorder: 24
 
   - section: trafficmanagement.contentswitching.policylabels
     prefix: CSL
-    processingorder: 23
+    processingorder: 25
 
   - section: trafficmanagement.contentswitching.policylabelbindings
     prefix: CSLB
-    processingorder: 24
+    processingorder: 26
 
   - section: trafficmanagement.contentswitching.virtualservers
     prefix: CSV
-    processingorder: 25
+    processingorder: 27
 
-  - section: trafficmanagement.contentswitching.virtualservers
+  - section: trafficmanagement.contentswitching.virtualserverbindings
     prefix: CSVB
-    processingorder: 26
+    processingorder: 28

@@ -2,7 +2,6 @@ name: listenpolicies
 tags:
   - fake
   - core
-  - ipv4
 sections:
   - name: appexpert.expressions.advanced
     elements:

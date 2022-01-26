@@ -2,7 +2,7 @@ name: tenant_ipv6_ipfilter
 tags:
   - ssltcp
   - ipv6
-  - endpoint_ipfilter
+  - tenant_ipfilter
 sections:
   - name: trafficmanagement.contentswitching.policies
     elements:

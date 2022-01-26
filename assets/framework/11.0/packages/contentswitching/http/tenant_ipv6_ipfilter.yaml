@@ -2,7 +2,7 @@ name: tenant_ipv6_ipfilter
 tags:
   - http
   - ipv6
-  - endpoint_ipfilter
+  - tenant_ipfilter
 sections:          
   - name: trafficmanagement.contentswitching.actions
     elements:
