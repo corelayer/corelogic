@@ -58,7 +58,7 @@ sections:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_ALLOWLIST_SKIP_CSV_SSLTCP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_ssltcp_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_ssltcp_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>

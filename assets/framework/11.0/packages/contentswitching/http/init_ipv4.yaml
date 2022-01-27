@@ -11,7 +11,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_BYPASS_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_http_key>>.CONTAINS_ANY("<<core.patternsets.appexpert.patternsets.BYPASS_CSV_IPFILTER/name>>")
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_http_key>>.CONTAINS_ANY("<<core.patternsets.appexpert.patternsets.BYPASS_CSV_IPFILTER/name>>")
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -23,7 +23,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_http_value_ipfilter_isnone>>.NOT
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv4_http_value_ipfilter_isdisabled>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -35,7 +35,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_TENANT_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv4_http_value_ipfilter_isnone>>.NOT
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_TENANT/ipv4_http_value_ipfilter_isdisabled>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -47,7 +47,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv4_http_value_ipfilter_isnone>>.NOT
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_ipfilter_isdisabled>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -59,7 +59,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_http_value_ipfilter_isnone>>.NOT
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_http_value_ipfilter_isdisabled>>.NOT
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>

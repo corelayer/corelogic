@@ -23,7 +23,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_http_value_ipfilter_isallow>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv6_http_value_ipfilter_isallow>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -32,16 +32,16 @@ sections:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_BLOCKLIST_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_http_value_ipfilter_isblock>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv6_http_value_ipfilter_isblock>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: INIT_ENDPOINT_IPV6_IPFILTER_NONE_HTTP
+      - name: INIT_ENDPOINT_IPV6_IPFILTER_DISABLED_HTTP
         fields:
           - id: name
-            data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_NONE_HTTP
+            data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_DISABLED_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_http_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv6_http_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -61,7 +61,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_SKIP_TENANT_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_http_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_TENANT/ipv6_http_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -72,7 +72,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_SKIP_CSVGROUP_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv6_http_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -83,7 +83,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_ENDPOINT_IPV6_IPFILTER_SKIP_CSV_HTTP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_http_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_http_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -108,7 +108,7 @@ sections:
           - id: label
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_IPV6_IPFILTER_HTTP/name>>
           - id: 10261001_policy
-            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_NONE_HTTP/name>>
+            data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_DISABLED_HTTP/name>>
 
           - id: 10261002_policy
             data: <<contentswitching.endpoint_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_HTTP/name>>

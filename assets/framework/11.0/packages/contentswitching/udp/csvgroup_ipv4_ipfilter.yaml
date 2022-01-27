@@ -23,7 +23,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_udp_value_ipfilter_isallow>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv4_udp_value_ipfilter_isallow>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -32,16 +32,16 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_BLOCKLIST_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_udp_value_ipfilter_isblock>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv4_udp_value_ipfilter_isblock>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: INIT_CSVGROUP_IPV4_IPFILTER_NONE_UDP
+      - name: INIT_CSVGROUP_IPV4_IPFILTER_DISABLED_UDP
         fields:
           - id: name
-            data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_NONE_UDP
+            data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_DISABLED_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv4_udp_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv4_udp_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -61,7 +61,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSVGROUP_IPV4_IPFILTER_SKIP_CSV_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv4_udp_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_udp_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -86,7 +86,7 @@ sections:
           - id: label
             data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_IPV4_IPFILTER_UDP/name>>
           - id: 10641001_policy
-            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV4_IPFILTER_NONE_UDP/name>>
+            data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV4_IPFILTER_DISABLED_UDP/name>>
 
           - id: 10641002_policy
             data: <<contentswitching.csvgroup_ipv4_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_IPV4_IPFILTER_ALLOWLIST_UDP/name>>

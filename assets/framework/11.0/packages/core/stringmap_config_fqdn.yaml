@@ -1,0 +1,13 @@
+name: stringmaps
+tags:
+  - core
+sections:
+  - name: appexpert.stringmaps
+    elements:
+      - name: CONFIG_FQDN
+        fields:
+          - id: name
+            data: <<prefix>>_CONFIG_FQDN
+        expressions:
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>

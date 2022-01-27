@@ -1,0 +1,338 @@
+name: stringmaps
+tags:
+  - core
+sections:
+  - name: appexpert.stringmaps
+    elements:
+      - name: CONFIG_CSVGROUP
+        fields:
+          - id: name
+            data: <<prefix>>_CONFIG_CSVGROUP
+
+          - id: ipv4_http_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_http_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv4_http_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv4_http_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv4_http_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value>>.VALUE("name").TO_LOWER
+          - id: ipv4_http_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv4_http_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value>>.VALUE("state").TO_LOWER
+          - id: ipv4_http_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_state>>.EQ("enabled")
+          - id: ipv4_http_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_state>>.EQ("disabled")
+          - id: ipv4_http_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_state>>.EQ("maintenance")
+          - id: ipv4_http_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv4_http_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_ipfilter>>.EQ("disabled")
+          - id: ipv4_http_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_ipfilter>>.EQ("allow")
+          - id: ipv4_http_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_http_value_ipfilter>>.EQ("block")
+
+          - id: ipv6_http_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_http_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv6_http_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv6_http_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv6_http_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value>>.VALUE("name").TO_LOWER
+          - id: ipv6_http_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv6_http_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value>>.VALUE("state").TO_LOWER
+          - id: ipv6_http_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_state>>.EQ("enabled")
+          - id: ipv6_http_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_state>>.EQ("disabled")
+          - id: ipv6_http_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_state>>.EQ("maintenance")
+          - id: ipv6_http_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv6_http_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_ipfilter>>.EQ("disabled")
+          - id: ipv6_http_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_ipfilter>>.EQ("allow")
+          - id: ipv6_http_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_http_value_ipfilter>>.EQ("block")
+
+          - id: ipv4_ssl_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_ssl_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv4_ssl_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv4_ssl_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv4_ssl_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv4_ssl_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value>>.VALUE("name").TO_LOWER
+          - id: ipv4_ssl_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value>>.VALUE("state").TO_LOWER
+          - id: ipv4_ssl_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value_state>>.EQ("enabled")
+          - id: ipv4_ssl_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value_state>>.EQ("disabled")
+          - id: ipv4_ssl_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value_state>>.EQ("maintenance")
+          - id: ipv4_ssl_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv4_ssl_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value_ipfilter>>.EQ("disabled")
+          - id: ipv4_ssl_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value_ipfilter>>.EQ("allow")
+          - id: ipv4_ssl_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssl_value_ipfilter>>.EQ("block")
+
+          - id: ipv6_ssl_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_ssl_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv6_ssl_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv6_ssl_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv6_ssl_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value>>.VALUE("name").TO_LOWER
+          - id: ipv6_sslvalue_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv6_ssl_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value>>.VALUE("state").TO_LOWER
+          - id: ipv6_ssl_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value_state>>.EQ("enabled")
+          - id: ipv6_ssl_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value_state>>.EQ("disabled")
+          - id: ipv6_ssl_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value_state>>.EQ("maintenance")
+          - id: ipv6_ssl_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv6_ssl_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value_ipfilter>>.EQ("disabled")
+          - id: ipv6_ssl_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value_ipfilter>>.EQ("allow")
+          - id: ipv6_ssl_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssl_value_ipfilter>>.EQ("block")
+
+          - id: ipv4_tcp_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_tcp_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv4_tcp_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv4_tcp_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv4_tcp_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value>>.VALUE("name").TO_LOWER
+          - id: ipv4_tcp_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv4_tcp_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value>>.VALUE("state").TO_LOWER
+          - id: ipv4_tcp_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value_state>>.EQ("enabled")
+          - id: ipv4_tcp_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value_state>>.EQ("disabled")
+          - id: ipv4_tcp_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value_state>>.EQ("maintenance")
+          - id: ipv4_tcp_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv4_tcp_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value_ipfilter>>.EQ("disabled")
+          - id: ipv4_tcp_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value_ipfilter>>.EQ("allow")
+          - id: ipv4_tcp_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_tcp_value_ipfilter>>.EQ("block")
+
+          - id: ipv6_tcp_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_tcp_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv6_tcp_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv6_tcp_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv6_tcp_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value>>.VALUE("name").TO_LOWER
+          - id: ipv6_tcp_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv6_tcp_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value>>.VALUE("state").TO_LOWER
+          - id: ipv6_tcp_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value_state>>.EQ("enabled")
+          - id: ipv6_tcp_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value_state>>.EQ("disabled")
+          - id: ipv6_tcp_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value_state>>.EQ("maintenance")
+          - id: ipv6_tcp_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv6_tcp_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value_ipfilter>>.EQ("disabled")
+          - id: ipv6_tcp_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value_ipfilter>>.EQ("allow")
+          - id: ipv6_tcp_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_tcp_value_ipfilter>>.EQ("block")
+
+
+          - id: ipv4_ssltcp_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_ssltcp_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv4_ssltcp_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv4_ssltcp_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv4_ssltcp_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value>>.VALUE("name").TO_LOWER
+          - id: ipv4_ssltcp_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv4_ssltcp_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value>>.VALUE("state").TO_LOWER
+          - id: ipv4_ssltcp_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value_state>>.EQ("enabled")
+          - id: ipv4_ssltcp_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value_state>>.EQ("disabled")
+          - id: ipv4_ssltcp_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value_state>>.EQ("maintenance")
+          - id: ipv4_ssltcp_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv4_ssltcp_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value_ipfilter>>.EQ("disabled")
+          - id: ipv4_ssltcp_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value_ipfilter>>.EQ("allow")
+          - id: ipv4_ssltcp_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_ssltcp_value_ipfilter>>.EQ("block")
+
+          - id: ipv6_ssltcp_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_ssltcp_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv6_ssltcp_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv6_ssltcp_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv6_ssltcp_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value>>.VALUE("name").TO_LOWER
+          - id: ipv6_ssltcp_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv6_ssltcp_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value>>.VALUE("state").TO_LOWER
+          - id: ipv6_ssltcp_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value_state>>.EQ("enabled")
+          - id: ipv6_ssltcp_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value_state>>.EQ("disabled")
+          - id: ipv6_ssltcp_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value_state>>.EQ("maintenance")
+          - id: ipv6_ssltcp_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv6_ssltcp_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value_ipfilter>>.EQ("disabled")
+          - id: ipv6_ssltcp_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value_ipfilter>>.EQ("allow")
+          - id: ipv6_ssltcp_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_ssltcp_value_ipfilter>>.EQ("block")
+
+          - id: ipv4_udp_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_udp_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv4_udp_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv4_udp_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv4_udp_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value>>.VALUE("name").TO_LOWER
+          - id: ipv4_udp_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv4_udp_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value>>.VALUE("state").TO_LOWER
+          - id: ipv4_udp_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value_state>>.EQ("enabled")
+          - id: ipv4_udp_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value_state>>.EQ("disabled")
+          - id: ipv4_udp_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value_state>>.EQ("maintenance")
+          - id: ipv4_udp_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv4_udp_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value_ipfilter>>.EQ("disabled")
+          - id: ipv4_udp_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value_ipfilter>>.EQ("allow")
+          - id: ipv4_udp_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_udp_value_ipfilter>>.EQ("block")
+
+          - id: ipv6_udp_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_udp_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv6_udp_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv6_udp_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv6_udp_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value>>.VALUE("name").TO_LOWER
+          - id: ipv6_udp_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv6_udp_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value>>.VALUE("state").TO_LOWER
+          - id: ipv6_udp_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_state>>.EQ("enabled")
+          - id: ipv6_udp_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_state>>.EQ("disabled")
+          - id: ipv6_udp_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_state>>.EQ("maintenance")
+          - id: ipv6_udp_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv6_udp_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_ipfilter>>.EQ("disabled")
+          - id: ipv6_udp_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_ipfilter>>.EQ("allow")
+          - id: ipv6_udp_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_ipfilter>>.EQ("block")
+
+          - id: ipv4_sslbridge_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_sslbridge_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv4_sslbridge_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv4_sslbridge_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv4_sslbridge_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value>>.VALUE("name").TO_LOWER
+          - id: ipv4_sslbridge_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv4_sslbridge_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value>>.VALUE("state").TO_LOWER
+          - id: ipv4_sslbridge_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value_state>>.EQ("enabled")
+          - id: ipv4_sslbridge_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value_state>>.EQ("disabled")
+          - id: ipv4_sslbridge_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value_state>>.EQ("maintenance")
+          - id: ipv4_sslbridge_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv4_sslbridge_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value_ipfilter>>.EQ("disabled")
+          - id: ipv4_sslbridge_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value_ipfilter>>.EQ("allow")
+          - id: ipv4_sslbridge_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv4_sslbridge_value_ipfilter>>.EQ("block")
+
+          - id: ipv6_sslbridge_key
+            data: ("csvgroup=" + <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_sslbridge_value_csvgroup>> + ";").TO_LOWER
+          - id: ipv6_sslbridge_key_exists
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_key>>.IS_STRINGMAP_KEY("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>")
+          - id: ipv6_sslbridge_value
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_key>>.MAP_STRING("<<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/name>>").TYPECAST_NVLIST_T(';','=')
+          - id: ipv6_sslbridge_value_name
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value>>.VALUE("name").TO_LOWER
+          - id: ipv6_sslbridge_value_csvgroup
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value>>.VALUE("csvgroup").TO_LOWER
+          - id: ipv6_sslbridge_value_state
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value>>.VALUE("state").TO_LOWER
+          - id: ipv6_sslbridge_value_state_isenabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value_state>>.EQ("enabled")
+          - id: ipv6_sslbridge_value_state_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value_state>>.EQ("disabled")
+          - id: ipv6_sslbridge_value_state_ismaintenance
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value_state>>.EQ("maintenance")
+          - id: ipv6_sslbridge_value_ipfilter
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value>>.VALUE("ipfilter").TO_LOWER
+          - id: ipv6_sslbridge_value_ipfilter_isdisabled
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value_ipfilter>>.EQ("disabled")
+          - id: ipv6_sslbridge_value_ipfilter_isallow
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value_ipfilter>>.EQ("allow")
+          - id: ipv6_sslbridge_value_ipfilter_isblock
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_sslbridge_value_ipfilter>>.EQ("block")
+        expressions:
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>

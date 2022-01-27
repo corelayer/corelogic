@@ -42,12 +42,12 @@ prefixes:
     prefix: RWL
     processingorder: 10
 
-  - section: appexpert.responder.htmlpages
-    prefix: RSH
-    processingorder: 11
-
   - section: appexpert.rewrite.policylabelbindings
     prefix: RWLB
+    processingorder: 11
+
+  - section: appexpert.responder.htmlpages
+    prefix: RSH
     processingorder: 12
 
   - section: appexpert.responder.actions

@@ -43,7 +43,7 @@ sections:
           - id: name
             data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SKIP_TENANT_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.TENANT/ipv6_udp_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_TENANT/ipv6_udp_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -54,7 +54,7 @@ sections:
           - id: name
             data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSVGROUP_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSVGROUP/ipv6_udp_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/ipv6_udp_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -65,7 +65,7 @@ sections:
           - id: name
             data: <<prefix>>_ENDPOINT_IPV6_IPFILTER_ALLOWLIST_SKIP_CSV_UDP
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_udp_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_udp_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>

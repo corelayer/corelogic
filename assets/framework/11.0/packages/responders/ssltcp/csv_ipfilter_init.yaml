@@ -1,0 +1,84 @@
+name: init
+tags:
+  - ssltcp
+  - core
+sections:
+  - name: appexpert.responder.policies
+    elements:
+      - name: INIT_CSV_IPV4_IPFILTER_SSLTCP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_SSLTCP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
+          - id: action
+            data: NOOP
+        expressions:
+          install: add responder policy <<name>> q{<<expression>>} <<action>>
+          uninstall: rm responder policy <<name>>
+      - name: INIT_CSV_IPV6_IPFILTER_SSLTCP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_SSLTCP
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
+          - id: action
+            data: NOOP
+        expressions:
+          install: add responder policy <<name>> q{<<expression>>} <<action>>
+          uninstall: rm responder policy <<name>>
+
+
+  - name: appexpert.responder.policylabels
+    elements:
+      - name: INIT_CSV_IPFILTER_SSLTCP
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPFILTER_SSLTCP
+          
+        expressions:
+          install: add responder policylabel <<name>> -policylabeltype OTHERTCP
+          uninstall: rm responder policylabel <<name>>
+
+  - name: appexpert.responder.policylabelbindings
+    elements:
+      - name: INIT_CSV_IPV4_IPFILTER_SSLTCP
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_SSLTCP
+          - id: label
+            data: <<responders.init.appexpert.responder.policylabels.INIT_CSV_IPFILTER_SSLTCP/name>>
+          
+          - id: 10041001_policy
+            data: <<responders.init.appexpert.responder.policies.INIT_CSV_IPV4_IPFILTER_SSLTCP/name>>
+          - id: 10041001_policylabel
+            data: <<responders.init.appexpert.responder.policylabels.INIT_CSV_IPV4_IPFILTER_SSLTCP/name>>
+
+        expressions:
+          install: bind responder policylabel <<label>> <<10041001_policy>> 10041001 NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind responder policylabel <<label>> <<10041001_policy>>
+
+
+      - name: INIT_CSV_IPV6_IPFILTER_SSLTCP
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_SSLTCP
+          - id: label
+            data: <<responders.init.appexpert.responder.policylabels.INIT_CSV_IPFILTER_SSLTCP/name>>
+          
+          - id: 10061001_policy
+            data: <<responders.init.appexpert.responder.policies.INIT_CSV_IPV6_IPFILTER_SSLTCP/name>>
+          - id: 10061001_policylabel
+            data: <<responders.init.appexpert.responder.policylabels.INIT_CSV_IPV6_IPFILTER_SSLTCP/name>>
+
+        expressions:
+          install: bind responder policylabel <<label>> <<10061001_policy>> 10061001 NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind responder policylabel <<label>> <<10061001_policy>>

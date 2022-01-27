@@ -23,7 +23,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_ALLOWLIST_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssl_value_ipfilter_isallow>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv6_ssl_value_ipfilter_isallow>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -32,16 +32,16 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_BLOCKLIST_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssl_value_ipfilter_isblock>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv6_ssl_value_ipfilter_isblock>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
-      - name: INIT_CSV_IPV6_IPFILTER_NONE_SSL
+      - name: INIT_CSV_IPV6_IPFILTER_DISABLED_SSL
         fields:
           - id: name
-            data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_NONE_SSL
+            data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_DISABLED_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.ENDPOINT/ipv6_ssl_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv6_ssl_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -61,7 +61,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_SKIP_CSV_SSL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CSV/ipv6_ssl_value_ipfilter_isnone>>
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv6_ssl_value_ipfilter_isdisabled>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>}
           uninstall: rm cs policy <<name>>
@@ -86,7 +86,7 @@ sections:
           - id: label
             data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV6_IPFILTER_SSL/name>>
           - id: 10861001_policy
-            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSV_IPV6_IPFILTER_NONE_SSL/name>>
+            data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSV_IPV6_IPFILTER_DISABLED_SSL/name>>
 
           - id: 10861002_policy
             data: <<contentswitching.csv_ipv6_ipfilter.trafficmanagement.contentswitching.policies.INIT_CSV_IPV6_IPFILTER_ALLOWLIST_SSL/name>>

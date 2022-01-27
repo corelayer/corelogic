@@ -13,6 +13,7 @@ then
 rm -rf assets/framework/$version/packages/core/$protocol
 rm -rf assets/framework/$version/packages/contentswitching/$protocol
 rm -rf assets/framework/$version/packages/loadbalancers/$protocol
+rm -rf assets/framework/$version/packages/responders/$protocol
 
 rm -rf assets/framework/$version/packages/demo/$protocol
 fi

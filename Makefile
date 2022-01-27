@@ -31,11 +31,29 @@ regenerate_protocols:
 	make add_protocols
 
 add_protocols:
-	sh scripts/add_protocol_ipfilter.sh 11.0 http http
-	sh scripts/add_protocol_ipfilter.sh 11.0 ssl http
-	sh scripts/add_protocol_ipfilter.sh 11.0 tcp tcp
-	sh scripts/add_protocol_ipfilter.sh 11.0 ssltcp tcp
-	sh scripts/add_protocol_ipfilter.sh 11.0 udp udp
+	sh scripts/add_protocol_ipfilter.sh 11.0 core http http
+	sh scripts/add_protocol_ipfilter.sh 11.0 core ssl http
+	sh scripts/add_protocol_ipfilter.sh 11.0 core tcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 core ssltcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 core udp udp
+
+	sh scripts/add_protocol_ipfilter.sh 11.0 contentswitching http http
+	sh scripts/add_protocol_ipfilter.sh 11.0 contentswitching ssl http
+	sh scripts/add_protocol_ipfilter.sh 11.0 contentswitching tcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 contentswitching ssltcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 contentswitching udp udp
+
+	sh scripts/add_protocol_ipfilter.sh 11.0 loadbalancers http http
+	sh scripts/add_protocol_ipfilter.sh 11.0 loadbalancers ssl http
+	sh scripts/add_protocol_ipfilter.sh 11.0 loadbalancers tcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 loadbalancers ssltcp tcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 loadbalancers udp udp
+
+	sh scripts/add_protocol_ipfilter.sh 11.0 responders http http
+	sh scripts/add_protocol_ipfilter.sh 11.0 responders ssl http
+	sh scripts/add_protocol_ipfilter.sh 11.0 responders tcp othertcp
+	sh scripts/add_protocol_ipfilter.sh 11.0 responders ssltcp othertcp
+
 
 remove_protocols:
 	sh scripts/remove_protocol_ipfilter.sh 11.0 http

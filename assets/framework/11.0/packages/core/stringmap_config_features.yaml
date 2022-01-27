@@ -1,0 +1,17 @@
+name: stringmaps
+tags:
+  - core
+sections:
+  - name: appexpert.stringmaps
+    elements:
+      - name: CONFIG_FEATURES
+        fields:
+          - id: name
+            data: <<prefix>>_CONFIG_FEATURES
+          - id: value_enabled
+            data: status=enabled;
+          - id: value_disabled
+            data: status=disabled;
+        expressions:
+          install: add policy stringmap <<name>>
+          uninstall: rm policy stringmap <<name>>
