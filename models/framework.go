@@ -15,6 +15,11 @@ type DataMapWriter interface {
 	AppendData(source map[string]string, destination map[string]string) (map[string]string, error)
 }
 
+type SectionData struct {
+	Name        string
+	Expressions []string
+}
+
 type Framework struct {
 	Release  Release   `yaml:"release"`
 	Prefixes []Prefix  `yaml:"prefixes"`
@@ -276,10 +281,10 @@ func (f *Framework) unfoldedExpressionCollector(count int, ch <-chan UnfoldedExp
 	wg.Done()
 }
 
-func (f *Framework) sectionExpressionCollector(sectionName string, ch <-chan string, wg *sync.WaitGroup) {
+func (f *Framework) sectionExpressionCollector(sectionName string, globalChannel chan<- SectionData, ch <-chan string, wg *sync.WaitGroup) {
 	completed := false
 
-	expressions := []string{}
+	var expressions []string
 	for !completed {
 		select {
 		case data, ok := <-ch:
@@ -290,7 +295,30 @@ func (f *Framework) sectionExpressionCollector(sectionName string, ch <-chan str
 			}
 		}
 	}
-	f.SectionData[sectionName] = expressions
+
+	globalChannel <- SectionData{
+		Name:        sectionName,
+		Expressions: expressions,
+	}
+	wg.Done()
+}
+func (f *Framework) ExpressionCollector(count int, ch <-chan SectionData, wg *sync.WaitGroup) {
+	completed := false
+
+	for !completed {
+		select {
+		case sectionData, ok := <-ch:
+			if !ok {
+				completed = true
+			}
+			f.SectionData[sectionData.Name] = sectionData.Expressions
+			count--
+		default:
+			if count == 0 {
+				completed = true
+			}
+		}
+	}
 	wg.Done()
 }
 
@@ -317,32 +345,25 @@ func (f *Framework) collectExpressionsPerSection() {
 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " collect expressions per section"))
 
 	wg := &sync.WaitGroup{}
+	globalChannel := make(chan SectionData)
 
-	// count := 0
+	count := 0
 	for _, p := range f.Prefixes {
-		ch := make(chan string)
+		sectionChannel := make(chan string)
 
 		wg.Add(1)
-		go f.collectExpressionsForSection(p.Section, ch, wg)
+		go f.collectExpressionsForSection(p.Section, sectionChannel, wg)
 
 		wg.Add(1)
-		go f.sectionExpressionCollector(p.Section, ch, wg)
+		go f.sectionExpressionCollector(p.Section, globalChannel, sectionChannel, wg)
+		count++
 	}
+
+	wg.Add(1)
+	go f.ExpressionCollector(count, globalChannel, wg)
 
 	wg.Wait()
 }
-
-// func (f *Framework) countUniqueFields() int {
-// 	counter := 0
-
-// 	for u := range f.SortedFieldKeys {
-// 		if strings.Contains(f.SortedFieldKeys[u], "/name") {
-// 			counter++
-// 		}
-// 	}
-
-// 	return counter
-// }
 
 func (f *Framework) sortPrefixes(prefixes []Prefix) {
 	sort.Slice(prefixes, func(i, j int) bool {
@@ -354,7 +375,7 @@ func (f *Framework) GetOutput(kind string, tagFilter []string) ([]string, error)
 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get " + kind + " output"))
 
 	var output []string
-	//f.Expressions = make(map[string]string)
+
 	var err error
 	f.Expressions, err = f.getExpressions(kind, tagFilter)
 	if err != nil {
@@ -379,80 +400,6 @@ func (f *Framework) GetOutput(kind string, tagFilter []string) ([]string, error)
 		output = append(output, f.SectionData[p.Section]...)
 		output = append(output, "##########################")
 	}
-	//uniqueElementNames := f.countUniqueFields()
-
-	// dependencyList := make(DependencyList, f.countUniqueFields())
-	// i := 0
-	// for fieldKey := range f.SortedFieldKeys {
-	// 	if strings.Contains(f.SortedFieldKeys[fieldKey], "/name") {
-	// 		j := 0
-	// 		for expression := range f.Expressions {
-	// 			if expression != strings.TrimSuffix(f.SortedFieldKeys[fieldKey], "/name") {
-	// 				if strings.Contains(f.Expressions[expression], f.Fields[f.SortedFieldKeys[fieldKey]]) {
-	// 					// fmt.Println(expression, sortedFieldKeys[f])
-	// 					re := regexp.MustCompile(f.Fields[f.SortedFieldKeys[fieldKey]])
-	// 					count := len(re.FindAllString(f.Expressions[expression], -1))
-	// 					j = j + count
-	// 					// fmt.Println(fields[sortedFieldKeys[f]], count, j, "\n", expressions[expression])
-	// 				}
-	// 			}
-	// 		}
-	// 		dependencyList[i] = Dependency{
-	// 			Name:  strings.TrimSuffix(f.SortedFieldKeys[fieldKey], "/name"),
-	// 			Count: j,
-	// 		}
-	// 		i++
-	// 	}
-	// }
-
-	// sort.Sort(sort.Reverse(dependencyList))
-	// // fmt.Println("----------------------- COUNTER -----------------------")
-	// for dependency := range dependencyList {
-	// 	if f.Expressions[dependencyList[dependency].Name] != "" {
-	// 		output = append(output, f.Expressions[dependencyList[dependency].Name])
-	// 		// fmt.Println(dependencyList[dependency].Name, dependencyList[dependency].Count)
-	// 	}
-	// }
-	// // fmt.Println("----------------------- COUNTER -----------------------")
 
 	return output, err
 }
-
-// func (f *Framework) CountDependencies(search string, expressions map[string]string) int {
-// 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " count dependencies for " + search))
-
-// 	j := 0
-// 	for _, v := range expressions {
-// 		if strings.Contains(v, search) {
-// 			j++
-// 		}
-// 	}
-// 	return j
-// }
-
-// func (f *Framework) GetDependencyList(expressions map[string]string) DependencyList {
-// 	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get dependency list"))
-
-// 	output := make(DependencyList, len(expressions))
-
-// 	i := 0
-// 	for k := range expressions {
-
-// 		output[i] = Dependency{
-// 			Name:  k,
-// 			Count: f.CountDependencies(k, expressions),
-// 		}
-// 		i++
-// 	}
-
-// 	return f.SortDependencyList(output)
-// }
-
-// func (f *Framework) SortDependencyList(input DependencyList) DependencyList {
-// 	// output := make(DependencyList, len(input))
-// 	sort.Sort(sort.Reverse(input))
-
-// 	// maxCount := input[0].Count
-
-// 	return input
-// }

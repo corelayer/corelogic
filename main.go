@@ -18,6 +18,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/corelayer/corelogic/general"
 
@@ -41,7 +42,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	for k := range install {
-		fmt.Println(install[k])
+	printLines("config.txt", install)
+}
+
+func printLines(filePath string, expressions []string) error {
+	f, err := os.Create(filePath)
+	if err != nil {
+		return err
 	}
+	defer f.Close()
+	for _, value := range expressions {
+		fmt.Fprintln(f, value) // print values to f, one per line
+	}
+	return nil
 }

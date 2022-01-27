@@ -5,7 +5,7 @@ clean_config:
 
 generate_config:
 	make clean_config
-	go run main.go > config.txt
+	go run main.go
 	make verify_config
 
 verify_config:
