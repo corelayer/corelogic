@@ -1,3 +1,7 @@
+make pre_commit:
+	sh scripts/clean_config.sh
+	make remove_protocols
+	
 clean_config:
 	sh scripts/clean_config.sh
 	make remove_protocols
@@ -9,7 +13,7 @@ generate_config:
 	make verify_config
 
 verify_config:
-	sh scripts/count_lines.sh config.txt
+	sh scripts/count_lines.sh config.conf
 
 deploy_config:
 	sh scripts/deploy_config.sh $(DEVVPX)
@@ -31,6 +35,9 @@ regenerate_protocols:
 	make add_protocols
 
 add_protocols:
+	bash scripts/contentswitching/csv_ipfilter.sh 11.0 fake
+	bash scripts/contentswitching/csv_ipfilter.sh 11.0 http
+	sleep 5
 	sh scripts/add_protocol_ipfilter.sh 11.0 core http http
 	sh scripts/add_protocol_ipfilter.sh 11.0 core ssl http
 	sh scripts/add_protocol_ipfilter.sh 11.0 core tcp tcp
@@ -56,6 +63,8 @@ add_protocols:
 
 
 remove_protocols:
+	rm assets/framework/11.0/packages/contentswitching/fake/csv_ipv4_ipfilter_blocklist.yaml
+	rm assets/framework/11.0/packages/contentswitching/fake/csv_ipv6_ipfilter_blocklist.yaml
 	sh scripts/remove_protocol_ipfilter.sh 11.0 http
 	sh scripts/remove_protocol_ipfilter.sh 11.0 ssl
 	sh scripts/remove_protocol_ipfilter.sh 11.0 tcp

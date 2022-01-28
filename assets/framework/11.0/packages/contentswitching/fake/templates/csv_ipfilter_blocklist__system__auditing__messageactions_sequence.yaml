@@ -1,0 +1,11 @@
+      - name: CSV_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/$ipversion_$protocol_key_$sequence>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>

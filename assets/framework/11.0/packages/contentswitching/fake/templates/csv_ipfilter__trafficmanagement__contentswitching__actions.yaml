@@ -1,0 +1,11 @@
+  - name: trafficmanagement.contentswitching.actions
+    elements:
+      - name: CSV_$IPVERSION_IPFILTER_TERMINATE_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_$IPVERSION_IPFILTER_TERMINATE_$PROTOCOL
+          - id: expression
+            data: <<loadbalancers.csv_$ipversion_ipfilter.trafficmanagement.loadbalancing.virtualservers.CSV_$IPVERSION_IPFILTER_TERMINATE_$PROTOCOL/name>>
+        expressions:
+          install: add cs action <<name>> -targetVserverExpr q{"<<expression>>"}
+          uninstall: rm cs action <<name>>

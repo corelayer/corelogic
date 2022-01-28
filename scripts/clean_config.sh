@@ -9,5 +9,9 @@ clean_file() {
 
 clean_file config.txt
 clean_file config.json
+clean_file config.out
+clean_file config.conf
+
 clean_file output.txt
+clean_file output.conf.out
 sleep 2

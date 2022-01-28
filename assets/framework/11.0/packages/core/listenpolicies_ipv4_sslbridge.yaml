@@ -5,10 +5,10 @@ tags:
 sections:
   - name: appexpert.expressions.advanced
     elements:
-      - name: LISTEN_VS_IPV4_SSLBRIDGE
+      - name: LISTEN_LBV_IPV4_SSLBRIDGE
         fields:
           - id: name
-            data: <<prefix>>_LISTEN_VS_IPV4_SSLBRIDGE
+            data: <<prefix>>_LISTEN_LBV_IPV4_SSLBRIDGE
           - id: expression
             data: q{(<<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv4_sslbridge_key_exists>> && <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/ipv4_sslbridge_value_state_isdisabled>>.NOT) && (<<core.stringmaps.appexpert.stringmaps.CONFIG_TENANT/ipv4_sslbridge_key_exists>> && <<core.stringmaps.appexpert.stringmaps.CONFIG_TENANT/ipv4_sslbridge_value_state_isdisabled>>.NOT)}
         expressions:

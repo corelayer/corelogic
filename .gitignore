@@ -1,6 +1,4 @@
 .idea
 *.exe
 *.txt
-
-config.*
-output.*
+*.conf

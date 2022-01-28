@@ -8,7 +8,7 @@
 
 create_protocol_ipfilter(){
     mkdir -p assets/framework/$version/packages/$package/$protocol
-    cp -r assets/framework/$version/packages/$package/fake/* assets/framework/$version/packages/$package/$protocol/.
+    cp -r assets/framework/$version/packages/$package/fake/*.yaml assets/framework/$version/packages/$package/$protocol/.
     sed -i "s/fake/$protocol/g" assets/framework/$version/packages/$package/$protocol/*
     sed -i "s/FAKE/$upperProtocol/g" assets/framework/$version/packages/$package/$protocol/*
     sed -i "s/BASEPROTOCOL/$upperBaseProtocol/g" assets/framework/$version/packages/$package/$protocol/*

@@ -1,0 +1,6 @@
+name: csv_$ipversion_ipfilter
+tags:
+  - $protocol
+  - $ipversion
+  - csv_ipfilter
+sections:

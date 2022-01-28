@@ -1,0 +1,13 @@
+      - name: CSV_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/$ipversion_$protocol_key_exists_$sequence>>
+          - id: action
+            data: <<contentswitching.csv_$ipversion_ipfilter.trafficmanagement.contentswitching.actions.CSV_$IPVERSION_IPFILTER_TERMINATE_$PROTOCOL/name>>
+          - id: logaction
+            data: <<contentswitching.csv_$ipversion_ipfilter.system.auditing.messageactions.CSV_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
+          uninstall: rm cs policy <<name>>

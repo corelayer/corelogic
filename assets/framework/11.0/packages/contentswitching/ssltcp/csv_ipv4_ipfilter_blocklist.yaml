@@ -4,371 +4,778 @@ tags:
   - ipv4
   - csv_ipfilter
 sections:
+  - name: system.auditing.messageactions
+    elements:
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_032>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_031>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_030>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_029>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_028>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_027>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_026>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_025>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_024>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_023>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_022>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_021>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_020>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_019>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_018>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_017>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_016>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_015>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_014>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_013>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_012>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_011>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_010>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_009>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_008>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_007>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_006>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_005>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_004>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_003>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_002>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_CSV/ipv4_ssltcp_key_001>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>
   - name: trafficmanagement.contentswitching.policies
     elements:
-      - name: CSV_IPV4_IPFILTER_BLOCKLIST_TERMINATE_SSLTCP
-        fields:
-          - id: name
-            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_TERMINATE_SSLTCP
-          - id: expression
-            data: true
-          - id: action
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
-        expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>>
-          uninstall: rm cs policy <<name>>
-      - name: CSV_IPV4_IPFILTER_BLOCKLIST_DONE_SSLTCP
-        fields:
-          - id: name
-            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_DONE_SSLTCP
-          - id: expression
-            data: true
-        expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
-          uninstall: rm cs policy <<name>>
-
-      - name: CSV_IPV4_IPFILTER_BLOCKLIST_NEXT_SSLTCP
-        fields:
-          - id: name
-            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_NEXT_SSLTCP
-          - id: expression
-            data: true
-        expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
-          uninstall: rm cs policy <<name>>
-      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_SSLTCP
-        tags:
-          - csv_ipfilter
-        fields:
-          - id: name
-            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_SSLTCP
-          - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/ipv4_ssltcp_value_ipfilter_isdisabled>>
-        expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
-          uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_032>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_031>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_030>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_029>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_028>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_027>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_026>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_025>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_024>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_023>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_022>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_021>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_020>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_019>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_018>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_017>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_016>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_015>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_014>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_013>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_012>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_011>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_010>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_009>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_008>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_007>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_006>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_005>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_004>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_003>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_002>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001
         fields:
           - id: name
             data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001
           - id: expression
             data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/ipv4_ssltcp_key_exists_001>>
+          - id: action
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.actions.CSV_IPV4_IPFILTER_TERMINATE_SSLTCP/name>>
+          - id: logaction
+            data: <<contentswitching.csv_ipv4_ipfilter.system.auditing.messageactions.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001/name>>
         expressions:
-          install: add cs policy <<name>> -rule q{<<expression>>}
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
-          
-
   - name: trafficmanagement.contentswitching.policylabels
     elements:
       - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP
@@ -378,179 +785,357 @@ sections:
         expressions:
           install: add cs policylabel <<name>> SSLTCP
           uninstall: rm cs policylabel <<name>>
-
   - name: trafficmanagement.contentswitching.policylabelbindings
     elements:
-      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032
         fields:
           - id: name
-            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP
-
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032
           - id: label
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
-
           - id: 10941001_policy
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_032/name>>
-          - id: 10941002_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031/name>>
-          - id: 10941003_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030/name>>
-          - id: 10941004_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029/name>>
-          - id: 10941005_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028/name>>
-          - id: 10941006_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027/name>>
-          - id: 10941007_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026/name>>
-          - id: 10941008_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025/name>>
-          - id: 10941009_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024/name>>
-          - id: 10941010_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023/name>>
-          - id: 10941011_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022/name>>
-          - id: 10941012_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021/name>>
-          - id: 10941013_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020/name>>
-          - id: 10941014_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019/name>>
-          - id: 10941015_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018/name>>
-          - id: 10941016_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017/name>>
-          - id: 10941017_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016/name>>
-          - id: 10941018_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015/name>>
-          - id: 10941019_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014/name>>
-          - id: 10941020_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013/name>>
-          - id: 10941021_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012/name>>
-          - id: 10941022_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011/name>>
-          - id: 10941023_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010/name>>
-          - id: 10941024_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009/name>>
-          - id: 10941025_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008/name>>
-          - id: 10941026_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007/name>>
-          - id: 10941027_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006/name>>
-          - id: 10941028_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005/name>>
-          - id: 10941029_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004/name>>
-          - id: 10941030_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003/name>>
-          - id: 10941031_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002/name>>
-          - id: 10941032_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001/name>>
-
-
-          - id: 10942001_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_DONE_SSLTCP/name>>
-          - id: 10942002_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_TERMINATE_SSLTCP/name>>
-
-          - id: 10943001_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_NEXT_SSLTCP/name>>
         expressions:
-          install: |
-            bind cs policylabel <<label>> <<10941001_policy>> 10941001 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941002_policy>> 10941002 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941003_policy>> 10941003 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941004_policy>> 10941004 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941005_policy>> 10941005 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941006_policy>> 10941006 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941007_policy>> 10941007 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941008_policy>> 10941008 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941009_policy>> 10941009 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941010_policy>> 10941010 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941011_policy>> 10941011 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941012_policy>> 10941012 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941013_policy>> 10941013 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941014_policy>> 10941014 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941015_policy>> 10941015 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941016_policy>> 10941016 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941017_policy>> 10941017 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941018_policy>> 10941018 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941019_policy>> 10941019 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941020_policy>> 10941020 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941021_policy>> 10941021 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941022_policy>> 10941022 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941023_policy>> 10941023 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941024_policy>> 10941024 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941025_policy>> 10941025 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941026_policy>> 10941026 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941027_policy>> 10941027 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941028_policy>> 10941028 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941029_policy>> 10941029 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941030_policy>> 10941030 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941031_policy>> 10941031 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10941032_policy>> 10941032 -gotoPriorityExpression 10942002
-            bind cs policylabel <<label>> <<10942001_policy>> 10942001 -gotoPriorityExpression 10943001
-            bind cs policylabel <<label>> <<10942002_policy>> 10942002
-            bind cs policylabel <<label>> <<10943001_policy>> 10943001 -gotoPriorityExpression NEXT
-          uninstall: |
-            unbind cs policylabel <<label>> <<10941001_policy>>
-            unbind cs policylabel <<label>> <<10941002_policy>>
-            unbind cs policylabel <<label>> <<10941003_policy>>
-            unbind cs policylabel <<label>> <<10941004_policy>>
-            unbind cs policylabel <<label>> <<10941005_policy>>
-            unbind cs policylabel <<label>> <<10941006_policy>>
-            unbind cs policylabel <<label>> <<10941007_policy>>
-            unbind cs policylabel <<label>> <<10941008_policy>>
-            unbind cs policylabel <<label>> <<10941009_policy>>
-            unbind cs policylabel <<label>> <<10941010_policy>>
-            unbind cs policylabel <<label>> <<10941011_policy>>
-            unbind cs policylabel <<label>> <<10941012_policy>>
-            unbind cs policylabel <<label>> <<10941013_policy>>
-            unbind cs policylabel <<label>> <<10941014_policy>>
-            unbind cs policylabel <<label>> <<10941015_policy>>
-            unbind cs policylabel <<label>> <<10941016_policy>>
-            unbind cs policylabel <<label>> <<10941017_policy>>
-            unbind cs policylabel <<label>> <<10941018_policy>>
-            unbind cs policylabel <<label>> <<10941019_policy>>
-            unbind cs policylabel <<label>> <<10941020_policy>>
-            unbind cs policylabel <<label>> <<10941021_policy>>
-            unbind cs policylabel <<label>> <<10941022_policy>>
-            unbind cs policylabel <<label>> <<10941023_policy>>
-            unbind cs policylabel <<label>> <<10941024_policy>>
-            unbind cs policylabel <<label>> <<10941025_policy>>
-            unbind cs policylabel <<label>> <<10941026_policy>>
-            unbind cs policylabel <<label>> <<10941027_policy>>
-            unbind cs policylabel <<label>> <<10941028_policy>>
-            unbind cs policylabel <<label>> <<10941029_policy>>
-            unbind cs policylabel <<label>> <<10941030_policy>>
-            unbind cs policylabel <<label>> <<10941031_policy>>
-            unbind cs policylabel <<label>> <<10941032_policy>>
-            unbind cs policylabel <<label>> <<10942001_policy>>
-            unbind cs policylabel <<label>> <<10942002_policy>>
-            unbind cs policylabel <<label>> <<10943001_policy>>
-
-      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_SSLTCP
-        tags:
-          - csv_ipfilter
+          install: bind cs policylabel <<label>> <<10941001_policy>> 10941001
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031
         fields:
           - id: name
-            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_SSLTCP
-
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031
           - id: label
             data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
-          - id: 10943002_policy
-            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SKIP_CSV_SSLTCP/name>>
-          - id: 10943002_policylabel
-            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_SSLTCP/name>>
+          - id: 10941002_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_031/name>>
         expressions:
-          install: |
-            bind cs policylabel <<label>> <<10943002_policy>> 10943002 -gotoPriorityExpression NEXT -invoke policylabel <<10943002_policylabel>>
-          uninstall: |
-            unbind cs policylabel <<label>> <<10943002_policy>>
+          install: bind cs policylabel <<label>> <<10941002_policy>> 10941002
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941003_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_030/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941003_policy>> 10941003
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941004_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_029/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941004_policy>> 10941004
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941005_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_028/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941005_policy>> 10941005
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941006_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_027/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941006_policy>> 10941006
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941007_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_026/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941007_policy>> 10941007
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941008_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_025/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941008_policy>> 10941008
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941009_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_024/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941009_policy>> 10941009
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941010_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_023/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941010_policy>> 10941010
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941011_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_022/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941011_policy>> 10941011
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941012_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_021/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941012_policy>> 10941012
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941013_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_020/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941013_policy>> 10941013
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941014_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_019/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941014_policy>> 10941014
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941015_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_018/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941015_policy>> 10941015
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941016_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_017/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941016_policy>> 10941016
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941017_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_016/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941017_policy>> 10941017
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941018_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_015/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941018_policy>> 10941018
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941019_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_014/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941019_policy>> 10941019
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941020_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_013/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941020_policy>> 10941020
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941021_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_012/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941021_policy>> 10941021
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941022_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_011/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941022_policy>> 10941022
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941023_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_010/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941023_policy>> 10941023
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941024_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_009/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941024_policy>> 10941024
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941025_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_008/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941025_policy>> 10941025
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941026_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_007/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941026_policy>> 10941026
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941027_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_006/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941027_policy>> 10941027
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941028_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_005/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941028_policy>> 10941028
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941029_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_004/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941029_policy>> 10941029
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941030_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_003/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941030_policy>> 10941030
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941031_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_002/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941031_policy>> 10941031
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>
+      - name: CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001
+        fields:
+          - id: name
+            data: <<prefix>>_CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001
+          - id: label
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP/name>>
+          - id: 10941032_policy
+            data: <<contentswitching.csv_ipv4_ipfilter.trafficmanagement.contentswitching.policies.CSV_IPV4_IPFILTER_BLOCKLIST_SSLTCP_001/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10941032_policy>> 10941032
+          uninstall: unbind cs policylabel <<label>> <<10941001_policy>>

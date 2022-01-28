@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"path/filepath"
 
 	"github.com/corelayer/corelogic/general"
 
@@ -76,12 +77,15 @@ func (c *FrameworkController) GetPackagesFromDirectory(rootDir string, directory
 
 	for _, f := range files {
 		if !f.IsDir() {
-			var module models.Module
-			module, err = c.GetModuleFromFile(rootDir + "/packages/" + myPackage.Name + "/" + f.Name())
-			if err != nil {
-				return myPackage, err
+			if filepath.Ext(f.Name()) == ".yaml" {
+				// log.Println(f.Name())
+				var module models.Module
+				module, err = c.GetModuleFromFile(rootDir + "/packages/" + myPackage.Name + "/" + f.Name())
+				if err != nil {
+					return myPackage, err
+				}
+				myPackage.Modules = append(myPackage.Modules, module)
 			}
-			myPackage.Modules = append(myPackage.Modules, module)
 		} else {
 			var modules []models.Module
 			modules, err = c.GetModulesFromDirectory(rootDir + "/packages/" + myPackage.Name + "/" + f.Name())
@@ -126,12 +130,15 @@ func (c *FrameworkController) GetModulesFromDirectory(filePath string) ([]models
 
 	for _, f := range files {
 		if !f.IsDir() {
-			module, err := c.GetModuleFromFile(filePath + "/" + f.Name())
-			if err != nil {
-				log.Fatal(err)
-				return modules, err
+			if filepath.Ext(f.Name()) == ".yaml" {
+				// log.Println(f.Name())
+				module, err := c.GetModuleFromFile(filePath + "/" + f.Name())
+				if err != nil {
+					log.Fatal(err)
+					return modules, err
+				}
+				modules = append(modules, module)
 			}
-			modules = append(modules, module)
 		}
 	}
 
