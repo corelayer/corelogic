@@ -1,0 +1,18 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_DONE_$FILTERTYPE_$PROTOCOL
+        tags:
+          - $filtertype_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_DONE_$FILTERTYPE_$PROTOCOL
+
+          - id: label
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL/name>>
+          - id: $bindingprefix3002_policy
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.$FILTERTYPE_$IPVERSION_IPFILTER_DONE_$PROTOCOL/name>>
+          - id: $bindingprefix3002_policylabel
+            data: $ipfilter_next_label
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<$bindingprefix3002_policy>> $bindingprefix3002 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix3002_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<$bindingprefix3002_policy>>

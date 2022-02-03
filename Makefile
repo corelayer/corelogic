@@ -5,10 +5,11 @@ make pre_commit:
 clean_config:
 	sh scripts/clean_config.sh
 	make remove_protocols
-	make add_protocols
+
+init_config:
+	make add add_protocols
 
 generate_config:
-	make clean_config
 	go run main.go
 	make verify_config
 
@@ -21,23 +22,24 @@ deploy_config:
 verify_deployment:
 	sh scripts/verify_deployment.sh $(DEVVPX)
 
+run_and_deploy:
+	make run
+	make deploy
+
 run:
-	make remove_protocols
-	make add_protocols
 	make clean_config
+	make add_protocols
 	make generate_config
+
+deploy:
 	make deploy_config
 	make verify_deployment
 
-regenerate_protocols:
-	make remove_protocols
-	sleep 2
-	make add_protocols
-
 add_protocols:
-	bash scripts/contentswitching/csv_ipfilter.sh 11.0 fake
-	bash scripts/contentswitching/csv_ipfilter.sh 11.0 http
-	sleep 5
+	bash scripts/templates/contentswitching/ipfilter.sh 11.0 fake
+	bash scripts/templates/contentswitching/ipfilter_blocklist.sh 11.0 fake
+	
+	sleep 2
 	sh scripts/add_protocol_ipfilter.sh 11.0 core http http
 	sh scripts/add_protocol_ipfilter.sh 11.0 core ssl http
 	sh scripts/add_protocol_ipfilter.sh 11.0 core tcp tcp
@@ -63,11 +65,8 @@ add_protocols:
 
 
 remove_protocols:
-	rm assets/framework/11.0/packages/contentswitching/fake/csv_ipv4_ipfilter_blocklist.yaml
-	rm assets/framework/11.0/packages/contentswitching/fake/csv_ipv6_ipfilter_blocklist.yaml
 	sh scripts/remove_protocol_ipfilter.sh 11.0 http
 	sh scripts/remove_protocol_ipfilter.sh 11.0 ssl
 	sh scripts/remove_protocol_ipfilter.sh 11.0 tcp
 	sh scripts/remove_protocol_ipfilter.sh 11.0 ssltcp
-	sh scripts/remove_protocol_ipfilter.sh 11.0 udp
-	
+	sh scripts/remove_protocol_ipfilter.sh 11.0 udp	

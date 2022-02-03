@@ -1,0 +1,50 @@
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_DISABLED_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_DISABLED_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/$ipversion_$protocol_value_ipfilter_isdisabled>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/$ipversion_$protocol_value_ipfilter_isallow>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/$ipversion_$protocol_value_ipfilter_isblock>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_CONFIGISSUE_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_CONFIGISSUE_$PROTOCOL
+          - id: expression
+            data: true
+          - id: action
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.actions.$FILTERTYPE_$IPVERSION_IPFILTER_TERMINATE_$PROTOCOL/name>>
+          - id: logaction
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.system.auditing.messageactions.$FILTERTYPE_$IPVERSION_IPFILTER_CONFIGISSUE_$PROTOCOL/name>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
+          uninstall: rm cs policy <<name>>
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_DONE_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_DONE_$PROTOCOL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+

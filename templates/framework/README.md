@@ -1,0 +1,1 @@
+Each framework version gets its own subfolder to store templates

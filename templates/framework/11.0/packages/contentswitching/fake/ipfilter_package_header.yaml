@@ -1,0 +1,6 @@
+name: $filtertype_$ipversion_ipfilter
+tags:
+  - $protocol
+  - $ipversion
+  - $filtertype_ipfilter
+sections:

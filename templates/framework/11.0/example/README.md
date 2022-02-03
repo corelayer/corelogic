@@ -1,0 +1,1 @@
+Contains templates for creating new content-switching/load-balancing virtual servers and their configurations

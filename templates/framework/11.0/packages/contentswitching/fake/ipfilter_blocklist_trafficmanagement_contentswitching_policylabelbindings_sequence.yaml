@@ -1,0 +1,11 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+          - id: label
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL/name>>
+          - id: $bindingprefix1$policyid_policy
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<$bindingprefix1$policyid_policy>> $bindingprefix1$policyid
+          uninstall: unbind cs policylabel <<label>> <<$bindingprefix1001_policy>>
