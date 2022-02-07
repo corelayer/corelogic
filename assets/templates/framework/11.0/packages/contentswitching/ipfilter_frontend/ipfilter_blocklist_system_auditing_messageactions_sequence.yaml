@@ -1,0 +1,11 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_TERMINATE_$PROTOCOL_$sequence
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_TERMINATE_$PROTOCOL_$sequence
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: ("ipfilter_system_auditing_messageactions - BLOCKED - $FILTERTYPE - $IPVERSION - $PROTOCOL") + <<core.stringmaps.appexpert.stringmaps.IPFILTER_$FILTERTYPE/$ipversion_$protocol_key_$sequence>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>

@@ -1,13 +1,13 @@
-      - name: $FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_DONE_$PROTOCOL
         fields:
           - id: name
-            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_DONE_$PROTOCOL
           - id: expression
-            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/$ipversion_$protocol_key_exists_$sequence>>
+            data: true
           - id: action
             data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.actions.$FILTERTYPE_$IPVERSION_IPFILTER_TERMINATE_$PROTOCOL/name>>
           - id: logaction
-            data: <<contentswitching.$filtertype_$ipversion_ipfilter.system.auditing.messageactions.$FILTERTYPE_$IPVERSION_IPFILTER_BLOCKLIST_$PROTOCOL_$sequence/name>>
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.system.auditing.messageactions.$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_TERMINATE_$PROTOCOL/name>>
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>

@@ -1,0 +1,11 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_TERMINATE_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_TERMINATE_$PROTOCOL
+          - id: loglevel
+            data: DEBUG
+          - id: expression
+            data: ("ipfilter_system_auditing_messageactions - BLOCKED - $FILTERTYPE - $IPVERSION - $PROTOCOL") + <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_$IPVERSION/data>>
+        expressions:
+          install:  add audit messageaction <<name>> <<loglevel>> q{<<expression>>}
+          uninstall: rm audit messageaction <<name>>

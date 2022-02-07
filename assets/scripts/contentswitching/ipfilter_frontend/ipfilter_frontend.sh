@@ -14,12 +14,12 @@
 ######################################################
 ###
 
-source scripts/templates/global.sh
-source scripts/templates/headers.sh
+source assets/scripts/global.sh
+source assets/scripts/headers.sh
 
 ###
 
-inputFilename_ipfilter_init_basePath='templates/framework/$version/packages/contentswitching/fake'
+inputFilename_ipfilter_init_basePath='assets/templates/framework/$version/packages/contentswitching/ipfilter_frontend'
 inputFilename_ipfilter_packageHeader="$inputFilename_ipfilter_init_basePath"'/ipfilter_package_header.yaml'
 
 inputFilename_ipfilter_init_system_auditing_messageactions="$inputFilename_ipfilter_init_basePath"'/ipfilter_system_auditing_messageactions.yaml'

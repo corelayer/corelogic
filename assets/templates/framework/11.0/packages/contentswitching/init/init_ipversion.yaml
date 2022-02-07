@@ -1,0 +1,9 @@
+      - name: INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/$ipversion_$protocol_key>>.CONTAINS_ANY("<<core.patternsets.appexpert.patternsets.BYPASS_CSV_IPFILTER/name>>")
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>

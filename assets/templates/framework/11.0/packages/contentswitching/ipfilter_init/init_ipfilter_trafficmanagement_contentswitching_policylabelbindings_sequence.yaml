@@ -1,0 +1,17 @@
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - $filtertype_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init_$ipversion.trafficmanagement.contentswitching.policylabels.INIT_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+
+          - id: $bindingprefix1$sequence_policy
+            data: <<contentswitching.init_$ipversion.trafficmanagement.contentswitching.policies.INIT_$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix1$sequence_policylabel
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+
+        expressions:
+          install: bind cs policylabel <<label>> <<$$bindingprefix1$sequence_policy>> $$bindingprefix1$sequence -gotoPriorityExpression NEXT -invoke policylabel <<$$bindingprefix1$sequence_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<$$bindingprefix1$sequence_policy>>

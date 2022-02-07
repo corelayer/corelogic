@@ -4,267 +4,273 @@ tags:
 sections:
   - name: appexpert.expressions.advanced
     elements:
-      - name: CLIENT_IS_IPV6
+      - name: CLIENT_SRC_IPV6
         fields:
           - id: name
-            data: <<prefix>>_CLIENT_IS_IPV6
+            data: <<prefix>>_CLIENT_SRC_IPV6
           - id: data
-            data: CLIENT.IPV6.SRC.IS_IPV4.NOT
-      - name: CLIENT_IPV6_SUBNET
+            data: CLIENT.IPV6.SRC
+      - name: CLIENT_SRC_IS_IPV6
+        fields:
+          - id: name
+            data: <<prefix>>_CLIENT_SRC_IS_IPV6
+          - id: data
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.IS_IPV4.NOT
+      - name: CLIENT_SRC_IPV6_SUBNET
         fields:
           - id: 128
-            data: CLIENT.IPV6.SRC.TYPECAST_TEXT_T + "/128"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.TYPECAST_TEXT_T + "/128"
           - id: 127
-            data: CLIENT.IPV6.SRC.SUBNET(127).TYPECAST_TEXT_T + "/127"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(127).TYPECAST_TEXT_T + "/127"
           - id: 126
-            data: CLIENT.IPV6.SRC.SUBNET(126).TYPECAST_TEXT_T + "/126"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(126).TYPECAST_TEXT_T + "/126"
           - id: 125
-            data: CLIENT.IPV6.SRC.SUBNET(125).TYPECAST_TEXT_T + "/125"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(125).TYPECAST_TEXT_T + "/125"
           - id: 124
-            data: CLIENT.IPV6.SRC.SUBNET(124).TYPECAST_TEXT_T + "/124"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(124).TYPECAST_TEXT_T + "/124"
           - id: 123
-            data: CLIENT.IPV6.SRC.SUBNET(123).TYPECAST_TEXT_T + "/123"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(123).TYPECAST_TEXT_T + "/123"
           - id: 122
-            data: CLIENT.IPV6.SRC.SUBNET(122).TYPECAST_TEXT_T + "/122"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(122).TYPECAST_TEXT_T + "/122"
           - id: 121
-            data: CLIENT.IPV6.SRC.SUBNET(121).TYPECAST_TEXT_T + "/121"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(121).TYPECAST_TEXT_T + "/121"
           - id: 120
-            data: CLIENT.IPV6.SRC.SUBNET(120).TYPECAST_TEXT_T + "/120"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(120).TYPECAST_TEXT_T + "/120"
           - id: 119
-            data: CLIENT.IPV6.SRC.SUBNET(119).TYPECAST_TEXT_T + "/119"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(119).TYPECAST_TEXT_T + "/119"
           - id: 118
-            data: CLIENT.IPV6.SRC.SUBNET(118).TYPECAST_TEXT_T + "/118"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(118).TYPECAST_TEXT_T + "/118"
           - id: 117
-            data: CLIENT.IPV6.SRC.SUBNET(117).TYPECAST_TEXT_T + "/117"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(117).TYPECAST_TEXT_T + "/117"
           - id: 116
-            data: CLIENT.IPV6.SRC.SUBNET(116).TYPECAST_TEXT_T + "/116"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(116).TYPECAST_TEXT_T + "/116"
           - id: 115
-            data: CLIENT.IPV6.SRC.SUBNET(115).TYPECAST_TEXT_T + "/115"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(115).TYPECAST_TEXT_T + "/115"
           - id: 114
-            data: CLIENT.IPV6.SRC.SUBNET(114).TYPECAST_TEXT_T + "/114"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(114).TYPECAST_TEXT_T + "/114"
           - id: 113
-            data: CLIENT.IPV6.SRC.SUBNET(113).TYPECAST_TEXT_T + "/113"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(113).TYPECAST_TEXT_T + "/113"
           - id: 112
-            data: CLIENT.IPV6.SRC.SUBNET(112).TYPECAST_TEXT_T + "/112"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(112).TYPECAST_TEXT_T + "/112"
           - id: 111
-            data: CLIENT.IPV6.SRC.SUBNET(111).TYPECAST_TEXT_T + "/111"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(111).TYPECAST_TEXT_T + "/111"
           - id: 110
-            data: CLIENT.IPV6.SRC.SUBNET(110).TYPECAST_TEXT_T + "/110"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(110).TYPECAST_TEXT_T + "/110"
           - id: 109
-            data: CLIENT.IPV6.SRC.SUBNET(109).TYPECAST_TEXT_T + "/109"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(109).TYPECAST_TEXT_T + "/109"
           - id: 108
-            data: CLIENT.IPV6.SRC.SUBNET(108).TYPECAST_TEXT_T + "/108"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(108).TYPECAST_TEXT_T + "/108"
           - id: 107
-            data: CLIENT.IPV6.SRC.SUBNET(107).TYPECAST_TEXT_T + "/107"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(107).TYPECAST_TEXT_T + "/107"
           - id: 106
-            data: CLIENT.IPV6.SRC.SUBNET(106).TYPECAST_TEXT_T + "/106"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(106).TYPECAST_TEXT_T + "/106"
           - id: 105
-            data: CLIENT.IPV6.SRC.SUBNET(105).TYPECAST_TEXT_T + "/105"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(105).TYPECAST_TEXT_T + "/105"
           - id: 104
-            data: CLIENT.IPV6.SRC.SUBNET(104).TYPECAST_TEXT_T + "/104"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(104).TYPECAST_TEXT_T + "/104"
           - id: 103
-            data: CLIENT.IPV6.SRC.SUBNET(103).TYPECAST_TEXT_T + "/103"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(103).TYPECAST_TEXT_T + "/103"
           - id: 102
-            data: CLIENT.IPV6.SRC.SUBNET(102).TYPECAST_TEXT_T + "/102"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(102).TYPECAST_TEXT_T + "/102"
           - id: 101
-            data: CLIENT.IPV6.SRC.SUBNET(101).TYPECAST_TEXT_T + "/101"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(101).TYPECAST_TEXT_T + "/101"
           - id: 100
-            data: CLIENT.IPV6.SRC.SUBNET(100).TYPECAST_TEXT_T + "/100"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(100).TYPECAST_TEXT_T + "/100"
           - id: 099
-            data: CLIENT.IPV6.SRC.SUBNET(99).TYPECAST_TEXT_T + "/99"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(99).TYPECAST_TEXT_T + "/99"
           - id: 098
-            data: CLIENT.IPV6.SRC.SUBNET(98).TYPECAST_TEXT_T + "/98"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(98).TYPECAST_TEXT_T + "/98"
           - id: 097
-            data: CLIENT.IPV6.SRC.SUBNET(97).TYPECAST_TEXT_T + "/97"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(97).TYPECAST_TEXT_T + "/97"
           - id: 096
-            data: CLIENT.IPV6.SRC.SUBNET(96).TYPECAST_TEXT_T + "/96"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(96).TYPECAST_TEXT_T + "/96"
           - id: 095
-            data: CLIENT.IPV6.SRC.SUBNET(95).TYPECAST_TEXT_T + "/95"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(95).TYPECAST_TEXT_T + "/95"
           - id: 094
-            data: CLIENT.IPV6.SRC.SUBNET(94).TYPECAST_TEXT_T + "/94"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(94).TYPECAST_TEXT_T + "/94"
           - id: 093
-            data: CLIENT.IPV6.SRC.SUBNET(93).TYPECAST_TEXT_T + "/93"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(93).TYPECAST_TEXT_T + "/93"
           - id: 092
-            data: CLIENT.IPV6.SRC.SUBNET(92).TYPECAST_TEXT_T + "/92"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(92).TYPECAST_TEXT_T + "/92"
           - id: 091
-            data: CLIENT.IPV6.SRC.SUBNET(91).TYPECAST_TEXT_T + "/91"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(91).TYPECAST_TEXT_T + "/91"
           - id: 090
-            data: CLIENT.IPV6.SRC.SUBNET(90).TYPECAST_TEXT_T + "/90"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(90).TYPECAST_TEXT_T + "/90"
           - id: 089
-            data: CLIENT.IPV6.SRC.SUBNET(89).TYPECAST_TEXT_T + "/89"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(89).TYPECAST_TEXT_T + "/89"
           - id: 088
-            data: CLIENT.IPV6.SRC.SUBNET(88).TYPECAST_TEXT_T + "/88"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(88).TYPECAST_TEXT_T + "/88"
           - id: 087
-            data: CLIENT.IPV6.SRC.SUBNET(87).TYPECAST_TEXT_T + "/87"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(87).TYPECAST_TEXT_T + "/87"
           - id: 086
-            data: CLIENT.IPV6.SRC.SUBNET(86).TYPECAST_TEXT_T + "/86"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(86).TYPECAST_TEXT_T + "/86"
           - id: 085
-            data: CLIENT.IPV6.SRC.SUBNET(85).TYPECAST_TEXT_T + "/85"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(85).TYPECAST_TEXT_T + "/85"
           - id: 084
-            data: CLIENT.IPV6.SRC.SUBNET(84).TYPECAST_TEXT_T + "/84"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(84).TYPECAST_TEXT_T + "/84"
           - id: 083
-            data: CLIENT.IPV6.SRC.SUBNET(83).TYPECAST_TEXT_T + "/83"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(83).TYPECAST_TEXT_T + "/83"
           - id: 082
-            data: CLIENT.IPV6.SRC.SUBNET(82).TYPECAST_TEXT_T + "/82"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(82).TYPECAST_TEXT_T + "/82"
           - id: 081
-            data: CLIENT.IPV6.SRC.SUBNET(81).TYPECAST_TEXT_T + "/81"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(81).TYPECAST_TEXT_T + "/81"
           - id: 080
-            data: CLIENT.IPV6.SRC.SUBNET(80).TYPECAST_TEXT_T + "/80"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(80).TYPECAST_TEXT_T + "/80"
           - id: 079
-            data: CLIENT.IPV6.SRC.SUBNET(79).TYPECAST_TEXT_T + "/79"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(79).TYPECAST_TEXT_T + "/79"
           - id: 078
-            data: CLIENT.IPV6.SRC.SUBNET(78).TYPECAST_TEXT_T + "/78"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(78).TYPECAST_TEXT_T + "/78"
           - id: 077
-            data: CLIENT.IPV6.SRC.SUBNET(77).TYPECAST_TEXT_T + "/77"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(77).TYPECAST_TEXT_T + "/77"
           - id: 076
-            data: CLIENT.IPV6.SRC.SUBNET(76).TYPECAST_TEXT_T + "/76"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(76).TYPECAST_TEXT_T + "/76"
           - id: 075
-            data: CLIENT.IPV6.SRC.SUBNET(75).TYPECAST_TEXT_T + "/75"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(75).TYPECAST_TEXT_T + "/75"
           - id: 074
-            data: CLIENT.IPV6.SRC.SUBNET(74).TYPECAST_TEXT_T + "/74"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(74).TYPECAST_TEXT_T + "/74"
           - id: 073
-            data: CLIENT.IPV6.SRC.SUBNET(73).TYPECAST_TEXT_T + "/73"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(73).TYPECAST_TEXT_T + "/73"
           - id: 072
-            data: CLIENT.IPV6.SRC.SUBNET(72).TYPECAST_TEXT_T + "/72"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(72).TYPECAST_TEXT_T + "/72"
           - id: 071
-            data: CLIENT.IPV6.SRC.SUBNET(71).TYPECAST_TEXT_T + "/71"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(71).TYPECAST_TEXT_T + "/71"
           - id: 070
-            data: CLIENT.IPV6.SRC.SUBNET(70).TYPECAST_TEXT_T + "/70"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(70).TYPECAST_TEXT_T + "/70"
           - id: 069
-            data: CLIENT.IPV6.SRC.SUBNET(69).TYPECAST_TEXT_T + "/69"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(69).TYPECAST_TEXT_T + "/69"
           - id: 068
-            data: CLIENT.IPV6.SRC.SUBNET(68).TYPECAST_TEXT_T + "/68"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(68).TYPECAST_TEXT_T + "/68"
           - id: 067
-            data: CLIENT.IPV6.SRC.SUBNET(67).TYPECAST_TEXT_T + "/67"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(67).TYPECAST_TEXT_T + "/67"
           - id: 066
-            data: CLIENT.IPV6.SRC.SUBNET(66).TYPECAST_TEXT_T + "/66"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(66).TYPECAST_TEXT_T + "/66"
           - id: 065
-            data: CLIENT.IPV6.SRC.SUBNET(65).TYPECAST_TEXT_T + "/65"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(65).TYPECAST_TEXT_T + "/65"
           - id: 064
-            data: CLIENT.IPV6.SRC.SUBNET(64).TYPECAST_TEXT_T + "/64"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(64).TYPECAST_TEXT_T + "/64"
           - id: 063
-            data: CLIENT.IPV6.SRC.SUBNET(63).TYPECAST_TEXT_T + "/63"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(63).TYPECAST_TEXT_T + "/63"
           - id: 062
-            data: CLIENT.IPV6.SRC.SUBNET(62).TYPECAST_TEXT_T + "/62"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(62).TYPECAST_TEXT_T + "/62"
           - id: 061
-            data: CLIENT.IPV6.SRC.SUBNET(61).TYPECAST_TEXT_T + "/61"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(61).TYPECAST_TEXT_T + "/61"
           - id: 060
-            data: CLIENT.IPV6.SRC.SUBNET(60).TYPECAST_TEXT_T + "/60"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(60).TYPECAST_TEXT_T + "/60"
           - id: 059
-            data: CLIENT.IPV6.SRC.SUBNET(59).TYPECAST_TEXT_T + "/59"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(59).TYPECAST_TEXT_T + "/59"
           - id: 058
-            data: CLIENT.IPV6.SRC.SUBNET(58).TYPECAST_TEXT_T + "/58"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(58).TYPECAST_TEXT_T + "/58"
           - id: 057
-            data: CLIENT.IPV6.SRC.SUBNET(57).TYPECAST_TEXT_T + "/57"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(57).TYPECAST_TEXT_T + "/57"
           - id: 056
-            data: CLIENT.IPV6.SRC.SUBNET(56).TYPECAST_TEXT_T + "/56"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(56).TYPECAST_TEXT_T + "/56"
           - id: 055
-            data: CLIENT.IPV6.SRC.SUBNET(55).TYPECAST_TEXT_T + "/55"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(55).TYPECAST_TEXT_T + "/55"
           - id: 054
-            data: CLIENT.IPV6.SRC.SUBNET(54).TYPECAST_TEXT_T + "/54"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(54).TYPECAST_TEXT_T + "/54"
           - id: 053
-            data: CLIENT.IPV6.SRC.SUBNET(53).TYPECAST_TEXT_T + "/53"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(53).TYPECAST_TEXT_T + "/53"
           - id: 052
-            data: CLIENT.IPV6.SRC.SUBNET(52).TYPECAST_TEXT_T + "/52"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(52).TYPECAST_TEXT_T + "/52"
           - id: 051
-            data: CLIENT.IPV6.SRC.SUBNET(51).TYPECAST_TEXT_T + "/51"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(51).TYPECAST_TEXT_T + "/51"
           - id: 050
-            data: CLIENT.IPV6.SRC.SUBNET(50).TYPECAST_TEXT_T + "/50"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(50).TYPECAST_TEXT_T + "/50"
           - id: 049
-            data: CLIENT.IPV6.SRC.SUBNET(49).TYPECAST_TEXT_T + "/49"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(49).TYPECAST_TEXT_T + "/49"
           - id: 048
-            data: CLIENT.IPV6.SRC.SUBNET(48).TYPECAST_TEXT_T + "/48"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(48).TYPECAST_TEXT_T + "/48"
           - id: 047
-            data: CLIENT.IPV6.SRC.SUBNET(47).TYPECAST_TEXT_T + "/47"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(47).TYPECAST_TEXT_T + "/47"
           - id: 046
-            data: CLIENT.IPV6.SRC.SUBNET(46).TYPECAST_TEXT_T + "/46"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(46).TYPECAST_TEXT_T + "/46"
           - id: 045
-            data: CLIENT.IPV6.SRC.SUBNET(45).TYPECAST_TEXT_T + "/45"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(45).TYPECAST_TEXT_T + "/45"
           - id: 044
-            data: CLIENT.IPV6.SRC.SUBNET(44).TYPECAST_TEXT_T + "/44"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(44).TYPECAST_TEXT_T + "/44"
           - id: 043
-            data: CLIENT.IPV6.SRC.SUBNET(43).TYPECAST_TEXT_T + "/43"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(43).TYPECAST_TEXT_T + "/43"
           - id: 042
-            data: CLIENT.IPV6.SRC.SUBNET(42).TYPECAST_TEXT_T + "/42"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(42).TYPECAST_TEXT_T + "/42"
           - id: 041
-            data: CLIENT.IPV6.SRC.SUBNET(41).TYPECAST_TEXT_T + "/41"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(41).TYPECAST_TEXT_T + "/41"
           - id: 040
-            data: CLIENT.IPV6.SRC.SUBNET(40).TYPECAST_TEXT_T + "/40"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(40).TYPECAST_TEXT_T + "/40"
           - id: 039
-            data: CLIENT.IPV6.SRC.SUBNET(39).TYPECAST_TEXT_T + "/39"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(39).TYPECAST_TEXT_T + "/39"
           - id: 038
-            data: CLIENT.IPV6.SRC.SUBNET(38).TYPECAST_TEXT_T + "/38"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(38).TYPECAST_TEXT_T + "/38"
           - id: 037
-            data: CLIENT.IPV6.SRC.SUBNET(37).TYPECAST_TEXT_T + "/37"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(37).TYPECAST_TEXT_T + "/37"
           - id: 036
-            data: CLIENT.IPV6.SRC.SUBNET(36).TYPECAST_TEXT_T + "/36"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(36).TYPECAST_TEXT_T + "/36"
           - id: 035
-            data: CLIENT.IPV6.SRC.SUBNET(35).TYPECAST_TEXT_T + "/35"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(35).TYPECAST_TEXT_T + "/35"
           - id: 034
-            data: CLIENT.IPV6.SRC.SUBNET(34).TYPECAST_TEXT_T + "/34"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(34).TYPECAST_TEXT_T + "/34"
           - id: 033
-            data: CLIENT.IPV6.SRC.SUBNET(33).TYPECAST_TEXT_T + "/33"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(33).TYPECAST_TEXT_T + "/33"
           - id: 032
-            data: CLIENT.IPV6.SRC.SUBNET(32).TYPECAST_TEXT_T + "/32"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(32).TYPECAST_TEXT_T + "/32"
           - id: 031
-            data: CLIENT.IPV6.SRC.SUBNET(31).TYPECAST_TEXT_T + "/31"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(31).TYPECAST_TEXT_T + "/31"
           - id: 030
-            data: CLIENT.IPV6.SRC.SUBNET(30).TYPECAST_TEXT_T + "/30"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(30).TYPECAST_TEXT_T + "/30"
           - id: 029
-            data: CLIENT.IPV6.SRC.SUBNET(29).TYPECAST_TEXT_T + "/29"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(29).TYPECAST_TEXT_T + "/29"
           - id: 028
-            data: CLIENT.IPV6.SRC.SUBNET(28).TYPECAST_TEXT_T + "/28"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(28).TYPECAST_TEXT_T + "/28"
           - id: 027
-            data: CLIENT.IPV6.SRC.SUBNET(27).TYPECAST_TEXT_T + "/27"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(27).TYPECAST_TEXT_T + "/27"
           - id: 026
-            data: CLIENT.IPV6.SRC.SUBNET(26).TYPECAST_TEXT_T + "/26"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(26).TYPECAST_TEXT_T + "/26"
           - id: 025
-            data: CLIENT.IPV6.SRC.SUBNET(25).TYPECAST_TEXT_T + "/25"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(25).TYPECAST_TEXT_T + "/25"
           - id: 024
-            data: CLIENT.IPV6.SRC.SUBNET(24).TYPECAST_TEXT_T + "/24"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(24).TYPECAST_TEXT_T + "/24"
           - id: 023
-            data: CLIENT.IPV6.SRC.SUBNET(23).TYPECAST_TEXT_T + "/23"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(23).TYPECAST_TEXT_T + "/23"
           - id: 022
-            data: CLIENT.IPV6.SRC.SUBNET(22).TYPECAST_TEXT_T + "/22"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(22).TYPECAST_TEXT_T + "/22"
           - id: 021
-            data: CLIENT.IPV6.SRC.SUBNET(21).TYPECAST_TEXT_T + "/21"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(21).TYPECAST_TEXT_T + "/21"
           - id: 020
-            data: CLIENT.IPV6.SRC.SUBNET(20).TYPECAST_TEXT_T + "/20"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(20).TYPECAST_TEXT_T + "/20"
           - id: 019
-            data: CLIENT.IPV6.SRC.SUBNET(19).TYPECAST_TEXT_T + "/19"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(19).TYPECAST_TEXT_T + "/19"
           - id: 018
-            data: CLIENT.IPV6.SRC.SUBNET(18).TYPECAST_TEXT_T + "/18"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(18).TYPECAST_TEXT_T + "/18"
           - id: 017
-            data: CLIENT.IPV6.SRC.SUBNET(17).TYPECAST_TEXT_T + "/17"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(17).TYPECAST_TEXT_T + "/17"
           - id: 016
-            data: CLIENT.IPV6.SRC.SUBNET(16).TYPECAST_TEXT_T + "/16"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(16).TYPECAST_TEXT_T + "/16"
           - id: 015
-            data: CLIENT.IPV6.SRC.SUBNET(15).TYPECAST_TEXT_T + "/15"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(15).TYPECAST_TEXT_T + "/15"
           - id: 014
-            data: CLIENT.IPV6.SRC.SUBNET(14).TYPECAST_TEXT_T + "/14"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(14).TYPECAST_TEXT_T + "/14"
           - id: 013
-            data: CLIENT.IPV6.SRC.SUBNET(13).TYPECAST_TEXT_T + "/13"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(13).TYPECAST_TEXT_T + "/13"
           - id: 012
-            data: CLIENT.IPV6.SRC.SUBNET(12).TYPECAST_TEXT_T + "/12"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(12).TYPECAST_TEXT_T + "/12"
           - id: 011
-            data: CLIENT.IPV6.SRC.SUBNET(11).TYPECAST_TEXT_T + "/11"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(11).TYPECAST_TEXT_T + "/11"
           - id: 010
-            data: CLIENT.IPV6.SRC.SUBNET(10).TYPECAST_TEXT_T + "/10"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(10).TYPECAST_TEXT_T + "/10"
           - id: 009
-            data: CLIENT.IPV6.SRC.SUBNET(9).TYPECAST_TEXT_T + "/9"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(9).TYPECAST_TEXT_T + "/9"
           - id: 008
-            data: CLIENT.IPV6.SRC.SUBNET(8).TYPECAST_TEXT_T + "/8"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(8).TYPECAST_TEXT_T + "/8"
           - id: 007
-            data: CLIENT.IPV6.SRC.SUBNET(7).TYPECAST_TEXT_T + "/7"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(7).TYPECAST_TEXT_T + "/7"
           - id: 006
-            data: CLIENT.IPV6.SRC.SUBNET(6).TYPECAST_TEXT_T + "/6"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(6).TYPECAST_TEXT_T + "/6"
           - id: 005
-            data: CLIENT.IPV6.SRC.SUBNET(5).TYPECAST_TEXT_T + "/5"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(5).TYPECAST_TEXT_T + "/5"
           - id: 004
-            data: CLIENT.IPV6.SRC.SUBNET(4).TYPECAST_TEXT_T + "/4"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(4).TYPECAST_TEXT_T + "/4"
           - id: 003
-            data: CLIENT.IPV6.SRC.SUBNET(3).TYPECAST_TEXT_T + "/3"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(3).TYPECAST_TEXT_T + "/3"
           - id: 002
-            data: CLIENT.IPV6.SRC.SUBNET(2).TYPECAST_TEXT_T + "/2"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(2).TYPECAST_TEXT_T + "/2"
           - id: 001
-            data: CLIENT.IPV6.SRC.SUBNET(1).TYPECAST_TEXT_T + "/1"
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IPV6/data>>.SUBNET(1).TYPECAST_TEXT_T + "/1"

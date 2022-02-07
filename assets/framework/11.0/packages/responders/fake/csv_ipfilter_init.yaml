@@ -12,7 +12,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV4_IPFILTER_FAKE
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV4/data>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IS_IPV4/data>>
           - id: action
             data: NOOP
         expressions:
@@ -25,7 +25,7 @@ sections:
           - id: name
             data: <<prefix>>_INIT_CSV_IPV6_IPFILTER_FAKE
           - id: expression
-            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_IS_IPV6/data>>
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IS_IPV6/data>>
           - id: action
             data: NOOP
         expressions:

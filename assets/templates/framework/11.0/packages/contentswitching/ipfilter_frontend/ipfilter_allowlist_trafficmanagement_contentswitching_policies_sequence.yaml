@@ -1,0 +1,9 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_$PROTOCOL_$sequence
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_$PROTOCOL_$sequence
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.IPFILTER_ENDPOINT/$ipversion_$protocol_key_exists_$sequence>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>

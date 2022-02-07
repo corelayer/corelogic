@@ -1,0 +1,9 @@
+      - name: INIT_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - core
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$IPVERSION_IPFILTER_$PROTOCOL
+        expressions:
+          install: add cs policylabel <<name>> $PROTOCOL
+          uninstall: rm cs policylabel <<name>>

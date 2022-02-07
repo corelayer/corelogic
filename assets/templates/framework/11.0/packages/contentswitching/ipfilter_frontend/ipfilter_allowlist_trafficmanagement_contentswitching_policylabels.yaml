@@ -1,0 +1,7 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_ALLOWLIST_$PROTOCOL
+        expressions:
+          install: add cs policylabel <<name>> $PROTOCOL
+          uninstall: rm cs policylabel <<name>>

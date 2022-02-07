@@ -1,0 +1,6 @@
+name: init_$ipversion
+tags:
+  - $protocol
+  - $ipversion
+  - core
+sections:

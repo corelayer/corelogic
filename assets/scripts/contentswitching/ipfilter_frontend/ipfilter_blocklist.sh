@@ -13,15 +13,16 @@
 ######################################################
 ###
 
-source scripts/templates/global.sh
-source scripts/templates/headers.sh
-source scripts/templates/contentswitching/ipfilter.sh
+source assets/scripts/global.sh
+source assets/scripts/headers.sh
+source assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh
 
 ###
 
-inputFilename_ipfilter_blocklist_basePath='templates/framework/$version/packages/contentswitching/fake'
+inputFilename_ipfilter_blocklist_basePath='assets/templates/framework/$version/packages/contentswitching/ipfilter_frontend'
 inputFilename_ipfilter_blocklist_system_auditing_messageactions_sequence="$inputFilename_ipfilter_blocklist_basePath"'/ipfilter_blocklist_system_auditing_messageactions_sequence.yaml'
 inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policies_sequence="$inputFilename_ipfilter_blocklist_basePath"'/ipfilter_blocklist_trafficmanagement_contentswitching_policies_sequence.yaml'
+inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policies="$inputFilename_ipfilter_blocklist_basePath"'/ipfilter_blocklist_trafficmanagement_contentswitching_policies.yaml'
 inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabels="$inputFilename_ipfilter_blocklist_basePath"'/ipfilter_blocklist_trafficmanagement_contentswitching_policylabels.yaml'
 inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings_sequence="$inputFilename_ipfilter_blocklist_basePath"'/ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings_sequence.yaml'
 inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings="$inputFilename_ipfilter_blocklist_basePath"'/ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings.yaml'
@@ -58,16 +59,17 @@ create_ipfilter_blocklist() {
   create_package_header $version $protocol $ipversion $filtertype $outputFilename
 
   add_section_header_system_auditing_messageactions $outputFilename
-  create_object_sequence $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_system_auditing_messageactions_sequence $outputFilename
+  create_object_ipversion_sequence $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_system_auditing_messageactions_sequence $outputFilename
 
   add_section_header_trafficmanagement_contentswitching_policies $outputFilename
-  create_object_sequence $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policies_sequence $outputFilename
+  create_object_ipversion_sequence $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policies_sequence $outputFilename
+  create_object $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policies $outputFilename
 
   add_section_header_trafficmanagement_contentswitching_policylabels $outputFilename
   create_object $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabels $outputFilename
 
   add_section_header_trafficmanagement_contentswitching_policylabelbindings $outputFilename
-  create_objectbindings_sequence $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings_sequence $outputFilename
+  create_objectbindings_ipversion_sequence $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings_sequence $outputFilename
   create_object $version $protocol $ipversion $filtertype $inputFilename_ipfilter_blocklist_trafficmanagement_contentswitching_policylabelbindings $outputFilename
 
   replace_ipfilter_next_label $filtertype $outputFilename
@@ -89,16 +91,16 @@ create_ipfilter_blocklist() {
 version=$1
 protocol=$2
 
-create_ipfilter_blocklist $version $protocol ipv4 csv 109
-create_ipfilter_blocklist $version $protocol ipv6 csv 109
-
-create_ipfilter_blocklist $version $protocol ipv4 csvgroup 107
-create_ipfilter_blocklist $version $protocol ipv6 csvgroup 107
+create_ipfilter_blocklist $version $protocol ipv4 endpoint 103
+create_ipfilter_blocklist $version $protocol ipv6 endpoint 103
 
 create_ipfilter_blocklist $version $protocol ipv4 tenant 105
 create_ipfilter_blocklist $version $protocol ipv6 tenant 105
 
-create_ipfilter_blocklist $version $protocol ipv4 endpoint 103
-create_ipfilter_blocklist $version $protocol ipv6 endpoint 103
+create_ipfilter_blocklist $version $protocol ipv4 csvgroup 107
+create_ipfilter_blocklist $version $protocol ipv6 csvgroup 107
+
+create_ipfilter_blocklist $version $protocol ipv4 csv 109
+create_ipfilter_blocklist $version $protocol ipv6 csv 109
 
 ######################################################

@@ -1,0 +1,11 @@
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - $filtertype_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_$FILTERTYPE/$ipversion_$protocol_value_ipfilter_isdisabled>>.NOT
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>

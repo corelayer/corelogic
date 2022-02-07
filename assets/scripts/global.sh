@@ -13,6 +13,7 @@
 ######################################################
 ###
 
+ipfilter_frontend_sequence=(endpoint tenant csvgroup csv)
 
 ###
 ######################################################
@@ -39,7 +40,7 @@ create_object() {
   cat $input >> $output
 }
 
-create_object_sequence() {
+create_object_ipversion_sequence() {
   version=$1
   protocol=$2
   ipversion=$3
@@ -64,7 +65,7 @@ create_object_sequence() {
   done
 }
 
-create_objectbindings_sequence() {
+create_objectbindings_ipversion_sequence() {
   version=$1
   protocol=$2
   ipversion=$3

@@ -42,7 +42,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	printLines("config.conf", install)
+	printLines("output/config.conf", install)
 }
 
 func printLines(filePath string, expressions []string) error {
