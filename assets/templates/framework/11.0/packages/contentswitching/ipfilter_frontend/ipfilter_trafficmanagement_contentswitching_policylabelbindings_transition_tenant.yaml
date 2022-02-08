@@ -1,0 +1,38 @@
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_NEXT_CSVGROUP_$PROTOCOL
+        tags:
+          - $filtertype_ipfilter
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_CSVGROUP_$PROTOCOL
+          - id: label
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+
+          - id: $bindingprefix2102_policy
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_CSVGROUP_$PROTOCOL/name>>
+          - id: $bindingprefix2102_policylabel
+            data: <<contentswitching.csvgroup_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<$bindingprefix2102_policy>> $bindingprefix2102 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix2102_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<$bindingprefix2102_policy>>
+      - name: $FILTERTYPE_$IPVERSION_IPFILTER_NEXT_CSV_$PROTOCOL
+        tags:
+          - $filtertype_ipfilter
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_CSV_$PROTOCOL
+          - id: label
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.$FILTERTYPE_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+
+          - id: $bindingprefix2103_policy
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_CSV_$PROTOCOL/name>>
+          - id: $bindingprefix2103_policylabel
+            data: <<contentswitching.csv_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<$bindingprefix2103_policy>> $bindingprefix2103 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix2103_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<$bindingprefix2103_policy>>

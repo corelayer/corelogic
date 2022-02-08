@@ -25,8 +25,10 @@ inputFilename_ipfilter_packageHeader="$inputFilename_ipfilter_init_basePath"'/ip
 inputFilename_ipfilter_init_system_auditing_messageactions="$inputFilename_ipfilter_init_basePath"'/ipfilter_system_auditing_messageactions.yaml'
 inputFilename_ipfilter_init_trafficmanagement_contentswitching_actions="$inputFilename_ipfilter_init_basePath"'/ipfilter_trafficmanagement_contentswitching_actions.yaml'
 inputFilename_ipfilter_init_trafficmanagement_contentswitching_policies="$inputFilename_ipfilter_init_basePath"'/ipfilter_trafficmanagement_contentswitching_policies.yaml'
+inputFilename_ipfilter_init_trafficmanagement_contentswitching_policies_transition="$inputFilename_ipfilter_init_basePath"'/ipfilter_trafficmanagement_contentswitching_policies_transition_$ipfilter_transition.yaml'
 inputFilename_ipfilter_init_trafficmanagement_contentswitching_policylabels="$inputFilename_ipfilter_init_basePath"'/ipfilter_trafficmanagement_contentswitching_policylabels.yaml'
 inputFilename_ipfilter_init_trafficmanagement_contentswitching_policylabelbindings="$inputFilename_ipfilter_init_basePath"'/ipfilter_trafficmanagement_contentswitching_policylabelbindings.yaml'
+inputFilename_ipfilter_init_trafficmanagement_contentswitching_policylabelbindings_transition="$inputFilename_ipfilter_init_basePath"'/ipfilter_trafficmanagement_contentswitching_policylabelbindings_transition_$ipfilter_transition.yaml'
 
 endpoint_ipfilter_next_label='<<contentswitching.tenant_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_$IPVERSION_IPFILTER_$PROTOCOL/name>>'
 tenant_ipfilter_next_label='<<contentswitching.csvgroup_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL/name>>'
@@ -72,12 +74,14 @@ create_ipfilter_init() {
 
   add_section_header_trafficmanagement_contentswitching_policies $outputFilename
   create_object $version $protocol $ipversion $filtertype $inputFilename_ipfilter_init_trafficmanagement_contentswitching_policies $outputFilename
+  add_ipfilter_init_transition $version $protocol $ipversion $filtertype $inputFilename_ipfilter_init_trafficmanagement_contentswitching_policies_transition $outputFilename
 
   add_section_header_trafficmanagement_contentswitching_policylabels $outputFilename
   create_object $version $protocol $ipversion $filtertype $inputFilename_ipfilter_init_trafficmanagement_contentswitching_policylabels $outputFilename
 
   add_section_header_trafficmanagement_contentswitching_policylabelbindings $outputFilename
   create_object $version $protocol $ipversion $filtertype $inputFilename_ipfilter_init_trafficmanagement_contentswitching_policylabelbindings $outputFilename
+  add_ipfilter_init_transition $version $protocol $ipversion $filtertype $inputFilename_ipfilter_init_trafficmanagement_contentswitching_policylabelbindings_transition $outputFilename
 
   replace_ipfilter_next_label $filtertype $outputFilename
 
@@ -127,6 +131,25 @@ replace_ipfilter_next_label() {
   esac
 
   sed -i "s!\$ipfilter_next_label!$ipfilter_next_label!g" $output
+}
+
+###
+
+add_ipfilter_init_transition() {
+  version=$1
+  protocol=$2
+  ipversion=$3
+  filtertype=$4
+  input=$5
+  output=$6
+
+  # echo "Transition $filtertype"
+  # echo $input
+  input=$(sed "s!\$ipfilter_transition!$filtertype!g" <<< $input)
+  # echo $input
+  # echo $output
+  create_object $version $protocol $ipversion $filtertype $input $output
+  # sleep 10
 }
 
 ###

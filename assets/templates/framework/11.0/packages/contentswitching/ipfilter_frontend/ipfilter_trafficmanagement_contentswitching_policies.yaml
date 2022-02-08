@@ -38,3 +38,22 @@
         expressions:
           install: add cs policy <<name>> -rule q{<<expression>>} -action <<action>> -logAction <<logaction>>
           uninstall: rm cs policy <<name>>
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_$PROTOCOL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NONE_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NONE_$PROTOCOL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+

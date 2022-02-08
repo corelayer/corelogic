@@ -23,6 +23,5 @@ sudo docker exec cpx cli_script.sh "batch -filename /cpx/config.conf -outfile /c
 sudo docker stop cpx
 sudo docker rm cpx
 echo "Deployment errors: $(cat $PWD/output/output_docker.txt | grep ERROR | wc -l)"
-return 0
 
 

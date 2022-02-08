@@ -24,15 +24,28 @@
             data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.INIT_$FILTERTYPE_$IPVERSION_IPFILTER_CONFIGISSUE_$PROTOCOL/name>>
           - id: $bindingprefix1004_policylabel
             data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.$FILTERTYPE_$IPVERSION_IPFILTER_CONFIGISSUE_$PROTOCOL/name>>
+
+          - id: $bindingprefix2001_policy
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NEXT_$PROTOCOL/name>>
+
+          - id: $bindingprefix3001_policy
+            data: <<contentswitching.$filtertype_$ipversion_ipfilter.trafficmanagement.contentswitching.policies.INIT_$FILTERTYPE_$IPVERSION_IPFILTER_NONE_$PROTOCOL/name>>
+          - id: $bindingprefix3001_policylabel
+            data: <<contentswitching.zone_ipv4.trafficmanagement.contentswitching.policylabels.ZONE_IPV4_$PROTOCOL/name>>
+
         expressions:
           install: |
-            bind cs policylabel <<label>> <<$bindingprefix1001_policy>> $bindingprefix1001 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1001_policylabel>>
+            bind cs policylabel <<label>> <<$bindingprefix1001_policy>> $bindingprefix1001 -gotoPriorityExpression $bindingprefix2001
             bind cs policylabel <<label>> <<$bindingprefix1002_policy>> $bindingprefix1002 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1002_policylabel>>
             bind cs policylabel <<label>> <<$bindingprefix1003_policy>> $bindingprefix1003 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1003_policylabel>>
             bind cs policylabel <<label>> <<$bindingprefix1004_policy>> $bindingprefix1004
+            bind cs policylabel <<label>> <<$bindingprefix2001_policy>> $bindingprefix2001 -gotoPriorityExpression NEXT
+            bind cs policylabel <<label>> <<$bindingprefix3001_policy>> $bindingprefix3001 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix3001_policylabel>>
+
 
           uninstall: |
             unbind cs policylabel <<label>> <<$bindingprefix1001_policy>>
             unbind cs policylabel <<label>> <<$bindingprefix1002_policy>>
             unbind cs policylabel <<label>> <<$bindingprefix1003_policy>>
             unbind cs policylabel <<label>> <<$bindingprefix1004_policy>>
+            unbind cs policylabel <<label>> <<$bindingprefix2001_policy>>
