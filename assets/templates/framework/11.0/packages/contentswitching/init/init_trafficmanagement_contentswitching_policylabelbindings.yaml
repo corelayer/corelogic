@@ -1,0 +1,30 @@
+      - name: INIT_IPV4_$PROTOCOL
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$PROTOCOL/name>>
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_$PROTOCOL/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_IPV4_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+      - name: INIT_IPV6_$PROTOCOL
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$PROTOCOL/name>>
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_$PROTOCOL/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_IPV6_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>

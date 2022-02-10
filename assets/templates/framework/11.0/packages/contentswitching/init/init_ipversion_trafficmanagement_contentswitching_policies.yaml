@@ -1,0 +1,62 @@
+      - name: INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/$ipversion_$protocol_key>>.CONTAINS_ANY("<<core.patternsets.appexpert.patternsets.BYPASS_CSV_IPFILTER/name>>")
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_ENDPOINT_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - endpoint_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_ENDPOINT_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_ENDPOINT/$ipversion_$protocol_value_ipfilter_isdisabled>>.NOT
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_TENANT_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - tenant_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_TENANT/$ipversion_$protocol_value_ipfilter_isdisabled>>.NOT
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSVGROUP/$ipversion_$protocol_value_ipfilter_isdisabled>>.NOT
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_CSV_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: <<core.stringmaps.appexpert.stringmaps.CONFIG_CSV/$ipversion_$protocol_value_ipfilter_isdisabled>>.NOT
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_NO_$IPVERSION_IPFILTER_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_NO_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: expression
+            data: true
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>

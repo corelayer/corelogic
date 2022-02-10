@@ -1,0 +1,81 @@
+      - name: INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$IPVERSION_$PROTOCOL/name>>
+          - id: $bindingprefix1001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_BYPASS_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix1001_policylabel
+            data: <<contentswitching.zone_$ipversion.trafficmanagement.contentswitching.policylabels.ZONE_$IPVERSION_$PROTOCOL/name>>
+          - id: $bindingprefix3001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_NO_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix3001_policylabel
+            data: <<contentswitching.zone_$ipversion.trafficmanagement.contentswitching.policylabels.ZONE_$IPVERSION_$PROTOCOL/name>>
+        expressions:
+          install: |
+            bind cs policylabel <<label>> <<$bindingprefix1001_policy>> $bindingprefix1001 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1001_policylabel>>
+            bind cs policylabel <<label>> <<$bindingprefix3001_policy>> $bindingprefix3001 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix3001_policylabel>>
+          uninstall: |
+            unbind cs policylabel <<label>> <<$bindingprefix1001_policy>>
+            unbind cs policylabel <<label>> <<$bindingprefix3001_policy>>
+      - name: INIT_ENDPOINT_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - endpoint_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_ENDPOINT_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$IPVERSION_$PROTOCOL/name>>
+          - id: $bindingprefix1002_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_ENDPOINT_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix1002_policylabel
+            data: <<contentswitching.endpoint_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.ENDPOINT_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<$bindingprefix1002_policy>> $bindingprefix1002 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1002_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<$bindingprefix1002_policy>>
+      - name: INIT_TENANT_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - tenant_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_TENANT_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$IPVERSION_$PROTOCOL/name>>
+          - id: $bindingprefix1003_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_TENANT_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix1003_policylabel
+            data: <<contentswitching.tenant_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.TENANT_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<$bindingprefix1003_policy>> $bindingprefix1003 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1003_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<$bindingprefix1003_policy>>
+      - name: INIT_CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - csvgroup_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$IPVERSION_$PROTOCOL/name>>
+          - id: $bindingprefix1004_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix1004_policylabel
+            data: <<contentswitching.csvgroup_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.CSVGROUP_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<$bindingprefix1004_policy>> $bindingprefix1004 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1004_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<$bindingprefix1004_policy>>
+      - name: INIT_CSV_$IPVERSION_IPFILTER_$PROTOCOL
+        tags:
+          - csv_ipfilter
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_CSV_$IPVERSION_IPFILTER_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$IPVERSION_$PROTOCOL/name>>
+          - id: $bindingprefix1005_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_CSV_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+          - id: $bindingprefix1005_policylabel
+            data: <<contentswitching.csv_$ipversion_ipfilter.trafficmanagement.contentswitching.policylabels.CSV_$IPVERSION_IPFILTER_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<$bindingprefix1005_policy>> $bindingprefix1005 -gotoPriorityExpression NEXT -invoke policylabel <<$bindingprefix1005_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<$bindingprefix1005_policy>>

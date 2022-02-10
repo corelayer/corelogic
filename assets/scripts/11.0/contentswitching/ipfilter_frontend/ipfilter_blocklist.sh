@@ -15,7 +15,7 @@
 
 source assets/scripts/global.sh
 source assets/scripts/headers.sh
-source assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh
+source assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh
 
 ###
 

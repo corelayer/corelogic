@@ -1,0 +1,22 @@
+      - name: INIT_IPV4_$PROTOCOL
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_$PROTOCOL
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IS_IPV4/data>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_IPV6_$PROTOCOL
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_$PROTOCOL
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IS_IPV6/data>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>

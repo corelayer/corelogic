@@ -130,6 +130,10 @@ func (f *Framework) unfoldFields(fields map[string]string) map[string]string {
 		}
 
 		for k := range f.getPrefixMap() {
+			if !strings.Contains(fields[key], "<<") {
+				break
+			}
+
 			fields[key] = strings.ReplaceAll(fields[key], "<<"+k+">>", f.getPrefixWithVersion(k))
 		}
 	}
@@ -138,6 +142,8 @@ func (f *Framework) unfoldFields(fields map[string]string) map[string]string {
 }
 
 func (f *Framework) getFields() (map[string]string, error) {
+	defer general.FinishTimer(general.StartTimer("Framework " + f.Release.GetVersionAsString() + " get fields"))
+
 	fields, err := f.getFieldsFromPackages()
 	if err != nil {
 		log.Fatal(err)
@@ -212,6 +218,9 @@ func (f *Framework) getExpressions(kind string, tagFilter []string) (map[string]
 func (f *Framework) replacePrefixesInExpression(expression string) string {
 	// Replace prefixes in expressions
 	for p := range f.getPrefixMap() {
+		if !strings.Contains(expression, "<<") {
+			break
+		}
 		expression = strings.ReplaceAll(expression, "<<"+p+">>", f.getPrefixWithVersion(p))
 	}
 
@@ -219,8 +228,20 @@ func (f *Framework) replacePrefixesInExpression(expression string) string {
 }
 
 func (f *Framework) replaceFieldsInExpression(expression string) string {
-	for _, e := range f.SortedFieldKeys {
-		expression = strings.ReplaceAll(expression, "<<"+e+">>", f.Fields[e])
+	re := regexp.MustCompile(`<<[a-zA-Z0-9_.]*/[a-zA-Z0-9_]*>>`)
+
+	loop := true
+	for loop {
+		foundKeys := re.FindAllString(expression, -1)
+		for _, foundKey := range foundKeys {
+			searchKey := strings.ReplaceAll(foundKey, "<<", "")
+			searchKey = strings.ReplaceAll(searchKey, ">>", "")
+			expression = strings.ReplaceAll(expression, foundKey, f.Fields[searchKey])
+		}
+
+		if !re.MatchString(expression) {
+			loop = false
+		}
 	}
 
 	return expression
@@ -237,6 +258,8 @@ func (f *Framework) replaceDataInExpression(expression string) string {
 }
 
 func (f *Framework) unfoldExpression(elementName string, ch chan<- UnfoldedExpressionData, wg *sync.WaitGroup) {
+	defer wg.Done()
+
 	output := UnfoldedExpressionData{
 		key:   elementName,
 		value: f.Expressions[elementName],
@@ -244,10 +267,11 @@ func (f *Framework) unfoldExpression(elementName string, ch chan<- UnfoldedExpre
 
 	output.value = f.replaceDataInExpression(output.value)
 	ch <- output
-	wg.Done()
 }
 
 func (f *Framework) collectExpressionsForSection(sectionName string, ch chan<- string, wg *sync.WaitGroup) {
+	defer wg.Done()
+
 	for k := range f.Expressions {
 		if strings.Contains(k, sectionName) {
 			if f.Expressions[k] != "" {
@@ -256,10 +280,10 @@ func (f *Framework) collectExpressionsForSection(sectionName string, ch chan<- s
 		}
 	}
 	close(ch)
-	wg.Done()
 }
 
 func (f *Framework) unfoldedExpressionCollector(count int, ch <-chan UnfoldedExpressionData, wg *sync.WaitGroup) {
+	defer wg.Done()
 	completed := false
 
 	var expressions = make(map[string]string)
@@ -278,10 +302,10 @@ func (f *Framework) unfoldedExpressionCollector(count int, ch <-chan UnfoldedExp
 		}
 	}
 	f.Expressions = expressions
-	wg.Done()
 }
 
 func (f *Framework) sectionExpressionCollector(sectionName string, globalChannel chan<- SectionData, ch <-chan string, wg *sync.WaitGroup) {
+	defer wg.Done()
 	completed := false
 
 	var expressions []string
@@ -300,9 +324,9 @@ func (f *Framework) sectionExpressionCollector(sectionName string, globalChannel
 		Name:        sectionName,
 		Expressions: expressions,
 	}
-	wg.Done()
 }
 func (f *Framework) ExpressionCollector(count int, ch <-chan SectionData, wg *sync.WaitGroup) {
+	defer wg.Done()
 	completed := false
 
 	for !completed {
@@ -319,7 +343,6 @@ func (f *Framework) ExpressionCollector(count int, ch <-chan SectionData, wg *sy
 			}
 		}
 	}
-	wg.Done()
 }
 
 func (f *Framework) unfoldExpressions() {

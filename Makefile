@@ -33,6 +33,7 @@ run_and_docker_deploy:
 
 run:
 	make clean_config
+	sleep 2
 	make add_protocols
 	make generate_config
 
@@ -45,31 +46,42 @@ docker_deploy:
 	make verify_deployment
 
 add_protocols:
-	#bash assets/scripts/contentswitching/ipfilter_init/ipfilter_init.sh 11.0 fake
+	bash assets/scripts/11.0/contentswitching/init.sh 11.0 http
+	bash assets/scripts/11.0/contentswitching/init.sh 11.0 ssl
+	bash assets/scripts/11.0/contentswitching/init.sh 11.0 tcp
+	bash assets/scripts/11.0/contentswitching/init.sh 11.0 ssltcp
+	bash assets/scripts/11.0/contentswitching/init.sh 11.0 udp
 
-	#bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 fake
-	#bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 fake
-	#bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 fake
+	bash assets/scripts/11.0/contentswitching/init_ipversion.sh 11.0 http
+	bash assets/scripts/11.0/contentswitching/init_ipversion.sh 11.0 ssl
+	bash assets/scripts/11.0/contentswitching/init_ipversion.sh 11.0 tcp
+	bash assets/scripts/11.0/contentswitching/init_ipversion.sh 11.0 ssltcp
+	bash assets/scripts/11.0/contentswitching/init_ipversion.sh 11.0 udp
+
+
+	#bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 fake
+	#bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 fake
+	#bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 fake
 	
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 http
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 http
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 http
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 http
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 http
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 http
 
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 ssl
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 ssl
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 ssl
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 ssl
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 ssl
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 ssl
 
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 tcp
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 tcp
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 tcp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 tcp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 tcp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 tcp
 
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 ssltcp
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 ssltcp
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 ssltcp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 ssltcp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 ssltcp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 ssltcp
 
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 udp
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 udp
-	bash assets/scripts/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 udp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_frontend.sh 11.0 udp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_blocklist.sh 11.0 udp
+	bash assets/scripts/11.0/contentswitching/ipfilter_frontend/ipfilter_allowlist.sh 11.0 udp
 
 	sh scripts/add_protocol_ipfilter.sh 11.0 core http http
 	sh scripts/add_protocol_ipfilter.sh 11.0 core ssl http

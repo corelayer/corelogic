@@ -1,0 +1,8 @@
+      - name: INIT_$IPVERSION_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$IPVERSION_$PROTOCOL
+          
+        expressions:
+          install: add cs policylabel <<name>> $PROTOCOL
+          uninstall: rm cs policylabel <<name>>
