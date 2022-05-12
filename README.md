@@ -53,13 +53,13 @@ For each of the scenario's above, you can target different load-balancing virtua
 | **Load-balancing virtual server** | Pass the request to a load-balancing virtual server |
 | **VS_CL1009_REDIR_301** | 301 Redirect to a defined location |
 | **VS_CL1009_REDIR_301_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
-| **VS_CL1009_REDIR_301_SWITH** | 301 Redirect from http to https (or vice versa) on the same URI |
+| **VS_CL1009_REDIR_301_SWITCH** | 301 Redirect from http to https (or vice versa) on the same URI |
 | **VS_CL1009_REDIR_302** | 302 Redirect to a defined location |
 | **VS_CL1009_REDIR_302_KEEPPATH** | 301 Redirect to a defined location while appending the original path to the redirect destination |
 | **VS_CL1009_REDIR_302_SWITCH** | 302 Redirect from http to https (or vice versa) on the same URI |
 | **VS_CL1009_REDIR_307** | 307 Redirect to a defined location |
 | **VS_CL1009_REDIR_307_KEEPPATH** | 307 Redirect to a defined location while appending the original path to the redirect destination |
-| **VS_CL1009_REDIR_307_SWITH** | 307 Redirect from http to https (or vice versa) on the same URI |
+| **VS_CL1009_REDIR_307_SWITCH** | 307 Redirect from http to https (or vice versa) on the same URI |
 | **VS_CL1009_REDIR_308** | 308 Redirect to a defined location |
 | **VS_CL1009_REDIR_308_KEEPPATH** | 308 Redirect to a defined location while appending the original path to the redirect destination |
 | **VS_CL1009_REDIR_308_SWITCH** | 308 Redirect from http to https (or vice versa) on the same URI |
@@ -124,7 +124,7 @@ bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FRST_ANY -priority 10
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_FQDN_ANY -priority 100914
 bind cs vserver CS_PUB012_HTTP -policyName CSP_CL1009_HTTP_WILD_ANY -priority 100915
 bind cs vserver CS_PUB012_HTTP -lbvserver VS_CL1009_NO_SERVICE_HTTP
-bind policy stringmap SM_CL1009_IP_CONTROL cs_$tenant_http "list=blocklist;"
+bind policy stringmap SM_CL1009_IP_CONTROL cs_pub012_http "list=blocklist;"
 ```
 
 ### Configuration
