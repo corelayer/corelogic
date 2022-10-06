@@ -4,3 +4,4 @@
 *.conf
 
 output
+.DS_Store
