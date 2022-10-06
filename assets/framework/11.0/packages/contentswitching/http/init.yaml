@@ -1,0 +1,67 @@
+name: init
+sections:
+  - name: trafficmanagement.contentswitching.policies
+    elements:
+      - name: INIT_IPV4_$PROTOCOL
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_$PROTOCOL
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IS_IPV4/data>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+      - name: INIT_IPV6_$PROTOCOL
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_$PROTOCOL
+          - id: expression
+            data: <<core.placeholders.appexpert.expressions.advanced.CLIENT_SRC_IS_IPV6/data>>
+        expressions:
+          install: add cs policy <<name>> -rule q{<<expression>>}
+          uninstall: rm cs policy <<name>>
+  - name: trafficmanagement.contentswitching.policylabels
+    elements:
+      - name: INIT_$PROTOCOL
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_$PROTOCOL
+        expressions:
+          install: add cs policylabel <<name>> $PROTOCOL
+          uninstall: rm cs policylabel <<name>>
+  - name: trafficmanagement.contentswitching.policylabelbindings
+    elements:
+      - name: INIT_IPV4_$PROTOCOL
+        tags:
+          - ipv4
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV4_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$PROTOCOL/name>>
+          - id: 10041001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV4_$PROTOCOL/name>>
+          - id: 10041001_policylabel
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_IPV4_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10041001_policy>> 10041001 -gotoPriorityExpression NEXT -invoke policylabel <<10041001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10041001_policy>>
+      - name: INIT_IPV6_$PROTOCOL
+        tags:
+          - ipv6
+        fields:
+          - id: name
+            data: <<prefix>>_INIT_IPV6_$PROTOCOL
+          - id: label
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_$PROTOCOL/name>>
+          - id: 10061001_policy
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policies.INIT_IPV6_$PROTOCOL/name>>
+          - id: 10061001_policylabel
+            data: <<contentswitching.init.trafficmanagement.contentswitching.policylabels.INIT_IPV6_$PROTOCOL/name>>
+        expressions:
+          install: bind cs policylabel <<label>> <<10061001_policy>> 10061001 -gotoPriorityExpression NEXT -invoke policylabel <<10061001_policylabel>>
+          uninstall: unbind cs policylabel <<label>> <<10061001_policy>>
